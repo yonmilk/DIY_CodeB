@@ -1,0 +1,161 @@
+    <!-- <category name="프롤로그 (Prolog)" colour="%{BKY_PROLOG_HUE}">
+      <block type="prolog_list">
+        <value name="bar">
+          <block type="funktor"></block>
+        </value>
+      </block>
+      <block type="Rule">
+        <value name="Fact">
+          <block type="prolog_list_rule">
+            <value name="bar">
+              <block type="funktor"></block>
+            </value>
+          </block>
+        </value>
+        <value name="Rumpf">
+          <block type="rumpf"></block>
+        </value>
+      </block>
+      <block type="abfrage">
+        <value name="NAME">
+          <block type="separate"></block>
+        </value>
+      </block>
+      <block type="separate"></block>
+      <block type="constant"></block>
+      <block type="funktor"></block>
+      <block type="rumpf"></block> 
+    </category> -->
+
+    <!-- 기계 고장 진단  -->
+    <!-- <category name="전공직무AI융합" colour="%{BKY_PROLOG_HUE}">
+      <block type="wavfile_read">
+        <value name="wavfile_read_val">
+          <block type="class_func_param"></block>
+        </value> 
+      </block>
+    </category>  -->
+
+    <!-- 이전 사이킷런 카테고리, Deprecated -->
+    <!--<category name="Scikit-learn Deprecated" colour="%{BKY_SCIKITLEARN_HUE}"> <!--사이킷런(Scikit)
+      <category name="%{BKY_CATEGORY_DATASET}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--데이터셋 (Dataset)
+        <block type="import_dataset"></block>
+        <block type="random_import"></block>
+        <block type="make_circles"></block>
+        <block type="fetch_openml"></block>
+        <block type="csv2"></block>
+      </category>
+
+      <category name="%{BKY_CATEGORY_PREPROCESSING}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--전처리 (Preprocessing)
+        <block type="sklearn.preprocessing"></block>
+        <block type="labelencoder"></block>
+        <block type="train_test_split"></block>
+        <block type="polynomialfeatures"></block>
+        <block type="normal">
+          <value name="Normalization_data">
+            <block type="variables_get">
+              <field name="VAR">df</field>
+            </block>
+          </value>
+        </block>
+        <block type="onehotencoder"></block>
+      </category>
+
+      <category name="%{BKY_CATEGORY_LINEAR}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--선형모델(Linear)
+        <block type="import_linear"></block>
+        <!-- <block type="scikit_learn"></block> 
+        <!--지현이가 만든거 여기에 잠들다.
+        <block type="linear_regression"></block>
+        <block type="sgd_regressor"></block>
+        <block type="ridge"></block>
+        <block type="bayesian_ridge"></block>
+        <block type="logistic_regression"></block>
+        <block type="logistic_regression_cv"></block>
+        <block type="ridge_classifier"></block>
+        <block type="sgd_classifier"></block>
+        <block type="perceptron"></block>
+        <block type="coef"></block>
+        <block type="intercept"></block>
+      </category>
+      <category name="%{BKY_CATEGORY_NEIGHBORS}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--KNN(Neighbors)
+        <block type="knn_import"></block>
+        <block type="kneighborsclassifier_function"></block>
+        <block type="kneighborsregressor_function"></block>
+        <block type="kneighborstransformer_function"></block>
+        <block type="kneighbors_graph_function"></block>
+      </category>
+
+      <!-- 2020-10-14 정지현이 추가함, 기존 KNN의 클러스터 블록 가져옴 
+      <category name="%{BKY_CATEGORY_CLUSTER}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--클러스터(Cluster)
+        <block type="import_knn"></block>
+        <block type="k_means"></block>
+        <block type="dbscan"></block>
+        <block type="k_means_inertia"></block>
+        <block type="k_means_centroid"></block>
+      </category>
+
+      <category name="%{BKY_CATEGORY_DECISIONTREE}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--결정트리(Decisiontree)
+        <block type="import_tree"></block>
+        <block type="decision"></block>
+        <block type="tree_text"></block> 
+      </category>
+      <category name="%{BKY_CATEGORY_SUPPORT}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--서포트 벡터 머신
+        <block type="sklearn_svm"></block>
+        <block type="linearsvc"></block>
+        <block type="linearsvr"></block>
+
+
+      </category>
+
+      <category name="%{BKY_CATEGORY_ESEMBLE}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--앙상블(Esemble)
+        <block type="sklearn_ensemble"></block>
+        <block type="adaboostclassifier"></block>
+        <block type="adaboostregressor"></block>
+        <block type="gradientboostingclassifier"></block>
+        <block type="gradientboostingregressor"></block>
+        <block type="randomforestclassifier"></block>
+        <block type="randomforestregressor"></block>
+        <block type="isolation_forest"></block>
+
+      </category>
+
+      <category name="%{BKY_CATEGORY_METRICS}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--메트릭스(Metrics)
+        <block type="import_scikit"></block> 
+        <block type="model_fit"></block>
+        <block type="model_score"></block>
+        <block type="model_predict"></block>
+        <block type="acc_score"></block>
+        <block type="AUC"></block>
+        <block type="AP"></block>
+        <block type="precision"></block>
+        <block type="mae"></block>
+        <block type="mse"></block>
+        <block type="median"></block> 
+        <block type="metrics_fit_predict"></block>
+        <block type="classification_report"></block>
+      </category>
+      <category name="%{BKY_CATEGORY_SELECTION}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--셀렉션(Selection)
+        <block type="import_sivalidation"></block>
+        <block type="kfold"></block>
+        <!-- <block type="stratifiedkfold"></block>
+        <block type="train_test_split"></block>
+        <block type="sivalidation"></block>
+      </category>
+      <category name="%{BKY_CATEGORY_NEURALNETWORK}" colour="%{BKY_SCIKITLEARN_HUE}"> <!--신경망(Neuralnetwork)
+        <block type="import_mlp"></block>
+        <block type="sklearn_mlp_classifier"></block>
+        <block type="sklearn_mlp_regressor"></block>
+        <!-- 사이킷런 MLP 블록  -->
+        <!-- <block type="make_mlp_classifier"></block>
+        <block type="make_mlp_regressor"></block> 
+        <!-- <block type="mlp_classifier"></block>
+        <block type="mlp_regressor"></block> 
+        <block type="bernoullirbm"></block>
+        <block type="mlp_loss"></block>
+
+      </category>
+      <!-- <block type="array_get"></block>
+      <block type="csv2"></block>
+       <block type="sklearn_mlp_fit"></block> 
+    </category>
+  -->

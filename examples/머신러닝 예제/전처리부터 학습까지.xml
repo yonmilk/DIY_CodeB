@@ -1,0 +1,142 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="2s6Cr{~-VkkS9`f=BrVc">pd</variable>
+    <variable id="UAlh16W*1s,=T9TPvD~?">df</variable>
+    <variable id="9%acRJ:pwi6`}pxW:2||">x_data</variable>
+    <variable id="v{@JWxVA[1?FJk5^o0Jq">y_data</variable>
+    <variable id="?4%E#5E@=?J7z@o#8Hht">model</variable>
+  </variables>
+  <block type="pandas_library" id="4$qs#R(X{pc1]j1+GrS7" x="87" y="72">
+    <value name="pan_lib_var">
+      <block type="variables_get" id="i7WK^@FGJ98)|JR%1l7?">
+        <field name="VAR" id="2s6Cr{~-VkkS9`f=BrVc">pd</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="1srF9p}EGyW[2O_s(m{P">
+        <field name="VAR" id="UAlh16W*1s,=T9TPvD~?">df</field>
+        <value name="VALUE">
+          <block type="csvdataframe_J" id="rnI]sjPsa!QMGwW.XzC,">
+            <value name="pd">
+              <block type="variables_get" id="f28Uc7K#4tgKewHVCiTQ">
+                <field name="VAR" id="2s6Cr{~-VkkS9`f=BrVc">pd</field>
+              </block>
+            </value>
+            <value name="csv">
+              <block type="csv2" id="P_$jF@+_t%D$aphNVa(p">
+                <field name="csv_url">[{"name":"same","study":"1","score":"60"},{"name":"same","study":"2","score":"65"},{"name":"joker","study":"3","score":"70"},{"name":"joker","study":"4","score":"75"},{"name":"myungsung","study":"5","score":"80"},{"name":"myungsung","study":"","score":""},{"name":"leejin","study":"7","score":"85"},{"name":"leejin","study":"8","score":"90"},{"name":"jocheon","study":"9","score":"95"},{"name":"jocheon","study":"10","score":"100"},{"name":"jungji","study":"11","score":"100"},{"name":"jungji","study":"12","score":"100"},{"name":""}]</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="Ct=_^qq!q5R55c?D$KZW">
+            <field name="VAR" id="UAlh16W*1s,=T9TPvD~?">df</field>
+            <value name="VALUE">
+              <block type="fill_null_data" id="{8:3od//Ttg_t(jTJ^0K">
+                <field name="NAME">fillna(0)</field>
+                <value name="DATA">
+                  <block type="variables_get" id="xaLBwqG/QrEbQNs`r]Sv">
+                    <field name="VAR" id="UAlh16W*1s,=T9TPvD~?">df</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="labelencoder" id="E})W-RmY:UxX|*ZsP**`">
+                <field name="column">name</field>
+                <value name="df">
+                  <block type="variables_get" id="`ETO(`q,idVedXIhdSq4">
+                    <field name="VAR" id="UAlh16W*1s,=T9TPvD~?">df</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="fl(pCC^7ZwUgHPFua2wT">
+                    <field name="VAR" id="9%acRJ:pwi6`}pxW:2||">x_data</field>
+                    <value name="VALUE">
+                      <block type="select_column_list" id="b[M1_E@c0li=QO4uDpB`">
+                        <value name="select_value">
+                          <block type="variables_get" id="8Cuf,93Sc@SZIBv9?p:`">
+                            <field name="VAR" id="UAlh16W*1s,=T9TPvD~?">df</field>
+                          </block>
+                        </value>
+                        <value name="select_column_locate">
+                          <block type="lists_create_with" id="F[S%~X35m4(c16(MYJw]">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="m%oTHL^wqyuvp,|EVXZG">
+                                <field name="TEXT">name</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text" id="%.`Rgw^4GV)G;$^|-7x1">
+                                <field name="TEXT">study</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="{lDXWp|#o=J2SWc0o=x,">
+                        <field name="VAR" id="v{@JWxVA[1?FJk5^o0Jq">y_data</field>
+                        <value name="VALUE">
+                          <block type="select_column_list" id="pnh*H:uE5UdFe2U#b%F-">
+                            <value name="select_value">
+                              <block type="variables_get" id="Jw,U]-ddwVACPBfSSF^n">
+                                <field name="VAR" id="UAlh16W*1s,=T9TPvD~?">df</field>
+                              </block>
+                            </value>
+                            <value name="select_column_locate">
+                              <block type="lists_create_with" id=".Y_H0-FdFz}q{{WehuBi">
+                                <mutation items="1"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id=".?bXmEkbcIth]]T37{o,">
+                                    <field name="TEXT">score</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="data_csv_read" id="MBDKXD98y%IG{H~`kGIM">
+                            <value name="Data_csv_read_val">
+                              <block type="variables_get" id="4%)A62^[E]R;|}w9+,yL">
+                                <field name="VAR" id="9%acRJ:pwi6`}pxW:2||">x_data</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="scikit_learn" id="6D^`(9JpE5#z`cqsC?Wn">
+                                <field name="cate">LinearRegression</field>
+                                <value name="model">
+                                  <block type="variables_get" id="CU;2_rd^3YqlXt%42aAu">
+                                    <field name="VAR" id="?4%E#5E@=?J7z@o#8Hht">model</field>
+                                  </block>
+                                </value>
+                                <value name="x">
+                                  <block type="variables_get" id="Bh0TXlm9j/hh=-GD#F2i">
+                                    <field name="VAR" id="9%acRJ:pwi6`}pxW:2||">x_data</field>
+                                  </block>
+                                </value>
+                                <value name="y">
+                                  <block type="variables_get" id="S_UEiD4^d91H02N0[WxR">
+                                    <field name="VAR" id="v{@JWxVA[1?FJk5^o0Jq">y_data</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

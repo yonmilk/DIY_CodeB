@@ -1,0 +1,98 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="~Ao_6r5/Gvx@XzxM#]}N">aa</variable>
+    <variable id="U0o./W[[G+AqW8UgL9gP">bb</variable>
+    <variable id="~1-oR(P~/J|.3S1y,CvL">cc</variable>
+  </variables>
+  <block type="lib_import_a" id="NCyBea]F0!2qM!pju_RB" x="130" y="359">
+    <field name="Lib_import_select">Lib_import_matplotlib</field>
+    <field name="Lib_check_from">FALSE</field>
+    <next>
+      <block type="lib_import_a" id="4AIp|hS*%4W[__d2K.gk">
+        <field name="Lib_import_select">Lib_import_nump</field>
+        <field name="Lib_check_from">FALSE</field>
+        <next>
+          <block type="lib_import" id="FXR!tu.QReG@MT_~=la(">
+            <field name="Lib_import_name">io, base64  </field>
+            <next>
+              <block type="variables_set" id="_AM:Ue}(md42SDbH.r7L">
+                <field name="VAR" id="~Ao_6r5/Gvx@XzxM#]}N">aa</field>
+                <value name="VALUE">
+                  <block type="np_array" id="+)J{M|DV!JsBxpnf]Q.?">
+                    <value name="np_array_input">
+                      <block type="create_arry" id="+t=abM)SHuK}dm_`Z7z+">
+                        <field name="Create_arry_val">1,2,3,4,5,6,7,8,9,10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="4w,F)8T?BIj*w(/jPb?]">
+                    <field name="VAR" id="U0o./W[[G+AqW8UgL9gP">bb</field>
+                    <value name="VALUE">
+                      <block type="np_array" id="2v8[O_#OC_,HbAMr1SQT">
+                        <value name="np_array_input">
+                          <block type="create_arry" id="4FIIv~Ih3lHDEHgSh{H-">
+                            <field name="Create_arry_val">2,3,4,6,7,9,10,16,17,20</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="?_8[%Skg{BmGRW!]D-o[">
+                        <field name="VAR" id="~1-oR(P~/J|.3S1y,CvL">cc</field>
+                        <value name="VALUE">
+                          <block type="np_array" id="{0egaeM9xw}K$/K2SJJh">
+                            <value name="np_array_input">
+                              <block type="create_arry" id="YGF#dYjvr+:2f5hE!JsD">
+                                <field name="Create_arry_val">30,40,50,60,70,20,40,50,61,65</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="matplotlib_main" id="VL7Qq,RtGSq/[Ao,qJG[">
+                            <next>
+                              <block type="matplotlib_pre_graph" id="94[x}U|qOnfIhOoXe-AI">
+                                <field name="matplotlib_num_location">matplotlib_num_2</field>
+                                <field name="matplotlib_user_xy">aa,bb</field>
+                                <field name="matplotlib_graph_select">matplotlib_scatter</field>
+                                <field name="matplotlib_line_OX">FALSE</field>
+                                <field name="matplotlib_line_select">matplotlib_line_1</field>
+                                <next>
+                                  <block type="matplotlib_pre_graph" id="BzbY-|+/1Bwqgy3:d.?T">
+                                    <field name="matplotlib_num_location">matplotlib_num_2</field>
+                                    <field name="matplotlib_user_xy">bb,cc</field>
+                                    <field name="matplotlib_graph_select">matplotlib_scatter</field>
+                                    <field name="matplotlib_line_OX">FALSE</field>
+                                    <field name="matplotlib_line_select">matplotlib_line_1</field>
+                                    <next>
+                                      <block type="matplotlib_pre_graph" id="^Sw!ZUq0;$2o}Tjb}Y]H">
+                                        <field name="matplotlib_num_location">matplotlib_num_2</field>
+                                        <field name="matplotlib_user_xy">bb,aa</field>
+                                        <field name="matplotlib_graph_select">matplotlib_scatter</field>
+                                        <field name="matplotlib_line_OX">FALSE</field>
+                                        <field name="matplotlib_line_select">matplotlib_line_1</field>
+                                        <next>
+                                          <block type="matplotlib_graph_end" id="-OZn[n`w;apwmV(sx]]V"></block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

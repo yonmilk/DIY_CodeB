@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"
+    ></script>
+    <title></title>
+  </head>
+  <body>
+    <video id="video" width="320" height="240" autoplay></video>
+    <canvas id="canvas" width="320" height="240"></canvas>
+    <button type="button" id="webcamBtn">캡쳐하기</button><br><br><br><br>
+
+    <canvas id="canvas-bring" width="320" height="240"></canvas>
+    <button type="button" id="test">웹 local에 저장된 사진 불러오기</button>
+    <button type="button" id="test3">다음 사진</button>
+    <button type="button" id="test2">웹 localStorge 지우기</button>
+    
+    <script>
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            var video = document.getElementById("video");
+            video.srcObject = stream;
+            video.play();
+          });
+      }
+
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      var video = document.getElementById("video");
+
+      var capture = document.getElementById("canvas-bring");;
+      var capture_con = capture.getContext("2d");
+
+      var count = 0;
+
+      // 캡처된 사진 context canvas로 출력
+      document
+        .getElementById("webcamBtn")
+        .addEventListener("click", function () {
+          context.drawImage(video, 0, 0, 320, 240); // 일단 캡처한 사진 canvas에 출력
+
+          try {
+            localStorage.getItem("imgCanvas"); // 웹 local에 있는 사진(배열) 불러오기
+            var output = localStorage.getItem("imgCanvas"); 
+            var arr = JSON.parse(output); 
+            
+            // 불러온 배열에 캡처한 사진 추가 
+            arr.push(canvas.toDataURL());
+            localStorage.setItem("imgCanvas", JSON.stringify(arr));
+
+            console.log("기존 사진 있음")
+
+          } catch (error) { // 만약 저장된 사진이 없을 경우 새로운 배열에 추가 후 웹 local에 저장
+            
+            var arr = []; // 새로운 배열 생성
+            arr.push(canvas.toDataURL()); // 캡쳐한 사진 배열에 추가
+            localStorage.setItem("imgCanvas", JSON.stringify(arr)); // 웹 local에 배열 저장
+
+            console.log("사진 추가");
+          }
+        });
+
+      // 웹 localstorage에 저장된 base64 사진 capture_con canvas에 출력
+      document
+        .getElementById("test")
+        .addEventListener("click", function () {
+
+          // base64 사진을 canvas에 출력하는 코드
+          var img=new Image();
+          img.onload=function(){
+            capture_con.drawImage(img,0,0);
+          }
+          var output = localStorage.getItem("imgCanvas"); // 웹 local에 저장된 배열 가져오기
+          var arr = JSON.parse(output); // 배열로 변환
+          count = arr.length - 1; 
+          console.log(count);
+          img.src= arr[count]; // 
+
+          // base64 코드 확인용 // 임시
+         // console.log(localStorage.getItem(arr[0]));
+          }
+        );
+        
+        // 웹 local에 저장된 사진 삭제
+        document
+        .getElementById("test2")
+        .addEventListener("click", function () {
+          localStorage.clear();
+        });
+
+        // 웹 local에 저장된 사진들 보기
+        document
+        .getElementById("test3")
+        .addEventListener("click", function () {
+
+          var img=new Image();
+          img.onload=function(){
+            capture_con.drawImage(img,0,0);
+          }
+          var output = localStorage.getItem("imgCanvas");
+          var arr = JSON.parse(output); 
+          count--;
+          if(count < 0){
+            count = arr.length - 1; 
+          }
+          console.log(count);
+          img.src= arr[count];
+        });
+    </script>
+  </body>
+</html>

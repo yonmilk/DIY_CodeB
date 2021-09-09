@@ -1,0 +1,45 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="RQA)Jd9;!`t6Sg{%DU$y">a</variable>
+  </variables>
+  <block type="variables_set" id=")Ns-qWKCaJGR:yr{ceuf" x="32" y="50">
+    <field name="VAR" id="RQA)Jd9;!`t6Sg{%DU$y">a</field>
+    <value name="VALUE">
+      <block type="tuple" id="G56i_)PIuyNM(5eB,#|a">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="math_number" id="X0CxXY83-;6(Lb{kgK0`">
+            <field name="NUM">123</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="lists_create_with" id="V2H#K*@,u}Uo/AgTBls5">
+            <mutation items="1"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="!yxRD0,wH7uxyek}$m}[">
+                <field name="NUM">123</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="math_number" id="/yVfj:/)|kUAkN`=hpj:">
+            <field name="NUM">123</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="math_number" id="#k3974}/Bmf?Uo}/y+7K">
+            <field name="NUM">123</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="text_print" id="^%N[]EN]xE4]t7gu+lv*" x="70" y="315">
+    <value name="TEXT">
+      <block type="variables_get" id="5bofem)Gz3N+-9_M!,4N">
+        <field name="VAR" id="RQA)Jd9;!`t6Sg{%DU$y">a</field>
+      </block>
+    </value>
+  </block>
+</xml>

@@ -1,0 +1,193 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="M|AlEI6+v5Wif~*=jN$[">scores</variable>
+    <variable id="v|Gm+Q~gedj;GNmlK3*;">my_keys</variable>
+    <variable id="N_J{nm@fKm:xCy@;KtFx">v</variable>
+    <variable id="0aA?VAN(X=[$QSnn_.qB">my_values</variable>
+  </variables>
+  <block type="variables_set" id="Uh?N`u?biV/Ai2H?G7Kb" x="16" y="-54">
+    <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+    <value name="VALUE">
+      <block type="dict" id="{=gINl`bMV~b]yp4UCQH">
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="text" id="g9WN=$cnbf5K3q`$@PC}">
+            <field name="TEXT">철수</field>
+          </block>
+        </value>
+        <value name="ADD20">
+          <block type="math_number" id="T:K!z^XjY1HR{n#4`cH,">
+            <field name="NUM">90</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="text" id="?_xqvH._gZ#YH0LtM^{/">
+            <field name="TEXT">민수</field>
+          </block>
+        </value>
+        <value name="ADD21">
+          <block type="lists_create_with" id="2b3QD;WRk`F[PF{M?ac;">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="Z/fg?=CBM!N2B@?kP=H?">
+                <field name="NUM">85</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id=",HQ5Bna,]QVZeVsgQN+)">
+                <field name="NUM">80</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="math_number" id="iD;n.v[QYRv*u.U=17v0">
+                <field name="NUM">70</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="text" id="mK}bi_{ipP5vYzaE}w2)">
+            <field name="TEXT">영희</field>
+          </block>
+        </value>
+        <value name="ADD22">
+          <block type="math_number" id="[?CCHv{.+bd2Oc3fcnLq">
+            <field name="NUM">80</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="7**f{SBTs$]Y/H5_aD+3">
+        <field name="VAR" id="N_J{nm@fKm:xCy@;KtFx">v</field>
+        <value name="VALUE">
+          <block type="dic_menu" id=";qTd0`b-uIeoE=_HuhVH">
+            <field name="dic">selectvalues</field>
+            <value name="dic1">
+              <block type="variables_get" id="`)Be+UM5P.TG(Xc18!|,">
+                <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+              </block>
+            </value>
+            <value name="dic2">
+              <block type="text" id="-URs__^H8L2o|1`h@[x1">
+                <field name="TEXT">민수</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="text_print" id="6EC/;;X7HcV-4I3$:!l|">
+            <value name="TEXT">
+              <block type="variables_get" id="^[ERb})0MjkgfB153#uH">
+                <field name="VAR" id="N_J{nm@fKm:xCy@;KtFx">v</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="math_number" id="tcpjj`MD7:Xxt*|XZEp*" x="386" y="212">
+    <field name="NUM">90</field>
+  </block>
+  <block type="dic_menu" id="H+d;kIZO?jMu[LpaM3#e" x="91" y="511">
+    <field name="dic">printvalues2</field>
+    <value name="dic1">
+      <block type="variables_get" id="ERmu1zt$N+;1Ia]o*r3{">
+        <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+      </block>
+    </value>
+    <value name="dic2">
+      <block type="text" id="0^S]]dJJ=n4QzN$qE]IE">
+        <field name="TEXT">민수</field>
+      </block>
+    </value>
+    <value name="dic3">
+      <block type="math_number" id="xH0{,j_CqH.GJ;#JRA8U">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="dic_menu" id="|Y?b|vJ{VwM|}{M2yhFz" x="86" y="570">
+    <field name="dic">addvalues</field>
+    <value name="dic1">
+      <block type="variables_get" id="^S2bV4,65|YLo;KobMop">
+        <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+      </block>
+    </value>
+    <value name="dic2">
+      <block type="text" id="2Fa+K*6{2e;w],YP3rt-">
+        <field name="TEXT">민수</field>
+      </block>
+    </value>
+    <value name="dic3">
+      <block type="math_number" id="1Rny^-H!*U?;~0Z31d36">
+        <field name="NUM">88</field>
+      </block>
+    </value>
+  </block>
+  <block type="dic_menu" id="mr*2TKzl}~vcUiFS(mb(" x="80" y="629">
+    <field name="dic">printvalues1</field>
+    <value name="dic1">
+      <block type="variables_get" id="4[k7uwbSZ(Io!)W{wTQD">
+        <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+      </block>
+    </value>
+    <value name="dic2">
+      <block type="text" id="C.+.%;h{a%XvPIIf$+M{">
+        <field name="TEXT">민수</field>
+      </block>
+    </value>
+    <value name="dic3">
+      <block type="math_number" id="Y?db0Z[,XJ^UX1U6w%fC">
+        <field name="NUM">88</field>
+      </block>
+    </value>
+  </block>
+  <block type="variables_set" id="_[979QyKICF2iSS:Z;?^" x="51" y="741">
+    <field name="VAR" id="v|Gm+Q~gedj;GNmlK3*;">my_keys</field>
+    <value name="VALUE">
+      <block type="dic_menu" id="en`d}A:Gp|aX0#+0U2V#">
+        <field name="dic">getkeys</field>
+        <value name="dic1">
+          <block type="variables_get" id="%L+oQB^bFgEfjgHLjC2A">
+            <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="text_print" id="[C`sJf6YCcjEhH^Q_^q#">
+        <value name="TEXT">
+          <block type="variables_get" id="z^N6f;}u0WT!E;g`N`=b">
+            <field name="VAR" id="v|Gm+Q~gedj;GNmlK3*;">my_keys</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="QD*P9_*W1]ghr/]4XnTq">
+            <field name="VAR" id="0aA?VAN(X=[$QSnn_.qB">my_values</field>
+            <value name="VALUE">
+              <block type="dic_menu" id="t2@^L6~:}mqKh+RnA*Qd">
+                <field name="dic">getvalues</field>
+                <value name="dic1">
+                  <block type="variables_get" id="0S~85EHh7jEl6ZL]^jAM">
+                    <field name="VAR" id="M|AlEI6+v5Wif~*=jN$[">scores</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="text_print" id="zX+6mX/_R*nERLm;gQDa">
+                <value name="TEXT">
+                  <block type="variables_get" id="^$U;tPRLENR[{r;S!LB0">
+                    <field name="VAR" id="0aA?VAN(X=[$QSnn_.qB">my_values</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

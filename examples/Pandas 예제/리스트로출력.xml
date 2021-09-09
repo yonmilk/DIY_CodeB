@@ -1,0 +1,79 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="/RcF|Uj=T{MabPAh`?1m">pd</variable>
+    <variable id="}Z(VguZ;*~[@aOp@5i@1">url</variable>
+    <variable id="![*C,VF+H%eZ0q9_`tgn">a</variable>
+  </variables>
+  <block type="pandas_library" id="R4DtZudCc,N^|Tz)$(y{" x="83" y="-14">
+    <value name="VAR">
+      <block type="variables_get" id="EHj]?OXVPU}Ur-JBV4V#">
+        <field name="VAR" id="/RcF|Uj=T{MabPAh`?1m">pd</field>
+      </block>
+    </value>
+    <next>
+      <block type="pyo_lib" id="z!|nh~#E%vhR{/g[sGP/">
+        <next>
+          <block type="variables_set" id="aYq^ZT0zc[|1ImvU#Djn">
+            <field name="VAR" id="}Z(VguZ;*~[@aOp@5i@1">url</field>
+            <value name="VALUE">
+              <block type="text" id="FQ?R%1ymV,isxz11+S}}">
+                <field name="TEXT">./datasets/study.csv</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="6h(*4dmLAZ/r~-(#p6S[">
+                <field name="VAR" id="![*C,VF+H%eZ0q9_`tgn">a</field>
+                <value name="VALUE">
+                  <block type="load_csv" id="u;ma#B5R6BQYqYN3%zJY">
+                    <value name="VAR">
+                      <block type="variables_get" id="[65h{`#M(dqZh?FQR7c,">
+                        <field name="VAR" id="/RcF|Uj=T{MabPAh`?1m">pd</field>
+                      </block>
+                    </value>
+                    <value name="LOAD">
+                      <block type="variables_get" id="|wJchz4s]e?c(NuL@63S">
+                        <field name="VAR" id="}Z(VguZ;*~[@aOp@5i@1">url</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="pandas_print" id=";pzPKXfsZsptQA5iZghk">
+                    <value name="NAME">
+                      <block type="variables_get" id="f_3W..D_,OKMbpy?4;Vu">
+                        <field name="VAR" id="![*C,VF+H%eZ0q9_`tgn">a</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="19e,SVnOmo$a@F#7hHe}">
+                        <field name="VAR" id="![*C,VF+H%eZ0q9_`tgn">a</field>
+                        <value name="VALUE">
+                          <block type="list" id="7{xY;l=VH~GA9DJl+H:F">
+                            <value name="select_value">
+                              <block type="variables_get" id="`vVKtDP#0RHXfs]]ZC!L">
+                                <field name="VAR" id="![*C,VF+H%eZ0q9_`tgn">a</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="pandas_print" id="^rEPIL)?k)BZus]gN``L">
+                            <value name="NAME">
+                              <block type="variables_get" id="^~zLVo_IHzy]t%4h,LHt">
+                                <field name="VAR" id="![*C,VF+H%eZ0q9_`tgn">a</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

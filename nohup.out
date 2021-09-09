@@ -1,0 +1,121 @@
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::50197
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/home/ubuntu/WS/mirim-diy-3.0/server.js:17:57)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1307:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+Socket IO server listening on port 18080
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::18080
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/home/ubuntu/WS/mirim-diy-3.0/server.js:17:57)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1307:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+Socket IO server listening on port 18080
+Server is running at 18090
+TypeError: path must be absolute or specify root to res.sendFile
+    at ServerResponse.sendFile (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/response.js:425:11)
+    at router.get (/home/ubuntu/WS/mirim-diy-4.0-test/routes/indexRouter.js:5:13)
+    at Layer.handle [as handle_request] (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/layer.js:95:5)
+    at /home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/ubuntu/WS/mirim-diy-4.0-test/node_modules/express/lib/router/index.js:174:3)
+Server is running at 18090
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::18090
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/home/ubuntu/WS/mirim-diy-4.0-test/server.js:17:57)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1307:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+Server is running at 18090
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+http://ncov.mohw.go.kr/
+페이지 정보 가져오기
+http://ncov.mohw.go.kr/
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+페이지 정보 가져오기
+https://www.inhatc.ac.kr/kr/460/subview.do
+Server is running at 18090
+events.js:174
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::18090
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/home/ubuntu/ws/mirim-diy-3.17/server.js:17:57)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+Emitted 'error' event at:
+    at emitErrorNT (net.js:1307:8)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)

@@ -1,0 +1,65 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="~Ao_6r5/Gvx@XzxM#]}N">aa</variable>
+    <variable id="U0o./W[[G+AqW8UgL9gP">bb</variable>
+  </variables>
+  <block type="lib_import_a" id="Epm=@wD6Dj1FW`qx.i{8" x="78" y="87">
+    <field name="Lib_import_select">Lib_import_matplotlib</field>
+    <field name="Lib_check_from">FALSE</field>
+    <next>
+      <block type="lib_import_a" id="s$F:q5!LSxP?$t3?OBkq">
+        <field name="Lib_import_select">Lib_import_nump</field>
+        <field name="Lib_check_from">FALSE</field>
+        <next>
+          <block type="lib_import" id="UoF3V;;Y(vX2pa(LNvE}">
+            <field name="Lib_import_name">io, base64  </field>
+            <next>
+              <block type="variables_set" id="SW2sTG=k3w8|uVu%G}?2">
+                <field name="VAR" id="~Ao_6r5/Gvx@XzxM#]}N">aa</field>
+                <value name="VALUE">
+                  <block type="np_array" id="+)J{M|DV!JsBxpnf]Q.?">
+                    <value name="np_array_input">
+                      <block type="create_arry" id="+t=abM)SHuK}dm_`Z7z+">
+                        <field name="Create_arry_val">1,2,3,4,5,6,7,8,9,10</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="4w,F)8T?BIj*w(/jPb?]">
+                    <field name="VAR" id="U0o./W[[G+AqW8UgL9gP">bb</field>
+                    <value name="VALUE">
+                      <block type="np_array" id="2v8[O_#OC_,HbAMr1SQT">
+                        <value name="np_array_input">
+                          <block type="create_arry" id="4FIIv~Ih3lHDEHgSh{H-">
+                            <field name="Create_arry_val">2,3,4,6,7,9,10,16,17,20</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="matplotlib_main" id="aj(hh.PTa`zYAvC^TF#U">
+                        <next>
+                          <block type="matplotlib_pre_graph" id="fZ.SWIu0AY2)_w.p*86L">
+                            <field name="matplotlib_num_location">matplotlib_num_3</field>
+                            <field name="matplotlib_user_xy">aa,bb</field>
+                            <field name="matplotlib_graph_select">matplotlib_bar</field>
+                            <field name="matplotlib_line_OX">FALSE</field>
+                            <field name="matplotlib_line_select">matplotlib_line_1</field>
+                            <next>
+                              <block type="matplotlib_graph_end" id="%1D:.A;obp}4=U(AVK69"></block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

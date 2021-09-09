@@ -1,0 +1,39 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="Mcf%H8d3$)V=(0tL{fO,">xData</variable>
+    <variable id="QGDXJG7Rp/x9Q`a{OfVp">yData</variable>
+    <variable id=",C_zn!(*%EPbFf|P5h1A">model</variable>
+  </variables>
+  <block type="lib_import_a" id="6bRoCT6?w#oSA:_qu?%O" x="60" y="110">
+    <field name="Lib_import_select">Lib_import_nump</field>
+    <field name="Lib_check_from">FALSE</field>
+    <next>
+      <block type="csv3" id="s!f1D:FK4jTy+Gu{!1TN">
+        <field name="csv_url">[{"x":" ","y":"3"},{"x":"2","y":"4"},{"x":" ","y":"5"},{"x":"4","y":""},{"x":"5","y":"5"},{"x":"6","y":"6"},{"x":" ","y":"7"},{"x":""}]</field>
+        <field name="var_x" id="Mcf%H8d3$)V=(0tL{fO,">xData</field>
+        <field name="var_y" id="QGDXJG7Rp/x9Q`a{OfVp">yData</field>
+        <field name="OPTIONS">y</field>
+        <next>
+          <block type="scikit_learn" id="n(}^T9ggx/_C{y~u0J/?">
+            <field name="cate">LinearRegression</field>
+            <value name="model">
+              <block type="variables_get" id="zAw2v1i;xdI}Y9G={+tI">
+                <field name="VAR" id=",C_zn!(*%EPbFf|P5h1A">model</field>
+              </block>
+            </value>
+            <value name="x">
+              <block type="variables_get" id=")vEO[[M/%uH[,@C~8zt}">
+                <field name="VAR" id="Mcf%H8d3$)V=(0tL{fO,">xData</field>
+              </block>
+            </value>
+            <value name="y">
+              <block type="variables_get" id="b,5t/TA6Uq},g8eCXau!">
+                <field name="VAR" id="QGDXJG7Rp/x9Q`a{OfVp">yData</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,40 @@
+#sidebar {
+    background: white;
+    width: 900px;
+    height: 100%;
+    top: 0;
+    right: -900px;
+    position: fixed;
+    z-index: 100;
+    border: solid;
+    border-color: gray;
+    box-shadow:  5px 5px 10px black, 0 0 15px gray
+  }
+
+  .sidebar{
+    position:relative;
+    width: 50%;
+    float:left; 
+    padding:10px;
+    /* 배경색 및 밑선
+    background-color:#F4F6FF;
+    border-bottom: solid;
+    border-color: #CED4DA;
+    */
+    z-index: 2;
+  }
+  /*
+  #sidebar > button {
+    background:white;
+    position: absolute;
+    top: 0px;
+    right: 910px;
+    width: 70px;
+    height: 45px;
+    color: rgb(128, 128, 128);
+    border : solid;
+  }*/
+  #graph1{
+    height:25%;
+    z-index: 3;
+  }

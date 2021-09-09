@@ -1,0 +1,1952 @@
+@font-face {
+    font-family: 'Cafe24Ohsquare';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NaNumGothicCoding-Bold';
+    src: url('/static/common/font/NanumGothicCoding-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'NaNumGothicCoding';
+    src: url('/static/common/font/NanumGothicCoding.ttf');
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+/* 상단 프로필 부분 */
+
+.libraryDiv{
+	padding-right: 0;
+	padding-left:17px;
+background-color: transparent;
+box-shadow: none !important;
+color: #fff;
+overflow-x: hidden;
+overflow-y: auto;
+max-width: 100%;
+width: 940px;
+position: absolute;
+display: none;
+z-index: 1001;
+text-align: left;
+border: none;
+border-radius: .28571429rem;
+user-select: text;
+will-change: top,left,margin,transform,opacity;
+z-index: 1200 !important;
+height: 590px;
+margin: auto !important;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+outline: 0;
+}
+.libraryGrid{
+	display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.libraryGrid .column{
+	width: 270px;
+background: #fff;
+margin: 11px;
+border-radius: .28571429rem .28571429rem .28571429rem .28571429rem;
+}
+.content {
+	color:black;
+	text-align: center;
+	padding: 21px;
+	padding-bottom: 0px;
+	padding-top: 10px;
+	}
+	.content .description{
+		color: black;
+	}
+	.content .header{
+		font-size: 19px;
+	}
+	
+	.libraryimage{
+	padding: 32px;
+	padding-top: 10px;
+	padding-bottom : 0px;
+	height: 174px;
+	}
+	
+	.ui .importBtn{
+		cursor: pointer;
+		width: 60px;
+	background-color: #2e07a7;
+	color: #fff;
+	text-shadow: none;
+	text-align: center;
+	margin: auto;
+	height: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	line-height: 30px;
+	}
+#modal_close_btn{
+	width: 20px;
+	height: 20px;
+	opacity:1;
+	margin-top: 13px;
+}
+.headUserIconDiv {
+    position: relative;
+    display: inline-block;
+    line-height: 81px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.headUserIconDiv .memberOpen{
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    
+
+}
+
+#gnb > li > ul{
+    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgb(125 125 125 / 80%);
+}
+#gnb > li:hover > ul{
+    display: block;
+}
+
+
+.headUser {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 99999;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgb(125 125 125 / 80%);
+    border-radius: 5px;
+    line-height: 18px;
+    min-width: 140px;
+}
+
+.headUser .headUserTop {
+    margin-bottom: 10px;
+    width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+    width: -moz-max-content;    /* Firefox/Gecko */
+    width: -webkit-max-content; /* Chrome */
+    width: max-content;
+}
+
+.headUser .headUserTop .memberBadgeImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.headUser .headUserTop .HeadUserInfo {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+.headUser .headUserTop .HeadUserInfo span {
+    display: block;
+}
+
+
+.headUser .headUserTop .HeadUserInfo span.headUserName {
+    font-weight: bold;
+}
+.headUser .headUserTop .HeadUserInfo span.headUserId {
+
+}
+
+.headUser .headUserBottom { 
+    text-align: center;
+}
+
+
+.borderR {
+    /* border: 1px solid #5f6061; */
+    box-shadow: 0px 1px 2px rgb(255 255 255 / 10%) inset, 0px 2px 5px rgb(0 0 0 / 80%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.windowTitle {
+    padding: 10px 20px 10px 34px;
+    color: #00ffab;
+    position: relative;
+    font-size: 16px;
+    border-bottom: 1px solid #0f0e0e;
+    box-shadow: 0 1px 1px #202020;
+    z-index: 99;
+}
+
+.windowTitle::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #00ffab;
+}
+
+.headUser .headUserBottom .headUserBtn {
+    margin: 0px 2px;
+    font-size: 11px;
+}
+
+.headUser .headUserBottom .headUserEdit:hover .editIcon {
+    background: url(/static/common/images/www/icon/userEditOver.png);
+}
+.headUser .headUserBottom .headLogout:hover .logOutIcon {
+    background: url(/static/common/images/www/icon/userLogoutOver.png);
+}
+
+.headUser .headUserBottom .editIcon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: url(/static/common/images/www/icon/userEdit.png);
+    vertical-align: middle;
+}
+.headUser .headUserBottom .logOutIcon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: url(/static/common/images/www/icon/userLogout.png);
+    vertical-align: middle;
+}
+
+
+
+
+/* 튜토리얼 각 Toast창 Position */
+.tutorialDefaultContainer {
+    position: absolute;
+    height: 100vh;
+}
+
+.tutoricalDefaultPopup {
+    position: absolute;
+}
+
+.tutorialCategoryPopup {
+    position: absolute;
+    left: 250px;
+    top: 100px;
+}
+
+.tutorialCodeAreaPopup {
+    position: absolute;
+    right: 34%;
+    top: 100px;
+}
+
+.tutorialConsolePopup {
+    position: absolute;
+    right: 34%;
+    top: 66%;
+}
+#containerCourse {
+    width: 100%;
+}
+
+#containerCourse  #content {
+    padding-top: 0;
+}
+
+/* 시맨틱 UI 배지 변경 모달 */
+#semantic_modal input[type=radio] {
+    display: none;
+}
+
+#semantic_modal input[type=radio] + img {
+    outline: 3px solid yellow;
+}
+
+#semantic_modal .imgContent{
+    justify-content: space-around;
+    height: 170px;
+}
+
+.badgeImage {
+    width: 117px; height: 117px;
+    box-sizing: border-box;
+}
+
+.badgeImage:hover {
+    border: 3px solid yellow;
+}
+
+.active-color {
+    border: 3px solid yellow;
+}
+
+/* --------------- */
+
+.default__title {
+    font-family: 'Cafe24Ohsquare';
+    font-size: 24px;
+}
+.default__titleSub {
+    margin-bottom: 20px;
+}
+
+.tc {
+    text-align: center;
+}
+.tl {
+    position: relative;
+    text-align: left;
+    display: block;
+}
+.tr {
+    text-align: right;
+}
+
+.default__layout {
+    position: relative;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    background-color: #f7f7f7;
+}
+
+.default__layout .default__warp{
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+.diyHeader {
+    z-index: 100;
+    width: 100%;
+    position: fixed;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+.diyHeader .diy_meun {
+    color: #053daa;
+    display: flex;
+    float: right;
+    margin-right: 30px;
+    font-weight: bold;
+}
+.diyHeader .diy_meun a {
+    display: flex;
+    line-height: 60px;
+    margin-right: 30px;
+}
+
+h2, h3 {
+    font-family: 'Cafe24Ohsquare';
+}
+
+.diyHeader .head_logo{
+    
+    display: inline-block;
+    height: 60px;
+    padding: 9px 12px;
+}
+
+.diyHeader .head_logo img {
+
+}
+
+.diyHeader__warp {
+    position: relative;
+    width: 100%;
+    max-width: 1340px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.diyContent {
+    width: 100%;
+}
+
+.default__input {
+    width: 100%; /* 원하는 너비 설정 */ 
+    height: auto; /* 높이값 초기화 */ 
+    line-height : normal; /* line-height 초기화 */ 
+    padding: .8em .5em; /* 원하는 여백 설정, 상하단 여백으로 높이를 조절 */ 
+    font-family: inherit; /* 폰트 상속 */ 
+    border: 1px solid #999; 
+    border-radius: 0; /* iSO 둥근모서리 제거 */ 
+    outline-style: none; /* 포커스시 발생하는 효과 제거를 원한다면 */ 
+    -webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */ 
+    -moz-appearance: none; 
+    appearance: none;
+} 
+
+.contentHome {
+    /* position: relative; */
+    width: 100%;
+    height: 420px;
+    /* padding-top: 180px; */
+    /* padding-bottom: 18.5%; */
+    background-image: url(/static/common/images/www/main/head-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    transition: all 1s;
+}
+
+.contentHome__warp {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 89%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content:flex-end;
+}
+
+.diyStart {
+    position: relative;
+    margin-top: 40px;
+    cursor: pointer;
+    display: inline-block;
+    width: 192px;
+    height: 72px;
+    background: url(/static/common/images/www/main/start.png);
+    transition: all 0.2s;
+    top:0px;
+}
+.diyStart:hover {
+    top: -2px;
+}
+
+.contentHomeContent {
+    color: #fff;
+    font-size: 22px;
+    margin-top: 3%;
+    line-height: 30px;
+}
+
+.ti_font {
+    margin-left: -4px;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.homeRight {
+    position: absolute;
+    width: 38%;
+    min-width: 380px;
+    max-width: 510px;
+    top: 62%;
+    right: auto;
+    left: 54%;
+    transform: translateY(-50%);
+}
+
+/* 중간내용 */
+.contentText {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    transition: all 1s;   
+}
+
+.contentTextSubTitle {
+    font-size: 18px;
+    /* text-align: left; */
+    position: relative;
+    left: -150px;
+    top: -10px;
+}
+    @media screen and (max-width:980px) {
+
+        .contentTextSubTitle {
+        all: unset;
+        font-size: 20px;
+        text-align: center;
+        margin: 0 auto;
+        }
+
+        .cListText { text-align: center; }
+
+        .cList:nth-child(2n) p { text-align: center; }
+
+        .cList {
+            padding: 10%;
+        }
+
+        .cList h3 { margin: 0 auto;}
+
+        .cListText br { display: none; }
+
+        .cListIcon {
+           display: none;
+        }
+
+        .cList img {  display: none; }
+
+        .contentText { margin-bottom: -5%;}
+
+        #footer { 
+            display: flex;
+            align-items: center;
+        }
+
+        #header .logo img { height: 40px; }
+
+        #top_buttons {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 95%;
+            height: 100%;
+            justify-content: flex-start;
+            align-items: baseline;
+            margin: 0 auto;
+        }
+
+        .codeShareList {
+            max-width: 95%;
+            height: 100% !important;
+            min-height: 150px;
+        }
+
+        .codeShareListBox {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .codeShareTitle { 
+            width: 100% !important;
+            font-size: 18px !important;
+            white-space: normal !important;
+        }
+
+        .codeShare_best_new { width: 90px ; }
+
+        .codeShare_best_new img { margin-right: 5px; }
+
+        .codeShareInfo { 
+            width: 55% !important;
+            height: 100%;
+            min-height: 150px;
+        }
+
+        .codeShareHashBox { position: unset !important;}
+
+        .codeShare_best_new { 
+            width: 90px; 
+            display: flex !important;
+            justify-content: space-between;
+        }
+
+        .codeShareListFlex {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            min-height: 150px;
+        }
+
+        #codeShareTitleDate {
+            display: flex;
+            margin-top: 5px;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 3px;
+        }
+
+        .codeShareUserInfo img { width: 50px; }
+
+        .codeShareMeta {
+            display: flex !important;
+            flex-direction: column !important;
+            position: relative !important;
+            width: unset !important;
+            margin-top: 120px !important;
+            width: 40%;
+        }
+
+        .codeShareRatingBox, .codeShareMetaInfo { all: unset !important; }
+
+        .codeShareMetaInfo { 
+            text-align: right !important;
+            margin-top: 5px !important; 
+            margin-right: 20px !important;
+        }
+
+    }
+
+    @media screen and (max-width: 660px) {
+
+        .contentTextSubTitle h2 { font-size: 30px !important; }
+
+        .contentTextSubTitle p { font-size: 15px; }
+
+        .cList h3 { 
+            font-size: 20px !important; 
+            height: 40px !important;
+        }
+
+        .contentHome__warp { width: 55%; }
+
+        .contentHomeContent { font-size: 20px; }
+        
+        .contentHome__warp br { display: none; }
+
+        .cList p {
+            margin-top: 5%;
+            font-size: 15px; 
+        }
+
+       #footer .rows {
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            height: 100%;
+            margin: 0 auto;
+            justify-content: center;
+            padding: unset;
+       }
+        
+        .ct address {
+            display: flex;
+            flex-direction: column;
+            width: 100% !important;
+            text-align: center;
+        }
+
+        .copy { 
+            width: 100% !important;
+            text-align: center !important;
+        }
+
+        .menu {
+            width: 100%; 
+            text-align: center;
+        }
+
+        .writeCodeShare {
+            height: 100%;
+            min-height: 40.7167px;
+            font-size: 18px !important;
+        }
+
+        .ui.selection.dropdown {
+            height: 100%;
+            min-height: 40.7167px;
+        }
+
+        #top_buttons {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 95%;
+            height: 100%;
+            justify-content: space-between;
+            align-items: baseline;
+            margin: 0 auto;
+        }
+
+        .codeShareList {
+            max-width: 95%;
+            min-height: 140px !important;
+            height: 100% !important;
+        }
+
+        .codeShareListBox {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .codeShareTitle { 
+            all: unset !important;
+            display: block !important;
+            width: 100% !important;
+            font-weight: bold !important;
+            font-size: 17px !important;
+        }
+
+        .codeShareInfo { 
+            width: unset !important; 
+            height: 100%;
+            min-height: 180px;
+        }
+
+        .codeShareInfo .codeShareDate { margin-left: unset !important;}
+
+        .codeShareHashBox { display: none !important; }
+
+        .codeShareMeta { 
+            display: block !important;
+            margin-top: unset !important; 
+        }
+
+        .codeShareRatingBox, .codeShareMetaInfo { display: none !important; }
+
+        .codeShare_best_new { 
+            width: 75px; 
+            display: flex !important;
+            justify-content: space-between;
+        }
+
+        .codeShare_best_new img { margin-right: 5px; }
+
+        #codeShareTitleDate {
+            display: flex;
+            margin-top: 5px;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            min-height: 140px;
+            margin-left: 3px;
+        }
+
+        .codeShareUserInfo p { font-size: 12px; }
+
+        b, strong { font-weight: normal; }
+
+        .codeShareUserInfo img { width: 45px; }
+
+        .codeShareUserInfo { 
+            margin-top: -60px !important;
+        }
+
+        .codeShareListFlex { all: unset; }
+
+    }
+
+.codeShareHashBox { line-height: 30px;}
+
+.contentText__warp {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contentTextTitle {
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+}
+
+.contentTextTitle h2 { font-size: 36px; }
+
+@keyframes Homecontent {
+    from {
+        top: 0px;
+    }
+    to {
+        top: 10px;
+    }
+}
+
+.Homecontent {
+    animation:Homecontent 0.4s ease-in Infinite Alternate;
+    position: relative;
+    max-width: 58%;
+}
+
+.contentTextContent {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cList {
+    width: 100%;
+    display: flex;
+    height: 187px;
+    align-items: center;
+}
+
+.cList:not(:last-of-type) { border-bottom: 2px solid rgb(231, 231, 231); }
+
+.cList:nth-child(2n) {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.cListIcon {
+    box-shadow: 0 0 10px #e3e3e3;
+    border-radius: 20px;
+    vertical-align: top;
+    background: #fff;
+    width: 127px;
+    height: 127px;
+    position: relative;
+}
+
+.cListIcon > img { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.cList:nth-child(2n) .cListText  {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    text-align: right;
+}
+
+.cList:nth-child(2n) h3{
+    background: #9a36fe;
+    color: #fff;
+}
+
+.cListText {
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 18px;
+}
+
+.cList h3 {
+    padding: 10px;
+    background: #ffc000;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'NaNumGothicCoding-Bold';
+    width: 212px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1%;
+}
+.pageBox {
+    margin-top: 30px;
+}
+.pageBtn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    line-height: 30px;
+    background: #ccc;
+    color: #999;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.pageBtn:hover {
+    background-color: rgb(170, 170, 170);
+    color: white;
+}
+
+.pageBtn:active {
+    background-color: #626262;
+    color: white;
+}
+
+.pageBtn.active {
+    color: #fff;
+    background: #2e07a7;
+    cursor: pointer;
+}
+
+.pageBtn.active:hover {
+    color: #fff;
+    background-color: rgb(64, 0, 255);
+    cursor: pointer;
+}
+
+.pageBtn.active:active {
+    color: #fff;
+    background-color: rgb(0, 4, 255);
+    cursor: pointer;
+}
+
+
+.dBtn {
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: none;
+    border: none;
+    vertical-align: baseline;
+    box-shadow: transparent 0px 0px 0px 1px inset, rgb(0 0 0 / 10%) 0px 0em 0px 0px inset;
+    user-select: none;
+    transition: opacity 0.1s ease 0s, background-color 0.1s ease 0s, color 0.1s ease 0s, box-shadow 0.1s ease 0s, background 0.1s ease 0s;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0px 0.25em 0px 0px;
+    border-radius: 0.285714rem;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: bold;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(250, 100, 98);
+    color: rgb(255, 255, 255);
+    padding: 1.2em 10px;
+    font-size: 1.1em;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: auto;
+}
+
+.projectCreateBtn {
+    width: 100%;
+    margin-top: 8px;
+} 
+
+.notProject {
+    height: 600px;
+}
+
+.notProject__warp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 800px; */
+    padding: 20px;
+    box-shadow: 0 0 10px rgb(125 125 125 / 80%);
+    background: #fff;
+    border-radius: 10px;
+}
+
+.selectProject {
+}
+
+.getProject {
+    background-color: rgb(150, 0, 150);
+    border-radius: 3px;
+    padding: 10px 15px;
+    color: white;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.getProject:hover {
+    background-color: rgb(180, 0, 180);
+}
+
+.getProject:active {
+    background: violet;
+}
+
+
+/* @media screen and (max-width: 1480px) { 
+    .contentHome {
+        padding-top: 120px;
+        padding-bottom: 23.5%;
+
+    }
+} */
+  
+
+  /* 
+    @Dev. : 정지현
+    @Description : 코드 공유 CSS 테스트
+    @Target : codeShareList.jsp
+  */
+
+  .codeShareBanner {
+      position: relative;
+      width: 100%;
+  }
+
+  .codeShareBanner img { max-width: 110%; }
+
+  .writeCodeShare {
+        display: inline-block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        float: right;
+      background-color: rgb(150, 0, 150);
+      border-radius: 5px;
+      font-size: 24px;
+      color: white;
+      padding: 10px 20px;
+      transition: all 0.2s;
+  }
+
+  .writeCodeShare:hover{
+        background-color: rgb(180, 0, 180);
+        text-decoration: none;
+        color: white;
+  }
+
+  .writeCodeShare:active {
+      background-color: violet;
+  }
+
+  .codeShareList {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    height: 180px;
+    box-shadow: 0 0 1px rgb(125 125 125 / 60%);
+    border-radius: 0px;
+    margin: 10px auto 10px auto;
+    padding: 15px 20px;
+    vertical-align: top;
+    background: #fff;
+    top: 0px;
+    transition: all 0.2s;
+  }
+
+  .codeShareList:hover{
+      top: -3px;
+      color: black;
+  }
+
+  .codeShareList:active {
+    background-color: silver;
+    color: black;
+  }
+
+  .codeShareInfo {
+      position: relative;
+      display: inline-block;
+      width: 550px;
+  }
+
+  .codeShareInfo > .codeShare_best_new {
+    position: relative;
+    display: inline-block;
+}
+
+.codeShareInfo  .codeShareTitle {
+    font-family: 'NaNumGothicCoding-Bold';
+    width: 600px;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.codeShareInfo  .codeShareDate{
+    font-family: 'NaNumGothicCoding';
+    font-size: 12px;
+    color: grey;
+    margin-top:  10px;
+    margin-left: 10px;
+} 
+
+
+.codeShareInfo  .codeShareHashBox{
+    position: absolute;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.codeShareHashBox .codeShare_hash {
+    display: inline-block;
+    height: 25px;
+    border-radius: 5px;
+    /* margin-left: 35px;
+    margin-right: -30px;
+    margin-top: 35px; */
+    padding: 5px 15px;
+    text-align: center;
+    font-size: 12px;
+    color: grey;
+    background:rgba(230, 230, 230, 0.6);
+}
+
+.codeShareHashBox  .codeShare_hash:hover {
+    background: darkgray;
+    color: white;
+}
+
+.codeShareMeta{
+    display: none;
+}
+
+@media(min-width:981px){
+    .codeShareMeta {
+        position: absolute;
+        display: inline-block;
+        width: 500px;
+        height:149px;
+    }
+}
+
+/* @media screen and (max-width: 980px) { */
+/*  */
+    /* .codeShareList { */
+        /* width: 95% !important; */
+        /* display: flex !important; */
+        /* justify-content: space-between; */
+        /* height: auto; */
+        /* min-height: 180px; */
+        /* margin-left: 0 auto;  */
+        /* margin-right: 0 auto; */
+    /* } */
+/*  */
+    /* /* position: relative; */
+    /* width: 100%; */
+    /* display: inline-block; */
+    /* height: 180px; */
+    /* box-shadow: 0 0 1px rgb(125 125 125 / 60%); */
+    /* border-radius: 0px; */
+    /* margin: 10px auto 10px auto; */
+    /* padding: 15px 20px; */
+    /* vertical-align: top; */
+    /* background: #fff; */
+    /* top: 0px; */
+    /* transition: all 0.2s; */ */
+    /*  */
+    /* .codeShareMeta { */
+        /* position: relative; */
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* width: 400px; */
+        /* height: 100%; */
+        /* align-items: center; */
+        /* flex-direction: column; */
+    /* } */
+/*  */
+    /* .codeShareInfo { */
+        /* width: 500px; */
+    /* } */
+/*  */
+    .codeShareMeta { display: none;}
+/*  */
+    /* .codeShareTitle { width: 80% !important; font-size: 18px !important;} */
+/* }  */
+
+.codeShareMeta  .codeShareRatingBox {
+    position: relative;
+    display: inline-block;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.codeShareRatingBox > .codeShareRating {
+    position: relative;
+    display: inline-block;
+    border: 2px solid purple;
+    padding: 3px 10px 3px 10px;
+    font-size: 12px;
+    color: purple;
+    border-radius: 5px;
+}
+
+.codeShareRatingBox > .codeShareRatingScore {
+    position: relative;
+    display: inline-block;
+    margin-left: 3px;
+    top: -2px;
+}
+
+.codeShareMeta  .codeShareUserInfo{
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    margin-top: -110px;
+    right: 0px;
+}
+
+.codeShareMetaInfo {
+    position: relative;
+    top: 40px;
+    left: 60px;
+}
+
+/* ------------------- */
+
+.projectLists {
+    position: relative;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.topNewBtn {
+    position: absolute;
+    top: -85px;
+    right: 29px;
+    transition: all 0.2s;
+}
+
+.topNewBtn:hover {
+    background-color: #ff4d4a;
+}
+
+.topNewBtn:active {
+    background-color: #ff9391;
+}
+
+.midNewBtn {
+    transition: all 0.2s;
+}
+
+.midNewBtn:hover {
+    background-color: #ff4d4a;
+}
+
+.midNewBtn:active {
+    background-color: #ff9391;
+}
+
+
+
+.projectList .shareBox {
+    opacity: 0;
+    transition: all 0.3s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(125,125,125,0.6);
+}
+.projectList .shareBox:hover {
+    opacity: 1;
+}
+.projectList .shareBox:hover > span{
+    top:50%
+}
+
+#tagBoxBorder {
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px rgb(0 0 0 / 50%);
+}
+.tagBoxs {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.tagBoxs::-webkit-scrollbar {
+    display: none;
+}
+
+#ex_hash_tags {
+    position: relative;
+}
+#ex_hash_tags::before{
+    content: "#";
+    position: absolute;
+    left: 2px;
+    top: 0;
+}
+.projectList .shareBox > span{
+    transition: all 0.2s;
+    position: absolute;
+    padding: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+}
+.projectList .shareBox > span:hover{
+    background: #5e9cce;
+
+}
+
+
+.projectList {
+    /* background-color: rgb(247 247 247); */
+    position: relative;
+    display: inline-block;
+    width: 256px;
+    margin: 0 1.3%;
+    height: 167px;
+    /* border-radius: 10px; */
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #c3c3c3;
+    background-color: #fff;
+}
+.projectList h3 {
+    background: #3c13af;
+    color: #fff;
+    margin: 0;
+    /* border-radius: 10px 10px 0 0; */
+    word-break:break-all;
+    word-wrap:break-word;
+    padding: 10px 50px 10px 15px;
+    min-height: 39px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR',sans-serif;
+}
+.projectList .ui.icon {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+.projectList p {
+    padding: 10px 30px 10px 15px;
+    word-break:break-all;
+    word-wrap:break-word;
+    font-family: 'Gulim';
+    font-size: 13px;
+}
+
+.projectList .projectSave {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-family: 'Gulim';
+    font-size: 13px;
+}
+
+.eachTag {
+    position: relative;
+    width: 30%;
+    height: 27px;
+    margin: 10px;
+    border-bottom: 1px solid gray;
+    transition: all 0.2s;
+}
+
+.addTagBtn {
+    position: relative;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: rgb(150, 0, 150);
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+    transition: all 0.2s;
+}
+
+.addTagBtn:hover{
+    background-color: rgb(180, 0, 180);
+}
+
+.addTagBtn:active {
+    background-color: violet;
+}
+
+.deleteTagBtn {
+    position: absolute;
+    right: 0px;
+    background-color: rgb(150,0,150);
+    padding: 3px 10px 3px 10px;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.deleteTagBtn:hover {
+    background-color: rgb(180, 0, 180);
+}
+
+.deleteTagBtn:active {
+    background-color: violet;
+}
+
+
+/* 코드 공유 디테일 CSS  */
+.codeView {
+            position: relative;
+            width: 100%;
+            padding: 25px;
+            box-shadow: 0px 0px 10px rgba(125, 125, 125, .8);
+            background: #fff;
+        }
+
+        .viewInfo {
+            position: relative;
+            min-height: 190px;
+            padding-left: 180px;
+            padding-top: 24px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .viewInfo h3 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+	font-size: 20px;
+        }
+
+        .viewInfo p {
+            word-break: break-all;
+            margin-top: 10px;
+            font-size: 14px;
+            color: rgb(139, 139, 139);
+
+        }
+
+        .viewInfo>.photo {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            display: inline-block;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .viewInfo>.photo img {
+            border-radius: 50%;
+        }
+
+        .badges {
+            margin-bottom: 10px;
+            user-select: none;
+        }
+
+        .badges .bedge-best,
+        .badges .bedge-new {
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        .badges .bedge-best {
+            background-color: #82199a;
+        }
+
+        .badges .bedge-new {
+            background-color: #ffc000;
+        }
+
+        .badges .deleteBtn{
+            position: absolute;
+display: inline;
+background-color: crimson;
+border-radius: 5px;
+padding: 5px 15px;
+right: 20px;
+font-size: 18px;
+font-weight: 700;
+color: white;
+        }
+
+        .badges .editBtn{
+            position: absolute;
+display: inline;
+background-color: slateblue;
+border-radius: 5px;
+padding: 5px 15px;
+right: 90px;
+font-size: 18px;
+font-weight: 700;
+color: white;
+        }
+
+        .badges .views{
+            position: absolute;
+            top: 0px;
+            right: 20px;
+        }
+
+        .viewInfo .codeShareContents{
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .codeDetailContents {
+            white-space: pre-line;
+        }
+
+        .showCodes{
+            margin-top: 10px;
+        }
+
+        .showCodes > .blockCode{
+            display: inline-block;
+            width: 520px;
+            height: 510px;
+            margin-right: 10px;
+            background-color: rgb(39, 39, 39);
+        }
+        .CodeMirror {
+            /* width: 50% !important; */
+        }
+        .showCodes > .textCode{
+            /* width: 50%; */
+            display: inline-block;
+            background-color: rgb(39, 39, 39);
+            color: white;
+        }
+        .blocklyMainBackground {
+            stroke: none;
+        }
+        .blocklySvg {
+            background-color: #1e1e1e !important;
+        }
+        .viewFunction {
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .viewFunction > .uploadCodeShare {
+            position: relative;
+            display: inline-block;
+            top: 0px;
+            transition: all 0.2s;
+        }
+
+        .viewFunction > .uploadCodeShare:hover {
+            top: -3px;
+        }
+
+        .rating {
+            position: absolute;
+            display: inline-block;
+            top: 15px;
+            right: 0px;
+        }
+
+        .setRating {
+            position: absolute;
+            left: -100px;
+            border: 2px solid #82199a;
+            font-size: 14px;
+            color: #82199a;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .setRating:hover {
+            color: white;
+            background-color: rgb(150, 0, 150);
+        }
+
+        .setRating:active {
+            color: white;
+            background-color: violet;
+            border: 2px solid violet;
+        }
+
+        .commentsView {
+            position: relative;
+            margin-top: 70px;
+            width: 1100px;
+            padding: 25px;
+            box-shadow: 0px 0px 10px rgba(125, 125, 125, .8);
+            background: #fff;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .commentsView > h2 {
+	    font-size: 20px;
+        position: absolute;
+        top: -30px;
+        }
+
+        .commentOriginName {
+            border: 1px solid darkolivegreen;
+            background-color: darkolivegreen;
+            border-radius: 5px;
+            padding: 0 5px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .commentsView > .comment {
+            /* min-height: 130px; */ /* 삭제된 댓글입니다. 때문에 주석처리 */
+            border-bottom: 2px solid rgb(231, 231, 231);
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .commentsView .printComment {
+            position: relative;
+            width: 100%;
+            resize: none;
+            white-space: pre-line;
+            min-height: 50px;
+            word-break: break-all;
+        }
+
+        .updateComment { width: 100% !important; }
+
+        .commentsView .commentDate{
+            color: #7d7d89;
+            font-size: 13px;
+        }
+
+        .commentSet1 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 1.5%;
+        }
+        
+        .commentButton > a  {
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #7d7d89;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+
+        .deleteComment { display: inline-block; }
+
+        .commentSet { 
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; 
+        }
+
+        .comment  .commentUserInfo {
+            display: inline-block;
+            text-align: center;
+            font-weight: 600;
+            width: 15%;
+            
+        }
+
+        .comment .commentUserInfo  img {
+            width: 100px;
+        }
+
+        .writeCommentView {
+            position: relative;
+            width: 1100px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0px 0px 10px rgba(125, 125, 125, .8);
+            background: #fff;
+            border-radius: 10px;
+            height: 220px;
+            margin-left: auto;
+            margin-right: auto;
+			margin-top: 3%;
+        }
+
+        .writeCommentView  textarea {
+            resize: none;
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            border: 2px solid #f0f1f3;
+            background-color: #fbfbfc;
+        }
+
+        .writeCommentView .uploadComment {
+            position: relative;
+            margin-top: 10px;
+            /* right: 0px; */
+            background-color: #82199a;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            text-decoration: none;
+            /* margin-left: 920px; */
+            transition: all 0.2s;
+            float: right;
+            cursor: pointer;
+        }
+
+        .writeCommentView .uploadComment:hover{
+            background-color: rgb(180, 0, 180);
+        }
+
+        .writeCommentView .uploadComment:active{
+            background-color: violet;
+        }
+
+        .writeCommentView h2 { font-size: 18px; }
+
+        .updateComment {
+            resize: none;
+            width: 80%;
+            height: 130px;
+            border: 2px solid #f0f1f3;
+            background-color: #fbfbfc;
+            line-height: 20px;
+        }
+        
+        .updateButtonBox {
+            display: flex;
+            width: 105%;
+            justify-content: space-between;
+            float: right;
+        }
+
+        .updateCommentBtn {
+            background-color: #82199a;
+            border-radius: 5px;
+            color: white;
+            font-size: 12px;
+            padding: 5px 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .cancelComment {
+            display: inline-block;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #7d7d89;
+            padding: 5px 10px;
+            transition: all 0.2s;
+        }
+
+        .cancelComment:hover, .commentButton > a:hover { background-color: #686868; }
+
+        .updateCommentBtn:hover { background-color: rgb(180, 0, 180); }
+
+        .updateCommentBtn:active { background-color: violet; }
+
+        .codeDetailMetaInfo{
+            margin-top: 30px;
+            margin-bottom: 10px;
+            margin-left: 660px;
+        }
+
+        .printCommentDelete {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 20px;
+        }
+        
+        #postCommentUser {
+            font-size: 13px;
+            color: #fff;
+            font-weight: normal;
+            border: 1px solid indianred;
+            border-radius: 20px;
+            padding: 0 7px 0 7px;
+            margin: 0 auto;
+            width: 90px;
+            background-color: indianred;
+        }
+
+        .writeReplyView { padding: 1% 0px; }
+
+        .writeReplyView textarea {
+            resize: none;
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            border: 2px solid #f0f1f3;
+            background-color: #fbfbfc;
+        }
+
+        .writeReplyView .uploadReply {
+            position: relative;
+            margin-top: 10px;
+            /* right: 0px; */
+            background-color: #82199a;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            text-decoration: none;
+            /* margin-left: 920px; */
+            transition: all 0.2s;
+            float: right;
+            cursor: pointer;
+        }
+
+        .writeReplyView .uploadReply:hover{
+            background-color: rgb(180, 0, 180);
+        }
+
+        .writeReplyView .uploadReply:active{
+            background-color: violet;
+        }
+
+
+        .commentReplyFlex {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+ /* 내 강의 CSS */
+ .myInfo {
+     position: relative;
+     height: 260px;
+     min-width: 1100px;
+ }
+
+ .myInfo .myInfoText {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #d2d2d2;
+ }
+ .myInfo .changeIconBtn {
+    transition: all 0.2s;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 117px;
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+ }
+ .myInfo .myInfoIcon {
+    position: relative;
+    display: inline-block;
+    left: 40px;
+    top: 37px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 50%;
+ }
+
+ .myInfo .myInfoIcon:hover .changeIconBtn{
+    opacity: 1;
+ }
+
+ .myInfo .myInfoIconText {
+    top: -65px;
+    position: relative;
+    left: 30px;
+ }
+
+ .myInfo .myInfoDetail {
+    position: relative;
+    display: inline-block;
+    top: 30px;
+    left: 70px;
+    font-family: "Cafe24Ohsquare";
+ }
+
+ .myInfo strong {
+    display: inline-block;
+    width: 80px;
+    padding: 5px 0px;
+    font-size: 18px;
+    font-family: "Cafe24Ohsquare";
+}
+
+.myInfo .myInfoDetailSpan {
+    font-family: "NaNumGothicCoding";
+    font-size: 18px;
+}
+
+/* ----------------------------- */
+/* 도전과제 ChallengeView */
+/* ----------------------------- */
+.challengeBanner {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+/* ----------------------------- */
+/* 로그인창(alert) */
+/* ----------------------------- */
+
+.loginbox_confirmButton {
+    background: none !important;
+    padding: 0 !important;
+    margin-right: 15px !important;
+}
+
+.loginbox_confirmButton:hover { margin-top: -3px; }
+
+.loginbox_cancelButton {
+    background: none !important;
+    padding: 0 !important;
+}
+
+.loginbox_cancelButton:hover { margin-top: -3px; }
+
+.loginbox_popup {
+    background: url(/static/common/images/www/popup/loginpopup_bg.png) !important;
+    width: 501px !important;
+    height: 409px;
+}
+
+.loginbox_title {
+    font-family: 'GmarketSansBold';
+    color: #fff !important;
+    font-size: 28px !important;
+    font-weight: unset !important;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    justify-content: space-between;
+    margin-bottom: -5px !important;
+}
+
+.loginbox_content {
+    font-size: 19px !important;
+    color: #fff !important;
+    letter-spacing: -0.5px;
+}
+
+.loginbox_footer > a {
+    color: #fff !important;
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.loginbox_footer { margin-bottom: -5% !important; }
+
+
+/* ----------------------------- */
+/* 프로젝트 메인 */
+/* ----------------------------- */
+
+#new_project {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#new_project img:hover { margin-top: -3px; }
+
+.projectList:hover { top: -3px; }

@@ -1,0 +1,86 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="ym!EmACIm+f@G,7e(L^X">a</variable>
+    <variable id="Bb;:x(,046F8%rhr{H9c">b</variable>
+    <variable id=";`TA~IczhC07w?N{0)x{">c</variable>
+  </variables>
+  <block type="variables_set" id="jr851rohWDhQyzL_pH0X" x="156" y="74">
+    <field name="VAR" id="ym!EmACIm+f@G,7e(L^X">a</field>
+    <value name="VALUE">
+      <block type="set" id="eQh:4,:cLJ:S_sAq=`:7">
+        <value name="SET">
+          <block type="lists_create_with" id="CYIWxz_l91(K}t069%bb">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id="P37_kM5{Pm~M;e_RSn}E">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="=B]4J-yX!saPNc(jJGpc">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="math_number" id="/UM+xm{B2q[P0*50GPE!">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="variables_set" id="wS{V6L`yDkya5Qeet+lG" x="153" y="284">
+    <field name="VAR" id="Bb;:x(,046F8%rhr{H9c">b</field>
+    <value name="VALUE">
+      <block type="set" id="BPT_b=O#%S{+42%XFtR+">
+        <value name="SET">
+          <block type="lists_create_with" id="k35vXU3Z[`pF!*LwrE8s">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="math_number" id=".9T`2U](E-4n.wSc_jXs">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="OR,=:(*|n14di7o3)b8]">
+                <field name="NUM">3</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="math_number" id="c|.0q._?:*@Av+tU=xYV">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="variables_set" id="(UKZHO(tnx2$VDE,z6,4" x="168" y="648">
+    <field name="VAR" id=";`TA~IczhC07w?N{0)x{">c</field>
+    <value name="VALUE">
+      <block type="set_menu" id="%UM1N6I33ly+ZGu;E}ch">
+        <field name="set_menu">union</field>
+        <value name="SET1">
+          <block type="variables_get" id="RHjK[:S:YzhbZ8.KrTp^">
+            <field name="VAR" id="ym!EmACIm+f@G,7e(L^X">a</field>
+          </block>
+        </value>
+        <value name="SET2">
+          <block type="variables_get" id="rZT^SRW*OTo?3Ih9uTe1">
+            <field name="VAR" id="Bb;:x(,046F8%rhr{H9c">b</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="text_print" id="gn*hy6o}1uz18=8C50I@" x="113" y="822">
+    <value name="TEXT">
+      <block type="variables_get" id="bpg1S?rdEFc#rkO5I{=E">
+        <field name="VAR" id=";`TA~IczhC07w?N{0)x{">c</field>
+      </block>
+    </value>
+  </block>
+</xml>

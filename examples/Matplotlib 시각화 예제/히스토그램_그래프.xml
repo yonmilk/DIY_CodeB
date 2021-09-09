@@ -1,0 +1,58 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="~Ao_6r5/Gvx@XzxM#]}N">aa</variable>
+    <variable id="~1-oR(P~/J|.3S1y,CvL">cc</variable>
+  </variables>
+  <block type="lib_import_a" id="Epm=@wD6Dj1FW`qx.i{8" x="96" y="151">
+    <field name="Lib_import_select">Lib_import_matplotlib</field>
+    <field name="Lib_check_from">FALSE</field>
+    <next>
+      <block type="lib_import_a" id="s$F:q5!LSxP?$t3?OBkq">
+        <field name="Lib_import_select">Lib_import_nump</field>
+        <field name="Lib_check_from">FALSE</field>
+        <next>
+          <block type="lib_import" id="UoF3V;;Y(vX2pa(LNvE}">
+            <field name="Lib_import_name">io, base64  </field>
+            <next>
+              <block type="matplotlib_main" id="aj(hh.PTa`zYAvC^TF#U">
+                <next>
+                  <block type="variables_set" id="SW2sTG=k3w8|uVu%G}?2">
+                    <field name="VAR" id="~Ao_6r5/Gvx@XzxM#]}N">aa</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="xL9g3OV/[qXmY!BlkD$P">
+                        <field name="NUM">100000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="@eX92p-^x,sL+lZ+,B`%">
+                        <field name="VAR" id="~1-oR(P~/J|.3S1y,CvL">cc</field>
+                        <value name="VALUE">
+                          <block type="numpy_random_rand" id="z@r(.X%+2d_zaF|%gvao">
+                            <field name="Numpy_Get_random">Numpy_random_randn</field>
+                            <field name="Numpy_random_rand_array">aa</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="matplotlib_pre_graph" id="fZ.SWIu0AY2)_w.p*86L">
+                            <field name="matplotlib_num_location">matplotlib_num_4</field>
+                            <field name="matplotlib_user_xy">cc</field>
+                            <field name="matplotlib_graph_select">matplotlib_histogram</field>
+                            <field name="matplotlib_line_OX">FALSE</field>
+                            <field name="matplotlib_line_select">matplotlib_line_2</field>
+                            <next>
+                              <block type="matplotlib_graph_end" id="%1D:.A;obp}4=U(AVK69"></block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

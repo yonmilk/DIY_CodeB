@@ -1,0 +1,83 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="g:a:M7iOpQ/@e1WKh}{Y">person</variable>
+    <variable id="XCswD?6Dmb^;L~ar2q=1">mydict</variable>
+  </variables>
+  <block type="variables_set" id="I[!h6v,xOEB4|k?%DqVa" x="42" y="-25">
+    <field name="VAR" id="g:a:M7iOpQ/@e1WKh}{Y">person</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="P_8NR`hyxu%on,OY/8zl">
+        <mutation items="3"></mutation>
+        <value name="ADD0">
+          <block type="tuple" id="1Oj|;!:PghQSEOOjJ|8+">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text" id="7m{biZ[K~yCv%xnw(FM/">
+                <field name="TEXT">김기수</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="~~xu{eoLE{mLFQ0+Pj}r">
+                <field name="NUM">30</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="tuple" id="5O|N_3xd1];Mc2fvrm)j">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text" id="fTlX?jzbk3HT9_Q)T-my">
+                <field name="TEXT">홍대길</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="a,mo]n8?{rt{bNJ5{91@">
+                <field name="NUM">35</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="tuple" id="=O#?w!;VgxZBWw{76Ipc">
+            <mutation items="2"></mutation>
+            <value name="ADD0">
+              <block type="text" id="LAjnmY%WG6UzVq|~=gsf">
+                <field name="TEXT">강찬수</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="math_number" id="ng@-JT!p`T%)gz6qIUZL">
+                <field name="NUM">25</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="O0jQM;bUL%RSG;*)%i[Y">
+        <field name="VAR" id="XCswD?6Dmb^;L~ar2q=1">mydict</field>
+        <value name="VALUE">
+          <block type="dic_menu" id="X`|qQKsXOrL}i,d3uOo@">
+            <field name="dic">changedict</field>
+            <value name="dic1">
+              <block type="variables_get" id="B%~EeT)1WGP*7Ycpw@oH">
+                <field name="VAR" id="g:a:M7iOpQ/@e1WKh}{Y">person</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="text_print" id="9h3,SE0}sl.GG[$2o_8Z">
+            <value name="TEXT">
+              <block type="variables_get" id="A;yzVrtB4K.Geh4sJ{,E">
+                <field name="VAR" id="XCswD?6Dmb^;L~ar2q=1">mydict</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
