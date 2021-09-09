@@ -1148,9 +1148,13 @@ Blockly.Msg['CATEGORY_DATASCIENCE'] = "데이터과학(DS)";
 Blockly.Msg['CATEGORY_MACHINELEARNING'] ="머신러닝(ML)";
 Blockly.Msg['CATEGORY_DEEPLEARNING']="딥러닝(DL)";
 Blockly.Msg['CATEGORY_AIX'] = "전공직무AI융합";
+Blockly.Msg['CATEGORY_BIO'] = "바이오(Biopython)";
 
 // 바이오파이썬(Biopython)
-Blockly.Msg['CATEGORY_BIO'] = "바이오(BIO)";
+Blockly.Msg['BIO_IMPORT'] = "[임포트] Biopython Seq";
+Blockly.Msg['BIO_IMPORT_SEQUTILS'] = "[임포트] Biopython SeqUtils";
+Blockly.Msg['BIO_IMPORT_DATA'] = "[임포트] Biopython Data CondonTalbe";
+
 
 // 시스템
 Blockly.Msg['OS_IMPORT'] = "[임포트] os,날짜,시간,shutil";

@@ -1090,11 +1090,12 @@ Blockly.Msg['CATEGORY_NEURALNETWORK'] = "Neuralnetwork";
 Blockly.Msg['CATEGORY_DATASCIENCE'] = "Data science";
 Blockly.Msg['CATEGORY_MACHINELEARNING'] ="Machine learning";
 Blockly.Msg['CATEGORY_DEEPLEARNING']="Deep Learning";
-Blockly.Msg['CATEGORY_AIX'] = "AI + X"
-
+Blockly.Msg['CATEGORY_BIO'] = "바이오(Biopython)";
 
 // 바이오파이썬(Biopython)
-Blockly.Msg['CATEGORY_BIO'] = "Biopython"
+Blockly.Msg['BIO_IMPORT'] = "[import] Biopython Seq";
+Blockly.Msg['BIO_IMPORT_SEQUTILS'] = "[import] Biopython SeqUtils";
+Blockly.Msg['BIO_IMPORT_DATA'] = "[import] Biopython Data CondonTalbe";
 
 
 // 시스템

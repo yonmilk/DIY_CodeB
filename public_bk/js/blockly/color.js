@@ -33,7 +33,3 @@ Blockly.Msg["OS_HUE"] = "#55ad15"; // 시스템
 Blockly.Msg["lst_HUE"] = "#183153"; // 시스템
 Blockly.Msg["PROCEDURES_HUE"] = "41CDCD";
 Blockly.Msg["CROLL_HUE"] = "41CACD";
-Blockly.Msg["BIO_HUE"] = "D1ADF7"; //바이오
-
-
-
