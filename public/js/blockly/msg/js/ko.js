@@ -1149,6 +1149,9 @@ Blockly.Msg['CATEGORY_MACHINELEARNING'] ="머신러닝(ML)";
 Blockly.Msg['CATEGORY_DEEPLEARNING']="딥러닝(DL)";
 Blockly.Msg['CATEGORY_AIX'] = "전공직무AI융합";
 
+// 바이오파이썬(Biopython)
+Blockly.Msg['CATEGORY_BIO'] = "바이오(BIO)";
+
 // 시스템
 Blockly.Msg['OS_IMPORT'] = "[임포트] os,날짜,시간,shutil";
 Blockly.Msg['OS_GETCWD'] = "현재경로 (getcwd)";

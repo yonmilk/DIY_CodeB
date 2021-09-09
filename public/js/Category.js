@@ -17,6 +17,7 @@ toolbox += MAT; //too many trouble
 toolbox += SCIPY;
 toolbox += SKI;
 toolbox += SKL;
+toolbox += BIO;
 // toolbox += CRAW;
 //toolbox += DS;
 //toolbox += ML;

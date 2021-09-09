@@ -1092,6 +1092,11 @@ Blockly.Msg['CATEGORY_MACHINELEARNING'] ="Machine learning";
 Blockly.Msg['CATEGORY_DEEPLEARNING']="Deep Learning";
 Blockly.Msg['CATEGORY_AIX'] = "AI + X"
 
+
+// 바이오파이썬(Biopython)
+Blockly.Msg['CATEGORY_BIO'] = "Biopython"
+
+
 // 시스템
 Blockly.Msg['OS_IMPORT'] = "[import] os, date, time, shutil";
 Blockly.Msg['OS_GETCWD'] = "current working directory (getcwd)";

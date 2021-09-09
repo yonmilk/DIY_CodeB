@@ -371,6 +371,12 @@ document.write("<script src='/js/blockly/block_croll.js'></script>");
 document.write("<script src='/js/blockly/block_croll_py.js'></script>");
 document.write("<script src='/js/blockly/block_croll_js.js'></script>");
 
+// <!-- 바이오파이썬 -->
+document.write("<script src='/js/blockly/block_bio.js'></script>");
+document.write("<script src='/js/blockly/block_bio_js.js'></script>");
+document.write("<script src='/js/blockly/block_bio_py.js'></script>");
+
+
 // 리팩토링
 document.write("<script src='/js/Label.js'></script>");
 document.write("<script src='/js/Category/Io.js'></script>");
@@ -393,5 +399,7 @@ document.write("<script src='/js/Category/DS.js'></script>");
 document.write("<script src='/js/Category/ML.js'></script>");
 document.write("<script src='/js/Category/DL.js'></script>");
 // document.write("<script src='/js/Category/Crawling(WJ).js'></script>");
+document.write("<script src='/js/Category/Bio.js'></script>");
+
 
 document.write("<script src='/js/Category.js'></script>");
