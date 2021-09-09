@@ -1154,6 +1154,10 @@ Blockly.Msg['CATEGORY_BIO'] = "바이오(Biopython)";
 Blockly.Msg['BIO_IMPORT'] = "[임포트] Biopython Seq";
 Blockly.Msg['BIO_IMPORT_SEQUTILS'] = "[임포트] Biopython SeqUtils";
 Blockly.Msg['BIO_IMPORT_DATA'] = "[임포트] Biopython Data CondonTalbe";
+Blockly.Msg['BIO_MOLECULAR_WEIGHT'] = "[서열무게]";
+Blockly.Msg['BIO_SIX_FRAME'] = "[서열번역]";
+Blockly.Msg['BIO_TM'] = "[서열Tm계산]";
+
 
 
 // 시스템

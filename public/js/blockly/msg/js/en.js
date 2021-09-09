@@ -1096,7 +1096,9 @@ Blockly.Msg['CATEGORY_BIO'] = "바이오(Biopython)";
 Blockly.Msg['BIO_IMPORT'] = "[import] Biopython Seq";
 Blockly.Msg['BIO_IMPORT_SEQUTILS'] = "[import] Biopython SeqUtils";
 Blockly.Msg['BIO_IMPORT_DATA'] = "[import] Biopython Data CondonTalbe";
-
+Blockly.Msg['BIO_MOLECULAR_WEIGHT'] = "[Molecular Weight]";
+Blockly.Msg['BIO_SIX_FRAME'] = "[six frame translation]";
+Blockly.Msg['BIO_TM'] = "[tm wallace]";
 
 // 시스템
 Blockly.Msg['OS_IMPORT'] = "[import] os, date, time, shutil";
