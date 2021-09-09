@@ -28,7 +28,7 @@ Blockly.Blocks['biosequtillsimport'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.BIO_IMPORT_SEQUTILS)
-      .appendField(new Blockly.FieldDropdown([["*", "*"], ["GC", "GC"], ["modelcular_weight", "modelcular_weight"], ["six_frame_translations", "six_frame_translations"], ["MeltingTemp", "MeltingTemp as mt"], ["seq1", "seq1"], ["seq3", "seq3"]]), "sequtils");
+      .appendField(new Blockly.FieldDropdown([["*", "*"], ["GC", "GC"], ["molecular_weight", "molecular_weight"], ["six_frame_translations", "six_frame_translations"], ["MeltingTemp", "MeltingTemp as mt"], ["seq1", "seq1"], ["seq3", "seq3"]]), "sequtils");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
