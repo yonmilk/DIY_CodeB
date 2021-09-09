@@ -1,12 +1,12 @@
 Blockly.Python['bioimport'] = function (block) {
     // TODO: Assemble Python into code variable.
-    var code = 'from BIO.Seq import Seq';
+    var code = 'from Bio.Seq import Seq';
     return code;
 };
 
 Blockly.Python['bioimportall'] = function (block) {
     // TODO: Assemble Python into code variable.
-    var code = 'from BIO.SeqUtils import *';
+    var code = 'from Bio.SeqUtils import *';
     return code;
 };
 
@@ -19,7 +19,7 @@ Blockly.Python['biosequtillsimport'] = function (block) {
 
 Blockly.Python['biodataimport'] = function (block) {
     // TODO: Assemble Python into code variable.
-    var code = 'from BIO.Data import CondonTable';
+    var code = 'from Bio.Data import CondonTable';
     return code;
 };
 
