@@ -58,19 +58,19 @@ Blockly.JavaScript['biocodonlist'] = function (block) {
 Blockly.JavaScript['biomw'] = function (block) {
     var value_input = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);
     var code = "\n";
-    return code;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['biosft'] = function (block) {
     var value_input = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);
     var code = "\n";
-    return code;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['biostm'] = function (block) {
     var value_input = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);
     var code = "\n";
-    return code;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 // Blockly.JavaScript['bioseq1'] = function (block) {
