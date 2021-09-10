@@ -618,6 +618,7 @@ onclick="sidebar_toggle()" /> -->
 
     <script>
 
+      // TODO: recordBlockStatusEvent 이벤트 각 Workspace에 적용될 수 있도록 로직 수정해야 함.
       // 블록 생성 및 삭제를 기록할 전역 배열
       var recordCreatedArr = [];
       var recordDeletedArr = [];
@@ -645,9 +646,9 @@ onclick="sidebar_toggle()" /> -->
         //console.log(recordDeletedArr);
         blockRecordJSON = JSON.stringify({ "create": recordCreatedArr, "delete": recordDeletedArr });
       }
-      workspace.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
+      // workspace.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
       // workspace.addChangeListener(whenSelected);// 선택 되었을 때 메소드
-      workspace.addChangeListener(recordBlockStatusEvent);
+      // workspace.addChangeListener(recordBlockStatusEvent);
     </script>
 
     <!-- pyodide 초기화 -->
