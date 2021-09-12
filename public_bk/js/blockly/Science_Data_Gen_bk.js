@@ -832,7 +832,7 @@ plt.legend(loc='best')\n`);
   code =  code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
 plt.xlabel("${text_matplotlib_pre_graph_xlable}")
 plt.ylabel("${text_matplotlib_pre_graph_ylable}") 
-plt..legend(loc='best')\n`);
+plt.legend(loc='best')\n`);
   
 }else{ 
   code =  code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
