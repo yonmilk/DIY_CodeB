@@ -5,6 +5,8 @@
 // $('div[aria-posinset="16"]').hide(); // Scipy 
 $('div[aria-posinset="17"]').hide() // Scikit-Image
 // $('div[aria-posinset="18"]').hide(); // Scikit-learn
+$('div[aria-posinset="19"]').hide() // BioPython
+
 
 /////////////////////////////////
 // 라이브러리 추가 버튼 동작
@@ -108,6 +110,26 @@ $("#image_processing_import_btn").on("click", function () {
     // })
 })
 
+// 바이오파이썬
+$("#bio_import_btn").on("click", function () {
+    showLibLoading();
+    // 로딩 중 동시 추가가 안 되도록 처리
+    if (isImportLoading == 1) {
+        alert('다른 라이브러리를 로딩 중입니다.');
+        return;
+    }
+    isImportLoading = 1;
+
+    $("#bio_import_btn").removeClass("blue").addClass("green");
+    $("#bio_import_btn").text("추가 중");
+
+    pyodide.loadPackage(['biopython']).then(() => {
+        $('div[aria-posinset="19"]').show();
+        $("#bio_import_btn").text("추가됨");
+        isImportLoading = 0;
+        hideLibLoading();
+    })
+})
 
 /////////////////////////////////
 // 로딩 관련 로직

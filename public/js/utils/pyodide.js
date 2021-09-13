@@ -57,7 +57,7 @@ pyodideReadyPromise.then(() => {
         $("#loading_dimmer").removeClass("active");
 
         // 초기 라이브러리 로딩
-        let libsList = ['numpy', 'pandas', 'matplotlib', 'scikit-learn', 'scipy', 'beautifulsoup4', 'statsmodels', 'biopython'];
+        let libsList = ['numpy', 'pandas', 'matplotlib', 'scikit-learn', 'scipy', 'beautifulsoup4', 'statsmodels'];
         isImportLoading = 1;
         importPyodidePackages(libsList).then(() => { isImportLoading = 0; });
 
