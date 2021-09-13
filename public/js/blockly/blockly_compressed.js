@@ -2253,6 +2253,10 @@ Blockly.Themes.Classic.defaultBlockStyles = {
   //Crawling 
   croll_blocks : {colourPrimary: "#1e1e1e", colourTertiary: "#41CACD"},
   croll_blocks_sub : {colourPrimary: "#41CACD", colourTertiary: "#226a6b"},
+
+  //Biopython
+  bio_blocks : {colourPrimary: "#1e1e1e", colourTertiary: "#c891e5"},
+  bio_blocks_sub : {colourPrimary: "#c891e5", colourTertiary: "#B281CC"},
 };
 Blockly.Themes.Classic.categoryStyles = {
   colour_category: { colour: "#289AFF" },

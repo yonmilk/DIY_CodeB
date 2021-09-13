@@ -5,7 +5,7 @@ Blockly.Blocks['bioimport'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -18,7 +18,7 @@ Blockly.Blocks['bioimportall'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -32,7 +32,7 @@ Blockly.Blocks['biosequtillsimport'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -45,7 +45,7 @@ Blockly.Blocks['biodataimport'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -64,7 +64,7 @@ Blockly.Blocks['bioseq'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -83,7 +83,7 @@ Blockly.Blocks['biogc'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -102,7 +102,7 @@ Blockly.Blocks['biocodon'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -119,7 +119,7 @@ Blockly.Blocks['biocodonlist'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -136,7 +136,7 @@ Blockly.Blocks['biomw'] = {
       .appendField(")");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks_sub");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -153,7 +153,7 @@ Blockly.Blocks['biosft'] = {
       .appendField(")");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks_sub");
     this.setTooltip("");
     this.setHelpUrl("");
   }
@@ -170,7 +170,7 @@ Blockly.Blocks['biostm'] = {
       .appendField(")");
     this.setInputsInline(true);
     this.setOutput(true, null);
-    this.setColour(Blockly.Msg.BIO_HUE);
+    this.setStyle("bio_blocks_sub");
     this.setTooltip("");
     this.setHelpUrl("");
   }
