@@ -9,7 +9,7 @@ function _requestsURL(_url){
 		dataType: "json",     // 서버에서 받아올 데이터의 타입
 		success: function(data){
 			console.log(data);
-	 		pyodide.globals.req = data.data;  // node에서 받아온 데이터를 htmldata 전역변수에 넣어준다. (차후 크롤링블록에서 htmldata변수가 사용됨)
+			pyodide.globals.set('req', data.data);  // node에서 받아온 데이터를 htmldata 전역변수에 넣어준다. (차후 크롤링블록에서 htmldata변수가 사용됨)
 		}
 	});
 }
