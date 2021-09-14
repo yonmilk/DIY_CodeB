@@ -20932,12 +20932,14 @@ border-radius: .28571429rem .28571429rem .28571429rem .28571429rem;
 	padding: 21px;
 	padding-bottom: 0px;
 	padding-top: 10px;
+	height: 105px;
 	}
 	.content .description{
 		color: black;
 	}
 	.content .header{
 		font-size: 19px;
+		font-weight: bold;
 	}
 	
 	.libraryimage{
