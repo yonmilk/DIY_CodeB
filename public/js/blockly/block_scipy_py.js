@@ -39,6 +39,22 @@ Blockly.Python['import_scipy'] = function (block) {
   return code + '\n';
 };
 
+Blockly.Python['import_scipy_wavfile'] = function (block) {
+  var dropdown_scipy = block.getFieldValue('scipy');
+  // TODO: Assemble Python into code variable.
+  var code = '\n';
+  switch (dropdown_scipy) {
+    case "wavfile":
+      code = "import scipy.io.wavfile";
+      break;
+    case "write":
+      code = "from scipy.io.wavfile import write";
+      break;
+  }
+
+  return code + '\n';
+};
+
 Blockly.Python['curve_fit'] = function (block) {
   var value_fun = Blockly.Python.valueToCode(block, 'fun', Blockly.Python.ORDER_ATOMIC);
   var value_x = Blockly.Python.valueToCode(block, 'x', Blockly.Python.ORDER_ATOMIC);

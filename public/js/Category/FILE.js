@@ -2,6 +2,9 @@
 var FILE ='<category name="%{BKY_CATEGORY_FILE}" colour="%{BKY_FILE_HUE}">' ;
 FILE +='  <block type="pickle_library"></block>' ;
 FILE +='  <block type="csv_library"></block>' ;
+FILE +='  <block type="import_pil_pilimg"></block>' ;
+FILE +='  <block type="import_pil_imagefilter"></block>' ;
+
 
 // 기태 수정(로컬 파일 열기)
 FILE +='  <block type = "fd_open">' ;
@@ -82,6 +85,8 @@ FILE +='          </shadow>' ;
 FILE +='        </value>' ;
 FILE +='      </block>' ;
 FILE +='      <block type="fileopen2"></block>   ' ;
+
+
 
 FILE +='</category>'
 

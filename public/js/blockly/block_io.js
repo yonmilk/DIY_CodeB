@@ -527,3 +527,30 @@ Blockly.Blocks['fileopen3'] = {
    this.setHelpUrl("");
     }
   };
+
+
+  Blockly.Blocks['import_pil_pilimg'] = {
+    init: function () {
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.IMPORT_PIL_PILIMG);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("list_blocks");
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+
+  Blockly.Blocks['import_pil_imagefilter'] = {
+    init: function () {
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.IMPORT_PIL_IMAGEFILTER);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("list_blocks");
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };

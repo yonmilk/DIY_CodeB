@@ -39,6 +39,19 @@ Blockly.Python['pickle_library'] = function (block) {
   var code = "import pickle \n";
   return code;
 };
+
+Blockly.Python['import_pil_pilimg'] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "import PIL.Image as pilimg \n";
+  return code;
+};
+
+Blockly.Python['import_pil_imagefilter'] = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = "from PIL import ImageFilter \n";
+  return code;
+};
+
 // 2021.01.22 csv 남지원
 Blockly.Python['csv_library'] = function (block) {
   // TODO: Assemble JavaScript into code variable.

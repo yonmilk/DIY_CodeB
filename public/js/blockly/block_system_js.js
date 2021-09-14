@@ -16,6 +16,19 @@
     var code = '\n';
     return code;
   };
+
+  Blockly.JavaScript['import_pil_pilimg'] = function (block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = '\n';
+    return code;
+  };
+
+  Blockly.JavaScript['import_pil_imagefilter'] = function (block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = '\n';
+    return code;
+  };
+
 // 2021.01.22 csv 남지원
   Blockly.JavaScript['csv_library'] = function (block) {
     // TODO: Assemble JavaScript into code variable.

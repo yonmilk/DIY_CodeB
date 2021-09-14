@@ -1,6 +1,7 @@
 var SCIPY = '<category name="%{BKY_CATEGORY_SCIPY}" colour="%{BKY_SCIPY_HUE}">';
 
 SCIPY += '<block type="import_scipy"></block>';
+SCIPY += '<block type="import_scipy_wavfile"></block>';
 SCIPY += '<block type="curve_fit"></block>';
 SCIPY += '<block type="univariatespline"></block>';
 SCIPY += '<block type="quad"></block>';

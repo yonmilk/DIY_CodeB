@@ -895,6 +895,7 @@ Blockly.Msg['MATPLOT_AXES3D_GRAPH_1_PLT'] = "%1 [서페이스] plt.plot_surface 
 
 // ---- 사이파이
 Blockly.Msg['SCIPY_IMPORT'] = "[임포트] 사이파이";
+Blockly.Msg['SCIPY_IMPORT_WAVFILE'] = "[임포트] 사이파이 웨이브파일";
 Blockly.Msg['SCIPY_CURVE_FIT'] = "[비선형 최소제곱사용] 함수";
 Blockly.Msg['SCIPY_QUAD'] = "[정적분계산] 함수";
 Blockly.Msg['SCIPY_IO_WAVFILE_READ'] = "[동영상파일가져오기]";
@@ -1217,6 +1218,8 @@ $("#button_reset").html('초기화');
 // 2021.01.19 남지원
 // 입출력>파일 
 Blockly.Msg['FILE_PICKLE_LIBRARY'] = "[임포트] pickle";
+Blockly.Msg['IMPORT_PIL_PILIMG'] = "[ 임포트 ] pilimg";
+Blockly.Msg['IMPORT_PIL_IMAGEFILTER'] = "[ 임포트 ] imagefilter";
 
 Blockly.Msg['FILE_OPEN_1'] = "파일열기";
 Blockly.Msg['FILE_OPEN_2_1'] = "읽기쓰기(rw)";

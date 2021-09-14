@@ -5,6 +5,13 @@ Blockly.JavaScript['import_scipy'] = function(block) {
     return code;
   };
 
+  Blockly.JavaScript['import_scipy_wavfile'] = function(block) {
+    var dropdown_scipy = block.getFieldValue('scipy');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '\n';
+    return code;
+  };
+
 Blockly.JavaScript['curve_fit'] = function(block) {
     var value_fun = Blockly.JavaScript.valueToCode(block, 'fun', Blockly.JavaScript.ORDER_ATOMIC);
     var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);

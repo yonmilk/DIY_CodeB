@@ -876,6 +876,7 @@ Blockly.Msg['MATPLOT_VIS_TREE_3'] = "Y-axis column position";
 
 // ---- 사이파이
 Blockly.Msg['SCIPY_IMPORT'] = "[import] scipy";
+Blockly.Msg['SCIPY_IMPORT_WAVFILE'] = "[import] scipy wavfile";
 Blockly.Msg['SCIPY_CURVE_FIT'] = "[Curve_Fit] function";
 Blockly.Msg['SCIPY_QUAD'] = "[Quad] function";
 
@@ -1157,6 +1158,8 @@ $("#button_reset").html('reset');
 // 2021.01.19 남지원
 // 입출력>파일 
 Blockly.Msg['FILE_PICKLE_LIBRARY'] = "[ import ] pickle";
+Blockly.Msg['IMPORT_PIL_PILIMG'] = "[ import ] pilimg";
+Blockly.Msg['IMPORT_PIL_IMAGEFILTER'] = "[ import ] imagefilter";
 
 Blockly.Msg['FILE_OPEN_1'] = "file open";
 Blockly.Msg['FILE_OPEN_2_1'] = "read write(rw)";

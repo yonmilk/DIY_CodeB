@@ -43,6 +43,25 @@ Blockly.Blocks['import_scipy'] = {
     }
 };
 
+Blockly.Blocks['import_scipy_wavfile'] = {
+  init: function () {
+      this.appendDummyInput().appendField(Blockly.Msg.SCIPY_IMPORT).appendField(new Blockly.FieldDropdown([
+          [
+              "wavfile", "wavfile"
+          ],
+          [
+              "write", "write"
+          ]
+
+      ]), "scipy");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("scipy_blocks");
+      this.setTooltip("");
+      this.setHelpUrl("");
+  }
+};
 
 Blockly.Blocks['curve_fit'] = {
     init: function () {
