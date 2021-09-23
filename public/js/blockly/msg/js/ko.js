@@ -606,7 +606,8 @@ Blockly.Msg['COLLECTION_16_COPY'] = "복사(copy)";
 
 Blockly.Msg['COLLECTION_16_COUNT'] = "개수(count)";
 Blockly.Msg['COLLECTION_16_INDEX'] = "인덱스(index)";
-Blockly.Msg['COLLECTION_16_POP'] = "끝삭제(pop)";
+Blockly.Msg['COLLECTION_16_POP'] = "맨끝삭제(pop)";
+Blockly.Msg['COLLECTION_16_POP0'] = "맨앞삭제(pop(0))";
 Blockly.Msg['COLLECTION_16_REMOVE'] = "삭제(remove)";
 Blockly.Msg['COLLECTION_16_APPEND'] = "붙임(append)";
 
