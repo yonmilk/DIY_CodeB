@@ -198,3 +198,24 @@ Blockly.Python['csv_reader_writer'] = function(block) {
   var code = `csv.${dropdown_drop}(${value_var})`;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+// 객체 사용
+Blockly.Python['class_use3'] = function(block) {
+  var var1 = Blockly.Python.valueToCode(block, 'VAR1', Blockly.Python.ORDER_ATOMIC);
+  var var2 = Blockly.Python.valueToCode(block, 'VAR2', Blockly.Python.ORDER_ATOMIC);
+  var text_1 = Blockly.Python.valueToCode(block, '3', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = var1+'.'+var2+'('+text_1+')';
+  // var code = `${val1}.${val2} = ${text_1}\n`;
+  return [code, Blockly.Python.ORDER_ATOMIC]; 
+};
+
+// 확장
+Blockly.Python['df_add_function2'] = function(block) {
+  var value_name = Blockly.Python.valueToCode(block, 'LIST', Blockly.Python.ORDER_ATOMIC);
+  var value_name2 = Blockly.Python.valueToCode(block, 'LIST2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = value_name + "." + value_name2;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+}; 

@@ -68,5 +68,37 @@ IO +='</block>' ;
 IO +='<block type="indata"></block>' ;
 IO +='<block type="class_func_param"></block>' ;
 
+//<!-- 객체 사용 -->';
+IO +='<block type="class_use3">';
+IO +='  <value name="VAR1">';
+IO +='    <block type="variables_get">';
+IO +='      <field name="VAR">obj</field>';
+IO +='    </block>';
+IO +='  </value>'; 
+IO +='  <value name="VAR2">';
+IO +='    <block type="variables_get">';
+IO +='      <field name="VAR">func</field>';
+IO +='    </block>';
+IO +='  </value>'; 
+IO +='  <value name="3">';
+IO +='    <shadow type="indata">';
+IO +='      <field name="indata1"></field>';
+IO +='    </shadow>';
+IO +='  </value>';
+IO +='</block>'; 
+
+// 확장
+IO += '<block type="df_add_function2">';
+IO += '<value name="LIST">';
+IO += '<shadow type="indata">';
+IO += '<field name="indata1"></field>';
+IO += '</shadow>';
+IO += '</value>';
+IO += '<value name="LIST2">';
+IO += '<shadow type="indata">';
+IO += '<field name="indata1"></field>';
+IO += '</shadow>';
+IO += '  </value>';
+IO += '</block>';
 
 IO +='</category>'
