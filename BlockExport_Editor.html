@@ -928,6 +928,16 @@ sys.stdout = io.StringIO()
 		clearBlock();
 	  }
 	};
+
+  // 윈도우 닫기 테스트
+  window.onbeforeunload = function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: '/user/exit',
+      method: 'GET'
+    })
+  }
   </script>
 
 </body>

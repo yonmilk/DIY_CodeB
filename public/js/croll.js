@@ -3,7 +3,7 @@
 // let htmldata; // 크롤링된 html dom
 function _requestsURL(_url) {
   $.ajax({
-    url: '/test2', // server.js에서 URI확인
+    url: '/utils/crawling', // server.js에서 URI확인
     method: 'POST', // HTTP 요청 메소드(GET, POST 등)
     data: { url: _url }, // json형식으로 서버에 url전송
     dataType: 'json', // 서버에서 받아올 데이터의 타입
