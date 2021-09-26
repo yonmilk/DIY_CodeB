@@ -589,3 +589,16 @@ Blockly.Blocks['df_add_function2'] = {
     this.setHelpUrl("");
 }
 };
+
+Blockly.Blocks['comma'] = {
+  init: function () {
+    this.appendValueInput('v1').setCheck(null);
+    this.appendDummyInput().appendField(',');
+    this.appendValueInput('v2').setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(125);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};

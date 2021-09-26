@@ -527,6 +527,10 @@ Blockly.Msg['COLLECTION_LISTS_CREATE_WITH_5'] = "생성";
 Blockly.Msg['COLLECTION_VA_SEL'] = "[인덱싱]";
 Blockly.Msg['COLLECTION_VA_DEL'] = "[값삭제] del";
 
+Blockly.Msg['COLLECTION_LISTS_CREATE'] = "리스트";
+Blockly.Msg['COLLECTION_LISTS_INSERT'] = "데이터 추가";
+Blockly.Msg['COLLECTION_LISTS_SORT'] = "데이터 정렬";
+
 Blockly.Msg['COLLECTION_TUPLE'] = "튜플";
 
 Blockly.Msg['COLLECTION_SET'] = "집합";

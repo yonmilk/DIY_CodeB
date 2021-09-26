@@ -64,5 +64,5 @@ Blockly.Python['class_make'] = function(block) {
     var value_attr = Blockly.Python.valueToCode(block, 'attr', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = 'hasattr(' + value_object + ', "' + value_attr + '")';
-    return [code, Blockly.Python.ORDER_NONE];
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };

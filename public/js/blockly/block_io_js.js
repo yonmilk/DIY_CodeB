@@ -173,4 +173,13 @@ Blockly.JavaScript['df_add_function2'] = function(block) {
   // TODO: Assemble Python into code variable.
   var code = '\n';
   return code; 
-}; 
+};
+
+Blockly.JavaScript['comma'] = function(block) {
+  var value_v1 = Blockly.JavaScript.valueToCode(block, 'v1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_v2 = Blockly.JavaScript.valueToCode(block, 'v2', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

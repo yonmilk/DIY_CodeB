@@ -1,394 +1,460 @@
 COLL =  '<category name="%{BKY_CATEGORY_COLLECTION}" colour="%{BKY_COLLECTION_HUE}">';
 
 COLL +='<category name="%{BKY_OPER_PRO}" >';
- //  [C1] 
-  COLL +='<block type ="forif">';
-  COLL +='  <value name="SET0">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">[</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET1">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">리턴</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET2">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">i</field>';
-  COLL +='    </shadow>';
-  COLL +='</value>';
-  COLL +='  <value name="SET3">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">범위</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET4">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">조건</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET5">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">]</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+//  [C1] 
+COLL +='<block type ="forif">';
+COLL +='  <value name="SET0">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">[</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">리턴</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET2">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">i</field>';
+COLL +='    </shadow>';
+COLL +='</value>';
+COLL +='  <value name="SET3">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">범위</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET4">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">조건</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET5">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">]</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
- //  [C2] 
-  COLL +='<block type ="forif2">';
-  COLL +='  <value name="SET0">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">[</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET1">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">리턴</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET2">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">i</field>';
-  COLL +='    </shadow>';
-  COLL +='</value>';
-  COLL +='  <value name="SET3">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">범위</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET4">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">]</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+//  [C2] 
+COLL +='<block type ="forif2">';
+COLL +='  <value name="SET0">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">[</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">리턴</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET2">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">i</field>';
+COLL +='    </shadow>';
+COLL +='</value>';
+COLL +='  <value name="SET3">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">범위</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="SET4">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">]</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //   [C3] 생성변환 
-  COLL +='<block type = "change_collection">';
-  COLL +='  <value name="LIST">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type = "change_collection">';
+COLL +='  <value name="LIST">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
-  // [C4] 비어있는 리스트 생성 
-  COLL +='<block type="lists_create_with">';
-  COLL +='  <mutation items="0"></mutation>';
-  COLL +='</block>';
+// [C4] 비어있는 리스트 생성 
+COLL +='<block type="lists_create_with">';
+COLL +='  <mutation items="0"></mutation>';
+COLL +='</block>';
 
- //  [C5] 컬렉션의 길이 
-  COLL +='<block type="lists_length">';
-  COLL +='<value name="VALUE">';
-  COLL +='  <block type="variables_get">';
-  COLL +='    <field name="VAR">my_list</field>';
-  COLL +='  </block>';
-  COLL +='</value>';
-  COLL +='</block>';
+//  [C5] 컬렉션의 길이 
+COLL +='<block type="lists_length">';
+COLL +='  <value name="VALUE">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //   [C6] 리스트가 비어있는지 확인 
-  COLL +='<block type="lists_isEmpty">';
-  COLL +='  <value name="VALUE">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type="lists_isEmpty">';
+COLL +='  <value name="VALUE">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //   [C7] 인덱싱 
-  COLL +='<block type = "va_sel">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="dic1">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type = "va_sel">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="dic1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //   [C8] 값삭제 
-  COLL +='<block type = "va_del">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="dic1">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type = "va_del">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="dic1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
- //  [C9] map 
-  COLL +='<block type="map3">';
-  COLL +='  <value name="data_type">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">int</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="input">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">데이터</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
- COLL +='</category>';
+//  [C9] map 
+COLL +='<block type="map3">';
+COLL +='  <value name="data_type">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">int</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="input">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">데이터</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
+COLL +='</category>';
 
-  COLL +='<category name="%{BKY_LIST_TUPLE}">';
+COLL +='<category name="%{BKY_LIST_TUPLE}">';
 //    COLL +='<label text="리스트"></label>';
-  COLL +='<label text="%{BKY_COLL_LIST}"></label>';
-  
+COLL +='<label text="%{BKY_COLL_LIST}"></label>';
+
 //   [L1] 리스트 생성 
-  COLL +='<block type = "create_list">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='  <value name="text">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">1,2,3,4</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type = "create_list">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='  <value name="text">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">1,2,3,4</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //   [L2] 리스트 삽입 
-  COLL +='<block type="list_insert">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='  <value name="INDEX">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">인덱스</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="VALUE">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">값</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type="list_insert">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='  <value name="INDEX">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">인덱스</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="VALUE">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">값</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
- //  [L3] 리스트 정렬,역순 
-  COLL +='<block type="list_sort_reverse">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='</block>';
+//  [L3] 리스트 정렬,역순 
+COLL +='<block type="list_sort_reverse">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='</block>';
 
 //   [L4] 데이터 다루기1 
-  COLL +='<block type="create_new_list2">';
-  COLL +='  <value name="VAR1">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="DIVISOR">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
-  
- //  [L5] 데이터 다루기2 
-  COLL +='<block type="create_new_list">';
-  COLL +='  <value name="VAR1">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_list</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="DIVISOR">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type="create_new_list2">';
+COLL +='  <value name="VAR1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="DIVISOR">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
-  //zip함수
-  COLL +='<block type="create_zip">';
-  COLL +='  <value name="data_type">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+//  [L5] 데이터 다루기2 
+COLL +='<block type="create_new_list">';
+COLL +='  <value name="VAR1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_list</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="DIVISOR">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
+
+//zip함수
+COLL +='<block type="create_zip">';
+COLL +='  <value name="data_type">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //    COLL +='<label text="튜플"></label>';
-  COLL +='<label text="%{BKY_COLL_TUPLE}"></label>';
- //    튜플블록 
-  COLL +='  <block type = "create_tuple">';
-  COLL +='    <value name="list">';
-  COLL +='      <block type="variables_get">';
-  COLL +='        <field name="VAR">my_tuple</field>';
-  COLL +='      </block>';
-  COLL +='    </value>';  
-  COLL +='    <value name="text">';
-  COLL +='      <shadow type="indata">';
-  COLL +='        <field name="indata1">1,2,3,4</field>';
-  COLL +='      </shadow>';
-  COLL +='    </value>';
-  COLL +='  </block>';
-  COLL +='</category>';
+COLL +='<label text="%{BKY_COLL_TUPLE}"></label>';
+//    튜플블록 
+COLL +='<block type = "create_tuple">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_tuple</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='  <value name="text">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">1,2,3,4</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
-  COLL +='<category name="%{BKY_DIC_SET}">';
+COLL +='</category>';
 
-  //   COLL +='<label text="딕셔너리"></label>';
-  COLL +='<label text="%{BKY_COLL_DICT}"></label>';
+// 딕셔너리
+COLL +='<category name="%{BKY_DIC_SET}">';
+
+//   COLL +='<label text="딕셔너리"></label>';
+COLL +='<label text="%{BKY_COLL_DICT}"></label>';
 //   딕셔너리1 
-  COLL +='<block type = "create_dict">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_dict</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='  <value name="text">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">"a":1, "b":2</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';  
+COLL +='<block type = "create_dict">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_dict</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='  <value name="text">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">"a":1, "b":2</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';  
 
-  COLL +='<block type ="dic_menu1">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_dict</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='</block>';
+// 딕셔너리 다루기
+COLL +='<block type ="dic_menu1">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_dict</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='</block>';
 
-  COLL +='<block type = "va_ser">';
-  COLL +='  <value name="dic1">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_dict</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='</block>';
+// 키조사
+COLL +='<block type = "va_ser">';
+COLL +='  <value name="dic1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_dict</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='</block>';
 
-// [D4] 딕셔너리 get 블록 추가 2021-08-16 - 이정윤
-  COLL +='<block type = "dict_get">';
-  COLL +='  <value name="var">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_dict</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="key">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='  <value name="default">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+// [D4] key로 value 얻기  2021-08-16 - 이정윤
+COLL +='<block type = "dict_get">';
+COLL +='  <value name="var">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_dict</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="key">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='  <value name="default">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
 //    COLL +='<label text="집합"></label>';
-  COLL +='<label text="%{BKY_COLL_SET}"></label>';
- //  집합블록 
-  COLL +='<block type = "create_ziphap">';
-  COLL +='  <value name="list">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_set</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';  
-  COLL +='  <value name="text">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1">1,2,3,4</field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';      
+COLL +='<label text="%{BKY_COLL_SET}"></label>';
+//  집합블록 
+COLL +='<block type = "create_ziphap">';
+COLL +='  <value name="list">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_set</field>';
+COLL +='    </block>';
+COLL +='  </value>';  
+COLL +='  <value name="text">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1">1,2,3,4</field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';      
 
- //  집합 다루기 블록
-  COLL +='<block type = "set_menu1_2">';
-  COLL +='  <value name="SET1">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_set</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET2">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+//  집합 다루기 블록
+COLL +='<block type = "set_menu1_2">';
+COLL +='  <value name="SET1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_set</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="SET2">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
-  COLL +='<block type = "set_menu1">';
-  COLL +='  <value name="SET1">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_set</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="SET2">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+// 집합 다루기 2
+COLL +='<block type = "set_menu1">';
+COLL +='  <value name="SET1">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_set</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="SET2">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 
-  COLL +='</category>';
+COLL +='</category>';
 
- // -------------------------------------------------------------------------------------deque-------
-  COLL +='<category name="%{BKY_DEQUE}">';
+// -------------------------------------------------------------------------------------deque-------
+COLL +='<category name="%{BKY_DEQUE}">';
 //    COLL +='<label text="dequeue"></label>';
-  COLL +='<label text="%{BKY_COLL_DEQUEUE}"></label>';
+COLL +='<label text="%{BKY_COLL_DEQUEUE}"></label>';
 //   컬렉션 라이브러리 
-  COLL +='<block type="collection_library"></block>';
+COLL +='<block type="collection_library"></block>';
 //   deque 생성
-  COLL +='<block type = "create_deque">';
-  COLL +='  <value name="VAR">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_deque</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="INPUT">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';  
-  COLL +='</block>';
+COLL +='<block type = "create_deque">';
+COLL +='  <value name="VAR">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_deque</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="INPUT">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';  
+COLL +='</block>';
 //   deque 다루기1 
-  COLL +='<block type = "deque_menu1">';
-  COLL +='  <value name="VAR">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_deque</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='  <value name="INPUT">';
-  COLL +='    <shadow type="indata">';
-  COLL +='      <field name="indata1"></field>';
-  COLL +='    </shadow>';
-  COLL +='  </value>';
-  COLL +='</block>';
+COLL +='<block type = "deque_menu1">';
+COLL +='  <value name="VAR">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_deque</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='  <value name="INPUT">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='  </value>';
+COLL +='</block>';
 //   deque 다루기2 
-  COLL +='<block type = "deque_menu2">';
-  COLL +='  <value name="VAR">';
-  COLL +='    <block type="variables_get">';
-  COLL +='      <field name="VAR">my_deque</field>';
-  COLL +='    </block>';
-  COLL +='  </value>';
-  COLL +='</block>';
-  COLL +='</category>';  
-  COLL +='</category>';  
+COLL +='<block type = "deque_menu2">';
+COLL +='  <value name="VAR">';
+COLL +='    <shadow type="indata">';
+COLL +='      <field name="indata1"></field>';
+COLL +='    </shadow>';
+COLL +='    <block type="variables_get">';
+COLL +='      <field name="VAR">my_deque</field>';
+COLL +='    </block>';
+COLL +='  </value>';
+COLL +='</block>';
+COLL +='</category>';
+
+COLL +='</category>';  
 
 // COLL +='</category>';
 //   딕셔너리2 
 //  <block type = "dict1"></block>';
- 
+
 //   리스트 생성 
 //   <block type="lists_create_with"></block>'; 
 //   변수명 이렇게 하면 잘들어가지긴함
@@ -434,7 +500,7 @@ COLL +='<category name="%{BKY_OPER_PRO}" >';
 //    </shadow>';
 //  </value>';
 //  </block>';
- 
+
 //   <block type="tfarraylen"></block>';  
 
 
@@ -499,7 +565,7 @@ COLL +='<category name="%{BKY_OPER_PRO}" >';
 //    </shadow>';
 //  </value>';
 //  </block>';
- 
+
 
 
 //   remove, pop, count, extend 
@@ -516,7 +582,7 @@ COLL +='<category name="%{BKY_OPER_PRO}" >';
 //  </value>';
 
 //  </block>';
- 
+
 
 //  리스트 자르기 
 //   <block type="list_dot">';
@@ -536,10 +602,10 @@ COLL +='<category name="%{BKY_OPER_PRO}" >';
 //    </shadow>';
 //  </value>';
 //  </block>';
- 
+
 //   return 반환
 //  <block type="py_return"></block>';
- 
+
 
 //   인덱스 가져오기 
 //   <block type="array_select">';

@@ -64,8 +64,25 @@ IO +='           <field name="indata1"></field>' ;
 IO +='      </shadow>' ;
 IO +='  </value>' ;
 IO +='</block>' ;
+
 //파이썬 부분 코드(만능)
 IO +='<block type="indata"></block>' ;
+
+// 콤마
+IO += '<block type="comma">';
+IO += ' <value name="v1">';
+IO += '   <shadow type="indata">';
+IO += '     <field name="indata1"></field>';
+IO += '   </shadow>';
+IO += ' </value>';
+IO += ' <value name="v2">';
+IO += '   <shadow type="indata">';
+IO += '     <field name="indata1"></field>';
+IO += '   </shadow>';
+IO += ' </value>';
+IO += '</block>';
+
+// 콤마 뮤테이션
 IO +='<block type="class_func_param"></block>' ;
 
 //<!-- 객체 사용 -->';
