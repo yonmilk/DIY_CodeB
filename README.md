@@ -21,7 +21,7 @@ npm run dev
 1. NPM 모듈 설치
 
 ## Block manual
-[Code 블록 생성 방법](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK.md)
+[Code 블록 생성 방법](manual/BLOCK.md)
 
 ## TODO
 - 추후  Node.js 서버 다듬을 시 Nodemon을 통해 Dev 실행
