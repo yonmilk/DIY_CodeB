@@ -15,11 +15,14 @@
     "session-memory-store": "^1.0.0",
     "socket.io": "^2.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "npm run prod",
+    "dev": "cross-env NODE_ENV=dev nodemon server.js",
+    "prod": "cross-env NODE_ENV=prod node server.js"
   },
   "author": "",
   "license": "ISC"

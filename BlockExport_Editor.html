@@ -936,7 +936,9 @@ sys.stdout = io.StringIO()
     $.ajax({
       url: '/user/exit',
       method: 'GET'
-    })
+    });
+
+    return "코드비 종료";
   }
   </script>
 

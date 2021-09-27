@@ -28,9 +28,17 @@ const FileStore = require('session-file-store')(session);
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true,
-    store: new FileStore()
+    saveUninitialized: false,
+    store: new FileStore({
+      path: "./sessions",
+      reapInterval: 10
+    }),
+    cookie: {
+      // 세션 만료 3시간
+      maxAge: 60*60*3000
+    }
 }))
+
 
 // 서버를 실행한다.
 const server = app.listen(port, () => {
