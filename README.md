@@ -17,6 +17,12 @@ node server.js
 npm run dev
 ```
 
+## Installation
+1. NPM 모듈 설치
+
+## Block manual
+[Code 블록 생성 방법](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK.md)
+
 ## TODO
 - 추후  Node.js 서버 다듬을 시 Nodemon을 통해 Dev 실행
 - server.js 불필요 로직 다듬기
