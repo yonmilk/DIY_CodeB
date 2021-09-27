@@ -80,7 +80,7 @@ Blockly.Blocks['curve_fit'] = {
 Blockly.Blocks['univariatespline'] = {
     init: function () {
         this.appendValueInput("x").setCheck(null).appendField(Blockly.Msg.SCIPY_UNIVARIATESPLINE).appendField("UnivariateSpline x_data");
-        this.appendValueInput("y").setCheck(null).appendField("Y_data");
+        this.appendValueInput("y").setCheck(null).appendField("y_data");
         this.appendDummyInput().appendField(new Blockly.FieldTextInput("1"), "s");
         this.setInputsInline(true);
         this.setOutput(true, null);

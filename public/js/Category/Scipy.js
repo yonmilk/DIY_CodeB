@@ -2,15 +2,60 @@ var SCIPY = '<category name="%{BKY_CATEGORY_SCIPY}" colour="%{BKY_SCIPY_HUE}">';
 
 SCIPY += '<block type="import_scipy"></block>';
 SCIPY += '<block type="import_scipy_wavfile"></block>';
-SCIPY += '<block type="curve_fit"></block>';
-SCIPY += '<block type="univariatespline"></block>';
-SCIPY += '<block type="quad"></block>';
+
+// 비선형 최소제곱사용
+SCIPY += '<block type="curve_fit">';
+SCIPY += '  <value name="fun">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
+SCIPY += '  </value>';
+SCIPY += '  <value name="x">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
+SCIPY += '  </value>';
+SCIPY += '  <value name="y">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
+SCIPY += '  </value>';
+SCIPY += '</block>';
+
+// 평활 스플라인
+SCIPY += '<block type="univariatespline">';
+SCIPY += '  <value name="x">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
+SCIPY += '  </value>';
+SCIPY += '  <value name="y">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
+SCIPY += '  </value>';
+SCIPY += '</block>';
+
+// 정적분 계산
+SCIPY += '<block type="quad">';
+SCIPY += '  <value name="x">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
+SCIPY += '  </value>';
+SCIPY += '</block>';
+
+// io.wavfile.read
 SCIPY += '<block type="scipy_io_wavfile_read">';
 SCIPY += '  <value name="file">';
+SCIPY += '    <shadow type="indata">';
+SCIPY += '      <field name="indata1"></field>';
+SCIPY += '    </shadow>';
 SCIPY += '    <block type="fileopen2"></block>';   
 SCIPY += '  </value>';
 SCIPY += '</block>';
 //'<!-- 지원 -->';
+
 SCIPY += '<block type="scipy_butter">';
 SCIPY += '  <value name="INPUT">';
 SCIPY += '    <shadow type="indata">';

@@ -19,13 +19,16 @@ FILE += '  </block>';
 FILE += '  <block type = "fd_read"></block>';
 
 //파일 쓰기
-FILE += '  <block type = "fd_write">';
-FILE += '      <value name="text">';
-FILE += '          <block type="variables_get">';
-FILE += '              <field name="VAR">data</field>';
-FILE += '          </block>';
-FILE += '      </value>';
-FILE += '  </block>';
+FILE += ' <block type = "fd_write">';
+FILE += '   <value name="text">';
+FILE += '     <shadow type="indata">';
+FILE += '       <field name="indata1"></field>';
+FILE += '     </shadow>';
+FILE += '     <block type="variables_get">';
+FILE += '         <field name="VAR">data</field>';
+FILE += '     </block>';
+FILE += '   </value>';
+FILE += ' </block>';
 
 //피클 입력
 FILE += '  <block type="pickle_dump">';
@@ -74,19 +77,22 @@ FILE += '          </shadow>';
 FILE += '        </value>';
 FILE += '      </block>';
 
-FILE += '      <block type = "writerows">';
-FILE += '        <value name="VAR">';
-FILE += '          <block type="variables_get">';
-FILE += '            <field name="VAR">csvobj</field>';
-FILE += '          </block>';
-FILE += '        </value>';
-FILE += '        <value name="text">';
-FILE += '          <shadow type="indata">';
-FILE += '            <field name="indata1">data</field>';
-FILE += '          </shadow>';
-FILE += '        </value>';
-FILE += '      </block>';
-FILE += '      <block type="fileopen2"></block>   ';
+FILE += ' <block type = "writerows">';
+FILE += '   <value name="VAR">';
+FILE += '     <shadow type="indata">';
+FILE += '       <field name="indata1"></field>';
+FILE += '     </shadow>';
+FILE += '     <block type="variables_get">';
+FILE += '       <field name="VAR">csvobj</field>';
+FILE += '     </block>';
+FILE += '   </value>';
+FILE += '   <value name="text">';
+FILE += '     <shadow type="indata">';
+FILE += '       <field name="indata1">data</field>';
+FILE += '     </shadow>';
+FILE += '   </value>';
+FILE += ' </block>';
+FILE += ' <block type="fileopen2"></block>   ';
 
 FILE += '</category>';
 
