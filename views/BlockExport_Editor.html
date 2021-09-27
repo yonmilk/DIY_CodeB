@@ -332,19 +332,17 @@ onclick="sidebar_toggle()" /> -->
             <!-- 2020-12-05 양승국 언어변경을 위해 생성-->
             <!--언어변환 -->
             <!-- <select id="language" class="form-control col-md-2 mt-2 ml-1">
-<option id = "ko" value="kor">Ko</option>
-<option id = "en" value="eng">en</option>
-</select> -->
+                <option id = "ko" value="kor">Ko</option>
+                <option id = "en" value="eng">en</option>
+                </select> -->
 
           </div> <!-- 오른쪽 구역 -->
         </div>
       </nav>
 
-      <!--####### 은선 - tab 추가 #######-->
+  <!--####### 은선 - tab 추가 #######-->
 	<!-- tab style-->
 
-	<!--tab 목록-->
-	<!-- <div class="container"> -->
 	<!-- 탭 메뉴 -->
 	<div id="tab_unm" class="tabs">
 		<ul class="tab">
@@ -361,33 +359,14 @@ onclick="sidebar_toggle()" /> -->
 			</li>
 		</ul>
 	</div>
-<script>
-	//왼쪽 스크립트
-	$(document).ready(function () {
-
-		var tab_id = 0;
-
-		$('ul.tab li').click(function () {
-			tab_id = $(this).attr('data-tab');
-
-			$('ul.tab li').removeClass('current');
-			$('.tab-content').removeClass('current');
-
-			$(this).addClass('current');
-			$("#" + tab_id).addClass('current');
-
-			console.log(tab_id);
-		})
-	});
-</script>
 
       <!-- 하단 내용 -->
       <div id="bottomDiv">
 
         <!-- 블럭 나오는 부분(왼쪽) -->
         <div id="blocklyDiv" class="borderR">
-          <div id="tab-1" class="tab-content current">
-            <div id="blocklyDiv1" style="height: calc(100vh - 90px);">
+          <div id="tab-1" class="tab-content current"">
+            <div id="blocklyDiv1" class="workspaceDiv">
               <div class="windowTitle" id="windowBlockTitle">
                 블록(Block)
                 <div class="workspaceBtns">
@@ -400,7 +379,7 @@ onclick="sidebar_toggle()" /> -->
           </div>
       
           <div id="tab-2" class="tab-content">
-            <div id="blocklyDiv2" style="height: calc(100vh - 90px);">
+            <div id="blocklyDiv2" class="workspaceDiv">
               <div class="windowTitle" id="windowBlockTitle">
                 블록(Block)
                 <div class="workspaceBtns">
@@ -413,7 +392,7 @@ onclick="sidebar_toggle()" /> -->
           </div>
       
           <div id="tab-3" class="tab-content">
-            <div id="blocklyDiv3" style="height: calc(100vh - 90px);">
+            <div id="blocklyDiv3" class="workspaceDiv">
               <div class="windowTitle" id="windowBlockTitle">
                 블록(Block)
                 <div class="workspaceBtns">
@@ -481,91 +460,141 @@ onclick="sidebar_toggle()" /> -->
     <script src="/js/utils/basicFunctions.js"></script>
     <script src="/js/utils/blockFunctions.js"></script>
 
-    <!-- Toolbox 정의 -->
+    <!-- 탭 관련 스크립트 + Toolbox 정의 -->
+    <script>
+      // workspace (= 블록배치하는 공간) 정의
+      let Workspace1 = Blockly.inject(
+        "blocklyDiv1", {
+        toolbox: toolbox, // 툴박스  보이기 
+        grid: // 그리드 보이기 
+        {
+          spacing: 0,
+          length: 3,
+          colour: '#ccc',
+          snap: true
+        },
+        zoom: // 줌 기능 3단계 변경
+        {
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          //pinch: true
+        },
+        trashcan: true, // 휴지통
+        renderer: "zelos" // 제로스 테마
+      }
+      );
+      Workspace1.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
+      Workspace1.addChangeListener(whenSelected);// 선택 되었을 때 메소드
+
+      let Workspace2 = Blockly.inject(
+        "blocklyDiv2", {
+        toolbox: toolbox, // 툴박스  보이기 
+        grid: // 그리드 보이기 
+        {
+          spacing: 0,
+          length: 3,
+          colour: '#ccc',
+          snap: true
+        },
+        zoom: // 줌 기능 3단계 변경
+        {
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          //pinch: true
+        },
+        trashcan: true, // 휴지통
+        renderer: "zelos" // 제로스 테마
+      }
+      );
+      Workspace2.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
+      Workspace2.addChangeListener(whenSelected);// 선택 되었을 때 메소드
+
+      let Workspace3 = Blockly.inject(
+        "blocklyDiv3", {
+        toolbox: toolbox, // 툴박스  보이기 
+        grid: // 그리드 보이기 
+        {
+          spacing: 0,
+          length: 3,
+          colour: '#ccc',
+          snap: true
+        },
+        zoom: // 줌 기능 3단계 변경
+        {
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          //pinch: true
+        },
+        trashcan: true, // 휴지통
+        renderer: "zelos" // 제로스 테마
+      }
+      );
+      Workspace3.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
+      Workspace3.addChangeListener(whenSelected);// 선택 되었을 때 메소드
+
+      // 탭 순환 코드
+      let workspace = Workspace1;   //workspace의 기본값은 Workspace1
+      $(document).ready(function () {
+        var tab_id = 0;
+        $('ul.tab li').click(function () {
+          tab_id = $(this).attr('data-tab');
+
+          $('ul.tab li').removeClass('current');
+          $('.tab-content').removeClass('current');
+
+          $(this).addClass('current');
+          $("#" + tab_id).addClass('current');
+
+          // 그냥... workspace 변수 자체를 순환시키면 되잖아..?
+          if(tab_id === 'tab-1'){
+            workspace = Workspace1;
+          }
+          if(tab_id === 'tab-2'){
+            workspace = Workspace2;
+          }
+          if(tab_id === 'tab-3'){
+            workspace = Workspace3;
+          }
+        })
+      });
+
+      // 
+      // let eachTabCode;
+      // let workspace;
+
+      // $('#tab_1').on('click', () => {
+      //   console.log('tab1');
+      //   eachTabCode = Blockly.Python.workspaceToCode(Workspace1);
+      //   pyEditor.setValue(eachTabCode);
+      //   workspace = Workspace1;
+      // });
+      // $('#tab_2').on('click', () => {
+      //   console.log('tab2');
+      //   eachTabCode = Blockly.Python.workspaceToCode(Workspace2);
+      //   pyEditor.setValue(eachTabCode);
+      //   workspace = Workspace2;
+      // });
+      // $('#tab_3').on('click', () => {
+      //   console.log('tab3')
+      //   eachTabCode = Blockly.Python.workspaceToCode(Workspace3);
+      //   pyEditor.setValue(eachTabCode);
+      //   workspace = Workspace3;
+      // });
+    </script>
 
     <script>
-      	// (Workspace = 블록배치하는 공간) 블록이 나타나는 부분
-	let Workspace1 = Blockly.inject(
-	  "blocklyDiv1", {
-	  toolbox: toolbox, // 툴박스  보이기 
-	  grid: // 그리드 보이기 
-	  {
-		spacing: 0,
-		length: 3,
-		colour: '#ccc',
-		snap: true
-	  },
-	  zoom: // 줌 기능 3단계 변경
-	  {
-		controls: true,
-		wheel: true,
-		startScale: 1.0,
-		maxScale: 3,
-		minScale: 0.3,
-		scaleSpeed: 1.2,
-		//pinch: true
-	  },
-	  trashcan: true, // 휴지통
-	  renderer: "zelos" // 제로스 테마
-	}
-	);
-	Workspace1.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
-	Workspace1.addChangeListener(whenSelected);// 선택 되었을 때 메소드
-	
-	let Workspace2 = Blockly.inject(
-	  "blocklyDiv2", {
-	  toolbox: toolbox, // 툴박스  보이기 
-	  grid: // 그리드 보이기 
-	  {
-		spacing: 0,
-		length: 3,
-		colour: '#ccc',
-		snap: true
-	  },
-	  zoom: // 줌 기능 3단계 변경
-	  {
-		controls: true,
-		wheel: true,
-		startScale: 1.0,
-		maxScale: 3,
-		minScale: 0.3,
-		scaleSpeed: 1.2,
-		//pinch: true
-	  },
-	  trashcan: true, // 휴지통
-	  renderer: "zelos" // 제로스 테마
-	}
-	);
-	Workspace2.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
-	Workspace2.addChangeListener(whenSelected);// 선택 되었을 때 메소드
-	
-	let Workspace3 = Blockly.inject(
-	  "blocklyDiv3", {
-	  toolbox: toolbox, // 툴박스  보이기 
-	  grid: // 그리드 보이기 
-	  {
-		spacing: 0,
-		length: 3,
-		colour: '#ccc',
-		snap: true
-	  },
-	  zoom: // 줌 기능 3단계 변경
-	  {
-		controls: true,
-		wheel: true,
-		startScale: 1.0,
-		maxScale: 3,
-		minScale: 0.3,
-		scaleSpeed: 1.2,
-		//pinch: true
-	  },
-	  trashcan: true, // 휴지통
-	  renderer: "zelos" // 제로스 테마
-	}
-	);
-	Workspace3.addChangeListener(codeUpdate);  // 코드 갱신하기 메소드
-	Workspace3.addChangeListener(whenSelected);// 선택 되었을 때 메소드
-
       Blockly.FieldTextInput.prototype.maxDisplayLength = 100;
       let isImportLoading = 0;
 
@@ -900,37 +929,17 @@ sys.stdout = io.StringIO()
 
     <!-- 기본 블럭+코드 배치 -->
     <script>
-	visibleAll()
-	// 블록클리 리사이즈 이벤트 등록
-	new ResizeSensor(jQuery('#blocklyDiv1'), function () {
-	  Blockly.svgResize(Workspace1);
-	});
-	new ResizeSensor(jQuery('#blocklyDiv2'), function () {
-	  Blockly.svgResize(Workspace2);
-	});
-	new ResizeSensor(jQuery('#blocklyDiv3'), function () {
-	  Blockly.svgResize(Workspace3);
-	});
-
-  let eachTabCode;
-
-  $('#tab_1').on('click',() => {
-	console.log('tab1');
-	eachTabCode = Blockly.Python.workspaceToCode(Workspace1);
-	// console.log(testCode);
-	pyEditor.setValue(eachTabCode);
-  });
-  $('#tab_2').on('click',() => {
-	console.log('tab2');
-	eachTabCode = Blockly.Python.workspaceToCode(Workspace2);
-	// console.log(testCode);
-	pyEditor.setValue(eachTabCode);
-  });
-  $('#tab_3').on('click',() => {
-	  console.log('tab3')
-    eachTabCode = Blockly.Python.workspaceToCode(Workspace3);
-	pyEditor.setValue(eachTabCode);
-  });
+      visibleAll()
+      // 블록클리 리사이즈 이벤트 등록
+      new ResizeSensor(jQuery('#blocklyDiv1'), () => {
+        Blockly.svgResize(Workspace1);
+      });
+      new ResizeSensor(jQuery('#blocklyDiv2'), () => {
+        Blockly.svgResize(Workspace2);
+      });
+      new ResizeSensor(jQuery('#blocklyDiv3'), () => {
+        Blockly.svgResize(Workspace3);
+      });
     </script>
 
     <!-- menu UI & menu setup -->
