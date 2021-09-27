@@ -284,9 +284,6 @@ b {
   flex-direction: column;
 } */
 
-#codeDiv1 {
-}
-
 .container-fluid > .row {
   margin-right: 0;
   margin-left: 0;
@@ -381,13 +378,14 @@ b {
   width: 100%;
 }
 #bottomDiv {
-  height: calc(100vh - 90px);
   display: grid;
   background-color: #212429;
 }
+#bottomDiv, .workspaceDiv {
+  height: calc(100vh - 120px);
+}
 #codeDiv {
   display: grid;
-  height: calc(100vh - 15px - 78px);
 }
 
 #pyCodeEditor {
