@@ -6,7 +6,7 @@
 
 `yw.js` 로 생성하였다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/1.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/1.png)
 
 ### 블록클리 폴더 내 파일 생성
 
@@ -18,7 +18,7 @@
 
 `block_yw_js.js` : 자바스크립트 파일 
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/2.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/2.png)
 
 ## 2. 파일 경로 추가
 
@@ -68,7 +68,7 @@ YW += '</category>';
 
 이 과정까지 완료하면 다음과 같이 카테고리가 추가된 것을 확인할 수 있다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/3.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/3.png)
 
 ## 4. 블록 생성 - 블록클리
 
@@ -80,7 +80,7 @@ YW += '</category>';
 
 임포트 블록을 생성해 보았다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/4.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/4.png)
 
 ## 5. 블록 생성 - 코드
 
@@ -110,7 +110,7 @@ YW += ' <block type="import_yw"></block>';
 
 블록클리 사이트에서 `Block Definition: JavaScript` 를 복사해 `block_yw.js` 에 붙여넣는다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/5.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/5.png)
 
 ```jsx
 // 임포트 블록
@@ -134,7 +134,7 @@ Blockly.Blocks['import_yw'] = {
 
 블록과 매핑 된 파이썬 코드를 정의한다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/6.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/6.png)
 
 이때 파이썬 코드를 입력해주어야한다.
 
@@ -164,7 +164,7 @@ Blockly.Python['import_yw'] = function(block) {
 문장형은 단독으로 사용하지 못하고, 다른 블록에 끼어서 사용하는 블록이다.
 단독형은 임포트, Print 문과 같이 단독으로 사용할 수 있는 블록이다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/7.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/7.png)
 
 (좌) 문장형 / (우) 단독형
 
@@ -203,10 +203,10 @@ Blockly.JavaScript['import_yw'] = function(block) {
 
 블록을 가져다 놓으면 파이썬 코드도 표시된다.
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/8.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/8.png)
 
 추가된 블록
 
-![사진참고](https://github.com/oow214/DIY_CodeB/blob/497eda326ae9d7972a37fa3b10c29dec57d0099f/manual/BLOCK/9.png)
+![사진참고](https://github.com/oow214/DIY_CodeB/blob/81d7e78402916a2a8d310cf8e8826e4e430d82de/manual/BLOCK/9.png)
 
 파이썬 코드 표시됨
