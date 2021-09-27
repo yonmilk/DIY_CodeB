@@ -5,6 +5,9 @@ FILE += '  <block type="csv_library"></block>';
 FILE += '  <block type="import_pil_pilimg"></block>';
 FILE += '  <block type="import_pil_imagefilter"></block>';
 
+// 파일 열기 블록
+FILE += '<block type="fileopen"></block>';
+
 // 기태 수정(로컬 파일 열기)
 FILE += '  <block type = "fd_open">';
 FILE += '    <value name="text">';

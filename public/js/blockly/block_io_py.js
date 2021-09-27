@@ -5,7 +5,7 @@
 Blockly.Python['input1'] = function (block) {
   var value_content1 = Blockly.Python.valueToCode(block, 'content1', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'input( ' + value_content1 + ' )';
+  var code = 'input(' + value_content1 + ')';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
