@@ -672,6 +672,37 @@ onclick="sidebar_toggle()" /> -->
     <!-- pyodide 초기화 -->
     <script src="/js/utils/pyodide.js"></script>
     <script>
+      function makeRuncode(code) {
+        code2 = code.split("\n")
+        code3 = []
+        code4 = ""
+        check = 0
+
+        for(let a of code2){
+          s = a[0];
+          console.log(s);	
+          if (s != ' ' && check == 1) {
+            code3.push(code4);
+            code4 = "";
+            code4 += a + "\n";
+            check = 0;
+          }
+          else if (s != ' ') {
+            code3.push(code4);
+            code4 = "";
+            code4 += a + "\n";
+            check = 0;
+          }
+          else{
+            code4 += a + "\n";
+            check = 1;
+          }
+        }
+        code3.push(code4);
+        console.log("code3 : ", code3);
+        return code3;
+      }
+    
       //==================================
       // 블록을 실행했을 때 
       //==================================
@@ -701,6 +732,9 @@ onclick="sidebar_toggle()" /> -->
 
         // 블록 코드 On/Off 에 따른 Flag에 따라 Code Editor로부터 가져오는 코드 분기
         flagBlockCode == 1 ? code = pyEditor.getValue() : code = asyncEditor.getValue();
+
+        // 아래 코드를 사용하면 모두 자르는게 아니라 함수 단위나 블록 단위로 프로그램을 잘라줌 
+        let codeArr = makeRuncode(code) // code.split("\n"); 
 
         // 이 부분이 코드 싹다 잡아와서 출력
         // 실행했을때 그래프를 지우고 하기 위해
@@ -844,6 +878,7 @@ sys.stdout = io.StringIO()
           }
         });
       }
+        
 
     </script>
     <!-- csv를 테이블로 출력-->
