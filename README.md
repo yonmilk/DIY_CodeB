@@ -22,7 +22,10 @@ npm run prod
 [Code 블록 생성 방법](manual/BLOCK.md)
 
 ## ChangeLog
-### 2021.09.27.
+### 2021.09.28. - 서버 관련
+- 기존 HTML Views를 EJS로 변경하였습니다. (Node.js에서 전달받은 데이터에 따라 View를 동적으로 구성하기 위함.)
+
+### 2021.09.27. - 서버 관련
 - [BlockExport_Editor] 루트 디렉토리에 위치하던 HTML을 views 디렉토리로 이동하였습니다.
 
 - [BlockExport_Editor] 브라우저 윈도우 종료 시 세션 파일을 서버 상에서 제거하도록 처리하였습니다. (TODO: 뒤로가기 및 새로고침 시에도 동작할 수 있도록 정교화 필요.)
