@@ -35,7 +35,8 @@ function Check_matplotlib_user_input(a, b) {
 
 // 상단 플마 로직 - 다른 곳으로 옮길 것
 function workspaceFocusEvent() {
-    var b = workspace;
+    // var b = workspace;
+    var b = workspaceCheck();
     b.markFocused();
     b.setScale(b.options.zoomOptions.startScale);
     b.beginCanvasTransition();
@@ -45,14 +46,31 @@ function workspaceFocusEvent() {
 }
 
 function workspacePlusEvent() {
-    var b = workspace;
+    var b = workspaceCheck();
     b.markFocused();
     b.zoomCenter(-1);
     Blockly.Touch.clearTouchIdentifier();
 }
 function workspaceMinusEvent() {
-    var b = workspace;
+    var b = workspaceCheck();
     b.markFocused();
     b.zoomCenter(1);
     Blockly.Touch.clearTouchIdentifier();
+}
+
+// 탭 workspace 확인용 
+function workspaceCheck() {
+    let tab = document.getElementsByClassName('tab-link current'); 
+	let tab_id = tab[0].firstElementChild.id;
+
+    if(tab_id == 'tab_1') {
+        return Workspace1;
+
+    } else if(tab_id == 'tab_2') {
+        return Workspace2;
+
+    } else if(tab_id == 'tab_3') {
+        return Workspace3;
+
+    }
 }
