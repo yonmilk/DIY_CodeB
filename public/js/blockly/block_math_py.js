@@ -14,7 +14,16 @@ Blockly.Python['math_library'] = function (block) {
     var value_name = Blockly.Python.valueToCode(block, 'va', Blockly.Python.ORDER_ATOMIC);
     var dropdown_name = block.getFieldValue('NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = "math."+dropdown_name + '(' + value_name + ')';
+    let code;
+    if(dropdown_name === 'minus'){
+      code = `-${value_name}`
+    }
+    else if(dropdown_name === 'pow10'){
+      code = `math.pow(10,${value_name})`
+    }
+    else {
+      code = `math.${dropdown_name}(${value_name})`;
+    }
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };
@@ -41,6 +50,15 @@ Blockly.Python['math_library'] = function (block) {
     var dropdown_name = block.getFieldValue('NAME');
     // TODO: Assemble JavaScript into code variable.
     var code = "math."+dropdown_name;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+  Blockly.Python['math_tri_func'] = function (block) {
+    var value_name = Blockly.Python.valueToCode(block, 'va', Blockly.Python.ORDER_ATOMIC);
+    var dropdown_name = block.getFieldValue('NAME');
+    // TODO: Assemble JavaScript into code variable.
+    let code = `math.${dropdown_name}(${value_name})`;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.Python.ORDER_ATOMIC];
   };

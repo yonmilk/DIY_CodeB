@@ -9,7 +9,7 @@ MATH +='<label text="%{BKY_MATH_MATH}"></label>';
 MATH +='<block type = "math1">';
 MATH +='  <value name="va">';
 MATH +='    <shadow type="indata">';
-MATH +='      <field name="indata1"></field>';
+MATH +='      <field name="indata1">0</field>';
 MATH +='    </shadow>';
 MATH +='  </value>';
 MATH +='</block>';
@@ -17,25 +17,36 @@ MATH +='</block>';
 MATH +='<block type = "math2">';
 MATH +='  <value name="va1">';
 MATH +='    <shadow type="indata">';
-MATH +='      <field name="indata1"></field>';
+MATH +='      <field name="indata1">0</field>';
 MATH +='    </shadow>';
 MATH +='  </value>';
 MATH +='  <value name="va2">';
 MATH +='    <shadow type="indata">';
-MATH +='      <field name="indata1"></field>';
+MATH +='      <field name="indata1">0</field>';
 MATH +='    </shadow>';
 MATH +='  </value>';
 MATH +='</block>';
 
 MATH +='<block type = "math3"></block>';
 
-MATH += '<block type="math_single">';
-MATH += '<value name="NUM">';
-MATH += '  <shadow type="indata">';
-MATH += '    <field name="indata1"></field>';
-MATH += '  </shadow>';
-MATH += '</value>';
-MATH += '</block>';
+// 2021. 09. 28 - math1 과 병합 (정윤)
+// MATH += '<block type="math_single">';
+// MATH += '<value name="NUM">';
+// MATH += '  <shadow type="indata">';
+// MATH += '    <field name="indata1"></field>';
+// MATH += '  </shadow>';
+// MATH += '</value>';
+// MATH += '</block>';
+
+MATH += `
+<block type="math_tri_func">
+  <value name="va">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
 
 //<!--2020-12-29 전우진 math1 end -->';
 // MATH +='<label text="통계 및 랜덤"></label>';
