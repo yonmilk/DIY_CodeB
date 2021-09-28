@@ -74,3 +74,25 @@ function workspaceCheck() {
 
     }
 }
+
+/**
+ * HTML 엔티티로부터 전달받은 특수문자 (&lt; &gt; 등)를 
+ * 실제 XML 형식의 문자열로 파싱하는 함수
+ * 
+ * @param {*} str
+ * @returns HTML 엔티티에서 파싱된 XML String을 반환한다.
+ */
+function decodeHTMLEntities (str) {
+    if(str !== undefined && str !== null && str !== '') {
+        str = String(str);
+
+        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+        var element = document.createElement('div');
+        element.innerHTML = str;
+        str = element.textContent;
+        element.textContent = '';
+    }
+
+    return str;
+}

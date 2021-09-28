@@ -11,6 +11,9 @@ const app = express();
 const port = 18090;
 const path = require('path');
 
+// EJS 사용
+app.set('view engine', 'ejs');
+
 // POST request 파싱을 위한 메소드를 정의한다.
 app.use(express.urlencoded({
   extended: true
