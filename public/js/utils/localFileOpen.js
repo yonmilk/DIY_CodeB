@@ -21,12 +21,28 @@ function localFileOpen(blockId) {
 
       // reader가 준비되면 
       reader.onload = function (e) {
-        datas = e.target.result;                                      // 다읽어온 파일의 값을 datas에 저장      
-        console.log("datas", datas);                                  // datas 출력 => txt나 csv를 출력한번 해본다.
-        fss.writeFile(fileName2, datas);                              // FS에 파일명으로 datas를 저장
-        var block = workspace.getBlockById(blockId);                  // 블럭안의 input에 파일 경로를 적기위해 블럭 찾음
+        datas = e.target.result;                                                // 다읽어온 파일의 값을 datas에 저장      
+        console.log("datas", datas);                                            // datas 출력 => txt나 csv를 출력한번 해본다.
+        fss.writeFile(fileName2, datas);                                    // FS에 파일명으로 datas를 저장
+        // var block = demoWorkspace.getBlockById(blockId);                        // 블럭안의 input에 파일 경로를 적기위해 블럭 찾음
 
-        var bId = Blockly.mainWorkspace.getBlockById(blockId)         // ???
+        // 예원
+        var block;
+        let tab = document.getElementsByClassName('tab-link current'); 
+	      let tab_id = tab[0].firstElementChild.id;
+        console.log(tab_id)
+        if(tab_id == 'tab_1') {
+          block = Workspace1.getBlockById(blockId); 
+      
+        } else if(tab_id == 'tab_2') {
+          block = Workspace2.getBlockById(blockId);
+      
+        } else if(tab_id == 'tab_3') {
+          block = Workspace3.getBlockById(blockId);
+      
+        }
+
+        var bId = Blockly.mainWorkspace.getBlockById(blockId)                   // ???
         block.setFieldValue(JSON.stringify(fileName2), 'file_path');  // 블럭안에 input에 파일경로를 적어줌
       };
 
