@@ -554,3 +554,51 @@ Blockly.Blocks['fileopen3'] = {
       this.setHelpUrl("");
     }
   };
+
+  // 객체사용 
+Blockly.Blocks['class_use3'] = {
+  init: function () {
+    this.appendValueInput("VAR1")
+      .setCheck(null)
+    this.appendValueInput("VAR2")
+      .setCheck(null)
+      .appendField(".");
+    this.appendValueInput("3")
+      .appendField("(")
+    this.appendDummyInput()
+      .appendField(')')
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(125);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+//확장
+Blockly.Blocks['df_add_function2'] = {
+  init: function () {
+    this.appendValueInput("LIST").setCheck(null);
+    this.appendDummyInput().appendField(".");
+    this.appendValueInput("LIST2").setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    //this.setOutput(true, null);
+    this.setColour(125);
+    this.setTooltip("");
+    this.setHelpUrl("");
+}
+};
+
+Blockly.Blocks['comma'] = {
+  init: function () {
+    this.appendValueInput('v1').setCheck(null);
+    this.appendDummyInput().appendField(',');
+    this.appendValueInput('v2').setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(125);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};

@@ -527,6 +527,10 @@ Blockly.Msg['COLLECTION_LISTS_CREATE_WITH_5'] = "생성";
 Blockly.Msg['COLLECTION_VA_SEL'] = "[인덱싱]";
 Blockly.Msg['COLLECTION_VA_DEL'] = "[값삭제] del";
 
+Blockly.Msg['COLLECTION_LISTS_CREATE'] = "리스트";
+Blockly.Msg['COLLECTION_LISTS_INSERT'] = "데이터 추가";
+Blockly.Msg['COLLECTION_LISTS_SORT'] = "데이터 정렬";
+
 Blockly.Msg['COLLECTION_TUPLE'] = "튜플";
 
 Blockly.Msg['COLLECTION_SET'] = "집합";
@@ -606,7 +610,8 @@ Blockly.Msg['COLLECTION_16_COPY'] = "복사(copy)";
 
 Blockly.Msg['COLLECTION_16_COUNT'] = "개수(count)";
 Blockly.Msg['COLLECTION_16_INDEX'] = "인덱스(index)";
-Blockly.Msg['COLLECTION_16_POP'] = "끝삭제(pop)";
+Blockly.Msg['COLLECTION_16_POP'] = "맨끝삭제(pop)";
+Blockly.Msg['COLLECTION_16_POP0'] = "맨앞삭제(pop(0))";
 Blockly.Msg['COLLECTION_16_REMOVE'] = "삭제(remove)";
 Blockly.Msg['COLLECTION_16_APPEND'] = "붙임(append)";
 
@@ -1273,15 +1278,19 @@ Blockly.Msg['DATABASE_ORDER_1'] = "ORDER BY";
 
 Blockly.Msg['MATH_IMPORT'] = "[임포트] 수학,통계,랜덤";
 Blockly.Msg['MATH_'] = "수학";
+Blockly.Msg['MATH_TRI_FUNC'] = "삼각함수";
 Blockly.Msg['MATH_CEIL'] = "올림(ceil)";
-Blockly.Msg['MATH_FABS'] = "절대값(fabs)";
-Blockly.Msg['MATH_FACTORIAL'] = "팩토리얼(factorial)";
 Blockly.Msg['MATH_FLOOR'] = "내림(floor)";
-Blockly.Msg['MATH_ISQRT'] = "정수 제곱근(isqrt)";
+Blockly.Msg['MATH_FABS'] = "절대값(fabs)";
+Blockly.Msg['MATH_MINUS'] = "음수(-)";
+Blockly.Msg['MATH_FACTORIAL'] = "팩토리얼(factorial)";
 Blockly.Msg['MATH_MODF'] = "소수,정수(modf)";
-Blockly.Msg['MATH_EXP'] = "e 거듭제곱(exp)";
-Blockly.Msg['MATH_LOG10'] = "로그10(log10)";
 Blockly.Msg['MATH_SQRT'] = "제곱근(sqrt)";
+Blockly.Msg['MATH_ISQRT'] = "정수 제곱근(isqrt)";
+Blockly.Msg['MATH_POW10'] = "10 거듭제곱(pow10)";
+Blockly.Msg['MATH_LOG10'] = "로그10(log10)";
+Blockly.Msg['MATH_LN'] = "ln(log)";
+Blockly.Msg['MATH_EXP'] = "e 거듭제곱(exp)";
 Blockly.Msg['MATH_DEGREES'] = "도 변환(degrees)";
 Blockly.Msg['MATH_RADIANS'] = "라디안 변환(radians)";
 Blockly.Msg['MATH_ACOS'] = "아크 코사인(acos)";

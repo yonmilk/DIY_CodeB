@@ -1733,6 +1733,7 @@ Blockly.defineBlocksWithJsonArray([
           //["%{BKY_COLLECTION_16_EXTEND}", "EXTEND"],
           ["%{BKY_COLLECTION_16_COUNT}", "COUNT"],
           ["%{BKY_COLLECTION_16_POP}", "POP"],
+          ["%{BKY_COLLECTION_16_POP0}", "POP0"],
           //["%{BKY_COLLECTION_16_REMOVE}", "REMOVE"],
           //["%{BKY_COLLECTION_16_APPEND}", "APPEND"],
         ],

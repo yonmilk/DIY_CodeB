@@ -2,5 +2,5 @@
 node_modules/
 .DS_Store
 
-# Except user session file
+# Except session directory
 sessions/

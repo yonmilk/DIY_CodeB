@@ -672,6 +672,37 @@ onclick="sidebar_toggle()" /> -->
     <!-- pyodide 초기화 -->
     <script src="/js/utils/pyodide.js"></script>
     <script>
+      function makeRuncode(code) {
+        code2 = code.split("\n")
+        code3 = []
+        code4 = ""
+        check = 0
+
+        for(let a of code2){
+          s = a[0];
+          console.log(s);	
+          if (s != ' ' && check == 1) {
+            code3.push(code4);
+            code4 = "";
+            code4 += a + "\n";
+            check = 0;
+          }
+          else if (s != ' ') {
+            code3.push(code4);
+            code4 = "";
+            code4 += a + "\n";
+            check = 0;
+          }
+          else{
+            code4 += a + "\n";
+            check = 1;
+          }
+        }
+        code3.push(code4);
+        console.log("code3 : ", code3);
+        return code3;
+      }
+    
       //==================================
       // 블록을 실행했을 때 
       //==================================
@@ -701,6 +732,9 @@ onclick="sidebar_toggle()" /> -->
 
         // 블록 코드 On/Off 에 따른 Flag에 따라 Code Editor로부터 가져오는 코드 분기
         flagBlockCode == 1 ? code = pyEditor.getValue() : code = asyncEditor.getValue();
+
+        // 아래 코드를 사용하면 모두 자르는게 아니라 함수 단위나 블록 단위로 프로그램을 잘라줌 
+        let codeArr = makeRuncode(code) // code.split("\n"); 
 
         // 이 부분이 코드 싹다 잡아와서 출력
         // 실행했을때 그래프를 지우고 하기 위해
@@ -844,6 +878,7 @@ sys.stdout = io.StringIO()
           }
         });
       }
+        
 
     </script>
     <!-- csv를 테이블로 출력-->
@@ -902,35 +937,39 @@ sys.stdout = io.StringIO()
     <script src="/js/zeynep/config.js"></script>
     <!-- 기태 처리 (파일) 끝 20.12.29 ------------------------------------------------------------------------->
 
-    <!-- 기태 추가(단축키)-->
+<!-- 기태 추가(단축키)-->
 <script>
-	// 단축키 기능 추가 (ctrl + F11 실행 / ctrl + F10 결과 지우기 / ctrl + F9 블록 지우기 )
-	var isCtrl;
-	document.onkeyup = function (e) {
-	  if (e.which == 17) {
-		isCtrl = false;
-	  }
-	};
-	document.onkeydown = function (e) {
-	  if (e.which == 17) {
-		isCtrl = true;
-	  }
-	  	  
-	  if (e.which == 122 && isCtrl == true) {
-		runButton();
-	  }
+  // 단축키 기능 추가 (ctrl + F11 실행 / ctrl + F10 결과 지우기 / ctrl + F9 블록 지우기 )
+  let isCtrl;
+  $(document).keyup(({ keyCode }) => {
+    if (keyCode == 17) {
+      isCtrl = false;
+    }
+  });
 
-	  if (e.which == 121 && isCtrl == true) {		
-		clear_result();		
-	  }
+  $(document).keydown(({ keyCode }) => {
 
-	  if (e.which == 120 && isCtrl == true) {			
-		clearBlock();
-	  }
-	};
+    if (keyCode == 17) {
+      isCtrl = true;
+    }
 
-  // 윈도우 닫기 테스트
-  window.onbeforeunload = function(event) {
+    if (keyCode == 122 && isCtrl == true) {
+      runButton();
+    }
+
+    if (keyCode == 121 && isCtrl == true) {
+      clear_result();
+    }
+
+    if (keyCode == 120 && isCtrl == true) {
+      clearBlock();
+    }
+  });
+
+  // 윈도우 닫기 시 세션 클리어
+  // TODO: 정교화 및 추후 로직 분리 고려
+  // TODO: 뒤로가기 시 세션 종료(?)
+  window.onbeforeunload = function (event) {
     event.preventDefault();
 
     $.ajax({
@@ -940,7 +979,7 @@ sys.stdout = io.StringIO()
 
     return "코드비 종료";
   }
-  </script>
+</script>
 
 </body>
 <!--camera

@@ -11,6 +11,9 @@ const app = express();
 const port = 18090;
 const path = require('path');
 
+// EJS 사용
+app.set('view engine', 'ejs');
+
 // POST request 파싱을 위한 메소드를 정의한다.
 app.use(express.urlencoded({
   extended: true
@@ -20,6 +23,10 @@ app.use(express.json());
 // 정적 파일 라우팅을 설정한다.
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// TEMP
+// TODO: 추후 삭제할 것.
+app.use('/temp', express.static(path.join(__dirname, "temp")));
 
 // 세션 처리 로직을 작성한다.
 const session = require('express-session');

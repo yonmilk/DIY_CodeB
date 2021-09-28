@@ -601,6 +601,7 @@ Blockly.Msg['COLLECTION_16_COPY'] = "copy";
 Blockly.Msg['COLLECTION_16_COUNT'] = "count of element";
 Blockly.Msg['COLLECTION_16_INDEX'] = "index";
 Blockly.Msg['COLLECTION_16_POP'] = "pull out";
+Blockly.Msg['COLLECTION_16_POP0'] = "pull out 0";
 Blockly.Msg['COLLECTION_16_APPEND'] = "append";
 
 Blockly.Msg['COLLECTION_17_SPLIT'] = "split list";

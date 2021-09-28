@@ -5,7 +5,7 @@
 Blockly.Python['input1'] = function (block) {
   var value_content1 = Blockly.Python.valueToCode(block, 'content1', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'input( ' + value_content1 + ' )';
+  var code = 'input(' + value_content1 + ')';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
@@ -196,5 +196,35 @@ Blockly.Python['csv_reader_writer'] = function(block) {
   var value_var = Blockly.Python.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = `csv.${dropdown_drop}(${value_var})`;
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+// 객체 사용
+Blockly.Python['class_use3'] = function(block) {
+  var var1 = Blockly.Python.valueToCode(block, 'VAR1', Blockly.Python.ORDER_ATOMIC);
+  var var2 = Blockly.Python.valueToCode(block, 'VAR2', Blockly.Python.ORDER_ATOMIC);
+  var text_1 = Blockly.Python.valueToCode(block, '3', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = var1+'.'+var2+'('+text_1+')';
+  // var code = `${val1}.${val2} = ${text_1}\n`;
+  return [code, Blockly.Python.ORDER_ATOMIC]; 
+};
+
+// 확장
+Blockly.Python['df_add_function2'] = function(block) {
+  var value_name = Blockly.Python.valueToCode(block, 'LIST', Blockly.Python.ORDER_ATOMIC);
+  var value_name2 = Blockly.Python.valueToCode(block, 'LIST2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = value_name + "." + value_name2;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+}; 
+
+Blockly.Python['comma'] = function(block) {
+  var value_v1 = Blockly.Python.valueToCode(block, 'v1', Blockly.Python.ORDER_ATOMIC);
+  var value_v2 = Blockly.Python.valueToCode(block, 'v2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_v1}, ${value_v2}`;
+  // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };

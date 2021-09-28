@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #div_error_container {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #div_error_msg_container {
+        text-align: center;
+    }
+
+    #img_error {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<body>
+    <div id="div_conatiner">
+        <div id="div_error_container">
+            <h1 style="color: brown;">Oops!!</h1>
+            <img id="img_error" src="/temp/gaeguri.jpg" alt="개구리" />
+            <div id="div_error_msg_container">
+                <h1>401 Error(Unauthorized)</h1>
+                <h3>접근 권한이 없거나, 접근 방법이 잘못되었습니다.</h3>
+            </div>
+        </div>
+
+        <%=xmlData %>
+    </div>
+</body>
+</html>

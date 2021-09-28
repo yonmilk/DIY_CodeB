@@ -1826,6 +1826,9 @@ Blockly.Python.create_new_list = function (a) {
     case "POP":
       d = b + ".pop(" + a + ")";
       break;
+    case "POP0":
+      d = b + ".pop(0)";
+      break;
     case "REMOVE":
       d = b + ".remove(" + a + ")";
       break;

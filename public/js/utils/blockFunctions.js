@@ -7,28 +7,12 @@ function clear_result() {
 }
 
 // ==================================
-// 블록 지우기 - 은선
+// 블록 지우기
 //=================================== 
 function clearBlock() {
-    let tab = document.getElementsByClassName('tab-link current');
-    let tab_id = tab[0].firstElementChild.id;
-
-    if (tab_id == 'tab_1') {
-        console.log('del1')
-        Workspace1.clear();
-        clear_result();
-
-    } else if (tab_id == 'tab_2') {
-        console.log('del2')
-        Workspace2.clear();
-        clear_result();
-
-    } else if (tab_id == 'tab_3') {
-        console.log('del3')
-        Workspace3.clear();
-        clear_result();
-
-    }
+    var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
+    b.clear();                  // 워크스페이스 초기화
+    clear_result();             // 콘솔창 결과 초기화
 
 }
 
@@ -59,30 +43,12 @@ function file_save() {
 // 블록 저장하기
 //===================================
 function saveBlock() {
-    //--------- 은선 수정 ----------------
-    let tab = document.getElementsByClassName('tab-link current');
-    let tab_id = tab[0].firstElementChild.id;
+    var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
 
-    let xml
-    let py
-
-    if (tab_id == 'tab_1') {
-        xml = Blockly.Xml.workspaceToDom(Workspace1);  // 워크스페이스를 돔(xml)로 만듬
-        py = Blockly.Python.workspaceToCode(Workspace1);	// 워크스페이스를 py로 만들기
-
-    } else if (tab_id == 'tab_2') {
-        xml = Blockly.Xml.workspaceToDom(Workspace2);  // 워크스페이스를 돔(xml)로 만듬
-        py = Blockly.Python.workspaceToCode(Workspace2);	// 워크스페이스를 py로 만들기
-
-    } else if (tab_id == 'tab_3') {
-        xml = Blockly.Xml.workspaceToDom(Workspace3);  // 워크스페이스를 돔(xml)로 만듬
-        py = Blockly.Python.workspaceToCode(Workspace3);	// 워크스페이스를 py로 만들기
-
-    }
+    xml = Blockly.Xml.workspaceToDom(b);  // 워크스페이스를 돔(xml)로 만듬
+    py = Blockly.Python.workspaceToCode(b);	// 워크스페이스를 py로 만들기
 
     let p_xml = Blockly.Xml.domToPrettyText(xml); // 돔(xml)을 깔끔하게 만드는 부분
-
-    // ---------------------------- 은선 수정 끝 --------------------------
 
     let zip = JSZip();
 
@@ -143,31 +109,10 @@ function loadBlock() {
             // 	xml = xml.replace(q, '경로')
             // 	}
 
-            // ----------------------------은선 수정--------------------------
-
-
-            let tab = document.getElementsByClassName('tab-link current');
-            let tab_id = tab[0].firstElementChild.id;
-
-
             var dom = Blockly.Xml.textToDom(xml); // text를 돔 형태로 변환
-
-            if (tab_id == 'tab_1') {
-                Blockly.Xml.appendDomToWorkspace(dom, Workspace1); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
-
-            } else if (tab_id == 'tab_2') {
-                Blockly.Xml.appendDomToWorkspace(dom, Workspace2); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
-
-            } else if (tab_id == 'tab_3') {
-                Blockly.Xml.appendDomToWorkspace(dom, Workspace3); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
-
-            }
-
-
-            // Blockly.Xml.appendDomToWorkspace(dom, demoWorkspace); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
+            var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
+            Blockly.Xml.appendDomToWorkspace(dom, b); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
             fileName = file.name;
-
-            // ---------------------------- 은선 수정 끝 --------------------------
 
             // 워크스페이스에 있는 블록을 코드로 변환해 코드미러에 setValue해주는 부분
             try {
@@ -192,47 +137,16 @@ function loadBlock() {
     }
 }
 
-// ----------------------------은선 수정--------------------------
-
 // ==================================
 // 블록을 선택했을 때 
 //=================================== 
-//---------------------------------------예원 수정-----------------------------------------
 function whenSelected(event) {
-	let tab = document.getElementsByClassName('tab-link current'); 
-	let tab_id = tab[0].firstElementChild.id;
-
-	if (event.type == Blockly.Events.CREATE) {
-		// let block = demoWorkspace.getBlockById(event.blockId); 
-		let block;
-		if(tab_id == 'tab_1') {
-			block = Workspace1.getBlockById(event.blockId);
-	
-		} else if(tab_id == 'tab_2') {
-			block = Workspace2.getBlockById(event.blockId);
-	
-		} else if(tab_id == 'tab_3') {
-			block = Workspace3.getBlockById(event.blockId);
-	
-		}
-
-		console.log('블록이 선택됨');
-	}
-
+    
 	// 블록을 눌렀을 때 클릭 이벤트로 각종 메소드 작동
 	if (event.type == Blockly.Events.UI && event.element === "click") {
-		// let block = demoWorkspace.getBlockById(event.blockId);
-		let block;
-		if(tab_id == 'tab_1') {
-			block = Workspace1.getBlockById(event.blockId);
-	
-		} else if(tab_id == 'tab_2') {
-			block = Workspace2.getBlockById(event.blockId);
-	
-		} else if(tab_id == 'tab_3') {
-			block = Workspace3.getBlockById(event.blockId);
-	
-		}
+        var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
+		let block = b.getBlockById(event.blockId);
+
 		// 판다스에서 쓰이는 csv불러와서 데이터 프레임 만들어주는거
 		if ('csv2' == block.type) {
 			openTextFile(event.blockId);

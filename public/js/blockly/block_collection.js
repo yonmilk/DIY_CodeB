@@ -5,34 +5,28 @@
 // 리스트생성
 Blockly.Blocks['create_list'] = {
   init: function () {
-      this.appendDummyInput()
-          .appendField(new Blockly.FieldImage("/img/Collection/L1-logo.png", 25, 23, { alt: "*", flipRtl: "FALSE" }));
-          this.appendValueInput("list")
-          .setCheck(null);
-      this.appendDummyInput()
-          .appendField(" = [");
-      this.appendValueInput("text")
-          .setCheck(null);
-      this.appendDummyInput()
-          .appendField("]");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setStyle("custom_list_blocks");
-      this.setTooltip("Create a list");
-      this.setHelpUrl("");
-  }
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldImage('/img/Collection/L1-logo.png', 25, 23, { alt: '*', flipRtl: 'FALSE' }))
+      .appendField(Blockly.Msg.COLLECTION_LISTS_CREATE);
+    this.appendValueInput('list').setCheck(null);
+    this.appendDummyInput().appendField(' = [');
+    this.appendValueInput('text').setCheck(null);
+    this.appendDummyInput().appendField(']');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setStyle('custom_list_blocks');
+    this.setTooltip('Create a list');
+    this.setHelpUrl('');
+  },
 };
-
-
-
-
 
 // 리스트 정렬, 뒤집기
 Blockly.Blocks['list_sort_reverse'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage("/img/Collection/L3-logo.png", 25, 23, {alt: "*",flipRtl: "FALSE"}));
+            .appendField(new Blockly.FieldImage("/img/Collection/L3-logo.png", 25, 23, {alt: "*",flipRtl: "FALSE"}))
+            .appendField(Blockly.Msg.COLLECTION_LISTS_SORT);
         this.appendValueInput("list")
             .setCheck(null);
         this.appendDummyInput()
@@ -115,7 +109,8 @@ Blockly.Blocks['list_insert'] = {
         this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Collection/L2-logo.png", 25, 23, {
             alt: "*",
             flipRtl: "FALSE"
-        }));
+        }))
+        .appendField(Blockly.Msg.COLLECTION_LISTS_INSERT);
         this.appendValueInput("list").setCheck(null);
         this.appendDummyInput().appendField(Blockly.Msg.COLLECTION_15_INDEX);
         this.appendValueInput("INDEX").setCheck(null);
