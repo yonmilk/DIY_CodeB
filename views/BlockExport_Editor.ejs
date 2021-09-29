@@ -857,6 +857,7 @@ sys.stdout = io.StringIO()
             exe.innerHTML = pyodide.runPython(code);
             let stdout = pyodide.runPython("sys.stdout.getvalue()"); // 결과값을 싹 받아줌
             exe.innerHTML = stdout;
+            runCodeConsole(stdout); //결과값을 콘솔 변수에 저장해둠
           } catch (e) {
             if (e.toString().indexOf('FileNotFoundError') != -1 && code.toString().indexOf("pd.read_csv") != -1)
               exe.innerHTML = '파일 경로를 확인해주세요\n'
@@ -879,6 +880,22 @@ sys.stdout = io.StringIO()
         });
       }
         
+    // runCode() 결과 값 변수에 저장해둠
+      function runCodeConsole(result){
+          if(flagBlockCode == 0){
+              offConsole = result;
+          } else {
+              var b = workspaceCheck();
+
+              if(b == Workspace1) {
+                  tab1Console = result;
+              } else if(b == Workspace2) {
+                  tab2Console = result;
+              } else if(b == Workspace3) {
+                  tab3Console = result;
+              } 
+          }
+      }
 
     </script>
     <!-- csv를 테이블로 출력-->
@@ -915,22 +932,41 @@ sys.stdout = io.StringIO()
   let eachTabCode;
 
   $('#tab_1').on('click',() => {
-	console.log('tab1');
 	eachTabCode = Blockly.Python.workspaceToCode(Workspace1);
-	// console.log(testCode);
 	pyEditor.setValue(eachTabCode);
+
+  var exe = document.getElementById('exeArea');
+  exe.innerHTML = tabClickConsole('tab1');
   });
   $('#tab_2').on('click',() => {
-	console.log('tab2');
 	eachTabCode = Blockly.Python.workspaceToCode(Workspace2);
-	// console.log(testCode);
 	pyEditor.setValue(eachTabCode);
+
+  var exe = document.getElementById('exeArea');
+  exe.innerHTML = tabClickConsole('tab2');
   });
   $('#tab_3').on('click',() => {
-	  console.log('tab3')
-    eachTabCode = Blockly.Python.workspaceToCode(Workspace3);
-	pyEditor.setValue(eachTabCode);
+  eachTabCode = Blockly.Python.workspaceToCode(Workspace3);
+  pyEditor.setValue(eachTabCode);
+
+  var exe = document.getElementById('exeArea');
+  exe.innerHTML = tabClickConsole('tab3');
   });
+
+  // 탭 이동시 콘솔창 값 변화
+  function tabClickConsole(tabNum){
+    if(flagBlockCode == 0){
+        return offConsole;
+    } else {
+        if(tabNum == 'tab1') {
+            return tab1Console;
+        } else if(tabNum == 'tab2') {
+            return tab2Console;
+        } else if(tabNum == 'tab3') {
+            return tab3Console;
+        } 
+    }
+  }
     </script>
 
     <!-- menu UI & menu setup -->
