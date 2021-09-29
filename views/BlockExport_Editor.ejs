@@ -27,11 +27,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CodeB</title>
 
-  <!-- #####################################################################################################  -->
-  <!-- ******************************               CDN                       ******************************* -->
-  <!-- #####################################################################################################  -->
-  <!-- jquery -->
+  <!-- 코드비 동작에 필요한 초기 변수를 설정한다. -->
+  <script>
+    // 동작 환경을 초기화한다.
+    let envMode = "<%=envMode%>";
+    console.log(`===>서버 환경: ${envMode}`);
+    
+    let memberId = "";
+    let projectId = null;
+    let projectType = null; // 블록코딩 / 텍스트 코딩 Flag
+    let projectXml = ""; // 프로젝트에서 사용자가 작업한 XML 데이터
+    let usedLibs = ""; // 프로젝트에서 사용자가 추가한 라이브러리 배열
+    let editorCheckYn = ""; // 사용자가 최초로 에디터에 접근하였는지 여부
+    let isChallenge = null; // 도전과제 여부
 
+    /**
+     * condition: spring
+     * des: Spring 환경에서의 코드비 초기 변수를 설정한다.
+     */ 
+    if(envMode == "spring") {
+      // 프로젝트 아이디 설정
+      if(<%=projectId != -1%>) {
+        projectId = <%=projectId == -1 ? -1 : projectId %>
+      }
+
+    /**
+     * des: 프로젝트 첫 진입 시 서버로부터 프로젝트 타입을 받아와 블록/텍스트 코딩 타입을 지정한다.
+     * 
+     * 1. projectType이 비어있는 경우
+     *  - 새 프로젝트를 시작하는 경우를 의미.
+     *  - 사용자가 상단의 "블럭 | 블럭 + 코드 | 코드" 메뉴를 통해 타입을 지정할 수 있다.
+     *  - 서버에 저장되면 현재 상태의 projectType을 함께 저장한다.
+     * 
+     * 2. projectType == 1
+     *  - 사용자가 블록 코딩으로 서버에 저장한 경우
+     *  - 사용자는 이 시점부터 상단의 "블럭 | 블럭 + 코드 | 코드" 메뉴를 선택할 수 없다.
+     *  - 서버에 저장되면 항상 projectType = 1인 상태로 저장된다.
+     *  - 로컬에 저장 시, "로컬 블록 저장", "로컬 코드 저장" 기능을 둘 다 사용할 수 있다.
+     * 
+     * 3. projectType == 2
+     *  - 사용자가 텍스트 코딩으로 서버에 저장한 경우
+     *  - 사용자는 이 시점부터 상단의 "블럭 | 블럭 + 코드 | 코드" 메뉴를 선택할 수 없다.
+     *  - 서버에 저장되면 항상 projectType = 2인 상태로 저장된다.
+     *  - 로컬에 저장 시, "로컬 코드 저장" 기능만 사용할 수 있다.
+    */
+    if(<%=projectType != -1%> || <%=projectType == 1%>) {
+      projectType = 1;
+    } else if(<%=projectType == 2%>) {
+      projectType = 2;
+    }
+
+    // 프로젝트 XML 데이터 가져오기
+    if(<%=projectId == -1%>) {
+      projectXml = "";
+    } else {
+      let projectXmlWithEntity = "<%=xmlData%>";
+
+      // 서버에서 가져온 XML에 대한 HTML Entity를 파싱
+      if(projectXmlWithEntity !== undefined && projectXmlWithEntity !== null && projectXmlWithEntity !== '') {
+            projectXmlWithEntity = String(projectXmlWithEntity);
+
+            projectXmlWithEntity = projectXmlWithEntity.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+            projectXmlWithEntity = projectXmlWithEntity.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+            var element = document.createElement('div');
+            element.innerHTML = projectXmlWithEntity;
+            projectXml = element.textContent;
+            element.textContent = '';
+      }
+    }
+
+    // 멤버 아이디 설정
+    memberId = "<%=memberId%>";
+    
+    // TODO: usedLibs 동작 확인 필요
+    // 사용자가 추가한 라이브러리 배열 설정
+    usedLibs = "<%=usedLibs%>";
+    
+    // 에디터 최초 접근 여부 설정
+    editorCheckYn = "<%=editorCheckYn%>";
+    
+    // 도전과제 여부 설정
+    isChallenge = <%=isChallenge%>;
+    }
+
+    console.log(`===>Project ID: ${projectId}`);
+    console.log(`===>Project Type: ${projectType}`);
+    console.log("---xmlData---");
+    console.log(projectXml);
+    console.log("-------------");
+    console.log(`===>Member ID: ${memberId}`);
+    console.log(`===>Used Libs: ${usedLibs}`);
+    console.log(`===>Editor checked before: ${editorCheckYn}`);
+    console.log(`===>Is challenge: ${isChallenge}`);
+  </script>
   
   <script type="text/javascript" src="/js/cdn_script.js"></script>
   <script type="text/javascript" src="/js/css_script.js"></script>
@@ -482,9 +570,116 @@ onclick="sidebar_toggle()" /> -->
     <script src="/js/utils/blockFunctions.js"></script>
 
     <!-- Toolbox 정의 -->
-
     <script>
-      	// (Workspace = 블록배치하는 공간) 블록이 나타나는 부분
+    // 사용자가 추가한 라이브러리 목록을 담을 비어있는 배열 생성
+    let addedLibs = [];
+
+    // 새 프로젝트 저장 여부를 나타내는 Flag
+    let isSaved = 0;
+
+    // TODO: 이하 로직이 무엇을 하는지 파악해볼 것.
+    var projectLists = [];
+
+    function reloadTableData() {
+      if (projectType == 1) {
+        $(".saveGroupTitle").html("Block전용 저장")
+      } else {
+        $(".saveGroupTitle").html("Code전용 저장")
+      }
+      $(".projectListTable").html('<colgroup><col width="30%" /><col width="30%" /><col width="30%" /><col width="10%" /></colgroup><tr><th>제목</th><th>설명</th><th>날짜</th><th>선택</th></tr>');
+      var tableElem = document.getElementsByClassName("projectListTable")[0]
+      for (var i = 0; i < projectLists.length; i++) {
+        // if(projectLists[i].project_type == projectType) {
+        if (projectLists[i].project_type == projectType) {
+          var trElem = document.createElement('tr')
+          var td1Elem = document.createElement('td')
+          var td2Elem = document.createElement('td')
+          var td3Elem = document.createElement('td')
+          var td4Elem = document.createElement('td')
+          var selectElemBtn = document.createElement('button');
+          selectElemBtn.onclick = function () {
+            // console.log($(this).find('button')attr('idx'));
+            projectId = Number($(this).attr('idx'));
+            $('.saveProjectList').modal("hide");
+            setTimeout(function () {
+              saveBlock(false)
+            }, 200)
+          }
+          $(selectElemBtn).attr('idx', projectLists[i].id)
+          $(selectElemBtn).attr('type', "button")
+          $(selectElemBtn).attr('class', "btn btn-primary")
+          $(selectElemBtn).html("선택")
+
+          td1Elem.innerHTML = projectLists[i].title
+          td2Elem.innerHTML = projectLists[i].description
+          td3Elem.innerHTML = projectLists[i].reg_date
+          // td4Elem.innerHTML = '<button idx="'+projectLists[i].id+'">선택</button>';
+          console.log(projectLists[i].id)
+          td4Elem.appendChild(selectElemBtn)
+          trElem.appendChild(td1Elem)
+          trElem.appendChild(td2Elem)
+          trElem.appendChild(td3Elem)
+          trElem.appendChild(td4Elem)
+          tableElem.appendChild(trElem);
+        }
+      }
+    }
+
+    /*
+    * 현재 프로젝트가 사용자의 첫 번째 프로젝트인지에 대한 Flag
+    * checkExit(); 동작 시 메인 페이지로 리다이렉트 여부를 결정하기 위함.
+    */ 
+    let isFirstProject;
+
+    // DOM 생성 시 호출되는 초기화 함수 생성
+    $(function() {
+      console.log("[DOM] 생성 완료.");
+
+      // 사용자가 처음으로 생성한 프로젝트인지 검사한다.
+      const editorUrl = new URL(window.location.href);
+      const editorUrlParam = editorUrl.searchParams;
+      try {
+        isFirstProject = editorUrlParam.get('isFirstProject');
+      } catch (err) {
+        isFirstProject = 0;
+      }
+
+      // TODO: 이하 로직의 의미 확인해볼 것.
+      // $("#saveProjectList").on('show.bs.modal', function (event) {
+      //   // not setting focus to submit button
+      //   // 프로젝트 테이블
+      //   var action = $.action("ajax");
+      //   action.config.type = "json";
+      //   action.config.formId = "FormParameters";
+      //   action.config.formEmpty = true;
+      //   action.config.url = "<c:url value=" / project / list / json.do"/>";
+      //   action.config.fn.complete = function (act, data) {
+      //     projectLists = data.projectList;
+      //     reloadTableData()
+      //     console.log(data.projectList)
+
+      //   };
+      //   // action.config.parameters = "menuSeq=" + seq;
+      //   action.run();
+      // });
+      $('.dropdown-menu span.dropdown-toggle').on('click', function (e) {
+        if (!$(this).next().hasClass('show')) {
+          $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+        }
+        var $subMenu = $(this).next(".dropdown-menu");
+        $subMenu.toggleClass('show');
+
+
+        $(this).parents('.top.dropdown.show').on('hidden.bs.dropdown', function (e) {
+          $('.dropdown-submenu .show').removeClass("show");
+        });
+
+
+        return false;
+      });      
+    })
+    
+  // (Workspace = 블록배치하는 공간) 블록이 나타나는 부분
 	let Workspace1 = Blockly.inject(
 	  "blocklyDiv1", {
 	  toolbox: toolbox, // 툴박스  보이기 
