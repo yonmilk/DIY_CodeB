@@ -776,6 +776,21 @@ Blockly.Blocks['range3'] = {
     }
 };
 
+// next
+Blockly.Blocks['rp_next'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("next");
+    this.appendValueInput("value")
+        .setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setStyle("loop_blocks_sub");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
 
 //
 Blockly.Blocks['break_block'] = {
