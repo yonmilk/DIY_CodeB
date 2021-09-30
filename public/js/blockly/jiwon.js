@@ -391,7 +391,7 @@ Blockly.Blocks['numpy_random_sample_x'] = {
 // 맷플롯립용
 Blockly.Blocks['Oper_x'] = {
     init: function () {
-        this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+        this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
             alt: "*",
             flipRtl: "FALSE"
         }));
@@ -621,7 +621,7 @@ Blockly.defineBlocksWithJsonArray([
         "args0": [
             { 
                 "type" : "field_image",
-                "src" : "../public/img/Graph/PIE-logo.png",
+                "src" : "/img/Graph/PIE-logo.png",
                 "width" : 25,
                 "height" : 23,
                 "alt" : "LINE",
@@ -667,7 +667,7 @@ Blockly.defineBlocksWithJsonArray([
         "args0": [
             { 
                 "type" : "field_image",
-                "src" : "../public/img/Graph/SCATTER-logo.png",
+                "src" : "/img/Graph/SCATTER-logo.png",
                 "width" : 25,
                 "height" : 23,
                 "alt" : "LINE",

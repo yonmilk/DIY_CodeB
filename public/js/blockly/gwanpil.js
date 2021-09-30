@@ -798,7 +798,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [  
         { 
           "type" : "field_image",
-          "src" : "../public/img/Graph/HIST-logo.png",
+          "src" : "/img/Graph/HIST-logo.png",
           "width" : 25,
           "height" : 23,
           "alt" : "LINE",
@@ -838,7 +838,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [  
         { 
           "type" : "field_image",
-          "src" : "../public/img/Graph/BUBBLE-logo.png",
+          "src" : "/img/Graph/BUBBLE-logo.png",
           "width" : 25,
           "height" : 23,
           "alt" : "LINE",
@@ -882,7 +882,7 @@ Blockly.defineBlocksWithJsonArray(
       "args0": [  
         { 
           "type" : "field_image",
-          "src" : "../public/img/Graph/SURFACE-logo.png",
+          "src" : "/img/Graph/SURFACE-logo.png",
           "width" : 25,
           "height" : 23,
           "alt" : "LINE",

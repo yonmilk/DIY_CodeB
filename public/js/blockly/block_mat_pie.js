@@ -112,7 +112,7 @@ Blockly.Blocks['numpy_random_generator1'] = {
 
 Blockly.Blocks['Oper1'] = {
   init: function () {
-      this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+      this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
           alt: "*",
           flipRtl: "FALSE"
       }));
@@ -151,7 +151,7 @@ Blockly.Blocks['Oper1'] = {
 
 Blockly.Blocks['Oper2'] = {
   init: function () {
-      this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+      this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
           alt: "*",
           flipRtl: "FALSE"
       }));
@@ -190,7 +190,7 @@ Blockly.Blocks['Oper2'] = {
 
 Blockly.Blocks['Oper3'] = {
   init: function () {
-      this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+      this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
           alt: "*",
           flipRtl: "FALSE"
       }));
@@ -229,7 +229,7 @@ Blockly.Blocks['Oper3'] = {
 
 Blockly.Blocks['Oper4'] = {
     init: function () {
-        this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+        this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
             alt: "*",
             flipRtl: "FALSE"
         }));
