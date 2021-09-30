@@ -103,13 +103,22 @@ REP += '</block>';
 
 // next
 REP += `
-<block type="rp_next">
-  <value name="value">
+<block type="math_change">
+  <field name="VAR">header</field>
+  <field name="NAME">=</field>
+  <value name="DELTA">
     <shadow type="indata">
       <field name="indata1"></field>
     </shadow>
-    <block type="variables_get">
-      <field name="VAR"></field>
+    <block type="rp_next">
+      <value name="value">
+        <shadow type="indata">
+          <field name="indata1"></field>
+        </shadow>
+        <block type="variables_get">
+          <field name="VAR"></field>
+        </block>
+      </value>
     </block>
   </value>
 </block>
