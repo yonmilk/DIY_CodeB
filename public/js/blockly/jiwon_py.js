@@ -321,15 +321,15 @@ Blockly.Python['matplotlib_pie'] = function(block) {
   var value_other = Blockly.Python.valueToCode(block, 'other', Blockly.Python.ORDER_ATOMIC);
 
   let code = `plt.pie(${value_data}, labels=${value_labels}, autopct=${value_autopct}`
-  if(value_explode === ""){
+  if(value_explode !== ""){
     code += `, explode=${value_explode}`;
   }
-  if(value_other === ""){
+  if(value_other !== ""){
     code += `, ${value_other}`;
   }
   code += `)
-    plt.title(${value_title})
-    plt.show()\n`;
+plt.title(${value_title})
+plt.show()\n`;
   return code;
 };
 
