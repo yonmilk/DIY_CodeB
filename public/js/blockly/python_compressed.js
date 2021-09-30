@@ -1941,6 +1941,15 @@ Blockly.Python['range_len'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
+// next_outer
+Blockly.Python['rp_next_outer'] = function(block) {
+  var value_value = Blockly.Python.valueToCode(block, 'value', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_value}\n`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
 // next
 Blockly.Python['rp_next'] = function(block) {
   var value_value = Blockly.Python.valueToCode(block, 'value', Blockly.Python.ORDER_ATOMIC);

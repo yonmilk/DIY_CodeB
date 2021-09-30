@@ -103,10 +103,8 @@ REP += '</block>';
 
 // next
 REP += `
-<block type="math_change">
-  <field name="VAR">header</field>
-  <field name="NAME">=</field>
-  <value name="DELTA">
+<block type="rp_next_outer">
+  <value name="value">
     <shadow type="indata">
       <field name="indata1"></field>
     </shadow>
