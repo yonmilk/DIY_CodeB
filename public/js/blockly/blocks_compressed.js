@@ -1404,34 +1404,34 @@ Blockly.defineBlocksWithJsonArray([
     tooltip: "%{BKY_MATH_NUMBER_TOOLTIP}",
     extensions: ["parent_tooltip_when_inline"],
   },
-  // {
-  //   type: "math_arithmetic",
-  //   message0: "%1 %2 %3 %4",
-  //   args0: [
-  //     {"type": "field_image","src": "/img/Numeric/N2-logo.png","width": 25,"height": 22,"alt": "*","flipRtl": false},
+  {
+    type: "math_arithmetic",
+    message0: "%1 %2 %3 %4",
+    args0: [
+      {"type": "field_image","src": "/img/Numeric/N2-logo.png","width": 25,"height": 22,"alt": "*","flipRtl": false},
 
-  //     { type: "input_value", name: "A", check: null },
-  //     {
-  //       type: "field_dropdown",
-  //       name: "OP", 
-  //       options: [
-  //         ["%{BKY_MATH_ADDITION_SYMBOL}", "ADD"],
-  //         ["%{BKY_MATH_SUBTRACTION_SYMBOL}", "MINUS"],
-  //         ["*", "MULTIPLY"],
-  //         ["/", "DIVIDE"],
-  //         ["%", "REMAINDER"],
-  //         ["**", "POWER"],
-  //         ["//", "QUOTIENT"]
-  //       ],
-  //     },
-  //     { type: "input_value", name: "B", check: null },
-  //   ],
-  //   inputsInline: !0,
-  //   output: "Number",
-  //   style: "math_blocks_sub",
-  //   helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}",
-  //   extensions: ["math_op_tooltip"],
-  // },
+      { type: "input_value", name: "A", check: null },
+      {
+        type: "field_dropdown",
+        name: "OP", 
+        options: [
+          ["%{BKY_MATH_ADDITION_SYMBOL}", "ADD"],
+          ["%{BKY_MATH_SUBTRACTION_SYMBOL}", "MINUS"],
+          ["*", "MULTIPLY"],
+          ["/", "DIVIDE"],
+          ["%", "REMAINDER"],
+          ["**", "POWER"],
+          ["//", "QUOTIENT"]
+        ],
+      },
+      { type: "input_value", name: "B", check: null },
+    ],
+    inputsInline: !0,
+    output: "Number",
+    style: "math_blocks_sub",
+    helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}",
+    extensions: ["math_op_tooltip"],
+  },
   {
     type: "math_single",
     message0: "수학 %1 %2",
@@ -3401,22 +3401,5 @@ Blockly.Blocks['many_variables'] = {
       this.setNextStatement(true, null);
       this.setTooltip("");
       this.setHelpUrl("");
-  }
-};
-// num str 연산블록
-Blockly.Blocks['math_arithmetic'] = {
-  init: function() {
-    this.appendValueInput("A")
-        .setCheck(null)
-        .appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 22, { alt: "*", flipRtl: "FALSE" }));
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["+","+"], ["-","-"], ["*","*"], ["/","/"], ["%","%"], ["**","**"], ["//","//"]]), "operator_list");
-    this.appendValueInput("B")
-        .setCheck(null);
-    this.setInputsInline(true);
-    this.setOutput(true, null);
-    this.setStyle("math_blocks_sub");
- this.setTooltip("");
- this.setHelpUrl("");
   }
 };
