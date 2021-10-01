@@ -761,7 +761,6 @@ PANDAS += '</value>';
 PANDAS += '<shadow type="indata">';
 PANDAS += '<field name="indata1"></field>';
 PANDAS += '</shadow>';
-PANDAS += '</value>';
 PANDAS += '</block>';
 
 //<!-- 시리즈 concat -->';
