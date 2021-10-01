@@ -18,54 +18,73 @@ PANDAS += '<block type="pandas_library"></block>';
 // PANDAS += '</value>';
 // PANDAS += '</block>';
 
-PANDAS += '<block type="pandas_csv_read">';
-PANDAS += '<value name="d1">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">df</field>';
-PANDAS += '</block>';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1"></field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '<value name="va">';
-PANDAS += '<block type="fileopen"></block>';     
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1"></field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '</block>'; 
+PANDAS += `
+<block type="pandas_read">
+  <value name="d1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">df</field>
+    </block>
+  </value>
+  <value name="va">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="fileopen"></block>
+  </value>
+</block>
+`
 
-PANDAS += '<block type="pandas_pickle_read">';
-PANDAS += '<value name="d1">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">df</field>';
-PANDAS += '</block>';
-PANDAS += '</value>';
-PANDAS += '<value name="va">';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1">\'filename.pkl\'</field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '</block>';
+// PANDAS += '<block type="pandas_csv_read">';
+// PANDAS += '<value name="d1">';
+// PANDAS += '<block type="variables_get">';
+// PANDAS += '<field name="VAR">df</field>';
+// PANDAS += '</block>';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1"></field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '<value name="va">';
+// PANDAS += '<block type="fileopen"></block>';     
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1"></field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>'; 
 
-//<!-- read_sql -->';
-PANDAS += '<block type="pandas_sql_read">';
-PANDAS += '<value name="d1">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">df</field>';
-PANDAS += '</block >';
-PANDAS += '</value>';
-PANDAS += '<value name="SQL">';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1">\'select * from tableName\'</field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '<value name="CON">';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1">con=con</field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '</block>';
+// PANDAS += '<block type="pandas_pickle_read">';
+// PANDAS += '<value name="d1">';
+// PANDAS += '<block type="variables_get">';
+// PANDAS += '<field name="VAR">df</field>';
+// PANDAS += '</block>';
+// PANDAS += '</value>';
+// PANDAS += '<value name="va">';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1">\'filename.pkl\'</field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>';
+
+// //<!-- read_sql -->';
+// PANDAS += '<block type="pandas_sql_read">';
+// PANDAS += '<value name="d1">';
+// PANDAS += '<block type="variables_get">';
+// PANDAS += '<field name="VAR">df</field>';
+// PANDAS += '</block >';
+// PANDAS += '</value>';
+// PANDAS += '<value name="SQL">';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1">\'select * from tableName\'</field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '<value name="CON">';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1">con=con</field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>';
 
 //<!-- csv_to -->';
 PANDAS += '<block type="pandas_csv_to">';

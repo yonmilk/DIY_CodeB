@@ -843,7 +843,17 @@ Blockly.Python['pandas_read_sql'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'CON', Blockly.Python.ORDER_ATOMIC);
 
   // TODO: Assemble Python into code variable.
-  var code = `${variable_list} = pd.read_sql(${variable_list2}, ${value_name})`;
+  var code = `${variable_list} = pd.1ql(${variable_list2}, ${value_name})`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };  
+
+// pd.read 통합
+Blockly.Python['pandas_read'] = function(block) {
+  var value_d1 = Blockly.Python.valueToCode(block, 'd1', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_va = Blockly.Python.valueToCode(block, 'va', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_d1} = pd.read${dropdown_list}(${value_va})\n`;
+  return code;
+};

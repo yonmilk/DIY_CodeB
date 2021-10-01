@@ -2067,3 +2067,26 @@ Blockly.Blocks['pandas_read_sql'] = {
     this.setHelpUrl("");
   }
 };
+
+// pd.read 통합
+Blockly.Blocks['pandas_read'] = {
+  init: function () {
+    this.appendValueInput('d1').setCheck(null);
+    this.appendDummyInput()
+      .appendField('= pd.read')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['csv', '_csv'],
+          ['pickle', '_pickle'],
+          ['sql', '_sql'],
+        ]),
+        'list'
+      );
+    this.appendValueInput('va').setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setStyle('pandas_blocks');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
