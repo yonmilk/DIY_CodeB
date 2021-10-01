@@ -792,6 +792,28 @@ Blockly.Python['df_series_method_2'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
+// 시리즈 메소드 3
+Blockly.Python['df_series_method_3'] = function(block) {
+  var value_value1 = Blockly.Python.valueToCode(block, 'value1', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_value2 = Blockly.Python.valueToCode(block, 'value2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_value1}.${dropdown_list}(${value_value2})`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+// 시리즈 메소드 4
+Blockly.Python['df_series_method_4'] = function(block) {
+  var value_value1 = Blockly.Python.valueToCode(block, 'value1', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_value2 = Blockly.Python.valueToCode(block, 'value2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_value1}.${dropdown_list}(${value_value2})`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
 //판다스 넘파이배열
 Blockly.Python['pandas_numpy'] = function(block) {
   var value_name1 = Blockly.Python.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);

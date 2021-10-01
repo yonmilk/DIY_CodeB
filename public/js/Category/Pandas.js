@@ -837,8 +837,47 @@ PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
+// 시리즈 메소드 2
 PANDAS += `
 <block type="df_series_method_2">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
+// 시리즈 메소드 3
+PANDAS += `
+<block type="df_series_method_3">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
+// 시리즈 메소드 4
+PANDAS += `
+<block type="df_series_method_4">
   <value name="value1">
     <shadow type="indata">
       <field name="indata1"></field>

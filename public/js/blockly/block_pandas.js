@@ -1926,6 +1926,7 @@ Blockly.Blocks['df_series3'] = {
   }
 };
 
+// 시리즈 메소드 2
 Blockly.Blocks['df_series_method_2'] = {
   init: function () {
     this.appendDummyInput().appendField(Blockly.Msg.PANDAS_SERIES_METHOD);
@@ -1949,6 +1950,57 @@ Blockly.Blocks['df_series_method_2'] = {
     this.setHelpUrl('');
   },
 };
+
+// 시리즈 메소드 3
+Blockly.Blocks['df_series_method_3'] = {
+  init: function () {
+    this.appendDummyInput().appendField(Blockly.Msg.PANDAS_SERIES_METHOD);
+    this.appendValueInput('value1').setCheck(null);
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['최대값(max)', 'max'],
+          ['최소값(min)', 'min'],
+          ['중간값(median)', 'median'],
+          ['요약(describe)', 'describe'],
+        ]),
+        'list'
+      )
+      .appendField('(');
+    this.appendValueInput('value2').setCheck(null);
+    this.appendDummyInput().appendField(')');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setStyle('pandas_blocks_sub');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+// 시리즈 메소드 4
+Blockly.Blocks['df_series_method_4'] = {
+  init: function () {
+    this.appendDummyInput().appendField(Blockly.Msg.PANDAS_SERIES_METHOD);
+    this.appendValueInput('value1').setCheck(null);
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['프레임변환(to_frame)', 'to_frame'],
+          ['리스트변환(to_list)', 'to_list'],
+        ]),
+        'list'
+      )
+      .appendField('(');
+    this.appendValueInput('value2').setCheck(null);
+    this.appendDummyInput().appendField(')');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setStyle('pandas_blocks_sub');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 
 ////////////////////////////
 ////// 2021-04-21
