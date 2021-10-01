@@ -145,14 +145,14 @@ Blockly.Python['select_row_column_value'] = function (block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
-//2020-09-19 양승국 수정
+// 프레임속성값
 Blockly.Python['data_frame'] = function (block) {
   var value_select_value = Blockly.Python.valueToCode(block, 'select_value', Blockly.Python.ORDER_ATOMIC);
   var value_select_value2 = Blockly.Python.valueToCode(block, 'select_value2', Blockly.Python.ORDER_ATOMIC);
   var dropdown_name = block.getFieldValue('count');
   // TODO: Assemble Python into code variable.
   var code = `${value_select_value}${dropdown_name}(${value_select_value2})`;
-  return [code, Blockly.Python.ORDER_NONE];
+  return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 // Blockly.Python['image_list'] = function(block) {

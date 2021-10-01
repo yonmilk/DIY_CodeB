@@ -292,8 +292,7 @@ Blockly.Blocks['select_row_column_value'] = {
   }
 };
 
-//행 개수
-//2020-09-19 양승국 블록 수정
+// 프레임속성값
 Blockly.Blocks['data_frame'] = {
   init: function () {
     this.appendValueInput('select_value').setCheck(null).appendField(Blockly.Msg.PANDAS_DATAFRAME_1);

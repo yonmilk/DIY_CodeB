@@ -134,12 +134,11 @@ Blockly.JavaScript['select_row_list'] = function (block) {
   return code;
 };
 
+// 프레임속성값
 Blockly.JavaScript['data_frame'] = function (block) {
-  var value_select_value = Blockly.JavaScript.valueToCode(block, 'select_value', Blockly.JavaScript.ORDER_ATOMIC);
-  var dropdown_name = block.getFieldValue('count');
   // TODO: Assemble JavaScript into code variable.
-  var code = '\n';
-  return code;
+  var code = `\n`;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['nm'] = function (block) {

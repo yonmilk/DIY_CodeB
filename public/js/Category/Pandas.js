@@ -166,7 +166,7 @@ PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
-// 프레임 속성
+// 프레임속성값
 PANDAS += `
 <block type="data_frame">
   <value name="select_value">
