@@ -2,7 +2,7 @@
 Blockly.Python['import_matplotlib_list'] = function (block) {
   var dropdown_list = block.getFieldValue('list');
   // TODO: Assemble Python into code variable.
-  var code = `import ${dropdown_list}`;
+  var code = `import ${dropdown_list} \n`;
   return code;
 };
 
