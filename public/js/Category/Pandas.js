@@ -5,14 +5,33 @@ PANDAS += '<category name="%{BKY_PAN_PRODUCE}" colour="%{BKY_PANDAS_HUE}">';
 //<!-- pandas 라이브러리 -->';
 PANDAS += '<block type="pandas_library"></block>';
 
+// PANDAS += '<block type="csv_url">';
+// PANDAS += ' <value name="d1">';
+// PANDAS += '     <block type="variables_get">';
+// PANDAS += '         <field name="VAR">df</field>';
+// PANDAS += '     </block>';
+// PANDAS += ' </value>';
+// PANDAS += ' <value name="va">';
+// PANDAS += '     <shadow type="indata">';
+// PANDAS += '         <field name="indata1"></field>';
+// PANDAS += '     </shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>';
+
 PANDAS += '<block type="pandas_csv_read">';
 PANDAS += '<value name="d1">';
 PANDAS += '<block type="variables_get">';
 PANDAS += '<field name="VAR">df</field>';
 PANDAS += '</block>';
+PANDAS += '<shadow type="indata">';
+PANDAS += '<field name="indata1"></field>';
+PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '<value name="va">';
 PANDAS += '<block type="fileopen"></block>';     
+PANDAS += '<shadow type="indata">';
+PANDAS += '<field name="indata1"></field>';
+PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>'; 
 
@@ -47,8 +66,6 @@ PANDAS += '<field name="indata1">con=con</field>';
 PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>';
-
-
 
 //<!-- csv_to -->';
 PANDAS += '<block type="pandas_csv_to">';
