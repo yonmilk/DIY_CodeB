@@ -1,6 +1,6 @@
 //===================================
 // 데이터 입력 bug fix
 //===================================
-function input_fixed(text) {
+function inputFixed(text) {
     return prompt(text);
   };

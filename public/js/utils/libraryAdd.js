@@ -41,7 +41,6 @@ $("#ds_import_btn").on("click", function () {
     $("#ds_import_btn").text("추가 중");
 
     pyodide.loadPackage(['pandas', 'matplotlib', 'numpy', 'beautifulsoup4', 'statsmodels']).then(() => {
-        flagMatplotlibImport = 1;
         $('div[aria-posinset="13"]').show();
         $('div[aria-posinset="14"]').show();
         $('div[aria-posinset="15"]').show();
@@ -75,6 +74,11 @@ $("#ml_import_btn").on("click", function () {
 
 // 이미지 프로세싱 라이브러리
 $("#image_processing_import_btn").on("click", function () {
+    // 추가된 라이브러리 배열에 추가
+    if (addedLibs.indexOf('scikit-image') == -1) {
+    addedLibs.push('scikit-image');
+    }
+    
     // 이미 추가된 경우 Return
     if ($('#image_processing_import_btn').data('isImported') == 1) {
         alert('이미 추가된 라이브러리입니다.');
@@ -112,6 +116,17 @@ $("#image_processing_import_btn").on("click", function () {
 
 // 바이오파이썬
 $("#bio_import_btn").on("click", function () {
+    // 추가된 라이브러리 배열에 추가
+    if (addedLibs.indexOf('biopython') == -1) {
+        addedLibs.push('biopython');
+        }
+
+    // 이미 추가된 경우 Return
+    if ($('#bio_import_btn').data('isImported') == 1) {
+        alert('이미 추가된 라이브러리입니다.');
+        return;
+    }
+
     showLibLoading();
     // 로딩 중 동시 추가가 안 되도록 처리
     if (isImportLoading == 1) {
@@ -126,6 +141,7 @@ $("#bio_import_btn").on("click", function () {
     pyodide.loadPackage(['biopython']).then(() => {
         $('div[aria-posinset="19"]').show();
         $("#bio_import_btn").text("추가됨");
+        $('#bio_import_btn').data('isImported', 1);
         isImportLoading = 0;
         hideLibLoading();
     })

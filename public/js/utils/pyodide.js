@@ -46,9 +46,9 @@ import matplotlib.pyplot as plt
 
 #############
 # prompt 버그 fix
-from js import input_fixed
-input = input_fixed
-__builtins__.input = input_fixed
+from js import inputFixed
+input = inputFixed
+__builtins__.input = inputFixed
 `
 // 파이오다이드 초기 세팅 로직
 pyodideReadyPromise.then(() => {
@@ -58,6 +58,38 @@ pyodideReadyPromise.then(() => {
 
         // 초기 라이브러리 로딩
         let libsList = ['numpy', 'pandas', 'matplotlib', 'scikit-learn', 'scipy', 'beautifulsoup4', 'statsmodels'];
+
+        /**
+         * condition: spring
+         * des: 사용자가 저장한 프로젝트를 통해 에디터 접근 시,
+         *      사용자가 추가했던 라이브러리들을 초기 로딩 시에 함께 임포트한다.
+         */
+        console.log("---사용자 추가 라이브러리 임포트 여부 체크---");
+        if(envMode == "spring") {
+            /**
+             * condition: spring
+             * des: 도전과제일 때, 문제 표시 사이드바를 토글한다.
+             */
+            if(isChallenge == 1) {
+                $(".ui.labeled.icon.sidebar").sidebar("toggle");
+            }
+
+            if(usedLibs) {
+                console.log("===>라이브러리 임포트 시작!");
+                usedLibs = usedLibs.split(',');
+                libsList = libsList.concat(usedLibs);
+
+                // 라이브러리 추가 시 프론트 동작
+                for (const eachLib of usedLibs) {
+                    if (eachLib == 'scikit-image') {
+                        $('#div_image_processing_import_btn').text('추가 됨');
+                        $('#div_image_processing_import_btn').data('isImported', 1);
+                        $('div[aria-posinset="17"]').show();
+                    }
+                }
+            }
+        }
+
         isImportLoading = 1;
         importPyodidePackages(libsList).then(() => { isImportLoading = 0; });
 
@@ -71,10 +103,6 @@ pyodideReadyPromise.then(() => {
 
 		console.log("FS완료"); //FS완료 콘솔
     });
-
-    /////////////////////////////////////
-    // 라이브러리 로딩 Toast
-    /////////////////////////////////////
 
     var isCtrl;
     var isFkey;
@@ -97,6 +125,9 @@ pyodideReadyPromise.then(() => {
     }
 });
 
+/////////////////////////////////////
+// 라이브러리 로딩 및 Toast를 출력한다.
+/////////////////////////////////////
 async function importPyodidePackages(libsList) {
     const lenLibs = libsList.length;
     let index = 1;

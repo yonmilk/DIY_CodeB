@@ -3,6 +3,18 @@
 
 // 블럭만 보이기
 function visibleBlock() {
+  projectType = 1;
+
+  if(envMode == "spring") {
+      // 블록이 보이면 span_local_block_save 태그를 다시 살립니다.
+      let spanLocalBlockSave = $('#span_local_block_save');
+      let spanLocalCodeSave = $('#span_local_code_save');
+      if (spanLocalBlockSave.css('display') == 'none') {
+        spanLocalCodeSave.show();
+    }
+  }
+
+
   // 블록-콘솔 2:1 설정
   $('#bottomDiv').css({
     'grid-template-columns': '2fr 10px 1fr',
@@ -52,6 +64,18 @@ function visibleBlock() {
 
 // 블럭 + 코드 보이기
 function visibleAll() {
+  projectType = 1;
+
+  if(envMode == "spring") {
+    // 블록이 보이면 span_local_block_save 태그를 다시 살립니다.
+    let spanLocalBlockSave = $('#span_local_block_save');
+    let spanLocalCodeSave = $('#span_local_code_save');
+    if (spanLocalBlockSave.css('display') == 'none') {
+      spanLocalCodeSave.show();
+    }
+  }
+
+
   // 블록-코드 2:1 설정
   $('#bottomDiv').css({
     'grid-template-columns': '2fr 10px 1fr',
@@ -109,6 +133,12 @@ function visibleAll() {
 
 // 코드만 보이기
 function visibleCode() {
+
+  if(envMode == "spring") {
+    $('#span_local_block_save').hide();
+    projectType = 2;
+  }
+
   // 코드-콘솔로 꽉 채우기
   $('#bottomDiv').css({
     'grid-template-columns': '',

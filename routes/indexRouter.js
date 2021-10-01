@@ -7,6 +7,7 @@ const fs = require('fs');
 const env = require('../config/config');
 
 router.get('/', (req, res) => {
+
 	/**
 	 * 초기 접속 시 세션을 체크한다.
 	 * a: 사용자 ID
@@ -19,39 +20,52 @@ router.get('/', (req, res) => {
 	 */
 	console.log(req.query);
 	console.log(req.body);
-	let memberId = req.query.a;
-	let sessionId = req.query.b;
-	let projectId = req.query.d;
-	let xmlData = req.query.c;
-	let projectType = req.query.e;
-	let usedLibs = req.query.f;
-	let editorCheckYn = req.query.g;
-	let isChallenge = req.query.h;
+
+	// View(BlockExport_Editor)로 전송할 데이터 오브젝트 생성
+	const dataObject = {
+		envMode: env.mode,
+		memberId: req.query.a == null ? "" : req.query.a,
+		memberSeq: req.query.i == null ? -1 : req.query.i,
+		sessionId: req.query.b == null ? "" : req.query.b,
+		projectId: req.query.d == "" ? -1 : req.query.d,
+		xmlData: req.query.c == null ? "" : req.query.c,
+		projectType: req.query.e == null ? 1 : req.query.e,
+		usedLibs: req.query.f == null ? "" : req.query.f,
+		editorCheckYn: req.query.g == null ? "" : req.query.g,
+		isChallenge: req.query.h == null ? 0 : req.query.h,
+	}
 
 	console.log("--------- Data from Spring -----------");
-	console.log(`===>스프링 세션 아이디: ${sessionId}`);
+	console.log(`===>현재 실행 모드: ${dataObject.envMode}`)
+	console.log(`===>스프링 세션 아이디: ${dataObject.sessionId}`);
 	console.log(`===>노드 세션 아이디: ${req.session.id}`);
-	console.log(`===>사용자 아이디: ${memberId}`);
+	console.log(`===>사용자 시퀀스: ${dataObject.memberSeq}`);
+	console.log(`===>사용자 아이디: ${dataObject.memberId}`);
 
-	console.log(`===>프로젝트 아이디: ${projectId}`)
-	console.log(`===>프로젝트 타입: ${projectType}`);
-	console.log(`===>XML: ${xmlData}`);
-	console.log(`===>사용한 라이브러리: ${usedLibs}`);
-	console.log(`===>최초 에디터 열람 여부: ${editorCheckYn}`);
-	console.log(`===>도전과제 여부: ${isChallenge}`);
+	console.log(`===>프로젝트 아이디: ${dataObject.projectId}`)
+	console.log(`===>프로젝트 타입: ${dataObject.projectType}`);
+	console.log(`===>XML: ${dataObject.xmlData}`);
+	console.log(`===>사용한 라이브러리: ${dataObject.usedLibs}`);
+	console.log(`===>최초 에디터 열람 여부: ${dataObject.editorCheckYn}`);
+	console.log(`===>도전과제 여부: ${dataObject.isChallenge}`);
 
-	req.session.sessionId = sessionId;
-	req.session.memberId = memberId;
+	req.session.sessionId = dataObject.sessionId;
+	req.session.memberId = dataObject.memberId;
 	req.session.save();
 
-	if (env.dev) {
-		return res.render("BlockExport_Editor");
-	} else {
-		if (sessionId) {
-			return res.render("BlockExport_Editor", {xmlData: xmlData});
-		} else {
-			return res.render("error");
-		}
+	switch (env.mode) {
+		case "node":
+			return res.render("BlockExport_Editor", dataObject);
+
+		case "spring":
+			if (dataObject.sessionId) {
+				return res.render("BlockExport_Editor", dataObject);
+			} else {
+				return res.render("error");
+			}
+	
+		default:
+			break;
 	}
 })
 

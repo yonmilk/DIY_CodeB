@@ -1,7 +1,8 @@
 //==================================
 // 결과 지우기 2020.10.04 남지원 수정
+
 //===================================
-function clear_result() {
+function resetConsole() {
     // 콘솔 지우기
     $("#exeArea").empty();
 }
@@ -9,40 +10,188 @@ function clear_result() {
 // ==================================
 // 블록 지우기
 //=================================== 
-function clearBlock() {
+function resetWorkspace() {
     var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
     b.clear();                  // 워크스페이스 초기화
-    clear_result();             // 콘솔창 결과 초기화
-
+    resetConsole();             // 콘솔창 결과 초기화
 }
 
-// ==================================
-// 코드 파일로 저장하기
-//===================================
-function file_save() {
-    // 블록 코드 On/Off에 따른 코드 불러오기 로직 분기
-    let code;
-    flagBlockCode == 1
-        ? (code = pyEditor.getValue())
-        : (code = asyncEditor.getValue());
+/**
+ * condition: spring
+ * des: 프로젝트 초기화 버튼 클릭 시, 초기 불러온 프로젝트의 상태로 롤백시킨다.
+ */
+function resetProject() {
+    var b = workspaceCheck();
+    b.clear(); // 추가 전 Workspace 초기화, Or 블록이 Append됨
 
-    let filename = prompt("다른 이름으로 저장"); // 다른이름으로 저장
-    if (filename == null) {
-        return false;
-    } else if (filename == "") {
-        filename = "no_named";
+    // 서버에서 가져온 프로젝트 XML을 Workspace에 출력
+    let dom = Blockly.Xml.textToDom(projectXml);
+    Blockly.Xml.appendDomToWorkspace(dom, b);
+}
+
+/**
+ * condition: spring
+ * des: 서버에 텍스트, 블록 코드를 저장한다.
+ */
+// FIXME: 현재 프로젝트 저장 시 usedLibs도 함께 저장할 수 있도록 수정할 것.
+async function saveCodesToServer(bol) {
+    let b = workspaceCheck();
+    let xml = Blockly.Xml.workspaceToDom(b); // 워크스페이스를 돔(xml)으로 변환
+    let p_xml = Blockly.Xml.domToPrettyText(xml); // 돔(xml) 형태 깔끔하게 정제
+    let block_xml = JSON.stringify(p_xml); // json 형태로 정제
+    // console.log(block_xml);
+
+    // 기존 projectXml 변수를 새로 저장된 xml로 대체
+    projectXml = p_xml;
+
+    let pyCode;
+    flagBlockCode == 1 ? pyCode = pyEditor.getValue() : pyCode = asyncEditor.getValue();
+
+    // pyCode = pyEditor.getValue(); // 파이썬 코드를 DOM으로 가져오기
+
+    let projectSaveFlag = 0; // 프로젝트 저장 여부 Flag
+
+    // 새 프로젝트일 경우 저장을 위한 모달창
+    if (bol) {
+        if (isSaved == 0) {
+            // 새 프로젝트 저장 후 "프로젝트 초기화" 드롭다운 DOM에 추가
+            let resetPrjDropdownItem = document.createElement('span');
+            resetPrjDropdownItem.setAttribute('class', 'dropdown-item codebBtnDropdown');
+            resetPrjDropdownItem.setAttribute('onclick', 'resetProject();');
+
+            let resetPrjDropdownItemIcon = document.createElement('i');
+            resetPrjDropdownItemIcon.setAttribute('class', 'undo icon');
+
+            // 아이콘 태그 추가
+            resetPrjDropdownItem.appendChild(resetPrjDropdownItemIcon);
+
+            // 텍스트 추가
+            let resetPrjText = document.createElement('span');
+            resetPrjText.innerText = '프로젝트 초기화';
+            resetPrjDropdownItem.appendChild(resetPrjText);
+
+            // 초기화 Dropdown에 Append
+            let resetPrjDropdownMenu = document.getElementById('dropdown_reset_menu');
+            resetPrjDropdownMenu.appendChild(resetPrjDropdownItem);
+        }
+
+        isSaved = 1;
+
+        let steps = ['1', '2']
+        let swalTitle = ["제목", "설명"];
+
+        const swalQueueStep = Swal.mixin({
+            confirmButtonText: '다음 &rarr;',
+            cancelButtonText: '이전',
+            progressSteps: steps,
+            input: 'text',
+            inputAttributes: {
+                required: true
+            },
+            reverseButtons: true,
+            validationMessage: 'This field is required'
+        })
+
+        const answers = ['', ''];
+        let currentStep;
+
+        for (currentStep = 0; currentStep < steps.length;) {
+            const result = await swalQueueStep.fire({
+                title: swalTitle[currentStep],
+                inputValue: answers[currentStep],
+                showCancelButton: currentStep > 0,
+                currentProgressStep: currentStep,
+                inputPlaceholder: '내용을 입력하세요',
+                inputValue: answers[currentStep],
+                input: (currentStep == 0) ? 'text' : 'textarea',
+                html: (currentStep == 0) ? '저장할 제목을 설정하세요! <div id="test_cnt">(0 / 20)</div>' : '코드에 대한 설명을 작성하세요! <div id="test_cnt1">(0 / 65)</div>',
+                didOpen: (currentStep == 0) ? function () { inputEvent() } : function () { textareaevent() },
+                inputValidator: (value) => {
+                    if (!value) {
+                        if (currentStep == 0) {
+                            return "제목을 입력해주세요.";
+                        } else {
+                            return "설명을 입력해주세요.";
+                        }
+                    }
+                }
+            })
+
+            if (result.value) {
+                answers[currentStep] = result.value
+                currentStep++
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                currentStep--
+            } else {
+                break
+            }
+        }
+
+        if (currentStep == steps.length) {
+            await Swal.fire({
+                title: '완료',
+                text: "프로젝트 생성 및 저장이 완료 되었습니다.",
+                icon: "success",
+                confirmButtonText: '확인'
+            }).then(() => {
+                try {
+                    parent.postMessage({
+                        "from": "saveCodesToServer_newProject",
+                        "url": "/project/projectInsert.do",
+                        "method": "POST",
+                        "data": {
+                            "title": answers[0],
+                            "description": answers[1],
+                            "block_xml": (projectType == 1 ? block_xml : JSON.stringify(pyCode)),
+                            "pType": projectType,
+                            "usedLibs": addedLibs
+                        }
+                    }, parentUrl);
+                } catch (err) {
+                    console.log(err);
+                }
+            })
+        }
+
+        projectSaveFlag = 1;
     }
 
-    let fileObject = new File([code], filename + ".py"); // 파일 객체 생성 (data,name+확장자)
-    // setCookie("download_block", filename, 1);
-    // saveAs(blobObject, filename + ".py");
-    saveAs(fileObject); // 로컬 저장
+    // let filename = prompt("다른이름으로 저장.");           // 다른이름으로 저장
+    // let fileObject = new File([p_xml], filename + ".xml");  // 파일 객체 생성 (data,name+확장자)
+
+    // 저장된 프로젝트 DB에 전송
+    try {
+        // 프로젝트 ID가 있을 때 저장 시
+        if (projectSaveFlag == 0) {
+            parent.postMessage({
+                "from": "saveCodesToServer_existProject",
+                "url": "/editor/sendFile.do", 
+                "data": {
+                    "block_xml": (projectType == 1 ? block_xml : JSON.stringify(pyCode)), 
+                    "member_seq": memberSeq, 
+                    "pid": projectId,
+                    "pType": projectType 
+                }
+            }, parentUrl);
+            Swal.fire({
+                title: '성공!',
+                text: "프로젝트가 저장되었습니다.",
+                icon: 'success',
+                confirmButtonText: '확인'
+            })
+        }
+    } catch (err) {
+        console.log(err);
+    }
+
+    //saveAs(fileObject); // 로컬 저장
+
 }
 
 //==================================
-// 블록 저장하기
+// 로컬 코드(텍스트, 블록) 저장하기
 //===================================
-function saveBlock() {
+function saveCodesToLocal() {
     var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
 
     xml = Blockly.Xml.workspaceToDom(b);  // 워크스페이스를 돔(xml)로 만듬
@@ -53,25 +202,71 @@ function saveBlock() {
     let zip = JSZip();
 
     prompt2(
-        "블록 저장하기",
+        projectType == 1 ? "블록 저장하기" : "코드 저장하기",
         checkCookie("download_block"),
         "저장",
         "취소"
     ).then((filename) => {
         if (filename != null) {
             setCookie("download_block", filename, "1"); // 사용자가 정한 파일명을 다시 쿠키에 저장
-            // let fileObject = new File([p_xml], filename + ".xml"); // 파일 객체 생성 (data,name+확장자)
-            // saveAs(fileObject); // 로컬 저장
 
-            zip.file(filename + ".xml", p_xml);
-            zip.file(filename + ".py", py);
-
-            zip.generateAsync({ type: "blob" })
-                .then(function (blob) {
-                    saveAs(blob, filename + ".zip"); // 은선 - 확장자 추가
-                });
+            if(projectType == 1) {
+                zip.file(filename + ".xml", p_xml);
+                zip.file(filename + ".py", py);
+    
+                zip.generateAsync({ type: "blob" })
+                    .then(function (blob) {
+                        saveAs(blob, filename + ".zip"); // 은선 - 확장자 추가
+                    });
+            } else if(projectType == 2) {
+                flagBlockCode == 1 ? py = pyEditor.getValue() : py = asyncEditor.getValue();
+                let fileObject = new File([py], filename + ".py"); // 파일 객체 생성 (data,name+확장자)
+                saveAs(fileObject); // 로컬 저장
+            }
         }
     });
+}
+
+/**
+ * condition: node / spring
+ * des: 로컬에 블록 코드(XML)를 저장한다.
+ */
+async function saveCodeAsXML() {
+    let xml = Blockly.Xml.workspaceToDom(workspace); // 워크스페이스를 돔(xml)으로 변환
+    let p_xml = Blockly.Xml.domToPrettyText(xml); // 돔(xml) 형태 깔끔하게 정제
+
+    let filename = prompt("블록 파일을 저장할 이름을 입력하세요.");           // 다른이름으로 저장
+    if (filename == null) {
+        return false;
+    } else if (filename == "") {
+        filename = 'no_named';
+    }
+
+    let fileObject = new File([p_xml], filename + ".xml");  // 파일 객체 생성 (data,name+확장자)
+
+    saveAs(fileObject); // 로컬 저장
+}
+
+/**
+ * condition: node / spring
+ * des: 로컬에 텍스트 코드(Py)를 저장한다.
+ */
+function saveCodeAsPy() {
+    // 블록 코드 On/Off에 따른 코드 불러오기 로직 분기 
+    let code;
+    flagBlockCode == 1 ? code = pyEditor.getValue() : code = asyncEditor.getValue();
+
+    let filename = prompt("코드 파일을 저장할 이름을 입력하세요."); // 다른이름으로 저장
+    if (filename == null) {
+        return false;
+    } else if (filename == "") {
+        filename = 'no_named';
+    }
+
+    let fileObject = new File([code], filename + ".py");  // 파일 객체 생성 (data,name+확장자)
+    // setCookie("download_block", filename, 1);
+    // saveAs(blobObject, filename + ".py");
+    saveAs(fileObject); // 로컬 저장
 }
 
 //===================================
@@ -183,6 +378,88 @@ function whenSelected(event) {
 			_requestsURL(event.blockId);
 		}
 	}
+}
+
+/**
+ * condition: spring
+ * des: 사용자의 블록 로그(생성 및 삭제)를 저장한다.
+ */
+// FIXME: recordBlockStatusEvent 이벤트 각 Workspace에 적용될 수 있도록 로직 수정해야 함.
+
+// 현재 블록의 상태를 저장할 전역 배열 및 변수
+let recordCreatedArr = [];
+let recordDeletedArr = [];
+
+// 에러를 기록하기 위한 전역 배열
+let recordErrorNameArr = [];
+let recordErrorMsgArr = [];
+
+let recordCreatedBlock = null;
+let recordSelectedBlock = null;
+let currentBlockType = null;
+
+function recordBlockStatusEvent(event) {
+    var blockRecordJSON = null;
+
+    if (event.type == "create") {
+        recordCreatedBlock = workspace.getBlockById(event.blockId); // 현재 생성된 블록을 기록.
+        currentBlockType = recordCreatedBlock.type; // 블록의 type(이름)을 기록
+        // console.log("Created block : " + currentBlockType);
+        recordCreatedArr.push(currentBlockType); // 사용자가 생성한 블록을 버퍼에 추가
+    } else if (event.element == "click") {
+        // 선택된 블록 기록
+        recordSelectedBlock = workspace.getBlockById(event.blockId);
+        currentBlockType = recordSelectedBlock.type;
+        // console.log("Clicked block : " + currentBlockType);
+    } else if (event.type == "delete") {
+        recordDeletedArr.push(currentBlockType);
+    }
+    //console.log(recordDeletedArr);
+    blockRecordJSON = JSON.stringify({ "create": recordCreatedArr, "delete": recordDeletedArr });
+}
+
+/**
+ * condition: spring
+ * des: 사용자의 블록 로그 및 발생한 에러 로그를 서버로 전송한다.
+ */
+// FIXME: 현재 사용자 로그가 전송되지 않음. 체크 필요함. 
+function sendDataToServer() {
+    let blockData = JSON.parse(sessionStorage.getItem('block_data'));
+    let errorData = JSON.parse(sessionStorage.getItem('error_data'));
+
+    parent.postMessage({
+        "from": "sendDataToServer",
+        "url": "/editor/logsInsert.do",
+        "method": "POST",
+        "data": {
+            allData: JSON.stringify({ 
+                "m_seq": memberSeq, 
+                "block_data": blockData, 
+                "error_data": errorData })
+        }
+    }, parentUrl)
+
+    // 데이터 전송 후 로그 저장을 위한 배열들 초기화.
+    recordCreatedArr = [];
+    recordDeletedArr = [];
+    recordErrorNameArr = [];
+    recordErrorMsgArr = [];
+    sessionStorage.clear();
+    //console.log("Ajax를 통해 Spring으로 데이터 전달됨, Session Clear!");
+}
+
+/**
+ *  condition: spring
+ *  des: 사용자 로그(블록 생성 및 삭제, 에러 등)를 세션 스토리지에 저장한다.
+ */
+function sendToSession(JSON, nameJSON) {
+try {
+    sessionStorage.setItem(nameJSON, JSON);
+    console.log("JSON이 저장되었습니다. 이름 : " + nameJSON);
+} catch (e) {
+    console.log("[Session Storage] 에러가 발생하였습니다.");
+    console.log(e);
+}
 }
 
 function xmlSave() {

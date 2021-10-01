@@ -1,10 +1,10 @@
 const env = process.env.NODE_ENV
 
 module.exports = {
-    dev: {
-        dev: true
+    node: {
+        mode: "node"
     },
-    prod: {
-        dev: false
+    spring: {
+        mode: "spring"
     }
 }[env]
