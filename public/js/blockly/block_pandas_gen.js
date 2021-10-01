@@ -3,9 +3,9 @@
 ////////////////////////////////////////////////////////////////////
 
 Blockly.Python['pandas_library'] = function (block) {
-  var value_name = Blockly.Python.valueToCode(block, 'pan_lib_var', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
   // TODO: Assemble JavaScript into code variable.
-  var code = "import pandas as pd\n";
+  let code = `import ${dropdown_list}`
   return code;
 };
 

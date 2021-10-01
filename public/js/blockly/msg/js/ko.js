@@ -745,7 +745,9 @@ Blockly.Msg['NUMPY_FFT_FFT_1'] = "[ 푸리에 변환 ] 값 %1 %2";
 Blockly.Msg['NUMPY_ABS_1'] = "[ 절대 값 ]";
 
 // ---- 판다스
-Blockly.Msg['PANDAS_LIBRARY'] = "[ 임포트 ] pandas를 pd로";
+Blockly.Msg['PANDAS_LIBRARY'] = "[임포트]";
+Blockly.Msg['PANDAS_LIBRARY_PANDAS'] = "pandas를 pd로";
+Blockly.Msg['PANDAS_LIBRARY_PYODIDE'] = "pyodide";
 Blockly.Msg['PANDAS_CSVDATAFRAME'] = "[데이터프레임]";
 Blockly.Msg['PANDAS_CSV2'] = "csv 불러오기";
 Blockly.Msg['PANDAS_DATALIST'] = "[zip리스트] 변수";

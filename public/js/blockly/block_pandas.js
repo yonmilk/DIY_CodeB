@@ -5,17 +5,37 @@
 //var "%{BKY_PANDAS_HUE}" = "%{BKY_PANDAS_HUE}";
 
 //2020-09-19 양승국 수정 -> 2021.01.23 남지원 이름변경
+// Blockly.Blocks['pandas_library'] = {
+//   init: function () {
+//     this.appendDummyInput()
+//         .appendField(Blockly.Msg.PANDAS_LIBRARY);
+//     this.setInputsInline(true);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setStyle("pandas_blocks");
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
+// 판다스 임포트 수정
 Blockly.Blocks['pandas_library'] = {
   init: function () {
     this.appendDummyInput()
-        .appendField(Blockly.Msg.PANDAS_LIBRARY);
-    this.setInputsInline(true);
+      .appendField(Blockly.Msg.PANDAS_LIBRARY)
+      .appendField(
+        new Blockly.FieldDropdown([
+          [Blockly.Msg.PANDAS_LIBRARY_PANDAS, 'pandas as pd'],
+          [Blockly.Msg.PANDAS_LIBRARY_PYODIDE, 'pyodide'],
+        ]),
+        'list'
+      );
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setStyle("pandas_blocks");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
 };
 
 Blockly.Blocks['load_csv'] = {

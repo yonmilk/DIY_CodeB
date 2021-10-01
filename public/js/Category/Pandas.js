@@ -5,8 +5,6 @@ PANDAS += '<category name="%{BKY_PAN_PRODUCE}" colour="%{BKY_PANDAS_HUE}">';
 //<!-- pandas 라이브러리 -->';
 PANDAS += '<block type="pandas_library"></block>';
 
-//<!-- pyodide 라이브러리 -->';
-PANDAS += '<block type="pyodide_library" ></block>';
 
 PANDAS += '<block type="csv_url">';
 PANDAS += ' <value name="d1">';
