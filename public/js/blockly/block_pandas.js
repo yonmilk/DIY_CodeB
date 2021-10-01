@@ -1926,6 +1926,32 @@ Blockly.Blocks['df_series3'] = {
   }
 };
 
+// 시리즈 메소드 1
+Blockly.Blocks['df_series_method_1'] = {
+  init: function () {
+    this.appendDummyInput().appendField(Blockly.Msg.PANDAS_SERIES_METHOD);
+    this.appendValueInput('value1').setCheck(null);
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['포함여부(isin)', 'isin'],
+          ['값확인(equals)', 'equals'],
+          ['값얻기(values)', 'values'],
+          ['중복제거(drop_duplicates)', 'drop_duplicates'],
+        ]),
+        'list'
+      )
+      .appendField('(');
+    this.appendValueInput('value2').setCheck(null);
+    this.appendDummyInput().appendField(')');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setStyle('pandas_blocks_sub');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 // 시리즈 메소드 2
 Blockly.Blocks['df_series_method_2'] = {
   init: function () {

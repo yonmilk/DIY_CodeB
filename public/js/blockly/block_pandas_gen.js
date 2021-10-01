@@ -781,6 +781,17 @@ Blockly.Python['df_series3'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };  
 
+// 시리즈 메소드 1
+Blockly.Python['df_series_method_1'] = function(block) {
+  var value_value1 = Blockly.Python.valueToCode(block, 'value1', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_value2 = Blockly.Python.valueToCode(block, 'value2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_value1}.${dropdown_list}(${value_value2})`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
 // 시리즈 메소드 2
 Blockly.Python['df_series_method_2'] = function(block) {
   var value_value1 = Blockly.Python.valueToCode(block, 'value1', Blockly.Python.ORDER_ATOMIC);
