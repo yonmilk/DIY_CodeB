@@ -772,9 +772,9 @@ var code ;
 // 기존 코드내용 
 if(DL_Gra == "graph_or_1"){//둘중 하나 
  //우진 수정 전 code =`ax_lst[${value_matplotlib_pre_graph_location1}].${matplot_graph}( `;
-  code =`plt.${matplot_graph}( `;  //우진 수정본
+  code =`plt.${matplot_graph}(`;  //우진 수정본
 }else if(DL_Gra == "graph_both_1"){
-  code =`plt.${matplot_graph}( `;  
+  code =`plt.${matplot_graph}(`;  
 }else{
   code =`plt.${matplot_graph}(` ;  
 }
@@ -792,7 +792,7 @@ if(xx==""){
 // 에러바 그래프
 if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
 {  
-  code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = "${text_matplotlib_pre_legend}" )`);  
+  code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = "${text_matplotlib_pre_legend}")`);  
 }
 // 산점도 그래프, 선그래프 
 else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_matplotlib_graph_select == "matplotlib_line" || dropdown_matplotlib_graph_select =="matplotlib_histogram" || dropdown_matplotlib_graph_select=="matplotlib_bar")
@@ -802,7 +802,7 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_ma
   {
     // 기타 부분 있을 때 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other})`);  
     } else {
       code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color})`);  
     }
@@ -815,7 +815,7 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_box" )
 {    
     
   if(text_matplotlib_pre_other.length > 0){
-    code = code.concat(`${xyValue}, ${text_matplotlib_pre_other} )`);    
+    code = code.concat(`${xyValue}, ${text_matplotlib_pre_other})`);    
   } else {
     code = code.concat(`${xyValue})`);   
   }
@@ -823,19 +823,19 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_box" )
 
 //킹우진의 수정
 if(DL_Gra == "graph_or_1"){
-  code =  code.concat(`\nplttitle("${text_matplotlib_pre_graph_title}") 
+  code = code.concat(`\nplttitle("${text_matplotlib_pre_graph_title}") 
 plt.xlabel("${text_matplotlib_pre_graph_xlable}")
 plt.ylabel("${text_matplotlib_pre_graph_ylable}") 
 plt.legend(loc='best')\n`); 
   
 }else if(DL_Gra == "graph_both_1"){
-  code =  code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
+  code = code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
 plt.xlabel("${text_matplotlib_pre_graph_xlable}")
 plt.ylabel("${text_matplotlib_pre_graph_ylable}") 
 plt.legend(loc='best')\n`);
   
 }else{ 
-  code =  code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
+  code = code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
 plt.xlabel("${text_matplotlib_pre_graph_xlable}")
 plt.ylabel("${text_matplotlib_pre_graph_ylable}")
 plt.legend(loc='best')\n`);  
