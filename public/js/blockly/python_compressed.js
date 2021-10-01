@@ -499,7 +499,7 @@ Blockly.Python.controls_if = function (a) {
           Blockly.Python.injectId(Blockly.Python.STATEMENT_SUFFIX, a),
           Blockly.Python.INDENT
         ) + e);
-    c += (0 == b ? "if " : "elif ") + d + ":\n" + e;
+    c += (0 == b ? "if " : "elif ") + d + " :\n" + e;
     ++b;
   } while (a.getInput("IF" + b));
   if (a.getInput("ELSE") || Blockly.Python.STATEMENT_SUFFIX)
@@ -510,7 +510,7 @@ Blockly.Python.controls_if = function (a) {
             Blockly.Python.injectId(Blockly.Python.STATEMENT_SUFFIX, a),
             Blockly.Python.INDENT
           ) + e),
-      (c += "else:\n" + e);
+      (c += "else :\n" + e);
   return c;
 };
 Blockly.Python.controls_ifelse = Blockly.Python.controls_if;
