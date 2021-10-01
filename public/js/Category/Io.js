@@ -69,6 +69,9 @@ IO +='  <value name="content2">' ;
 IO +='      <block type="variables_get">' ;
 IO +='          <field name="VAR">variable</field>' ;
 IO +='      </block>' ;
+IO +='      <shadow type="indata">' ;
+IO +='          <field name="indata1"></field>' ;
+IO +='      </shadow>' ;
 IO +='   </value>' ;
 IO +='</block>' ;
 
