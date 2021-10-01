@@ -758,9 +758,11 @@ PANDAS += '<block type="variables_get">';
 PANDAS += '<field name="VAR">sr</field>';
 PANDAS += '</block>';
 PANDAS += '</value>';
+PANDAS += '<value name="ser_data">';
 PANDAS += '<shadow type="indata">';
 PANDAS += '<field name="indata1"></field>';
 PANDAS += '</shadow>';
+PANDAS += '</value>';
 PANDAS += '</block>';
 
 //<!-- 시리즈 concat -->';
