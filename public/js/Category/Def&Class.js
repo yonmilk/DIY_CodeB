@@ -41,24 +41,40 @@ DEF += '  <value name="2">';
 DEF += '    <shadow type="indata">';
 DEF += '      <field name="indata1"></field>';
 DEF += '    </shadow>';
-DEF += '    <block type="comma">'
-DEF += '      <value name="v1">';
-DEF += '        <shadow type="indata">';
-DEF += '          <field name="indata1"></field>';
-DEF += '        </shadow>';
+
+DEF += '    <block type="class_func_param">'
+DEF += '      <mutation items="2"></mutation>';
+DEF += '      <value name="ADD0">';
 DEF += '        <block type="variables_get">';
 DEF += '          <field name="VAR">self</field>';
 DEF += '        </block >';
 DEF += '      </value>'
-DEF += '      <value name="v2">';
-DEF += '        <shadow type="indata">';
-DEF += '          <field name="indata1"></field>';
-DEF += '        </shadow>';
+DEF += '      <value name="ADD1">';
 DEF += '        <block type="variables_get">';
 DEF += '          <field name="VAR"></field>';
-DEF += '        </block>';
+DEF += '        </block >';
 DEF += '      </value>'
 DEF += '    </block>'
+
+// DEF += '    <block type="comma">'
+// DEF += '      <value name="v1">';
+// DEF += '        <shadow type="indata">';
+// DEF += '          <field name="indata1"></field>';
+// DEF += '        </shadow>';
+// DEF += '        <block type="variables_get">';
+// DEF += '          <field name="VAR">self</field>';
+// DEF += '        </block >';
+// DEF += '      </value>'
+// DEF += '      <value name="v2">';
+// DEF += '        <shadow type="indata">';
+// DEF += '          <field name="indata1"></field>';
+// DEF += '        </shadow>';
+// DEF += '        <block type="variables_get">';
+// DEF += '          <field name="VAR"></field>';
+// DEF += '        </block>';
+// DEF += '      </value>'
+// DEF += '    </block>'
+
 DEF += '  </value>';
 DEF += '  <value name="DO">';
 DEF += '    <block type="self">';

@@ -75,16 +75,14 @@ IO +='      </shadow>' ;
 IO +='   </value>' ;
 IO +='</block>' ;
 
-// 9월 27일 printc 블록과 병합
-// 블록 생성 코드는 그대로 놔둠
 // 결과출력 f-문자열
-// IO +='<block type="printf">' ;
-// IO +='  <value name="content1">' ;
-// IO +='      <shadow type="indata">' ;
-// IO +='          <field name="indata1"></field>' ;
-// IO +='      </shadow>' ;
-// IO +='  </value>' ;
-// IO +='</block>' ;
+IO +='<block type="printf">';
+IO +='  <value name="content1">';
+IO +='    <shadow type="indata">';
+IO +='      <field name="indata1"></field>';
+IO +='    </shadow>';
+IO +='  </value>';
+IO +='</block>';
 
 // 9월 27일 printc 블록 + 뮤테이션 블록과 합치는 방법으로 쓰는걸로.
 //출력 뮤테이터
