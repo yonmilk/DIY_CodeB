@@ -11,10 +11,10 @@
     return code;
   };
 
-  Blockly.JavaScript['file_library'] = function(block) {
+  Blockly.JavaScript['csv_library'] = function(block) {
     var dropdown_list = block.getFieldValue('list');
     // TODO: Assemble JavaScript into code variable.
-    var code = '...;\n';
+    var code = '\n';
     return code;
   };
 
@@ -24,12 +24,12 @@
     return code;
   };
 
-// 2021.01.22 csv 남지원
-  Blockly.JavaScript['csv_library'] = function (block) {
-    // TODO: Assemble JavaScript into code variable.
-    var code = '\n';
-    return code;
-  };
+// // 2021.01.22 csv 남지원
+//   Blockly.JavaScript['csv_library'] = function (block) {
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '\n';
+//     return code;
+//   };
 
   Blockly.JavaScript['datetime_library'] = function (block) {
     // TODO: Assemble JavaScript into code variable.

@@ -76,17 +76,23 @@
     }
   };
 
-  Blockly.Blocks['file_library'] = {
-    init: function() {
+  Blockly.Blocks['csv_library'] = {
+    init: function () {
       this.appendDummyInput()
-          .appendField(Blockly.Msg.FILE_LIBRARY)
-          .appendField(new Blockly.FieldDropdown([["csv","csv"], ["pickle","pickle"]]), "list");
+        .appendField(Blockly.Msg.FILE_LIBRARY)
+        .appendField(
+          new Blockly.FieldDropdown([
+            ['csv', 'csv'],
+            ['pickle', 'pickle'],
+          ]),
+          'list'
+        );
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
-      this.setStyle("list_blocks");
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
+      this.setStyle('list_blocks');
+      this.setTooltip('');
+      this.setHelpUrl('');
+    },
   };
 
 
