@@ -857,3 +857,13 @@ Blockly.Python['pandas_read'] = function(block) {
   var code = `${value_d1} = pd.read${dropdown_list}(${value_va})\n`;
   return code;
 };
+
+// pd.to 통합
+Blockly.Python['pandas_to'] = function(block) {
+  var value_d1 = Blockly.Python.valueToCode(block, 'd1', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_va = Blockly.Python.valueToCode(block, 'va', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_d1} = pd.to${dropdown_list}(${value_va})\n`;
+  return code;
+};

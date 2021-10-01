@@ -684,3 +684,13 @@ Blockly.JavaScript['pandas_read'] = function(block) {
   var code = `\n`;
   return code;
 };
+
+// pd.to 통합
+Blockly.JavaScript['pandas_to'] = function(block) {
+  var value_d1 = Blockly.JavaScript.valueToCode(block, 'd1', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_va = Blockly.JavaScript.valueToCode(block, 'va', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `\n`;
+  return code;
+};
