@@ -235,15 +235,6 @@ Blockly.Python['numpy_random_sample_x'] = function (block) {
 
 
 
-
-
-
-
-
-
-
-
-
 //2021.01.22 try_except 남지원
 Blockly.Python['try_except'] = function(block) {
   var statements_try = Blockly.Python.statementToCode(block, 'TRY');
@@ -329,17 +320,16 @@ Blockly.Python['matplotlib_pie'] = function(block) {
   var value_explode = Blockly.Python.valueToCode(block, 'explode', Blockly.Python.ORDER_ATOMIC);
   var value_other = Blockly.Python.valueToCode(block, 'other', Blockly.Python.ORDER_ATOMIC);
 
-
-  if(value_other==""){
-    var code = `plt.pie(${value_data}, labels=${value_labels}, autopct=${value_autopct}, explode=${value_explode})
-plt.title(${value_title})
-plt.show()`;
-  } else {
-    var code = `plt.pie(${value_data}, labels=${value_labels}, autopct=${value_autopct}, explode=${value_explode}, ${value_other})
-plt.title(${value_title})
-plt.show()`;
+  let code = `plt.pie(${value_data}, labels=${value_labels}, autopct=${value_autopct}`
+  if(value_explode !== ""){
+    code += `, explode=${value_explode}`;
   }
-  
+  if(value_other !== ""){
+    code += `, ${value_other}`;
+  }
+  code += `)
+plt.title(${value_title})
+plt.show()\n`;
   return code;
 };
 

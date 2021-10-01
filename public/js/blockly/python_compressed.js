@@ -499,7 +499,7 @@ Blockly.Python.controls_if = function (a) {
           Blockly.Python.injectId(Blockly.Python.STATEMENT_SUFFIX, a),
           Blockly.Python.INDENT
         ) + e);
-    c += (0 == b ? "if " : "elif ") + d + ":\n" + e;
+    c += (0 == b ? "if " : "elif ") + d + " :\n" + e;
     ++b;
   } while (a.getInput("IF" + b));
   if (a.getInput("ELSE") || Blockly.Python.STATEMENT_SUFFIX)
@@ -510,7 +510,7 @@ Blockly.Python.controls_if = function (a) {
             Blockly.Python.injectId(Blockly.Python.STATEMENT_SUFFIX, a),
             Blockly.Python.INDENT
           ) + e),
-      (c += "else:\n" + e);
+      (c += "else :\n" + e);
   return c;
 };
 Blockly.Python.controls_ifelse = Blockly.Python.controls_if;
@@ -1937,6 +1937,24 @@ Blockly.Python['range_len'] = function(block) {
 
   // TODO: Assemble Python into code variable.
   var code = `${dropdown_drop}(${x})`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+// next_outer
+Blockly.Python['rp_next_outer'] = function(block) {
+  var value_value = Blockly.Python.valueToCode(block, 'value', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_value}\n`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+// next
+Blockly.Python['rp_next'] = function(block) {
+  var value_value = Blockly.Python.valueToCode(block, 'value', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `next(${value_value})`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };

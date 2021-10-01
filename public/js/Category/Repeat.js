@@ -101,6 +101,27 @@ REP += '    </shadow>';
 REP += '  </value>';
 REP += '</block>';
 
+// next
+REP += `
+<block type="rp_next_outer">
+  <value name="value">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="rp_next">
+      <value name="value">
+        <shadow type="indata">
+          <field name="indata1"></field>
+        </shadow>
+        <block type="variables_get">
+          <field name="VAR"></field>
+        </block>
+      </value>
+    </block>
+  </value>
+</block>
+`;
+
 // [R8] break 블록       
 REP += '<block type="break_block"></block>';
 

@@ -776,6 +776,35 @@ Blockly.Blocks['range3'] = {
     }
 };
 
+// next_outer
+Blockly.Blocks['rp_next_outer'] = {
+  init: function() {
+    this.appendValueInput("value")
+        .setCheck(null);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setStyle("loop_blocks");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// next
+Blockly.Blocks['rp_next'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("next");
+    this.appendValueInput("value")
+        .setCheck(null);
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setStyle("loop_blocks_sub");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
 
 //
 Blockly.Blocks['break_block'] = {

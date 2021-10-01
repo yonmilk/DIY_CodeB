@@ -74,7 +74,7 @@
       // },
       { 
         "type" : "field_image",
-        "src" : "../public/img/Graph/BAR-logo.png",
+        "src" : "/img/Graph/BAR-logo.png",
         "width" : 25,
         "height" : 23,
         "alt" : "LINE",
@@ -155,7 +155,7 @@
       // },
       { 
         "type" : "field_image",
-        "src" : "../public/img/Graph/LINE-logo.png",
+        "src" : "/img/Graph/LINE-logo.png",
         "width" : 25,
         "height" : 23,
         "alt" : "LINE",

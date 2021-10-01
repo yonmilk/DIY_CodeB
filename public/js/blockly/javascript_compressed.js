@@ -1117,4 +1117,20 @@ Blockly.JavaScript['list_insert'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
   };
 
-  
+// next_outer
+Blockly.Python['rp_next_outer'] = function(block) {
+  var value_value = Blockly.Python.valueToCode(block, 'value', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `\n`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return code;
+};
+
+// next
+Blockly.JavaScript['rp_next'] = function(block) {
+    var value_value = Blockly.JavaScript.valueToCode(block, 'value', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = '\n';
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};

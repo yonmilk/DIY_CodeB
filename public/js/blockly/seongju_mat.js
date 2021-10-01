@@ -543,7 +543,7 @@ Blockly.Blocks['axs_set_xlabel2'] = {
 // 나중에 버리는 코드 곱하기 코드임
 Blockly.Blocks['Oper_garbage'] = {
   init: function () {
-      this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+      this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
           alt: "*",
           flipRtl: "FALSE"
       }));
@@ -582,7 +582,7 @@ Blockly.Blocks['Oper_garbage'] = {
 
 Blockly.Blocks['Oper_garbage2'] = {
   init: function () {
-      this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+      this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
           alt: "*",
           flipRtl: "FALSE"
       }));
@@ -621,7 +621,7 @@ Blockly.Blocks['Oper_garbage2'] = {
 
 Blockly.Blocks['Oper_garbage3'] = {
   init: function () {
-      this.appendDummyInput().appendField(new Blockly.FieldImage("../public/img/Numeric/N2-logo.png", 25, 23, {
+      this.appendDummyInput().appendField(new Blockly.FieldImage("/img/Numeric/N2-logo.png", 25, 23, {
           alt: "*",
           flipRtl: "FALSE"
       }));
