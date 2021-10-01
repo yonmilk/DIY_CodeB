@@ -1,4 +1,12 @@
 // 라이브러리
+Blockly.JavaScript['import_matplotlib_list'] = function (block) {
+  var dropdown_list = block.getFieldValue('list');
+  var code = "\n";
+  return code;
+};
+
+
+// 라이브러리
 Blockly.JavaScript['visualization_library'] = function (block) {
   var value_name = Blockly.Python.valueToCode(block, 'lib_var', Blockly.Python.ORDER_ATOMIC);
   var code = "\n";

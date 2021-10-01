@@ -881,6 +881,7 @@ Blockly.Msg['pandas_dropna'] = "[결측치처리]"
 Blockly.Msg['PANDAS_NUMPY'] = "[넘파이배열]"
 
 // ---- 맷플롯립
+Blockly.Msg['MATPLOTLIB_LIST_LIBRARY'] = "[ 임포트 ]";
 Blockly.Msg['MATPLOT_VISUALIZATION_LIBRARY'] = "[ 임포트 ] matplotlib.pyplot을 plt로";
 Blockly.Msg['MATPLOT_VISUALIZATION_LIBRARY_CM'] = "[ 임포트 ] matplotlib.cm를 cm으로";
 Blockly.Msg['MATPLOT_VAL_VI'] = "[ 테이블 형식 출력 ]   %1 변수  %2 ";

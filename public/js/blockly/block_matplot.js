@@ -1,4 +1,17 @@
 // 맷플롯립 라이브러리
+Blockly.Blocks['import_matplotlib_list'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.MATPLOTLIB_LIST_LIBRARY)
+            .appendField(new Blockly.FieldDropdown([["matplotlib.pyplot을 plt로","matplotlib.pyplot as plt"], ["matplotlib","matplotlib"]]), "list");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setStyle("matplot_blocks");
+    this.setTooltip("");
+    this.setHelpUrl("");
+    }
+},
+
 Blockly.Blocks['visualization_library'] = {
     init: function () {
         this.appendDummyInput()

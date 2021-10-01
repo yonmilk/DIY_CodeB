@@ -2,8 +2,9 @@
 var MAT = '<category name="%{BKY_CATEGORY_MATPLOT}" colour="%{BKY_VISUAL_HUE}">';
 MAT += '<category name="%{BKY_MAT_BASIC}" colour="%{BKY_VISUAL_HUE}">';
 // //<!-- 그래프 출력 -->';
-MAT += '<block type="visualization_library"></block >';
-MAT += '<block type="import_matplotlib"></block >';
+MAT += '<block type="import_matplotlib_list"></block >';
+// MAT += '<block type="visualization_library"></block >';
+// MAT += '<block type="import_matplotlib"></block >';
 
 // MAT += '<block type="visualization_library_cm"></block >';
 
