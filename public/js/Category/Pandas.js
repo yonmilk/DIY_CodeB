@@ -758,9 +758,8 @@ PANDAS += '<block type="variables_get">';
 PANDAS += '<field name="VAR">sr</field>';
 PANDAS += '</block>';
 PANDAS += '</value>';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1"></field>';
-PANDAS += '</shadow>'
+PANDAS += '<value name="ser_data">';
+PANDAS += '<block type="pandas_series_data"></block>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
@@ -798,45 +797,122 @@ PANDAS += '<block type="groupby_series_"></block>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
-PANDAS += '<block type="df_series1">';
-PANDAS += '<value name="VAR">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">sr</field>';
-PANDAS += '</block>';
-PANDAS += '</value>';
+//시리즈 정의블록 주석처리
+// PANDAS += '<block type="df_series1">';
+// PANDAS += '<value name="VAR">';
+// PANDAS += '<block type="variables_get">';
+// PANDAS += '<field name="VAR">sr</field>';
+// PANDAS += '</block>';
+// PANDAS += '</value>';
 
-PANDAS += '<value name="LIST">';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1"></field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '</block>';
+// PANDAS += '<value name="LIST">';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1"></field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>';
 
-PANDAS += '<block type="df_series2">';
-PANDAS += '<value name="VAR">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">sr</field>';
-PANDAS += '</block>';
-PANDAS += '</value>';
-PANDAS += '<value name="LIST">';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1"></field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '</block>';
+// PANDAS += '<block type="df_series2">';
+// PANDAS += '<value name="VAR">';
+// PANDAS += '<block type="variables_get">';
+// PANDAS += '<field name="VAR">sr</field>';
+// PANDAS += '</block>';
+// PANDAS += '</value>';
+// PANDAS += '<value name="LIST">';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1"></field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>';
 
-PANDAS += '<block type="df_series3">';
-PANDAS += '<value name="VAR">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">sr</field>';
-PANDAS += '</block>';
-PANDAS += '</value>';
-PANDAS += '<value name="LIST">';
-PANDAS += '<shadow type="indata">';
-PANDAS += '<field name="indata1"></field>';
-PANDAS += '</shadow>';
-PANDAS += '</value>';
-PANDAS += '</block>';
+// PANDAS += '<block type="df_series3">';
+// PANDAS += '<value name="VAR">';
+// PANDAS += '<block type="variables_get">';
+// PANDAS += '<field name="VAR">sr</field>';
+// PANDAS += '</block>';
+// PANDAS += '</value>';
+// PANDAS += '<value name="LIST">';
+// PANDAS += '<shadow type="indata">';
+// PANDAS += '<field name="indata1"></field>';
+// PANDAS += '</shadow>';
+// PANDAS += '</value>';
+// PANDAS += '</block>';
+
+// 시리즈 메소드 1
+PANDAS += `
+<block type="df_series_method_1">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
+// 시리즈 메소드 2
+PANDAS += `
+<block type="df_series_method_2">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
+// 시리즈 메소드 3
+PANDAS += `
+<block type="df_series_method_3">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
+// 시리즈 메소드 4
+PANDAS += `
+<block type="df_series_method_4">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
 
 PANDAS += '<block type="df_unique">';
 PANDAS += '<value name="VAR">';
