@@ -5,7 +5,7 @@
 Blockly.Python['pandas_library'] = function (block) {
   var dropdown_list = block.getFieldValue('list');
   // TODO: Assemble JavaScript into code variable.
-  let code = `import ${dropdown_list}`
+  let code = `import ${dropdown_list}\n`
   return code;
 };
 
