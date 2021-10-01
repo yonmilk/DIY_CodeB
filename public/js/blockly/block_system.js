@@ -76,29 +76,16 @@
     }
   };
 
-  Blockly.Blocks['pickle_library'] = {
-    init: function () {
+  Blockly.Blocks['file_library'] = {
+    init: function() {
       this.appendDummyInput()
-          .appendField(Blockly.Msg.FILE_PICKLE_LIBRARY);
-      this.setInputsInline(true);
+          .appendField(Blockly.Msg.FILE_LIBRARY)
+          .appendField(new Blockly.FieldDropdown([["csv","csv"], ["pickle","pickle"]]), "list");
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
       this.setStyle("list_blocks");
-      this.setTooltip("");
-      this.setHelpUrl("");
-    }
-  };
-// 2021.01.22 csv라이브러리 남지원
-  Blockly.Blocks['csv_library'] = {
-    init: function () {
-      this.appendDummyInput()
-          .appendField("[임포트] csv");
-      this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setStyle("list_blocks");
-      this.setTooltip("");
-      this.setHelpUrl("");
+   this.setTooltip("");
+   this.setHelpUrl("");
     }
   };
 

@@ -11,9 +11,10 @@
     return code;
   };
 
-  Blockly.JavaScript['pickle_library'] = function (block) {
+  Blockly.JavaScript['file_library'] = function(block) {
+    var dropdown_list = block.getFieldValue('list');
     // TODO: Assemble JavaScript into code variable.
-    var code = '\n';
+    var code = '...;\n';
     return code;
   };
 

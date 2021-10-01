@@ -34,9 +34,10 @@ Blockly.Python['pyodide_library'] = function (block) {
   return code;
 };
 
-Blockly.Python['pickle_library'] = function (block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = "import pickle \n";
+Blockly.Python['file_library'] = function(block) {
+  var dropdown_list = block.getFieldValue('list');
+  // TODO: Assemble Python into code variable.
+  var code = `import ${dropdown_list}`;
   return code;
 };
 
