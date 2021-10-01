@@ -132,7 +132,7 @@ Blockly.Python['np_array'] = function(block) {
     var code = `np.array(${value_np_array_val}, ${value_np_dtype})`;
   }
   
-  return [code, Blockly.Python.ORDER_NONE];   
+  return [code, Blockly.Python.ORDER_ATOMIC];   
 };
   
 //np.arange  
