@@ -255,11 +255,19 @@ PANDAS += '</block>';
 
 //<!-- 행렬크기 -->';
 PANDAS += '<block type="row_count">';
-PANDAS += '<value name="select_value">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">df</field>';
-PANDAS += '</block>';
-PANDAS += '</value>';
+PANDAS += ' <value name="select_value">';
+PANDAS += '     <block type="variables_get">';
+PANDAS += '         <field name="VAR">df</field>';
+PANDAS += '     </block>';
+PANDAS += '     <shadow type="indata">';
+PANDAS += '         <field name="indata1"></field>';
+PANDAS += '     </shadow>';
+PANDAS += ' </value>';
+PANDAS += ' <value name="select_value2">';
+PANDAS += '     <shadow type="indata">';
+PANDAS += '         <field name="indata1"></field>';
+PANDAS += '     </shadow>';
+PANDAS += ' </value>';
 PANDAS += '</block>';
 
 PANDAS += '<block type="pandas_numpy">';

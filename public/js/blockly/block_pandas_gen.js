@@ -148,9 +148,10 @@ Blockly.Python['select_row_column_value'] = function (block) {
 //2020-09-19 양승국 수정
 Blockly.Python['row_count'] = function (block) {
   var value_select_value = Blockly.Python.valueToCode(block, 'select_value', Blockly.Python.ORDER_ATOMIC);
+  var value_select_value2 = Blockly.Python.valueToCode(block, 'select_value2', Blockly.Python.ORDER_ATOMIC);
   var dropdown_name = block.getFieldValue('count');
   // TODO: Assemble Python into code variable.
-  var code = value_select_value + dropdown_name;
+  var code = `${value_select_value}${dropdown_name}(${value_select_value2})`;
   return [code, Blockly.Python.ORDER_NONE];
 };
 
