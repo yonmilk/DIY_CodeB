@@ -1,6 +1,6 @@
 'use strict';
 
-// let htmldata; // 크롤링된 html dom
+// Node.js 서버로 크롤링 요청
 function _requestsURL(_url) {
   $.ajax({
     url: '/utils/crawling', // server.js에서 URI확인

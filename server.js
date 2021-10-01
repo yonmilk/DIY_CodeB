@@ -10,6 +10,13 @@ const express = require('express');
 const app = express();
 const port = 18090;
 const path = require('path');
+const cors = require('cors');
+const helmet = require('helmet');
+
+// CORS 허용 - Spring, Node 간
+app.use(cors({
+  origin: "http://dev.inhatc.ac.kr:8110"
+}));
 
 // EJS 사용
 app.set('view engine', 'ejs');

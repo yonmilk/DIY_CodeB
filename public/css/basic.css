@@ -176,9 +176,37 @@ b {
   background-color: #565656;
   border-radius: 10px;
   font-size: 13px;
-  box-shadow: 0px 1px 2px rgb(255 255 255 / 40%) inset,
-    0px 2px 5px rgb(0 0 0 / 80%);
+  box-shadow: 0px 1px 2px rgb(255 255 255 / 40%) inset, 0px 2px 5px rgb(0 0 0 / 80%) !important;
   margin: 0 4px;
+  height: 100%;
+  border: 0px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.cloudIconRotate::after {
+  transform: rotateZ(-90deg);
+  -ms-transform: rotateZ(-90deg);
+  -moz-transform: rotateZ(-90deg);
+  -webkit-transform: rotateZ(-90deg);
+  -o-transform: rotateZ(-90deg);
+}
+
+.dropdown-submenu {
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-submenu .dropdown-toggle{
+  font-weight: bold !important;
+}
+
+.dropdown-menu .codebBtnDropdown {
+  cursor: pointer;
+  font-weight: bold;
+
+}
+
+.dropdown-item:active {
+  background-color: #7949ff;
 }
 
 .codebBtn .codebBtnIcon {

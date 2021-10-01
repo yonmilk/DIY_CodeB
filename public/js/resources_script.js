@@ -55,15 +55,8 @@ document.write('<script src=/js/utils/ResizeSensor.js></script>');
 document.write('<script src="/js/utils/jszip.js"></script>')
 document.write('<script src="/js/utils/jszip.min.js"></script>')
 
-/**
- * 스크립트 로딩 후 초기 설정 로직
- */
-document.write(`
-    setCookie("download_block", "", 1);
-
-    // Matplotlib 로직에서 사용하는 변수 (?) 
-    var DL_Gra = 0;
-`)
+// 스프링 이벤트 리스너
+document.write('<script src="/js/utils/serverDataHandler.js"></script>');
 
 
 console.log("[Notice] All Resources are imported.");

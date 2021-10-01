@@ -46,9 +46,9 @@ import matplotlib.pyplot as plt
 
 #############
 # prompt 버그 fix
-from js import input_fixed
-input = input_fixed
-__builtins__.input = input_fixed
+from js import inputFixed
+input = inputFixed
+__builtins__.input = inputFixed
 `
 // 파이오다이드 초기 세팅 로직
 pyodideReadyPromise.then(() => {
@@ -66,6 +66,14 @@ pyodideReadyPromise.then(() => {
          */
         console.log("---사용자 추가 라이브러리 임포트 여부 체크---");
         if(envMode == "spring") {
+            /**
+             * condition: spring
+             * des: 도전과제일 때, 문제 표시 사이드바를 토글한다.
+             */
+            if(isChallenge == 1) {
+                $(".ui.labeled.icon.sidebar").sidebar("toggle");
+            }
+
             if(usedLibs) {
                 console.log("===>라이브러리 임포트 시작!");
                 usedLibs = usedLibs.split(',');
@@ -96,10 +104,6 @@ pyodideReadyPromise.then(() => {
 		console.log("FS완료"); //FS완료 콘솔
     });
 
-    /////////////////////////////////////
-    // 라이브러리 로딩 Toast
-    /////////////////////////////////////
-
     var isCtrl;
     var isFkey;
     // 실행 단축키
@@ -121,6 +125,9 @@ pyodideReadyPromise.then(() => {
     }
 });
 
+/////////////////////////////////////
+// 라이브러리 로딩 및 Toast를 출력한다.
+/////////////////////////////////////
 async function importPyodidePackages(libsList) {
     const lenLibs = libsList.length;
     let index = 1;

@@ -51,6 +51,8 @@ function file_use_Download() {
     var _fileLen = _filename.length;                                      // 파일명의 길이
     var _lastDot = _filename.lastIndexOf('.');                            // 파일명에서 마지막에 나오는 '.'찾기 -> 확장자를 찾을수있음
     var _fileExt = _filename.substring(_lastDot, _fileLen).toLowerCase(); // 분리된 파일 확장자
+  } else {
+    return false;
   }
 
   var _filepath = `/data/${_filename}`;

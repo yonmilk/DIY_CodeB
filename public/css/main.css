@@ -30,6 +30,39 @@
 
 /* 상단 프로필 부분 */
 
+.saveProjectList td, .saveProjectList th, .saveProjectList table {
+    border:0;
+}
+.saveProjectList {
+	padding-right: 0;
+	padding-left:17px;
+background-color: #fff;
+border-radius: 10px;
+color: #000;
+box-shadow: none !important;
+/* color: #fff; */
+overflow-x: hidden;
+overflow-y: auto;
+max-width: 100%;
+width: 940px;
+position: absolute;
+display: none;
+z-index: 1001;
+text-align: left;
+border: none;
+border-radius: .28571429rem;
+user-select: text;
+will-change: top,left,margin,transform,opacity;
+z-index: 1200 !important;
+height: 590px;
+margin: auto !important;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+outline: 0;
+}
+
 .libraryDiv{
 	padding-right: 0;
 	padding-left:17px;
