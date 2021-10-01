@@ -823,6 +823,7 @@ Blockly.Msg['PANDAS_GROUPBY_SERIES_6'] = "(전체의 곱)";
 Blockly.Msg['PANDAS_GROUPBY_SERIES_7'] = "(최소값)";
 Blockly.Msg['PANDAS_GROUPBY_SERIES_8'] = "(최대값)";
 Blockly.Msg['PANDAS_GROUPBY_SERIES_9'] = "그룹핑 열";
+Blockly.Msg['PANDAS_SERIES_METHOD'] = "[시리즈메소드]"
 Blockly.Msg['PANDAS_GROUPBY_DATAFRAME_1'] = "[프레임그룹화] 데이터프레임";
 Blockly.Msg['PANDAS_GROUPBY_DATAFRAME_2'] = "통계함수";
 Blockly.Msg['PANDAS_GROUPBY_DATAFRAME_3'] = "평균(mean)";

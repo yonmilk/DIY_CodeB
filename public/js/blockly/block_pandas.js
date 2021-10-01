@@ -1911,6 +1911,45 @@ Blockly.Blocks['df_series3'] = {
   }
 };
 
+//df_series3
+Blockly.Blocks['df_series3'] = {
+  init: function () {
+    this.appendValueInput("VAR").appendField("[Series]");
+      this.appendValueInput("LIST").appendField("[").setCheck("Boolean");
+      this.appendDummyInput().appendField("]");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      //this.setOutput(true, null);
+      this.setColour("%{BKY_PANDAS_HUE}");
+      this.setTooltip("");
+      this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['df_series_method_2'] = {
+  init: function () {
+    this.appendDummyInput().appendField(Blockly.Msg.PANDAS_SERIES_METHOD);
+    this.appendValueInput('value1').setCheck(null);
+    this.appendDummyInput()
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['연결(append)', 'append'],
+          ['교체(replace)', 'replace'],
+          ['정렬(sort_values)', 'sort_values'],
+        ]),
+        'list'
+      )
+      .appendField('(');
+    this.appendValueInput('value2').setCheck(null);
+    this.appendDummyInput().appendField(')');
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setStyle('pandas_blocks_sub');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 ////////////////////////////
 ////// 2021-04-21
 ///////////////////////////

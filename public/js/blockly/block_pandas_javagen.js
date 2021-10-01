@@ -633,6 +633,17 @@ Blockly.JavaScript['df_series3'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };  
 
+// 시리즈 메소드 2
+Blockly.JavaScript['df_series_method_2'] = function(block) {
+  var value_value1 = Blockly.JavaScript.valueToCode(block, 'value1', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_value2 = Blockly.JavaScript.valueToCode(block, 'value2', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `${value_value1}.${dropdown_list}(${value_value1})`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 //판다스 넘파이배열
 Blockly.JavaScript['pandas_numpy'] = function(block) {
   var value_name1 = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);

@@ -837,6 +837,24 @@ PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
+PANDAS += `
+<block type="df_series_method_2">
+  <value name="value1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">sr</field>
+    </block>
+  </value>
+  <value name="value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
 PANDAS += '<block type="df_unique">';
 PANDAS += '<value name="VAR">';
 PANDAS += '<block type="variables_get">';
