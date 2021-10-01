@@ -308,7 +308,6 @@ Blockly.Blocks['data_frame'] = {
           [Blockly.Msg.PANDAS_DATAFRAME_8, '.size'],
           [Blockly.Msg.PANDAS_DATAFRAME_9, '.shape'],
           [Blockly.Msg.PANDAS_DATAFRAME_10, '.empty'],
-          [Blockly.Msg.PANDAS_DATAFRAME_11, '.memory_usage'],
         ]),
         'count'
       )
