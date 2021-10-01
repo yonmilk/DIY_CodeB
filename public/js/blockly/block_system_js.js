@@ -17,13 +17,7 @@
     return code;
   };
 
-  Blockly.JavaScript['import_pil_pilimg'] = function (block) {
-    // TODO: Assemble JavaScript into code variable.
-    var code = '\n';
-    return code;
-  };
-
-  Blockly.JavaScript['import_pil_imagefilter'] = function (block) {
+  Blockly.JavaScript['import_pil_pilimg_imagefilter'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
     var code = '\n';
     return code;

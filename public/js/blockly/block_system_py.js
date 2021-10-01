@@ -40,17 +40,12 @@ Blockly.Python['pickle_library'] = function (block) {
   return code;
 };
 
-Blockly.Python['import_pil_pilimg'] = function (block) {
+Blockly.Python['import_pil_pilimg_imagefilter'] = function (block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = "import PIL.Image as pilimg \n";
+  var code = "import PIL.Image as pilimg \nfrom PIL import ImageFilter \n";
   return code;
 };
 
-Blockly.Python['import_pil_imagefilter'] = function (block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = "from PIL import ImageFilter \n";
-  return code;
-};
 
 // 2021.01.22 csv 남지원
 Blockly.Python['csv_library'] = function (block) {

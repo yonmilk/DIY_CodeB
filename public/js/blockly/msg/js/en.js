@@ -1159,8 +1159,7 @@ $("#button_reset").html('reset');
 // 2021.01.19 남지원
 // 입출력>파일 
 Blockly.Msg['FILE_PICKLE_LIBRARY'] = "[ import ] pickle";
-Blockly.Msg['IMPORT_PIL_PILIMG'] = "[ import ] pilimg";
-Blockly.Msg['IMPORT_PIL_IMAGEFILTER'] = "[ import ] imagefilter";
+Blockly.Msg['IMPORT_PIL_PILIMG'] = "[ import ] PIL as pilimg, imagefilter";
 
 Blockly.Msg['FILE_OPEN_1'] = "file open";
 Blockly.Msg['FILE_OPEN_2_1'] = "read write(rw)";

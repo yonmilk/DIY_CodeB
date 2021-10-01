@@ -2,8 +2,7 @@
 var FILE = '<category name="%{BKY_CATEGORY_FILE}" colour="%{BKY_FILE_HUE}">';
 FILE += '  <block type="pickle_library"></block>';
 FILE += '  <block type="csv_library"></block>';
-FILE += '  <block type="import_pil_pilimg"></block>';
-FILE += '  <block type="import_pil_imagefilter"></block>';
+FILE += '  <block type="import_pil_pilimg_imagefilter"></block>';
 
 // 파일 열기 블록
 FILE += '<block type="fileopen"></block>';
