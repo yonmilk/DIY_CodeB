@@ -294,25 +294,33 @@ Blockly.Blocks['select_row_column_value'] = {
 
 //행 개수
 //2020-09-19 양승국 블록 수정
-Blockly.Blocks['row_count'] = {
+Blockly.Blocks['data_frame'] = {
   init: function () {
-    this.appendValueInput("select_value")
-      .setCheck(null)
-      .appendField(Blockly.Msg.PANDAS_ROW_COUNT_1);
+    this.appendValueInput('select_value').setCheck(null).appendField(Blockly.Msg.PANDAS_DATAFRAME_1);
     this.appendDummyInput()
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PANDAS_ROW_COUNT_2, ".index"],[Blockly.Msg.PANDAS_ROW_COUNT_3, ".columns"], [Blockly.Msg.PANDAS_ROW_COUNT_4, ".dtypes"],
-        [Blockly.Msg.PANDAS_ROW_COUNT_5, ".values"], [Blockly.Msg.PANDAS_ROW_COUNT_6, ".axes"], [Blockly.Msg.PANDAS_ROW_COUNT_7, ".ndim"], [Blockly.Msg.PANDAS_ROW_COUNT_8, ".size"],
-        [Blockly.Msg.PANDAS_ROW_COUNT_9, ".shape"], [Blockly.Msg.PANDAS_ROW_COUNT_10, ".empty"], [Blockly.Msg.PANDAS_ROW_COUNT_11, ".memory_usage"]]), "count")
-      .appendField("(");
-    this.appendValueInput("select_value2")
-    .setCheck(null);
-    this.appendDummyInput()
-      .appendField(")");
+      .appendField(
+        new Blockly.FieldDropdown([
+          [Blockly.Msg.PANDAS_DATAFRAME_2, '.index'],
+          [Blockly.Msg.PANDAS_DATAFRAME_3, '.columns'],
+          [Blockly.Msg.PANDAS_DATAFRAME_4, '.dtypes'],
+          [Blockly.Msg.PANDAS_DATAFRAME_5, '.values'],
+          [Blockly.Msg.PANDAS_DATAFRAME_6, '.axes'],
+          [Blockly.Msg.PANDAS_DATAFRAME_7, '.ndim'],
+          [Blockly.Msg.PANDAS_DATAFRAME_8, '.size'],
+          [Blockly.Msg.PANDAS_DATAFRAME_9, '.shape'],
+          [Blockly.Msg.PANDAS_DATAFRAME_10, '.empty'],
+          [Blockly.Msg.PANDAS_DATAFRAME_11, '.memory_usage'],
+        ]),
+        'count'
+      )
+      .appendField('(');
+    this.appendValueInput('select_value2').setCheck(null);
+    this.appendDummyInput().appendField(')');
     this.setOutput(true, null);
-    this.setColour("%{BKY_PANDAS_HUE}");
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
+    this.setColour('%{BKY_PANDAS_HUE}');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
 };
 
 

@@ -147,6 +147,24 @@ PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
+// 프레임 속성
+PANDAS += `
+<block type="data_frame">
+  <value name="select_value">
+    <block type="variables_get">
+      <field name="VAR">df</field>
+    </block>
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+  <value name="select_value2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>`
+
 //<!-- 인덱싱 -->';
 PANDAS += '<block type="pandas_indexing">';
 PANDAS += '<value name="d1">';
@@ -244,22 +262,7 @@ PANDAS += '</shadow>';
 PANDAS += '</value>';
 PANDAS += '</block>';
 
-//<!-- 행렬크기 -->';
-PANDAS += '<block type="row_count">';
-PANDAS += ' <value name="select_value">';
-PANDAS += '     <block type="variables_get">';
-PANDAS += '         <field name="VAR">df</field>';
-PANDAS += '     </block>';
-PANDAS += '     <shadow type="indata">';
-PANDAS += '         <field name="indata1"></field>';
-PANDAS += '     </shadow>';
-PANDAS += ' </value>';
-PANDAS += ' <value name="select_value2">';
-PANDAS += '     <shadow type="indata">';
-PANDAS += '         <field name="indata1"></field>';
-PANDAS += '     </shadow>';
-PANDAS += ' </value>';
-PANDAS += '</block>';
+
 
 PANDAS += '<block type="pandas_numpy">';
 PANDAS += '<value name="VAR">';

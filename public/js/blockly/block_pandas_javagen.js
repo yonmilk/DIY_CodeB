@@ -134,7 +134,7 @@ Blockly.JavaScript['select_row_list'] = function (block) {
   return code;
 };
 
-Blockly.JavaScript['row_count'] = function (block) {
+Blockly.JavaScript['data_frame'] = function (block) {
   var value_select_value = Blockly.JavaScript.valueToCode(block, 'select_value', Blockly.JavaScript.ORDER_ATOMIC);
   var dropdown_name = block.getFieldValue('count');
   // TODO: Assemble JavaScript into code variable.
