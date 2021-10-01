@@ -171,13 +171,23 @@ PANDAS += '</value>';
 PANDAS += '</block>';
 
 //<!-- 기초 조회 -->';
-PANDAS += '<block type="pandas_head">';
-PANDAS += '<value name="VAR">';
-PANDAS += '<block type="variables_get">';
-PANDAS += '<field name="VAR">df</field>';
-PANDAS += '</block>';
-PANDAS += '</value>';
-PANDAS += '</block>';
+PANDAS += `
+<block type="pandas_head">
+  <value name="VAR">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">df</field>
+    </block>
+  </value>
+  <value name="NUM">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`;
 
 //<!-- 데이터 내용 조회-->';
 PANDAS += '<block type = "pandas_oc">';

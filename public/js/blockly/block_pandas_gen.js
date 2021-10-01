@@ -413,8 +413,12 @@ Blockly.Python['csv_url'] = function (block) {
 Blockly.Python['pandas_head'] = function(block) {
   var value_var = Blockly.Python.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);
   var dropdown_drop = block.getFieldValue('DROP');
+  var value_num = Blockly.Python.valueToCode(block, 'NUM', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = `${value_var}.${dropdown_drop}`;
+  let code = `${value_var}.${dropdown_drop}`;
+  if(dropdown_drop !== 'T'){
+    code += `(${value_num})`;
+  }
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };

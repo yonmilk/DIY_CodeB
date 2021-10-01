@@ -290,6 +290,7 @@ Blockly.JavaScript['csv_url'] = function(block) {
 Blockly.JavaScript['pandas_head'] = function(block) {
   var value_var = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.JavaScript.ORDER_ATOMIC);
   var dropdown_drop = block.getFieldValue('DROP');
+  var value_num = Blockly.JavaScript.valueToCode(block, 'NUM', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = `\n`;
   // TODO: Change ORDER_NONE to the correct strength.
