@@ -475,23 +475,35 @@ Blockly.JavaScript.math_number = function (a) {
     a = Number(a.getFieldValue("NUM"));
     return [a, 0 <= a ? Blockly.JavaScript.ORDER_ATOMIC : Blockly.JavaScript.ORDER_UNARY_NEGATION]
 };
-Blockly.JavaScript.math_arithmetic = function (a) {
-    var b = {
-            ADD: [" + ", Blockly.JavaScript.ORDER_ADDITION],
-            MINUS: [" - ", Blockly.JavaScript.ORDER_SUBTRACTION],
-            MULTIPLY: [" * ", Blockly.JavaScript.ORDER_MULTIPLICATION],
-            DIVIDE: [" / ", Blockly.JavaScript.ORDER_DIVISION],
-            REMAINDER: [" % ", Blockly.JavaScript.ORDER_MULTIPLICATIVE],
-            POWER: [null, Blockly.JavaScript.ORDER_COMMA],
-            QUOTIENT: [null, Blockly.JavaScript.ORDER_COMMA]
-        } [a.getFieldValue("OP")],
-        c = b[0];
-    b = b[1];
-    var d = Blockly.JavaScript.valueToCode(a, "A", b) || "0";
-    a = Blockly.JavaScript.valueToCode(a, "B", b) || "0";
-    return c ? [d + c + a, b] : ["Math.pow(" + d + ", " + a + ")", Blockly.JavaScript.ORDER_FUNCTION_CALL]
-};
 
+// num str 연산 블록 기존코드
+// Blockly.JavaScript.math_arithmetic = function (a) {
+//     var b = {
+//             ADD: [" + ", Blockly.JavaScript.ORDER_ADDITION],
+//             MINUS: [" - ", Blockly.JavaScript.ORDER_SUBTRACTION],
+//             MULTIPLY: [" * ", Blockly.JavaScript.ORDER_MULTIPLICATION],
+//             DIVIDE: [" / ", Blockly.JavaScript.ORDER_DIVISION],
+//             REMAINDER: [" % ", Blockly.JavaScript.ORDER_MULTIPLICATIVE],
+//             POWER: [null, Blockly.JavaScript.ORDER_COMMA],
+//             QUOTIENT: [null, Blockly.JavaScript.ORDER_COMMA]
+//         } [a.getFieldValue("OP")],
+//         c = b[0];
+//     b = b[1];
+//     var d = Blockly.JavaScript.valueToCode(a, "A", b) || "0";
+//     a = Blockly.JavaScript.valueToCode(a, "B", b) || "0";
+//     return c ? [d + c + a, b] : ["Math.pow(" + d + ", " + a + ")", Blockly.JavaScript.ORDER_FUNCTION_CALL]
+// };
+
+// num str 연산블록 수정코드
+Blockly.JavaScript['math_arithmetic'] = function(block) {
+    var value_a = Blockly.Python.valueToCode(block, 'A', Blockly.Python.ORDER_ATOMIC);
+    var dropdown_operator_list = block.getFieldValue('operator_list');
+    var value_b = Blockly.Python.valueToCode(block, 'B', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = `${value_a} ${dropdown_operator_list} ${value_b}`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
 
 Blockly.JavaScript.math_single = function (a) {
     var b = a.getFieldValue("OP");
