@@ -1736,6 +1736,7 @@ Blockly.Blocks['pandas_corr'] = {
 };
 
 // 판다스 난,널 판단
+// 결측치 판단
 Blockly.Blocks['pandas_nanull'] = {
   init: function() {
   this.appendValueInput('VAR')
@@ -1743,7 +1744,7 @@ Blockly.Blocks['pandas_nanull'] = {
             .setCheck(null);
     this.appendDummyInput()
           .appendField(".")
-        .appendField(new Blockly.FieldDropdown([["비어있는지(empty)","empty"],["nan인지(isna)","isna"],["nan아닌지(notna)","notna"],["nan버리기(dropna)","dropna"],["null인지(isnull)","isnull"],["null아닌지(notnull)","notnull"]]), "DROP")
+        .appendField(new Blockly.FieldDropdown([["nan인지(isna)","isna"],["nan아닌지(notna)","notna"],["nan버리기(dropna)","dropna"],["null인지(isnull)","isnull"],["null아닌지(notnull)","notnull"]]), "DROP")
         .appendField("(");
     this.appendValueInput("INPUT")
         .setCheck(null);
