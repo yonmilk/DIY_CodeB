@@ -760,6 +760,19 @@ PANDAS += '   </shadow>';
 PANDAS += ' </value>';
 PANDAS += '</block>';
 
+// 날짜2 date dt
+PANDAS += `
+<block type="pandas_date_dt">
+  <value name="var">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">df</field>
+    </block>
+  </value>
+</block>
+`;
 
 PANDAS += '<block type="pandas_series_str">';
 PANDAS += '<value name="VAR">';

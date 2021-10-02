@@ -2136,3 +2136,32 @@ Blockly.Blocks['pandas_to'] = {
     this.setHelpUrl('');
   },
 };
+
+// 날짜2 date dt
+Blockly.Blocks['pandas_date_dt'] = {
+  init: function () {
+    this.appendValueInput('var')
+      .setCheck(null)
+      .appendField(Blockly.Msg.PANDAS_DATE_RANGE);
+    this.appendDummyInput()
+      .appendField('.dt.')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['년(year)', 'year'],
+          ['월(month)', 'month'],
+          ['일(day)', 'day'],
+          ['시(hour)', 'hour'],
+          ['분(minute)', 'minute'],
+          ['초(second)', 'second'],
+          ['요일 정수(dayofweek)', 'dayofweek'],
+          ['요일 문자열(day_name())', 'day_name()'],
+        ]),
+        'list'
+      )
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour('%{BKY_PANDAS_HUE}');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};

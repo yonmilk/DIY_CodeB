@@ -702,3 +702,12 @@ Blockly.JavaScript['pandas_to'] = function(block) {
   var code = `\n`;
   return code;
 };
+
+// 날짜2 date dt
+Blockly.JavaScript['pandas_date_dt'] = function(block) {
+  var value_var = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  // TODO: Assemble JavaScript into code variable.
+  var code = `${value_d1}.dt.${dropdown_list}`;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};

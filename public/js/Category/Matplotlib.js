@@ -50,7 +50,7 @@ MAT += '<block type="matplotlib_pre_graph_plt">';
 // MAT += '</value>';
 MAT += '  <value name="xx">';
 MAT += '    <shadow type="indata">';
-MAT += '      <field name="indata1"></field>';
+MAT += '      <field name="indata1">x_data</field>';
 MAT += '    </shadow>';
 MAT += '    <block type="variables_get">';
 MAT += '      <field name="VAR">x_data</field>';

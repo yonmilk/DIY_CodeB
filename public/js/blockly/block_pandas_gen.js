@@ -876,3 +876,12 @@ Blockly.Python['pandas_to'] = function(block) {
   var code = `${value_d1} = pd.to${dropdown_list}(${value_va})\n`;
   return code;
 };
+
+// 날짜2 date dt
+Blockly.Python['pandas_date_dt'] = function(block) {
+  var value_var = Blockly.Python.valueToCode(block, 'var', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  // TODO: Assemble Python into code variable.
+  var code = `${value_var}.dt.${dropdown_list}`;
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
