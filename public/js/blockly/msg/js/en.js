@@ -1160,6 +1160,9 @@ $("#button_reset").html('reset');
 // 입출력>파일 
 Blockly.Msg['MATPLOTLIB_LIST_LIBRARY'] = "[ import ]";
 Blockly.Msg['FILE_LIBRARY'] = "[ import ] pickle";
+Blockly.Msg['FILE_PICKLE_LIBRARY'] = "[ import ] pickle";
+Blockly.Msg['IMPORT_PIL_PILIMG'] = "[ import ] pilimg";
+Blockly.Msg['IMPORT_PIL_IMAGEFILTER'] = "[ import ] imagefilter";
 Blockly.Msg['IMPORT_PIL_PILIMG'] = "[ import ] PIL as pilimg, Imagefilter";
 
 Blockly.Msg['FILE_OPEN_1'] = "file open";

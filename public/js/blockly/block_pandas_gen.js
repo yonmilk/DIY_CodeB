@@ -155,6 +155,15 @@ Blockly.Python['data_frame'] = function (block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
+Blockly.Python['row_count'] = function (block) {
+    var value_select_value = Blockly.Python.valueToCode(block, 'select_value', Blockly.Python.ORDER_ATOMIC);
+    var value_select_value2 = Blockly.Python.valueToCode(block, 'select_value2', Blockly.Python.ORDER_ATOMIC);
+    var dropdown_name = block.getFieldValue('count');
+    // TODO: Assemble Python into code variable.
+    var code = `${value_select_value}${dropdown_name}(${value_select_value2})`;
+    return [code, Blockly.Python.ORDER_NONE];
+  };
+
 // Blockly.Python['image_list'] = function(block) {
 //   var value_select_value = Blockly.Python.valueToCode(block, 'select_value', Blockly.Python.ORDER_ATOMIC);
 //   // TODO: Assemble Python into code variable.

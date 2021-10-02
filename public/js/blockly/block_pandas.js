@@ -292,6 +292,27 @@ Blockly.Blocks['select_row_column_value'] = {
   }
 };
 
+Blockly.Blocks['row_count'] = {
+  init: function () {
+    this.appendValueInput("select_value")
+      .setCheck(null)
+      .appendField(Blockly.Msg.PANDAS_ROW_COUNT_1);
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.PANDAS_ROW_COUNT_2, ".index"],[Blockly.Msg.PANDAS_ROW_COUNT_3, ".columns"], [Blockly.Msg.PANDAS_ROW_COUNT_4, ".dtypes"],
+        [Blockly.Msg.PANDAS_ROW_COUNT_5, ".values"], [Blockly.Msg.PANDAS_ROW_COUNT_6, ".axes"], [Blockly.Msg.PANDAS_ROW_COUNT_7, ".ndim"], [Blockly.Msg.PANDAS_ROW_COUNT_8, ".size"],
+        [Blockly.Msg.PANDAS_ROW_COUNT_9, ".shape"], [Blockly.Msg.PANDAS_ROW_COUNT_10, ".empty"], [Blockly.Msg.PANDAS_ROW_COUNT_11, ".memory_usage"]]), "count")
+      .appendField("(");
+    this.appendValueInput("select_value2")
+    .setCheck(null);
+    this.appendDummyInput()
+    this.setOutput(true, null);
+    this.setColour("%{BKY_PANDAS_HUE}");
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+
 // 프레임속성값
 Blockly.Blocks['data_frame'] = {
   init: function () {

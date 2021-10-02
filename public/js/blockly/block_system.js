@@ -76,7 +76,34 @@
     }
   };
 
+  Blockly.Blocks['pickle_library'] = {
+    init: function () {
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.FILE_PICKLE_LIBRARY);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("list_blocks");
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+
   Blockly.Blocks['csv_library'] = {
+    init: function () {
+      this.appendDummyInput()
+          .appendField("[임포트] csv");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("list_blocks");
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+
+
+  Blockly.Blocks['file_library'] = {
     init: function () {
       this.appendDummyInput()
         .appendField(Blockly.Msg.FILE_LIBRARY)

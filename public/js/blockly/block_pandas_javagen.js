@@ -141,6 +141,14 @@ Blockly.JavaScript['data_frame'] = function (block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.JavaScript['row_count'] = function (block) {
+    var value_select_value = Blockly.JavaScript.valueToCode(block, 'select_value', Blockly.JavaScript.ORDER_ATOMIC);
+    var dropdown_name = block.getFieldValue('count');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '\n';
+    return code;
+  };
+
 Blockly.JavaScript['nm'] = function (block) {
   var value_data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
   var value_anymore = Blockly.JavaScript.valueToCode(block, 'anymore', Blockly.JavaScript.ORDER_ATOMIC);
