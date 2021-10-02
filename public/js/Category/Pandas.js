@@ -384,6 +384,7 @@ PANDAS += '    </shadow>';
 PANDAS += '  </value>';
 PANDAS += '</block>'; 
 
+//<!-- 데이터 통계 -->
 PANDAS += '<block type="block_sum_min">';
 PANDAS += '<value name="VAR">';
 PANDAS += '<block type="variables_get">';

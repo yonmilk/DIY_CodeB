@@ -1625,7 +1625,7 @@ Blockly.Blocks['block_sum_min'] = {
           .setCheck(null);
       this.appendDummyInput()
           .appendField(".")
-        .appendField(new Blockly.FieldDropdown([["합(sum)","sum"],["갯수(count)","count"],["평균(mean)","mean"],["곱(prod)","prod"],["중앙값(median)","median"],["최소값(min)","min"],["최대값(max)","max"],["인덱스최소값(idxmin)","idxmin"],["인덱스최대값(idxmax)","idxmax"] ]), "DROP")
+        .appendField(new Blockly.FieldDropdown([["합(sum)","sum"],["갯수(count)","count"],["평균(mean)","mean"],["분선(std)", "std"],["곱(prod)","prod"],["중앙값(median)","median"],["최소값(min)","min"],["최대값(max)","max"],["인덱스최소값(idxmin)","idxmin"],["인덱스최대값(idxmax)","idxmax"] ]), "DROP")
         .appendField("(");
     this.appendValueInput("INPUT")
         .setCheck(null);
@@ -1721,7 +1721,7 @@ Blockly.Blocks['pandas_corr'] = {
         .setCheck(null);
     this.appendDummyInput()
         .appendField(".")
-        .appendField(new Blockly.FieldDropdown([["두변수간(corr)","corr"], ["모든변수간(corrwith)","corrwith"],["두변수공분산(cov)","cov"],["(std)","std"]]), "DROP");
+        .appendField(new Blockly.FieldDropdown([["두변수간(corr)","corr"], ["모든변수간(corrwith)","corrwith"],["두변수공분산(cov)","cov"]]), "DROP");
     this.appendValueInput("INPUT2")
         .appendField("(")
         .setCheck(null);
