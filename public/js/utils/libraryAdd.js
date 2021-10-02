@@ -76,7 +76,7 @@ $("#ml_import_btn").on("click", function () {
 $("#image_processing_import_btn").on("click", function () {
     // 추가된 라이브러리 배열에 추가
     if (addedLibs.indexOf('scikit-image') == -1) {
-    addedLibs.push('scikit-image');
+     addedLibs.push('scikit-image');
     }
     
     // 이미 추가된 경우 Return
@@ -118,7 +118,7 @@ $("#image_processing_import_btn").on("click", function () {
 $("#bio_import_btn").on("click", function () {
     // 추가된 라이브러리 배열에 추가
     if (addedLibs.indexOf('biopython') == -1) {
-        addedLibs.push('biopython');
+         addedLibs.push('biopython');
         }
 
     // 이미 추가된 경우 Return
