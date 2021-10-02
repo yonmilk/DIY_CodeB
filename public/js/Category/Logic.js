@@ -104,6 +104,9 @@ LOG += '</block>';
 LOG += '  <block type="try_except1">';
 LOG += '    <value name="EXCEPT1">';
 LOG += '        <block type="except_block"></block>';
+LOG += '        <shadow type="indata">';
+LOG += '            <field name="indata1"></field>';
+LOG += '        </shadow>';
 LOG += '    </value>';
 LOG += '  </block>';
 
