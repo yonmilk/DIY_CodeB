@@ -11,16 +11,27 @@ OS +='<label text="%{BKY_IO_OS_PATH_SHUTIL}"></label>';
 OS +='  <block type="printf">' ;
 OS +='      <value name="content1">' ;
 OS +='          <block type="os_getcwd"></block>' ;
+OS +='          <shadow type="indata">' ;
+OS +='              <field name="indata1"></field>';
+OS +='          </shadow>' ;
 OS +='       </value>' ;
 OS +='  </block>' ;
+
 OS +='  <block type="printf">' ;
 OS +='      <value name="content1">' ;
 OS +='          <block type="os_listdir"></block>' ;
+OS +='          <shadow type="indata">' ;
+OS +='              <field name="indata1"></field>';
+OS +='          </shadow>' ;
 OS +='      </value>' ;
 OS +='  </block>' ;
+
 //디렉토리 생성
 OS +='  <block type="printf">' ;
 OS +='      <value name="content1">' ;
+OS +='          <shadow type="indata">' ;
+OS +='              <field name="indata1"></field>';
+OS +='          </shadow>' ;
 OS +='          <block type="os_dir">' ;
 OS +='              <value name="va">' ;
 OS +='                  <shadow type="indata">' ;
@@ -144,6 +155,9 @@ OS +='      <value name = "variables">' ;
 OS +='          <block type="variables_get">' ;
 OS +='              <field name="VAR">day</field>' ;
 OS +='          </block>' ;
+OS +='          <shadow type="indata">' ;
+OS +='              <field name="indata1"></field>';
+OS +='          </shadow>' ;
 OS +='      </value>' ;
 OS +='  </block>' ;
 
@@ -153,6 +167,9 @@ OS +='      <value name = "object">' ;
 OS +='          <block type="variables_get">' ;
 OS +='              <field name="VAR">day</field>' ;
 OS +='          </block>' ;
+OS +='          <shadow type="indata">' ;
+OS +='              <field name="indata1"></field>';
+OS +='          </shadow>' ;
 OS +='      </value>' ;
 OS +='  </block>' ;
 OS += '</category>';
