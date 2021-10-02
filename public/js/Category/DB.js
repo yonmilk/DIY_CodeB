@@ -72,11 +72,15 @@ DB +='    </shadow>';
 DB +='  </value>';
 DB +='</block>';
 
+// <!-- 데이터 -->
 DB +='<block type = "create_data1">';
 DB +='  <value name="list">';
 DB +='    <block type="variables_get">';
 DB +='      <field name="VAR">data</field>';
 DB +='    </block>';
+DB +='    <shadow type="indata">';
+DB +='      <field name="indata1"></field>';
+DB +='    </shadow>';
 DB +='  </value>';  
 DB +='  <value name="text">';
 DB +='    <shadow type="indata">';
@@ -85,11 +89,15 @@ DB +='    </shadow>';
 DB +='  </value>';
 DB +='</block>';
 
+// <!-- with -->
 DB +='<block type = "db_with">';
 DB +='  <value name="set0">';
 DB +='    <block type="variables_get">';
 DB +='      <field name="VAR">con</field>';
 DB +='    </block>';
+DB +='    <shadow type="indata">';
+DB +='      <field name="indata1"></field>';
+DB +='    </shadow>';
 DB +='  </value>';  
 DB +='</block>';
 
