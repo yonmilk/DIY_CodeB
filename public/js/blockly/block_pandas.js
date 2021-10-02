@@ -2120,8 +2120,10 @@ Blockly.Blocks['pandas_to'] = {
         new Blockly.FieldDropdown([
           ['csv', '_csv'],
           ['pickle', '_pickle'],
-          ['sql', '_sql'],
-          ['html', '_html']
+          ['numpy', '_numpy'],
+          ['datetime', '_datetime'],
+          ['html', '_html'],
+          ['sql', '_sql']
         ]),
         'list'
       );
