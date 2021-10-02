@@ -8,6 +8,9 @@ NUMPY += ' <block type="numpy_library"></block>';
 NUMPY += ' <block type = "numpy_loadtxt_basic">';
 NUMPY += '  <value name="text">';
 NUMPY += '      <block type="fileopen"></block>';
+NUMPY += '      <shadow type="indata">';
+NUMPY += '          <field name="indata1"></field>';
+NUMPY += '      </shadow>';
 NUMPY += '  </value>';
 NUMPY += '  <value name="delimiter">';
 NUMPY += '      <shadow type="indata">';
@@ -123,11 +126,14 @@ NUMPY += '<label text="%{BKY_NUM_CHANGE_SHAPE}"></label>';
 //<!-- 배열생성 / 숫자 범위2 -->';
 
 //<!-- astype -->';
-NUMPY += ' <block type="numpy_astype">';
+NUMPY += '<block type="numpy_astype">';
 NUMPY += '  <value name="VAR">';
-NUMPY += ' <block type="variables_get">';
-NUMPY += '      <field name="VAR">a</field>';
-NUMPY += ' </block>';
+NUMPY += '      <block type="variables_get">';
+NUMPY += '          <field name="VAR">a</field>';
+NUMPY += '      </block>';
+NUMPY += '      <shadow type="indata">';
+NUMPY += '          <field name="indata1"></field>';
+NUMPY += '      </shadow>';
 NUMPY += '  </value>';
 NUMPY += '  <value name="INPUT">';
 NUMPY += '      <shadow type="indata">';
@@ -145,13 +151,16 @@ NUMPY += '      </shadow>';
 NUMPY += '  </value>';
 NUMPY += '</block>';
 
+// reshape
 NUMPY += ' <block type="numpy_reshape">';
 NUMPY += '  <value name="numpy_reshape_val">';
 NUMPY += '      <block type="variables_get">';
 NUMPY += '          <field name="VAR">a</field>';
 NUMPY += '      </block>';
+NUMPY += '      <shadow type="indata">';
+NUMPY += '          <field name="indata1"></field>';
+NUMPY += '      </shadow>';
 NUMPY += '  </value>';
-
 NUMPY += '  <value name="numpy_reshape_struct">';
 NUMPY += '      <shadow type="indata">';
 NUMPY += '          <field name="indata1">행,열</field>';
@@ -159,7 +168,14 @@ NUMPY += '      </shadow>';
 NUMPY += '  </value>';
 NUMPY += '</block>';
 
-NUMPY += ' <block type="numpy_select"></block>';
+// 배열형상
+NUMPY += ' <block type="numpy_select">';
+NUMPY += '  <value name="parameter1">';
+NUMPY += '      <shadow type="indata">';
+NUMPY += '          <field name="indata1"></field>';
+NUMPY += '      </shadow>';
+NUMPY += '  </value>';
+NUMPY += ' </block>';
 //<!-- 차원확인 -->';
 //<!-- NUMPY += ' <block type="numpy_shape">';
 // NUMPY += ' <value name="numpy_shape_num1">';
