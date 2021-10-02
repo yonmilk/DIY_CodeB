@@ -20,14 +20,14 @@ Blockly.Blocks['statistics1'] = {
   init: function () {
     this.appendDummyInput()
       .appendField(Blockly.Msg.OPERATION_STATISTICS) // "통계"
-      .appendField(new Blockly.FieldDropdown([["%{BKY_OPERATION_STATISTICS1_1}", "mean"], [Blockly.Msg.OPERATION_STATISTICS1_2, "fmean"], [Blockly.Msg.OPERATION_STATISTICS1_3, "geometric_mean"], [Blockly.Msg.OPERATION_STATISTICS1_4, "harmonic_mean"], 
-      [Blockly.Msg.OPERATION_STATISTICS1_5, "median"], [Blockly.Msg.OPERATION_STATISTICS1_6, "median_low"], [Blockly.Msg.OPERATION_STATISTICS1_7, "median_high"], [Blockly.Msg.OPERATION_STATISTICS1_8, "median_grouped"], [Blockly.Msg.OPERATION_STATISTICS1_9, "mode"], [Blockly.Msg.OPERATION_STATISTICS1_10, "multimode"],
-      [Blockly.Msg.OPERATION_STATISTICS1_11, "pstdev"], [Blockly.Msg.OPERATION_STATISTICS1_12, "pvariance"], [Blockly.Msg.OPERATION_STATISTICS1_13, "stdev"], [Blockly.Msg.OPERATION_STATISTICS1_14, "variance"]]), "NAME")
+      .appendField(new Blockly.FieldDropdown([["%{BKY_OPERATION_STATISTICS1_1}", "mean"], [Blockly.Msg.OPERATION_STATISTICS1_5, "median"], [Blockly.Msg.OPERATION_STATISTICS1_9, "mode"],
+      [Blockly.Msg.OPERATION_STATISTICS1_13, "stdev"], [Blockly.Msg.OPERATION_STATISTICS1_14, "variance"], [Blockly.Msg.OPERATION_STATISTICS1_3, "geometric_mean"],
+      [Blockly.Msg.OPERATION_STATISTICS1_4, "harmonic_mean"]]), "NAME")
       .appendField("(");
     this.appendValueInput("va")
       .setCheck(null)
     this.appendDummyInput()
-       .appendField(")");
+      .appendField(")");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour("%{BKY_MATH_HUE}");
