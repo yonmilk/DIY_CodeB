@@ -43,7 +43,7 @@ Blockly.Python['biocodon'] = function (block) {
     var variable_var = Blockly.Python.valueToCode(block, 'var', Blockly.Python.ORDER_ATOMIC);
     var value_text = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = `${variable_var} = CodonTable.unambiguous_dna_by_name[${value_text}]\n`;
+    var code = `${variable_var} = CodonTable.unambiguous_dna_by_name["${value_text}"]\n`;
     return code;
 };
 

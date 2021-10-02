@@ -94,11 +94,11 @@ Blockly.Blocks['biocodon'] = {
     this.appendValueInput("var")
       .setCheck(null);
     this.appendDummyInput()
-      .appendField(' = CodonTable.unambiguous_dna_by_name[');
+      .appendField(' = CodonTable.unambiguous_dna_by_name["');
     this.appendValueInput("text")
       .setCheck(null);
     this.appendDummyInput()
-      .appendField(']');
+      .appendField('"]');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
