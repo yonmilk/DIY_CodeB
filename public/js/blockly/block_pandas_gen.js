@@ -877,6 +877,17 @@ Blockly.Python['pandas_to'] = function(block) {
   return code;
 };
 
+// df.to
+Blockly.Python['dataframe_to'] = function(block) {
+  var value_df1 = Blockly.Python.valueToCode(block, 'df1', Blockly.Python.ORDER_ATOMIC);
+  var value_df2 = Blockly.Python.valueToCode(block, 'df2', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_va = Blockly.Python.valueToCode(block, 'va', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_d1} = ${value_df2}.to_${dropdown_list}(${value_va})\n`;
+  return code;
+};
+
 // 날짜2 date dt
 Blockly.Python['pandas_date_dt'] = function(block) {
   var value_var = Blockly.Python.valueToCode(block, 'var', Blockly.Python.ORDER_ATOMIC);

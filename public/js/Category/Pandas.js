@@ -105,6 +105,33 @@ PANDAS += `
 </block>
 `
 
+// df.to
+PANDAS += `
+<block type="dataframe_to">
+  <value name="df1">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">df</field>
+    </block>
+  </value>
+  <value name="df2">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+    <block type="variables_get">
+      <field name="VAR">df</field>
+    </block>
+  </value>
+  <value name="va">
+    <shadow type="indata">
+      <field name="indata1"></field>
+    </shadow>
+  </value>
+</block>
+`
+
 // //<!-- csv_to -->';
 // PANDAS += '<block type="pandas_csv_to">';
 // PANDAS += '<value name="d1">';
@@ -318,23 +345,24 @@ PANDAS += '   </shadow>';
 PANDAS += ' </value>';
 PANDAS += '</block>';
 
+// pa.to와 결합
+// 넘파이 배열
+// PANDAS += '<block type="pandas_numpy">';
+// PANDAS += ' <value name="VAR">';
+// PANDAS += '   <block type="variables_get">';
+// PANDAS += '     <field name="VAR">df</field>';
+// PANDAS += '   </block>';
+// PANDAS += '   <shadow type="indata">';
+// PANDAS += '     <field name="indata1"></field>';
+// PANDAS += '   </shadow>';
+// PANDAS += ' </value>';
+// PANDAS += ' <value name="INPUT">';
+// PANDAS += '   <shadow type="indata">';
+// PANDAS += '     <field name="indata1"></field>';
+// PANDAS += '   </shadow>';
+// PANDAS += ' </value>';
+// PANDAS += '</block>';
 
-
-PANDAS += '<block type="pandas_numpy">';
-PANDAS += ' <value name="VAR">';
-PANDAS += '   <block type="variables_get">';
-PANDAS += '     <field name="VAR">df</field>';
-PANDAS += '   </block>';
-PANDAS += '   <shadow type="indata">';
-PANDAS += '     <field name="indata1"></field>';
-PANDAS += '   </shadow>';
-PANDAS += ' </value>';
-PANDAS += ' <value name="INPUT">';
-PANDAS += '   <shadow type="indata">';
-PANDAS += '     <field name="indata1"></field>';
-PANDAS += '   </shadow>';
-PANDAS += ' </value>';
-PANDAS += '</block>';
 //<!-- 범위설정 -->';
 //<!-- PANDAS += '<block type="select_row_column_value">';
 // PANDAS += '<value name="select_data">';

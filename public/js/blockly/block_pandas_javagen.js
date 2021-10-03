@@ -703,6 +703,17 @@ Blockly.JavaScript['pandas_to'] = function(block) {
   return code;
 };
 
+// df.to
+Blockly.JavaScript['dataframe_to'] = function(block) {
+  var value_df1 = Blockly.JavaScript.valueToCode(block, 'df1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_df2 = Blockly.JavaScript.valueToCode(block, 'df2', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_list = block.getFieldValue('list');
+  var value_va = Blockly.JavaScript.valueToCode(block, 'va', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `${value_d1} = ${value_df2}.to_${dropdown_list}(${value_va})\n`;
+  return code;
+};
+
 // 날짜2 date dt
 Blockly.JavaScript['pandas_date_dt'] = function(block) {
   var value_var = Blockly.JavaScript.valueToCode(block, 'var', Blockly.JavaScript.ORDER_ATOMIC);

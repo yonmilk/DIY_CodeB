@@ -2114,17 +2114,16 @@ Blockly.Blocks['pandas_read'] = {
 // pd.to 통합
 Blockly.Blocks['pandas_to'] = {
   init: function () {
-    this.appendValueInput('d1').setCheck(null);
+    this.appendValueInput('d1')
+    .appendField('[pd변환]')
+    .setCheck(null);
     this.appendDummyInput()
       .appendField('= pd.to_')
       .appendField(
         new Blockly.FieldDropdown([
-          ['csv', '_csv'],
-          ['pickle', '_pickle'],
-          ['numpy', '_numpy'],
           ['datetime', '_datetime'],
-          ['html', '_html'],
-          ['sql', '_sql']
+          ['timedelta', '_timedelta'],
+          ['numeric', '_numeric'],
         ]),
         'list'
       );
@@ -2136,6 +2135,53 @@ Blockly.Blocks['pandas_to'] = {
     this.setHelpUrl('');
   },
 };
+
+// df.to
+Blockly.Blocks['dataframe_to'] = {
+  init: function () {
+    this.appendValueInput('df1')
+    .appendField('[df변환]')  
+    .setCheck(null);
+    this.appendDummyInput()
+      .appendField('=');
+    this.appendValueInput('df2').setCheck(null);
+    this.appendDummyInput()
+    .appendField('.to_')
+    .appendField(
+      new Blockly.FieldDropdown([
+        ['csv', 'csv'],
+        ['pickle', 'pickle'],
+        ['numpy', 'numpy'],
+        ['html', 'html'],
+        ['sql', 'sql'],
+        // 추가 옵션들 - 교수님이 필요하다 하실 때 주석 해제 (찡긋)
+        // ['period', 'period'],
+        // ['timestamp', 'timestamp'],
+        // ['parquet', 'parquet'],
+        // ['hdf', 'hdf'],
+        // ['dict', 'dict'],
+        // ['excel', 'excel'],
+        // ['json', 'json'],
+        // ['feather', 'feather'],
+        // ['latex', 'latex'],
+        // ['stata', 'stata'],
+        // ['gbq', 'gbq'],
+        // ['records', 'records'],
+        // ['string', 'string'],
+        // ['clipboard', 'clipboard'],
+        // ['markdown', 'markdown'],
+      ]),
+      'list'
+    );
+    this.appendValueInput('va').setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setStyle('pandas_blocks');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
 
 // 날짜2 date dt
 Blockly.Blocks['pandas_date_dt'] = {
