@@ -95,62 +95,88 @@ ${value_y_data} = load_digits.target\n`
     return code;
 };
 
+// <-- blobs moons circles 블록 통합으로 인해 주석처리함 -->
 // Sklearn Make Blobs and Make Moons Dataset
-Blockly.Python['random_import_blobs'] = function (block) {
-    var dropdown_dataset_name = block.getFieldValue('dataset_name');
+// Blockly.Python['random_import_blobs'] = function (block) {
+//     var dropdown_dataset_name = block.getFieldValue('dataset_name');
+//     var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
+//     var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
+//     var sample = Blockly.Python.valueToCode(block, 'sa', Blockly.Python.ORDER_ATOMIC);
+//     var fea = Blockly.Python.valueToCode(block, 'fe', Blockly.Python.ORDER_ATOMIC);
+//     var seed = Blockly.Python.valueToCode(block, 'seed', Blockly.Python.ORDER_ATOMIC);
+
+//     var code = "";
+//     if (value_x_data && !(value_y_data)) {
+//         code = value_x_data + ' = ' + 'sklearn.datasets.make_blobs' + '( n_samples = ' + sample + ', n_features = ' + fea + ', random_state = ' + seed + ')\n';
+//     }
+//     else if (!(value_x_data) && value_y_data) {
+//         code = value_y_data + ' = ' + 'sklearn.datasets.make_blobs' + '( n_samples = ' + sample + ', n_features = ' + fea + ', random_state = ' + seed + ')\n';
+//     }
+//     else {
+//         code = value_x_data + ',' + value_y_data + ' = ' + 'sklearn.datasets.make_blobs' + '( n_samples = ' + sample + ', n_features = ' + fea + ', random_state = ' + seed + ')\n';
+//     }
+//     return code;
+// };
+
+// Blockly.Python['random_import_moons'] = function (block) {
+//     var dropdown_dataset_name = block.getFieldValue('dataset_name');
+//     var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
+//     var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
+//     var sample = Blockly.Python.valueToCode(block, 'sa', Blockly.Python.ORDER_ATOMIC);
+//     var fea = Blockly.Python.valueToCode(block, 'fe', Blockly.Python.ORDER_ATOMIC);
+//     var noise = Blockly.Python.valueToCode(block, 'noise', Blockly.Python.ORDER_ATOMIC);
+//     var seed = Blockly.Python.valueToCode(block, 'seed', Blockly.Python.ORDER_ATOMIC);
+
+//     var code = "";
+//     if (value_x_data && !(value_y_data)) {
+//         code = value_x_data + ' = ' + 'sklearn.datasets.make_moons' + '( n_samples = ' + sample + ', noise=' + noise + ', random_state = ' + seed + ')\n';
+//     }
+//     else if (!(value_x_data) && value_y_data) {
+//         code = value_y_data + ' = ' + 'sklearn.datasets.make_moons' + '( n_samples = ' + sample + ', noise=' + noise + ', random_state = ' + seed + ')\n';
+//     }
+//     else {
+//         code = value_x_data + ',' + value_y_data + ' = ' + 'sklearn.datasets.make_moons' + '( n_samples = ' + sample + ', noise=' + noise + ', random_state = ' + seed + ')\n';
+//     }
+//     return code;
+// };
+
+// // Sklearn Make Circles Dataset
+// Blockly.Python['make_circles'] = function (block) {
+//     var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
+//     var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
+//     //var text_n_samples = block.getFieldValue('n_samples');
+//     var text_n_samples = Blockly.Python.valueToCode(block, 'n_samples', Blockly.Python.ORDER_ATOMIC);
+//     //var text_factor = block.getFieldValue('factor');
+//     var text_factor = Blockly.Python.valueToCode(block, 'factor', Blockly.Python.ORDER_ATOMIC);
+//     // TODO: Assemble Python into code variable.
+//     var code = value_x_data + ', ' + value_y_data + '= sklearn.datasets.make_circles(n_samples=' + text_n_samples + ', factor=' + text_factor + ')\n';
+//     return code;
+// };
+
+//////////////////////////////////////////////////////////////////////////////
+// blobs moons circles 블록 드롭다운이용 한 개의 블록으로 통합
+Blockly.Python['random_datasets'] = function(block) {
+    var dropdown_dataset_option = block.getFieldValue('dataset_option');
     var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
     var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
-    var sample = Blockly.Python.valueToCode(block, 'sa', Blockly.Python.ORDER_ATOMIC);
-    var fea = Blockly.Python.valueToCode(block, 'fe', Blockly.Python.ORDER_ATOMIC);
-    var seed = Blockly.Python.valueToCode(block, 'seed', Blockly.Python.ORDER_ATOMIC);
-
-    var code = "";
-    if (value_x_data && !(value_y_data)) {
-        code = value_x_data + ' = ' + 'sklearn.datasets.make_blobs' + '( n_samples = ' + sample + ', n_features = ' + fea + ', random_state = ' + seed + ')\n';
-    }
-    else if (!(value_x_data) && value_y_data) {
-        code = value_y_data + ' = ' + 'sklearn.datasets.make_blobs' + '( n_samples = ' + sample + ', n_features = ' + fea + ', random_state = ' + seed + ')\n';
-    }
-    else {
-        code = value_x_data + ',' + value_y_data + ' = ' + 'sklearn.datasets.make_blobs' + '( n_samples = ' + sample + ', n_features = ' + fea + ', random_state = ' + seed + ')\n';
-    }
-    return code;
-};
-
-Blockly.Python['random_import_moons'] = function (block) {
-    var dropdown_dataset_name = block.getFieldValue('dataset_name');
-    var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
-    var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
-    var sample = Blockly.Python.valueToCode(block, 'sa', Blockly.Python.ORDER_ATOMIC);
-    var fea = Blockly.Python.valueToCode(block, 'fe', Blockly.Python.ORDER_ATOMIC);
-    var noise = Blockly.Python.valueToCode(block, 'noise', Blockly.Python.ORDER_ATOMIC);
-    var seed = Blockly.Python.valueToCode(block, 'seed', Blockly.Python.ORDER_ATOMIC);
-
-    var code = "";
-    if (value_x_data && !(value_y_data)) {
-        code = value_x_data + ' = ' + 'sklearn.datasets.make_moons' + '( n_samples = ' + sample + ', noise=' + noise + ', random_state = ' + seed + ')\n';
-    }
-    else if (!(value_x_data) && value_y_data) {
-        code = value_y_data + ' = ' + 'sklearn.datasets.make_moons' + '( n_samples = ' + sample + ', noise=' + noise + ', random_state = ' + seed + ')\n';
-    }
-    else {
-        code = value_x_data + ',' + value_y_data + ' = ' + 'sklearn.datasets.make_moons' + '( n_samples = ' + sample + ', noise=' + noise + ', random_state = ' + seed + ')\n';
-    }
-    return code;
-};
-
-// Sklearn Make Circles Dataset
-Blockly.Python['make_circles'] = function (block) {
-    var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
-    var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
-    //var text_n_samples = block.getFieldValue('n_samples');
-    var text_n_samples = Blockly.Python.valueToCode(block, 'n_samples', Blockly.Python.ORDER_ATOMIC);
-    //var text_factor = block.getFieldValue('factor');
-    var text_factor = Blockly.Python.valueToCode(block, 'factor', Blockly.Python.ORDER_ATOMIC);
+    var value_sample_input = Blockly.Python.valueToCode(block, 'sample_input', Blockly.Python.ORDER_ATOMIC);
+    var value_shuffle_input = Blockly.Python.valueToCode(block, 'shuffle_input', Blockly.Python.ORDER_ATOMIC);
+    var value_seed_input = Blockly.Python.valueToCode(block, 'seed_input', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = value_x_data + ', ' + value_y_data + '= sklearn.datasets.make_circles(n_samples=' + text_n_samples + ', factor=' + text_factor + ')\n';
+    var code = "";
+    
+    // x_data만 줄 때, y_data만 줄 때, x_data y_data 줄 때 다르게 code 리턴
+    if (value_x_data && !(value_y_data)) {
+        code = `${value_x_data} = sklearn.datasets.${dropdown_dataset_option}(n_samples = ${value_sample_input}, shuffle = ${value_shuffle_input}, random_state = ${value_seed_input})\n`;
+    }
+    else if (!(value_x_data) && value_y_data) {
+        code = `${value_y_data} = sklearn.datasets.${dropdown_dataset_option}(n_samples = ${value_sample_input}, shuffle = ${value_shuffle_input}, random_state = ${value_seed_input})\n`;
+    }
+    else {
+        code = `${value_x_data}, ${value_y_data} = sklearn.datasets.${dropdown_dataset_option}(n_samples = ${value_sample_input}, shuffle = ${value_shuffle_input}, random_state = ${value_seed_input})\n`;
+    }
     return code;
-};
+  };
 
 // Sklearn Load CSV
 Blockly.Python['csv3'] = function (block) {

@@ -136,73 +136,105 @@ Blockly.Blocks['import_load_digits'] = {
     }
 };
 
+// blobs moons circles 블록 통합으로 인해 주석처리함
 // Sklearn Make Blobs and Make Moons Dataset
-Blockly.Blocks['random_import_blobs'] = {
-    init: function () {
-        this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_1)
-        this.appendValueInput("x_data").setCheck(null).appendField("x_data");
-        this.appendValueInput("y_data").setCheck(null).appendField("y_data");
-        //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).appendField(new Blockly.FieldTextInput("100"), "sa");
-        this.appendValueInput("sa").appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).setCheck(null);
-        //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_3).appendField(new Blockly.FieldTextInput("2"), "fe");
-        this.appendValueInput("fe").appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_3).setCheck(null);
-        //this.appendDummyInput().appendField("Seed").appendField(new Blockly.FieldTextInput("0"), "seed");
-        this.appendValueInput("seed").appendField("seed").setCheck(null);
+// Blockly.Blocks['random_import_blobs'] = {
+//     init: function () {
+//         this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_1)
+//         this.appendValueInput("x_data").setCheck(null).appendField("x_data");
+//         this.appendValueInput("y_data").setCheck(null).appendField("y_data");
+//         //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).appendField(new Blockly.FieldTextInput("100"), "sa");
+//         this.appendValueInput("sa").appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).setCheck(null);
+//         //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_3).appendField(new Blockly.FieldTextInput("2"), "fe");
+//         this.appendValueInput("fe").appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_3).setCheck(null);
+//         //this.appendDummyInput().appendField("Seed").appendField(new Blockly.FieldTextInput("0"), "seed");
+//         this.appendValueInput("seed").appendField("seed").setCheck(null);
 
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+// Blockly.Blocks['random_import_moons'] = {
+//     init: function () {
+//         this.appendDummyInput().appendField('[무작위 데이터셋 생성-moons]')
+//         this.appendValueInput("x_data").setCheck(null).appendField("x_data");
+//         this.appendValueInput("y_data").setCheck(null).appendField("y_data");
+//         //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).appendField(new Blockly.FieldTextInput("100"), "sa");
+//         this.appendValueInput("sa").appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).setCheck(null);
+//         //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_3).appendField(new Blockly.FieldTextInput("2"), "fe");
+//         this.appendValueInput("noise").appendField('noise').setCheck(null);
+//         this.appendValueInput("seed").appendField("seed").setCheck(null);
+
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+// // Sklearn Make Circles Dataset
+// Blockly.Blocks['make_circles'] = {
+//     init: function () {
+//         this.appendValueInput("x_data")
+//             .setCheck(null)
+//             .appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_1);
+//         this.appendValueInput("y_data")
+//             .setCheck(null)
+//             .appendField("y_data ");
+//         // this.appendDummyInput()
+//         //     .appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_2)
+//         //     .appendField(new Blockly.FieldTextInput("100"), "n_samples");
+//         this.appendValueInput("n_samples").appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_2).setCheck(null);
+//         // this.appendDummyInput()
+//         //     .appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_3)
+//         //     .appendField(new Blockly.FieldTextInput("0.7"), "factor");
+//         this.appendValueInput("factor").appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_3).setCheck(null);
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+////////////////////////////////////////////////////////////////////////
+// blobs moons circles 블록 드롭다운이용 한 개의 블록으로 통합
+Blockly.Blocks['random_datasets'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("[무작위 데이터셋 생성]")
+          .appendField(new Blockly.FieldDropdown([["블롭(make_blobs)","make_blobs"], ["문(make_moons)","make_moons"], ["서클(make_circles)","make_circles"]]), "dataset_option");
+      this.appendValueInput("x_data")
+          .setCheck(null)
+          .appendField(" x_data");
+      this.appendValueInput("y_data")
+          .setCheck(null)
+          .appendField("y_data");
+      this.appendValueInput("sample_input")
+          .setCheck(null)
+          .appendField("샘플 수");
+      this.appendValueInput("shuffle_input")
+          .setCheck("Boolean")
+          .appendField("데이터 섞기");
+      this.appendValueInput("seed_input")
+          .setCheck(null)
+          .appendField("seed");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("sklearn_blocks");
+   this.setTooltip("");
+   this.setHelpUrl("");
     }
-};
-
-Blockly.Blocks['random_import_moons'] = {
-    init: function () {
-        this.appendDummyInput().appendField('[무작위 데이터셋 생성-moons]')
-        this.appendValueInput("x_data").setCheck(null).appendField("x_data");
-        this.appendValueInput("y_data").setCheck(null).appendField("y_data");
-        //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).appendField(new Blockly.FieldTextInput("100"), "sa");
-        this.appendValueInput("sa").appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_2).setCheck(null);
-        //this.appendDummyInput().appendField(Blockly.Msg.DATASET_RANDOM_IMPORT_3).appendField(new Blockly.FieldTextInput("2"), "fe");
-        this.appendValueInput("noise").appendField('noise').setCheck(null);
-        this.appendValueInput("seed").appendField("seed").setCheck(null);
-
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
-// Sklearn Make Circles Dataset
-Blockly.Blocks['make_circles'] = {
-    init: function () {
-        this.appendValueInput("x_data")
-            .setCheck(null)
-            .appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_1);
-        this.appendValueInput("y_data")
-            .setCheck(null)
-            .appendField("y_data ");
-        // this.appendDummyInput()
-        //     .appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_2)
-        //     .appendField(new Blockly.FieldTextInput("100"), "n_samples");
-        this.appendValueInput("n_samples").appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_2).setCheck(null);
-        // this.appendDummyInput()
-        //     .appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_3)
-        //     .appendField(new Blockly.FieldTextInput("0.7"), "factor");
-        this.appendValueInput("factor").appendField(Blockly.Msg.DATASET_MAKE_CIRCLES_3).setCheck(null);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+  };
 
 // Sklearn Load CSV
 Blockly.Blocks['csv3'] = {

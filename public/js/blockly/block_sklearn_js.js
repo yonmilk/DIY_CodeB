@@ -66,10 +66,25 @@ Blockly.JavaScript['import_load_digits'] = function(block) {
   return code;
 };
 
+// <-- blobs moons circles 블록 통합으로 인해 주석처리함 -->
 // Sklearn Make Circlees Dataset
-Blockly.JavaScript['make_circles'] = function (block) {
-    var code = '\n';
-    return code;
+// Blockly.JavaScript['make_circles'] = function (block) {
+//     var code = '\n';
+//     return code;
+// };
+
+//////////////////////////////////////////////////////////////////////////////
+// blobs moons circles 블록 드롭다운이용 한 개의 블록으로 통합
+Blockly.JavaScript['random_datasets'] = function(block) {
+  var dropdown_dataset_option = block.getFieldValue('dataset_option');
+  var value_x_data = Blockly.Python.valueToCode(block, 'x_data', Blockly.Python.ORDER_ATOMIC);
+  var value_y_data = Blockly.Python.valueToCode(block, 'y_data', Blockly.Python.ORDER_ATOMIC);
+  var value_sample_input = Blockly.Python.valueToCode(block, 'sample_input', Blockly.Python.ORDER_ATOMIC);
+  var value_shuffle_input = Blockly.Python.valueToCode(block, 'shuffle_input', Blockly.Python.ORDER_ATOMIC);
+  var value_seed_input = Blockly.Python.valueToCode(block, 'seed_input', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = '...\n';
+  return code;
 };
 
 // Sklearn Load CSV
