@@ -6,6 +6,9 @@ REP += '  <value name="VAR">';
 REP += '    <block type="variables_get">';
 REP += '      <field name="VAR">i</field>';
 REP += '    </block>';
+REP += '    <shadow type="indata">';
+REP += '      <field name="indata1"></field>';
+REP += '    </shadow>';
 REP += '  </value>';
 REP += '  <value name="COUNT">';
 REP += '    <shadow type="indata">';
@@ -29,6 +32,9 @@ REP += '  <value name="item">';
 REP += '    <block type="variables_get">';
 REP += '      <field name="VAR">i</field>';
 REP += '    </block>';
+REP += '    <shadow type="indata">';
+REP += '      <field name="indata1"></field>';
+REP += '    </shadow>';
 REP += '  </value>';
 REP += '  <value name="list">';
 REP += '    <shadow type="indata">';
@@ -114,7 +120,7 @@ REP += `
           <field name="indata1"></field>
         </shadow>
         <block type="variables_get">
-          <field name="VAR"></field>
+          <field name="VAR">data</field>
         </block>
       </value>
     </block>
