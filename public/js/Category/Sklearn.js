@@ -1632,7 +1632,7 @@ SKL +=  '</value>';
 SKL += '</block>';
 
 //<label text="유사도"></label>';
-SKL += '<label text="유사도"></label>';
+SKL += '<label text="유사거리"></label>';
 
 //<!-- 코사인 유사성 -->';
 SKL += '<block type="cosine_similarity">';
