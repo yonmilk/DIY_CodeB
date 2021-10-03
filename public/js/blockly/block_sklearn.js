@@ -1916,6 +1916,26 @@ Blockly.Blocks['classification_report'] = {
     }
 };
 
+// 오차 행렬 (confusion_matrix)
+Blockly.Blocks['confusion_matrix'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("[오차 행렬 - confusion_matrix]");
+      this.appendValueInput("y_true")
+          .setCheck(null)
+          .appendField("y_true");
+      this.appendValueInput("y_pred")
+          .setCheck(null)
+          .appendField("y_pred");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setStyle("sklearn_blocks_sub");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+
 //////////////////////////////////////////////////////
 //
 // 기타 블록

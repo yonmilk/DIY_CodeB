@@ -1193,6 +1193,17 @@ Blockly.Python['classification_report'] = function (block) {
     return [code, Blockly.Python.ORDER_NONE];
 };
 
+// 오차 행렬 (confusion_matrix)
+Blockly.Python['confusion_matrix'] = function(block) {
+    var value_y_true = Blockly.Python.valueToCode(block, 'y_true', Blockly.Python.ORDER_ATOMIC);
+    var value_y_pred = Blockly.Python.valueToCode(block, 'y_pred', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = `sklearn.metrics.confusion_matrix(${value_y_true}, ${value_y_pred})`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
+
 //////////////////////////////////////////////////////
 //
 // 기타 블록

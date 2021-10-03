@@ -1669,6 +1669,26 @@ SKL +=      '</shadow>'
 SKL +=  '</value>';
 SKL += '</block>';
 
+// <!-- 오차 행렬 (confusion_matrix) -->
+SKL += '<block type="confusion_matrix">';
+SKL +=  '<value name="y_true">';
+SKL +=      '<block type="variables_get">';
+SKL +=          '<field name="VAR">y_true</field>';
+SKL +=      '</block>';
+SKL +=      '<shadow type="indata">';
+SKL +=          '<field name="indata1"></field>';
+SKL +=      '</shadow>'
+SKL +=  '</value>';
+SKL +=  '<value name="y_pred">';
+SKL +=      '<block type="variables_get">';
+SKL +=          '<field name="VAR">y_pred</field>';
+SKL +=      '</block>';
+SKL +=      '<shadow type="indata">';
+SKL +=          '<field name="indata1"></field>';
+SKL +=      '</shadow>'
+SKL +=  '</value>';
+SKL += '</block>';
+
 //<label text="유사도"></label>';
 SKL += '<label text="유사거리"></label>';
 

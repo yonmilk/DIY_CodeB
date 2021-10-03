@@ -778,6 +778,17 @@ Blockly.JavaScript['classification_report'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+// 오차 행렬 (confusion_matrix)
+Blockly.JavaScript['confusion_matrix'] = function(block) {
+  var value_y_true = Blockly.Python.valueToCode(block, 'y_true', Blockly.Python.ORDER_ATOMIC);
+  var value_y_pred = Blockly.Python.valueToCode(block, 'y_pred', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+
 //////////////////////////////////////////////////////
 //
 // 기타 블록
