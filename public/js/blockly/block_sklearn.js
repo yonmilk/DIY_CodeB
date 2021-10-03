@@ -2098,78 +2098,100 @@ Blockly.Blocks['bernoullirbm'] = {
     }
 };
 
-// 2021.04.03 지원 추가
-// 코사인 유사성
-Blockly.Blocks['cosine_similarity'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("[코사인 유사성] cosine_similarity");
-        this.appendValueInput("input_x")
-            .setCheck(null);
-        this.appendValueInput("input_y")
-            .setCheck(null);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+/////////////////////////////////////////////////////////////////////////
+// 아래 블록들을 드롭다운을 사용 한 개의 블록으로 합치므로 주석 처리
 
-// 코사인 유사성
-Blockly.Blocks['cosine_distance'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("[코사인 거리] cosine_distance");
-        this.appendValueInput("input_x")
-            .setCheck(null);
-        this.appendValueInput("input_y")
-            .setCheck(null);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// // 2021.04.03 지원 추가
+// // 코사인 유사성
+// Blockly.Blocks['cosine_similarity'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("[코사인 유사성] cosine_similarity");
+//         this.appendValueInput("input_x")
+//             .setCheck(null);
+//         this.appendValueInput("input_y")
+//             .setCheck(null);
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-// 벡터쌍 거리행렬
-Blockly.Blocks['euclidean_distances'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("[벡터쌍 거리행렬] euclidean_distances");
-        this.appendValueInput("input_x")
-            .setCheck(null);
-        this.appendValueInput("input_y")
-            .setCheck(null);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+// // 코사인 유사성
+// Blockly.Blocks['cosine_distance'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("[코사인 거리] cosine_distance");
+//         this.appendValueInput("input_x")
+//             .setCheck(null);
+//         this.appendValueInput("input_y")
+//             .setCheck(null);
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
 
-// 벡터사이 L1길이
-Blockly.Blocks['manhattan_distances'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("[벡터사이 L1길이] manhattan_distances");
-        this.appendValueInput("input_x")
-            .setCheck(null);
-        this.appendValueInput("input_y")
-            .setCheck(null);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
+// // 벡터쌍 거리행렬
+// Blockly.Blocks['euclidean_distances'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("[벡터쌍 거리행렬] euclidean_distances");
+//         this.appendValueInput("input_x")
+//             .setCheck(null);
+//         this.appendValueInput("input_y")
+//             .setCheck(null);
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+// // 벡터사이 L1길이
+// Blockly.Blocks['manhattan_distances'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("[벡터사이 L1길이] manhattan_distances");
+//         this.appendValueInput("input_x")
+//             .setCheck(null);
+//         this.appendValueInput("input_y")
+//             .setCheck(null);
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+// 코사인 유사성, 코사인 거리, 유클리안, 맨허튼 블록을 드롭다운으로 합친 코드
+Blockly.Blocks['similarity_distance'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("[거리유사] ")
+          .appendField(new Blockly.FieldDropdown([["유사도(cosine_similarity)","cosine_similarity"], ["거리(cosine_distance)","cosine_distance"], ["유클리안(euclidean_distances)","euclidean_distances"], ["맨허튼(manhattan_distances)","manhattan_distances"]]), "distance_option");
+      this.appendValueInput("input_x")
+          .setCheck(null);
+      this.appendValueInput("input_y")
+          .setCheck(null);
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("sklearn_blocks");
+   this.setTooltip("");
+   this.setHelpUrl("");
     }
-};
+  };
 
 // 2021.08.10 인하공전 측 블록 추가 -- 혼공머신 블록 추가(?)
 // 트리구조 출력

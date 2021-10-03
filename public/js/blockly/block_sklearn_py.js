@@ -1295,38 +1295,49 @@ Blockly.Python['bernoullirbm'] = function (block) {
 };
 
 /////////////////////////////////////////////////
-// 2021.04.03 지원 추가
-// 코사인 유사성
-Blockly.Python['cosine_similarity'] = function (block) {
-    var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
-    var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
-    var code = `sklearn.metrics.pairwise.cosine_similarity(${value_input_x}, ${value_input_y})`;
-    return code;
-};
+// 아래 블록들을 드롭다운을 이용 한 개의 블록으로 합치므로 주석처리함
+// // 2021.04.03 지원 추가
+// // 코사인 유사성
+// Blockly.Python['cosine_similarity'] = function (block) {
+//     var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
+//     var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
+//     var code = `sklearn.metrics.pairwise.cosine_similarity(${value_input_x}, ${value_input_y})`;
+//     return code;
+// };
 
-// 코사인 길이
-Blockly.Python['cosine_distance'] = function (block) {
-    var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
-    var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
-    var code = `sklearn.metrics.pairwise.cosine_distance(${value_input_x}, ${value_input_y})`;
-    return code;
-};
+// // 코사인 길이
+// Blockly.Python['cosine_distance'] = function (block) {
+//     var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
+//     var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
+//     var code = `sklearn.metrics.pairwise.cosine_distance(${value_input_x}, ${value_input_y})`;
+//     return code;
+// };
 
-// 벡터쌍 거리행렬
-Blockly.Python['euclidean_distances'] = function (block) {
-    var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
-    var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
-    var code = `sklearn.metrics.pairwise.euclidean_distances(${value_input_x}, ${value_input_y})`;
-    return code;
-};
+// // 벡터쌍 거리행렬
+// Blockly.Python['euclidean_distances'] = function (block) {
+//     var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
+//     var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
+//     var code = `sklearn.metrics.pairwise.euclidean_distances(${value_input_x}, ${value_input_y})`;
+//     return code;
+// };
 
-// 벡터사이 L1길이
-Blockly.Python['manhattan_distances'] = function (block) {
+// // 벡터사이 L1길이
+// Blockly.Python['manhattan_distances'] = function (block) {
+//     var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
+//     var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
+//     var code = `sklearn.metrics.pairwise.manhattan_distances(${value_input_x}, ${value_input_y})`;
+//     return code;
+// };
+
+// 코사인 유사성, 코사인 거리, 유클리안, 맨허튼 블록을 드롭다운으로 합친 코드
+Blockly.Python['similarity_distance'] = function(block) {
+    var dropdown_distance_option = block.getFieldValue('distance_option');
     var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
     var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
-    var code = `sklearn.metrics.pairwise.manhattan_distances(${value_input_x}, ${value_input_y})`;
+    // TODO: Assemble Python into code variable.
+    var code = `sklearn.metrics.pairwise.${dropdown_distance_option}(${value_input_x}, ${value_input_y})\n`;
     return code;
-};
+  };
 
 // 2021.08.10 인하공전 측 블록 추가
 
