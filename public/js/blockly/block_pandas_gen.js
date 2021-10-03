@@ -873,7 +873,7 @@ Blockly.Python['pandas_to'] = function(block) {
   var dropdown_list = block.getFieldValue('list');
   var value_va = Blockly.Python.valueToCode(block, 'va', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = `pd.to${dropdown_list}(${value_va})`;
+  var code = `pd.to${dropdown_list}(${value_va})\n`;
   return code;
 };
 
