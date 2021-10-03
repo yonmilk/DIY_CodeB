@@ -693,9 +693,9 @@ Blockly.JavaScript['pandas_read'] = function(block) {
   return code;
 };
 
-// pd.to 통합
+// pd.to
 Blockly.JavaScript['pandas_to'] = function(block) {
-  var value_d1 = Blockly.JavaScript.valueToCode(block, 'd1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_df = Blockly.JavaScript.valueToCode(block, 'df', Blockly.JavaScript.ORDER_ATOMIC);
   var dropdown_list = block.getFieldValue('list');
   var value_va = Blockly.JavaScript.valueToCode(block, 'va', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
@@ -705,12 +705,20 @@ Blockly.JavaScript['pandas_to'] = function(block) {
 
 // df.to
 Blockly.JavaScript['dataframe_to'] = function(block) {
-  var value_df1 = Blockly.JavaScript.valueToCode(block, 'df1', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_df2 = Blockly.JavaScript.valueToCode(block, 'df2', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_df = Blockly.JavaScript.valueToCode(block, 'df', Blockly.JavaScript.ORDER_ATOMIC);
   var dropdown_list = block.getFieldValue('list');
   var value_va = Blockly.JavaScript.valueToCode(block, 'va', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_d1} = ${value_df2}.to_${dropdown_list}(${value_va})\n`;
+  var code = `\n`;
+  return code;
+};
+
+// df outer
+Blockly.JavaScript['dataframe_outer'] = function(block) {
+  var value_df = Blockly.JavaScript.valueToCode(block, 'df', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_df_to = Blockly.JavaScript.valueToCode(block, 'df_to', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `\n`;
   return code;
 };
 

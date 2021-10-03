@@ -2111,12 +2111,11 @@ Blockly.Blocks['pandas_read'] = {
   },
 };
 
-// pd.to 통합
+// pd.to
 Blockly.Blocks['pandas_to'] = {
   init: function () {
-    this.appendValueInput('d1')
-    .appendField('[pd변환]')
-    .setCheck(null);
+    this.appendValueInput('df')
+      .setCheck(null)
     this.appendDummyInput()
       .appendField('= pd.to_')
       .appendField(
@@ -2128,6 +2127,7 @@ Blockly.Blocks['pandas_to'] = {
         'list'
       );
     this.appendValueInput('va').setCheck(null);
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setStyle('pandas_blocks');
@@ -2139,12 +2139,9 @@ Blockly.Blocks['pandas_to'] = {
 // df.to
 Blockly.Blocks['dataframe_to'] = {
   init: function () {
-    this.appendValueInput('df1')
-    .appendField('[df변환]')  
-    .setCheck(null);
-    this.appendDummyInput()
-      .appendField('=');
-    this.appendValueInput('df2').setCheck(null);
+    this.appendValueInput('df')
+      .appendField('[변환]')  
+      .setCheck(null);
     this.appendDummyInput()
     .appendField('.to_')
     .appendField(
@@ -2174,6 +2171,20 @@ Blockly.Blocks['dataframe_to'] = {
       'list'
     );
     this.appendValueInput('va').setCheck(null);
+    this.setOutput(true, null);
+    this.setStyle('pandas_blocks_sub');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};
+
+// df outer (df 박혀있는 블록)
+Blockly.Blocks['dataframe_outer'] = {
+  init: function () {
+    this.appendValueInput('df').setCheck(null);
+    this.appendDummyInput().appendField('=');
+    this.appendValueInput('df_to').setCheck(null);
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setStyle('pandas_blocks');
@@ -2181,7 +2192,6 @@ Blockly.Blocks['dataframe_to'] = {
     this.setHelpUrl('');
   },
 };
-
 
 // 날짜2 date dt
 Blockly.Blocks['pandas_date_dt'] = {
