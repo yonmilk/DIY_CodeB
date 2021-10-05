@@ -405,24 +405,28 @@
                   <span id="span_local_file_save" class="dropdown-item codebBtnDropdown"
                     onclick="saveCodesToLocal();">
                     <i class="file archive icon"></i>
-                    로컬 저장
+                    로컬 프로젝트 저장(Zip)
                   </span>
-                  <!-- <span id="span_local_block_save" class="dropdown-item codebBtnDropdown"
+                  <span id="span_local_block_save" class="dropdown-item codebBtnDropdown"
                     onclick="saveCodeAsXML();">
                     <i class="cubes icon"></i>
-                    로컬 블록 저장
+                    로컬 블록 저장(XML)
                   </span>
                   <span id="span_local_code_save" class="dropdown-item codebBtnDropdown"
                     onclick="saveCodeAsPy();">
                     <i class="code icon"></i>
-                    로컬 코드 저장
-                  </span> -->
+                    로컬 코드 저장(Py)
+                  </span>
                 </div>
               </div>
             <% } else { %>
-              <span id="button_block_save" class="codebBtn codebBtn-mobile-size" onclick="saveCodesToLocal()">
+              <span id="button_block_save" class="codebBtn codebBtn-mobile-size" onclick="saveCodeAsXML()">
                 <span class="codebBtnIcon"><img src="/prjSave.png" alt="블록 저장"></span>
                 <span class="codebBtnText">블록 저장</span>
+              </span>
+              <span id="button_block_save" class="codebBtn codebBtn-mobile-size" onclick="saveCodesToLocal()">
+                <span class="codebBtnIcon"><img src="/prjSave.png" alt="프로젝트 저장"></span>
+                <span class="codebBtnText">프로젝트 저장</span>
               </span>
             <% } %> 
 
@@ -455,6 +459,12 @@
               </span>
             <% } %> 
 
+            <% if(envMode == "node") { %>
+              <span id="button_block_save" class="codebBtn codebBtn-mobile-size" onclick="saveCodeAsPy()">
+                <span class="codebBtnIcon"><img src="/prjSave.png" alt="코드 저장"></span>
+                <span class="codebBtnText">코드 저장</span>
+              </span>
+            <% } %>
             <span id="sidebar_add_libs" class="codebBtn" data-toggle="modal" data-target="#libraryDiv">
               <span class=" codebBtnIcon"><img src="/library.png" alt="라이브러리 추가"></span>
               <span class="codebBtnText">라이브러리 추가</span>

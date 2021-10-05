@@ -192,12 +192,15 @@ async function saveCodesToServer(bol) {
 // 로컬 코드(텍스트, 블록) 저장하기
 //===================================
 function saveCodesToLocal() {
-    var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
 
-    xml = Blockly.Xml.workspaceToDom(b);  // 워크스페이스를 돔(xml)로 만듬
-    py = Blockly.Python.workspaceToCode(b);	// 워크스페이스를 py로 만들기
+    // 각 Workspace에 대한 XML 생성
+    xmlForWs1 = Blockly.Xml.workspaceToDom(Workspace1);
+    xmlForWs2 = Blockly.Xml.workspaceToDom(Workspace2);
+    xmlForWs3 = Blockly.Xml.workspaceToDom(Workspace3);
 
-    let p_xml = Blockly.Xml.domToPrettyText(xml); // 돔(xml)을 깔끔하게 만드는 부분
+    pXmlForWs1 = Blockly.Xml.domToPrettyText(xmlForWs1);
+    pXmlForWs2 = Blockly.Xml.domToPrettyText(xmlForWs2);
+    pXmlForWs3 = Blockly.Xml.domToPrettyText(xmlForWs3);
 
     let zip = JSZip();
 
@@ -211,8 +214,10 @@ function saveCodesToLocal() {
             setCookie("download_block", filename, "1"); // 사용자가 정한 파일명을 다시 쿠키에 저장
 
             if(projectType == 1) {
-                zip.file(filename + ".xml", p_xml);
-                zip.file(filename + ".py", py);
+
+                zip.file(filename + "_1" + ".xml", pXmlForWs1);
+                zip.file(filename + "_2" + ".xml", pXmlForWs2);
+                zip.file(filename + "_3" + ".xml", pXmlForWs3);
     
                 zip.generateAsync({ type: "blob" })
                     .then(function (blob) {
@@ -232,7 +237,8 @@ function saveCodesToLocal() {
  * des: 로컬에 블록 코드(XML)를 저장한다.
  */
 async function saveCodeAsXML() {
-    let xml = Blockly.Xml.workspaceToDom(workspace); // 워크스페이스를 돔(xml)으로 변환
+    let b = workspaceCheck();
+    let xml = Blockly.Xml.workspaceToDom(b); // 워크스페이스를 돔(xml)으로 변환
     let p_xml = Blockly.Xml.domToPrettyText(xml); // 돔(xml) 형태 깔끔하게 정제
 
     let filename = prompt("블록 파일을 저장할 이름을 입력하세요.");           // 다른이름으로 저장
