@@ -202,6 +202,10 @@ function saveCodesToLocal() {
     pXmlForWs2 = Blockly.Xml.domToPrettyText(xmlForWs2);
     pXmlForWs3 = Blockly.Xml.domToPrettyText(xmlForWs3);
 
+    pyForWs1 = Blockly.Python.workspaceToCode(Workspace1);
+    pyForWs2 = Blockly.Python.workspaceToCode(Workspace2);
+    pyForWs3 = Blockly.Python.workspaceToCode(Workspace3);
+
     let zip = JSZip();
 
     prompt2(
@@ -215,9 +219,15 @@ function saveCodesToLocal() {
 
             if(projectType == 1) {
 
+                // XML 압축
                 zip.file(filename + "_1" + ".xml", pXmlForWs1);
                 zip.file(filename + "_2" + ".xml", pXmlForWs2);
                 zip.file(filename + "_3" + ".xml", pXmlForWs3);
+
+                // Py 압축
+                zip.file(filename + "_1" + ".py", pyForWs1);
+                zip.file(filename + "_2" + ".py", pyForWs2);
+                zip.file(filename + "_3" + ".py", pyForWs3);
     
                 zip.generateAsync({ type: "blob" })
                     .then(function (blob) {
@@ -287,7 +297,6 @@ function loadBlock() {
     let fileExtStartIdx = file.name.lastIndexOf('.');
     let fileExtEndIdx = file.name.length + 1;
     let fileExt = file.name.substring(fileExtStartIdx, fileExtEndIdx);
-    console.log(`===>파일 확장자: ${fileExt}`);
 
     /**
      * modifier: 정지현
@@ -301,8 +310,15 @@ function loadBlock() {
             zip.forEach(function(filename) {
                 let fileInZip = zip.file(filename);
 
-                // 탭이 시작되는 위치 인덱스 식별 후 파일의 탭 정보를 가져온다.
                 let fileInZipExtStartIdx = fileInZip.name.lastIndexOf('.');
+                let fileInZipExtEndIdx = fileInZip.name.length + 1;
+                let fileInZipExt = fileInZip.name.substring(fileInZipExtStartIdx, fileInZipExtEndIdx);
+
+                if(fileInZipExt === ".py") {
+                    return;
+                }
+
+                // 탭이 시작되는 위치 인덱스 식별 후 파일의 탭 정보를 가져온다.
                 let tabIdStartIdx = fileInZip.name.lastIndexOf('_');
                 let tabId = fileInZip.name.substring(tabIdStartIdx, fileInZipExtStartIdx);
     
