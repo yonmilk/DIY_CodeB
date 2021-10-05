@@ -278,63 +278,120 @@ function saveCodeAsPy() {
 //===================================
 // 블록 불러오기 
 //===================================   
+let testZip;
 function loadBlock() {
     let reader = new FileReader();  // FileReader객체 생성
     let files = document.getElementById("file").files; // 로컬에 있는 파일의 id값 얻기
     let file = files[0];
-    let fileName = "";
-    if (file) {
-        reader.onload = function (e) {          // 파일읽기 성공한 경우
-            var xml = reader.result;              // 읽어들인 파일 내용
 
+    let fileExtStartIdx = file.name.lastIndexOf('.');
+    let fileExtEndIdx = file.name.length + 1;
+    let fileExt = file.name.substring(fileExtStartIdx, fileExtEndIdx);
+    console.log(`===>파일 확장자: ${fileExt}`);
 
-            for (var i = 0; i < xml.length;) {
-                // console.log(xml.indexOf('field name="file_path', i));
-                if (xml.indexOf('field name="file_path', i) == -1) {
-                    i++; // 일치하는 값이 없을 시 증가
-                } else {
-                    i = xml.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
-                    var b = xml.indexOf('</field>', i)
-                    var q = xml.substring(i + 22, b)
-                    xml = xml.replace(q, '경로')
+    /**
+     * modifier: 정지현
+     * date: 2021.10.05.
+     * des: XML이 Zip(프로젝트)일 경우 압축 해제 후 각 Workspace에 임포트
+     */
+    if(fileExt === ".zip") {
+        JSZip.loadAsync(file).then(function (zip) {
+    
+            // Zip 파일 내의 파일 데이터를 가져온다.
+            zip.forEach(function(filename) {
+                let fileInZip = zip.file(filename);
+
+                // 탭이 시작되는 위치 인덱스 식별 후 파일의 탭 정보를 가져온다.
+                let fileInZipExtStartIdx = fileInZip.name.lastIndexOf('.');
+                let tabIdStartIdx = fileInZip.name.lastIndexOf('_');
+                let tabId = fileInZip.name.substring(tabIdStartIdx, fileInZipExtStartIdx);
+    
+                // 각 압축 파일의 XML 데이터를 String 형태로 가져온다.
+                fileInZip.async("string")
+                    .then((content) => {
+                        // XML 내 블록에 파일 경로가 들어있는 경우, "경로"로 재변경한다.
+                        for (var i = 0; i < content.length;) {
+                            // console.log(xml.indexOf('field name="file_path', i));
+                            if (content.indexOf('field name="file_path', i) == -1) {
+                                i++; // 일치하는 값이 없을 시 증가
+                            } else {
+                                i = content.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
+                                var b = content.indexOf('</field>', i)
+                                var q = content.substring(i + 22, b)
+                                content = content.replace(q, '경로')
+                            }
+                        }
+
+                        // 추출한 탭 정보에 알맞은 Workspace에 XML을 삽입한다.
+                        if(tabId === "_1") {
+                            Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(content), Workspace1);
+                        } else if(tabId === "_2") {
+                            Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(content), Workspace2);
+                        } else if(tabId === "_3") {
+                            Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(content), Workspace3);
+                        }
+                    }).catch((err) => {
+                        console.log("===>압축 해제 실패..");
+                        console.log(err);
+                    })
+            })
+        }); 
+    } else if(fileExt === ".xml") {
+        let fileName = "";
+        if (file) {
+            reader.onload = function (e) {          // 
+                //파일읽기 성공한 경우
+                var xml = reader.result;              // 읽어들인 파일 내용
+    
+                // XML 내 블록에 파일 경로가 들어있는 경우, "경로"로 재변경한다.
+                for (var i = 0; i < xml.length;) {
+                    // console.log(xml.indexOf('field name="file_path', i));
+                    if (xml.indexOf('field name="file_path', i) == -1) {
+                        i++; // 일치하는 값이 없을 시 증가
+                    } else {
+                        i = xml.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
+                        var b = xml.indexOf('</field>', i)
+                        var q = xml.substring(i + 22, b)
+                        xml = xml.replace(q, '경로')
+                    }
                 }
-            }
-
-            // if(xml.indexOf('field name="file_path') != -1){
-
-            // 	// var a = xml.indexOf('"data/')
-            // 	// var b = xml.indexOf('.csv"</field>')
-            // 	var a = xml.indexOf('"file_path')
-            // 	var b = xml.indexOf('</field>', a)
-            // 	var q = xml.substring(a+12, b)
-            // 	xml = xml.replace(q, '경로')
-            // 	}
-
-            var dom = Blockly.Xml.textToDom(xml); // text를 돔 형태로 변환
-            var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
-            Blockly.Xml.appendDomToWorkspace(dom, b); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
-            fileName = file.name;
-
-            // 워크스페이스에 있는 블록을 코드로 변환해 코드미러에 setValue해주는 부분
-            try {
-                // var pyCode1 = Blockly.Python.workspaceToCode(demoWorkspace);
-                // pyEditor.setValue(pyCode);
-
-                var pyCode1 = Blockly.Python.workspaceToCode(Workspace1);
-                pyEditor.setValue(pyCode1);
-
-
-            } catch (e) {
-                console.log('python 코드가 매핑되어 있지 않습니다. Error : ' + e);
-            }
-            try {
-                var jsCode = Blockly.JavaScript.workspaceToCode(Workspace1);
-                jsEditor.getValue() = jsCode;
-            } catch (e) {
-                console.log('java script 코드가 매핑되어 있지 않습니다. Error : ' + e);
-            }
-        };
-        reader.readAsText(file);
+    
+                // if(xml.indexOf('field name="file_path') != -1){
+    
+                // 	// var a = xml.indexOf('"data/')
+                // 	// var b = xml.indexOf('.csv"</field>')
+                // 	var a = xml.indexOf('"file_path')
+                // 	var b = xml.indexOf('</field>', a)
+                // 	var q = xml.substring(a+12, b)
+                // 	xml = xml.replace(q, '경로')
+                // 	}
+    
+                var dom = Blockly.Xml.textToDom(xml); // text를 돔 형태로 변환
+                var b = workspaceCheck();   // 선택된 워크스페이스 값 가져옴
+                Blockly.Xml.appendDomToWorkspace(dom, b); //  돔을 디코딩 후 워크스페이스에 블록을 만들어 냄.
+                fileName = file.name;
+    
+                // 워크스페이스에 있는 블록을 코드로 변환해 코드미러에 setValue해주는 부분
+                try {
+                    // var pyCode1 = Blockly.Python.workspaceToCode(demoWorkspace);
+                    // pyEditor.setValue(pyCode);
+    
+                    var pyCode1 = Blockly.Python.workspaceToCode(Workspace1);
+                    pyEditor.setValue(pyCode1);
+    
+    
+                } catch (e) {
+                    console.log('python 코드가 매핑되어 있지 않습니다. Error : ' + e);
+                }
+                try {
+                    var jsCode = Blockly.JavaScript.workspaceToCode(Workspace1);
+                    jsEditor.getValue() = jsCode;
+                } catch (e) {
+                    console.log('java script 코드가 매핑되어 있지 않습니다. Error : ' + e);
+                }
+            };
+            reader.readAsText(file);
+        }
     }
 }
 

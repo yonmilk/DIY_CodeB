@@ -54,7 +54,7 @@ document.write('<script src=/js/utils/ResizeSensor.js></script>');
 // jsZIP
 document.write('<script src="/js/utils/jszip.js"></script>')
 document.write('<script src="/js/utils/jszip.min.js"></script>')
-
+document.write('<script type="text/javascript" src="/js/utils/jszip-utils/dist/jszip-utils.js"></script>');
 // 스프링 이벤트 리스너
 document.write('<script src="/js/utils/serverDataHandler.js"></script>');
 
