@@ -37,7 +37,7 @@ Blockly.Python['pyodide_library'] = function (block) {
 Blockly.Python['file_library'] = function(block) {
   var dropdown_list = block.getFieldValue('list');
   // TODO: Assemble Python into code variable.
-  var code = `import ${dropdown_list}`;
+  var code = `import ${dropdown_list}\n`;
   return code;
 };
 
