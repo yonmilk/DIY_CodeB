@@ -72,7 +72,7 @@ function localFileOpen3() {
           datas = e.target.result;
           console.log("datas", datas);
           // wav 파일 처리하기 
-          let buf = Buffer(new Uint8Array(datas));  // base64 버퍼로 저장
+          let buf = new Uint8Array(datas);  // base64 버퍼로 저장
           fss.writeFile(fileName2, buf); // 버퍼 배열로 파일 저장
         };
         fileName2 = e.target.files[0].name;
@@ -140,7 +140,7 @@ function localFileOpen2(blockId) {
           datas = e.target.result;
           console.log("datas", datas);
           // wav 파일 처리하기 
-          let buf = Buffer(new Uint8Array(datas));  // base64 버퍼로 저장
+          let buf = new Uint8Array(datas);  // Uint8Array 버퍼로 저장
           fss.writeFile(fileName2, buf); // 버퍼 배열로 파일 저장
           // let block = demoWorkspace.getBlockById(blockId);
           let bId = Blockly.mainWorkspace.getBlockById(blockId)
