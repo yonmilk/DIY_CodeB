@@ -97,6 +97,11 @@ SKI += '    <shadow type="indata">';
 SKI += '      <field name="indata1"></field>';
 SKI += '    </shadow>';
 SKI += '  </value>';
+SKI += '  <value name="var">';
+SKI += '    <shadow type="indata">';
+SKI += '      <field name="indata1"></field>';
+SKI += '    </shadow>';
+SKI += '  </value>';
 SKI += '</block>';
 
 SKI += '<block type="ndi_zoom">';
