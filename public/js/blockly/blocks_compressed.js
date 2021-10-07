@@ -3426,3 +3426,35 @@ Blockly.Blocks['many_variables'] = {
       this.setHelpUrl("");
   }
 };
+
+// V3 변수 인덱싱
+Blockly.Blocks['variable_indexing'] = {
+  init: function () {
+    this.appendValueInput('index')
+      .setCheck(null)
+      .appendField(new Blockly.FieldImage('/img/Variable/V3-logo.png', 25, 23, { alt: '*', flipRtl: 'FALSE' }))
+      .appendField(new Blockly.FieldVariable('item'), 'VAR')
+      .appendField('[');
+    this.appendValueInput('var2')
+      .setCheck(null)
+      .appendField(']')
+      .appendField(
+        new Blockly.FieldDropdown([
+          ['=', '='],
+          ['+=', '+='],
+          ['-=', '-='],
+          ['*=', '*='],
+          ['/=', '/='],
+          ['%=', '%='],
+          ['**=', '**='],
+        ]),
+        'op'
+      );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setStyle('variable_blocks');
+    this.setTooltip('');
+    this.setHelpUrl('');
+  },
+};

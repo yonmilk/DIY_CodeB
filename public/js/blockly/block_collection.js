@@ -621,7 +621,6 @@ Blockly.Blocks['va_ser'] = {
 Blockly.Blocks['va_id'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldImage("/img/Variable/V3-logo.png", 25, 23, {alt: "*",flipRtl: "FALSE"}))
             .appendField(`${Blockly.Msg.VA_ID}(`);
         this.appendValueInput("dic1")
             .setCheck(null);

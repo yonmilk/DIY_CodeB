@@ -1110,6 +1110,17 @@ Blockly.JavaScript['list_insert'] = function(block) {
     return code;
   };
 
+// V3 변수 인덱싱
+Blockly.JavaScript['variable_indexing'] = function(block) {
+  var variable_var = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);    // 변수 카테고리에서는 방법이 다르구나 ㅜㅠ
+  var value_index = Blockly.JavaScript.valueToCode(block, 'index', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_op = block.getFieldValue('op');
+  var value_var2 = Blockly.JavaScript.valueToCode(block, 'var2', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `\n`;
+  return code;
+};
+
   Blockly.JavaScript['create_new_list'] = function(block) {
     
     return "\n";

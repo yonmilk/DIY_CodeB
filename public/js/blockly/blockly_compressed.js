@@ -12545,25 +12545,36 @@ Blockly.Variables.flyoutCategoryBlocks = function (a) {
       // )),
       d.appendChild(Blockly.Xml.textToDom('<value name="DELTA"><shadow type="indata"><field name="indata1">3</field></shadow></value>')),
       b.push(d);
-      }
+    }
       
-      // 이성주 여러 변수 치환블록
-      if (Blockly.Blocks.many_variables) {
-          
-        var k = Blockly.utils.xml.createElement("block");
+    // 이성주 여러 변수 치환블록
+    if (Blockly.Blocks.many_variables) {
         
-        k.setAttribute("type", "many_variables");
-        k.setAttribute("gap", Blockly.Blocks.math_change ? 8 : 24);
-        k.appendChild(Blockly.Variables.generateVariableFieldDom(c));
-        k.appendChild(Blockly.Xml.textToDom(
-          '<value name="NUMBER"><shadow type="indata"><field name="indata1">x,y,z</field></shadow></value>'
-        ));
-        k.appendChild(Blockly.Xml.textToDom(
-          '<value name="VALUE"><shadow type="indata"><field name="indata1">0,0,0</field></shadow></value>'
-        ));
-        b.push(k);
-      }
-
+      var k = Blockly.utils.xml.createElement("block");
+      
+      k.setAttribute("type", "many_variables");
+      k.setAttribute("gap", Blockly.Blocks.math_change ? 20 : 8);
+      k.appendChild(Blockly.Variables.generateVariableFieldDom(c));
+      k.appendChild(Blockly.Xml.textToDom(
+        '<value name="NUMBER"><shadow type="indata"><field name="indata1">x,y,z</field></shadow></value>'
+      ));
+      k.appendChild(Blockly.Xml.textToDom(
+        '<value name="VALUE"><shadow type="indata"><field name="indata1">0,0,0</field></shadow></value>'
+      ));
+      b.push(k);
+    }
+    
+    // V3 변수 인덱싱..?
+    if (Blockly.Blocks.variable_indexing) {
+      var d = Blockly.utils.xml.createElement("block");
+      d.setAttribute("type", "variable_indexing");                    // 블록의 타입 지정
+      d.setAttribute("gap", Blockly.Blocks.variables_get ? 20 : 8);   // 블록끼리의 간격 조절
+      d.appendChild(Blockly.Variables.generateVariableFieldDom(c));   
+      d.appendChild(Blockly.Xml.textToDom('<value name="index"><shadow type="indata"><field name="indata1"></field></shadow></value>'));
+      d.appendChild(Blockly.Xml.textToDom('<value name="var2"><shadow type="indata"><field name="indata1"></field></shadow></value>'));
+      b.push(d);
+    }
+    
           // 양승국 r3 -> 커스텀으로  (기존의 변수 블록 변형)
     if (Blockly.Blocks.va_id) {
       //((d = Blockly.utils.xml.createElement("block")),

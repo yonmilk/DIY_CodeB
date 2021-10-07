@@ -1762,6 +1762,18 @@ Blockly.Python['many_variables'] = function(block) {
   return code;
 };
 
+// V3 변수 인덱싱 - 정윤
+Blockly.Python['variable_indexing'] = function(block) {
+  // var variable_var = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  var variable_var = Blockly.Python.variableDB_.getName(block.getFieldValue('VAR'), Blockly.VARIABLE_CATEGORY_NAME);    // 변수 카테고리에서는 방법이 다르구나 ㅜㅠ
+  var value_index = Blockly.Python.valueToCode(block, 'index', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_op = block.getFieldValue('op');
+  var value_var2 = Blockly.Python.valueToCode(block, 'var2', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_var}[${value_index}] ${dropdown_op} ${value_var2}\n`;
+  return code;
+};
+
 // 2021.01.05 남지원
 // DB내용 전에 이거들어있었음!!
 //
