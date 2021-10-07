@@ -1078,8 +1078,6 @@
   <script src="/js/utils/pyodide.js"></script>
 
   <script>
-    let exe = document.getElementById('exeArea'); // 콘솔 창 ID가져옴
-    let stdout;
     function makeRuncode(code) {
       code2 = code.split("\n")
       code3 = []
@@ -1266,13 +1264,11 @@ sys.stdout = io.StringIO()
         };
 
         // 순차적 실행을 위해 놓은 코드 async, .then()
-        function runcode(code) {
+        async function runcode() {
           "use strict";
-          if (!code) {
-            return; // code가 undefined 등 값이 없으면 되돌려보내기
-          }
           // pyodide.globals.clear();
-          pyodideReadyPromise; // 이거에 await쓰면 코드결과들 undefined뜸
+          await pyodideReadyPromise;
+          var exe = document.getElementById('exeArea'); // 콘솔 창 ID가져옴
           try {
             exe.innerHTML = pyodide.runPython(code);
             let stdout = pyodide.runPython("sys.stdout.getvalue()"); // 결과값을 싹 받아줌
@@ -1393,22 +1389,13 @@ sys.stdout = io.StringIO()
         }
 
         // runcode끝내고 또 돌림, 테이블 형식 블록을위해 이걸 넣어줌
-        function runcodeThen() {
+        runcode().then(() => {
           if (eval(code2) == undefined) {
             document.getElementById('exeArea').innerHTML += '\n';
           } else {
             console.log("error : javascript code error");
           }
-        };
-
-        function runcode_codeArr() {
-          for (let code of codeArr)
-            runcode(code);
-          runcodeThen();
-        }
-
-        runcode_codeArr();
-
+        });
       }
       
       // runCode() 결과 값 변수에 저장해둠
@@ -1426,9 +1413,6 @@ sys.stdout = io.StringIO()
             } 
         }
       }
-
-      
-
 
     </script>
     <!-- csv를 테이블로 출력-->
