@@ -826,35 +826,22 @@ Blockly.Python.math_number = function (a) {
             : Blockly.Python.ORDER_ATOMIC);
   return [a, b];
 };
-// 연산 블록 코드 이해 불가로 새로 작성
-// Blockly.Python.math_arithmetic = function (a) {
-//   var b = {
-//       ADD: [" + ", Blockly.Python.ORDER_ADDITIVE],
-//       MINUS: [" - ", Blockly.Python.ORDER_ADDITIVE],
-//       MULTIPLY: [" * ", Blockly.Python.ORDER_MULTIPLICATIVE],
-//       DIVIDE: [" / ", Blockly.Python.ORDER_MULTIPLICATIVE],
-//       REMAINDER: [" % ", Blockly.Python.ORDER_MULTIPLICATIVE],
-//       POWER: [" ** ", Blockly.Python.ORDER_EXPONENTIATION],
-//       QUOTIENT: [" // ", Blockly.Python.ORDER_EXPONENTIATION]
-//     }[a.getFieldValue("OP")],
-//     c = b[0];
-//   b = b[1];
-//   var d = Blockly.Python.valueToCode(a, "A", b) || "0";
-//   a = Blockly.Python.valueToCode(a, "B", b) || "0";
-//   return [d + c + a, b];
-// };
-
-// 연산 블록
-Blockly.Python['math_arithmetic'] = function(block) {
-  var value_a = Blockly.Python.valueToCode(block, 'A', Blockly.Python.ORDER_ATOMIC);
-  var value_b = Blockly.Python.valueToCode(block, 'B', Blockly.Python.ORDER_ATOMIC);
-  var dropdown_op = block.getFieldValue('OP');
-  // TODO: Assemble Python into code variable.
-  var code = `${value_a} ${dropdown_op} ${value_b}`;
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Python.ORDER_ATOMIC];
+Blockly.Python.math_arithmetic = function (a) {
+  var b = {
+      ADD: [" + ", Blockly.Python.ORDER_ADDITIVE],
+      MINUS: [" - ", Blockly.Python.ORDER_ADDITIVE],
+      MULTIPLY: [" * ", Blockly.Python.ORDER_MULTIPLICATIVE],
+      DIVIDE: [" / ", Blockly.Python.ORDER_MULTIPLICATIVE],
+      REMAINDER: [" % ", Blockly.Python.ORDER_MULTIPLICATIVE],
+      POWER: [" ** ", Blockly.Python.ORDER_EXPONENTIATION],
+      QUOTIENT: [" // ", Blockly.Python.ORDER_EXPONENTIATION]
+    }[a.getFieldValue("OP")],
+    c = b[0];
+  b = b[1];
+  var d = Blockly.Python.valueToCode(a, "A", b) || "0";
+  a = Blockly.Python.valueToCode(a, "B", b) || "0";
+  return [d + c + a, b];
 };
-
 Blockly.Python.math_single = function (a) {
   var b = a.getFieldValue("OP");
   if ("NEG" == b) {
