@@ -274,6 +274,11 @@ ul.tab li.current {
     padding: 0px;
 }
 
+.tabImg {
+    position: relative; 
+    left: 50px;
+}   
+
 .windowTitle {
     padding: 10px 20px 10px 34px;
     color: #00ffab;

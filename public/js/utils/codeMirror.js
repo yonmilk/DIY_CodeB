@@ -45,7 +45,7 @@ function codeUpdate(event) {
 	async function coderun() {
         //예원
         let tab = document.getElementsByClassName('tab-link current'); 
-	    let tab_id = tab[0].firstElementChild.id;
+	    let tab_id = tab[0].id;
 
 	try {
         //예원

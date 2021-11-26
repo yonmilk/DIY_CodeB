@@ -298,7 +298,7 @@
     </aside>
     <!-- 그래프 사이드바 end-->
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="min-width: 1189px;">
       <!-- nav -->
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f4f6ff;">
         <!-- a -->
@@ -555,7 +555,7 @@
       <!--tab 목록-->
       <!-- <div class="container"> -->
       <!-- 탭 메뉴 -->
-      <div id="tab_unm" class="tabs">
+      <!-- <div id="tab_unm" class="tabs">
         <ul class="tab">
           <li class="tab-link current" data-tab="tab-1" style="margin-left: 10px;">
             <a class="tab" id='tab_1'>Tab - 1</a>
@@ -569,17 +569,18 @@
             <a class="tab" id='tab_3'>Tab - 3</a>
           </li>
         </ul>
-      </div>
+      </div> -->
     <script>
       //왼쪽 스크립트
       $(document).ready(function () {
 
         var tab_id = 0;
 
-        $('ul.tab li').click(function () {
+        $('.tabImg').click(function () {
           tab_id = $(this).attr('data-tab');
+          console.log("sdASD");
 
-          $('ul.tab li').removeClass('current');
+          $('.tabImg').removeClass('current');
           $('.tab-content').removeClass('current');
 
           $(this).addClass('current');
@@ -599,12 +600,16 @@
             <div id="blocklyDiv1" style="height: calc(100vh - 90px);">
               <div class="windowTitle" id="windowBlockTitle">
                 블록(Block)
+                <img src="/img/actv_tab.png" alt="활성화 탭" id="tab_1" class="tabImg tab-link current" data-tab="tab-1" />
+                <img src="/img/unactv_tab.png" alt="비활성화 탭" id="tab_2" class="tabImg tab-link" data-tab="tab-2" />
+                <img src="/img/unactv_tab.png" alt="비활성화 탭" id="tab_3" class="tabImg tab-link" data-tab="tab-3" />
                 <div class="workspaceBtns">
                   <span class="workspaceFocus" onclick="workspaceFocusEvent();"></span>
                   <span class="workspacePlus" onclick="workspaceMinusEvent();"></span>
                   <span class="workspaceMinus" onclick="workspacePlusEvent();"></span>
                 </div>
               </div>
+              <div style="position: relative; border: 5px solid #787878; left: 168px; width: 100%; margin-top: -11px;"></div>
             </div>
           </div>
       
@@ -612,12 +617,16 @@
             <div id="blocklyDiv2" style="height: calc(100vh - 90px);">
               <div class="windowTitle" id="windowBlockTitle">
                 블록(Block)
+                <img src="/img/unactv_tab.png" alt="비활성화 탭" id="tab_1" class="tabImg tab-link" data-tab="tab-1" />
+                <img src="/img/actv_tab.png" alt="활성화 탭" id="tab_2" class="tabImg tab-link current" data-tab="tab-2" />
+                <img src="/img/unactv_tab.png" alt="비활성화 탭" id="tab_3" class="tabImg tab-link" data-tab="tab-3" />
                 <div class="workspaceBtns">
                   <span class="workspaceFocus" onclick="workspaceFocusEvent();"></span>
                   <span class="workspacePlus" onclick="workspaceMinusEvent();"></span>
                   <span class="workspaceMinus" onclick="workspacePlusEvent();"></span>
                 </div>
               </div>
+              <div style="position: relative; border: 5px solid #787878; left: 168px; width: 100%; margin-top: -11px;"></div>
             </div>
           </div>
       
@@ -625,12 +634,16 @@
             <div id="blocklyDiv3" style="height: calc(100vh - 90px);">
               <div class="windowTitle" id="windowBlockTitle">
                 블록(Block)
+                <img src="/img/unactv_tab.png" alt="비활성화 탭" id="tab_1" class="tabImg tab-link" data-tab="tab-1" />
+                <img src="/img/unactv_tab.png" alt="비활성화 탭" id="tab_2" class="tabImg tab-link" data-tab="tab-2" />
+                <img src="/img/actv_tab.png" alt="활성화 탭" id="tab_3" class="tabImg tab-link current" data-tab="tab-3" />
                 <div class="workspaceBtns">
                   <span class="workspaceFocus" onclick="workspaceFocusEvent();"></span>
                   <span class="workspacePlus" onclick="workspaceMinusEvent();"></span>
                   <span class="workspaceMinus" onclick="workspacePlusEvent();"></span>
                 </div>
               </div>
+              <div style="position: relative; border: 5px solid #787878; left: 168px; width: 100%; margin-top: -11px;"></div>
             </div>
           </div>
 
@@ -1471,7 +1484,7 @@ sys.stdout = io.StringIO()
 
   let eachTabCode;
 
-  $('ul.tab li').click(function(){
+  $('.tabImg').click(function(){
     var tab_id = $(this).attr('data-tab');
 
     if(tab_id == "tab-1"){

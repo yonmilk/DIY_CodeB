@@ -27,7 +27,7 @@ function localFileOpen(blockId) {
 
         let block;
         let tab = document.getElementsByClassName('tab-link current'); 
-	      let tab_id = tab[0].firstElementChild.id;
+	      let tab_id = tab[0].id;
         console.log(tab_id)
         if(tab_id == 'tab_1') {
           block = Workspace1.getBlockById(blockId); 

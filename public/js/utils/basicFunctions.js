@@ -61,7 +61,7 @@ function workspaceMinusEvent() {
 // 탭 workspace 확인용 
 function workspaceCheck() {
     let tab = document.getElementsByClassName('tab-link current'); 
-	let tab_id = tab[0].firstElementChild.id;
+	let tab_id = tab[0].id;
 
     if(tab_id == 'tab_1') {
         return Workspace1;
