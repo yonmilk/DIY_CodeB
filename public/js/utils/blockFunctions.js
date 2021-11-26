@@ -216,18 +216,21 @@ function saveCodesToLocal() {
     ).then((filename) => {
         if (filename != null) {
             setCookie("download_block", filename, "1"); // 사용자가 정한 파일명을 다시 쿠키에 저장
+            let tab1Name = document.getElementById("tab_1_name").value;
+            let tab2Name = document.getElementById("tab_2_name").value;
+            let tab3Name = document.getElementById("tab_3_name").value;
 
             if(projectType == 1) {
 
                 // XML 압축
-                zip.file(filename + "_1" + ".xml", pXmlForWs1);
-                zip.file(filename + "_2" + ".xml", pXmlForWs2);
-                zip.file(filename + "_3" + ".xml", pXmlForWs3);
+                zip.file(tab1Name + "_1" + ".xml", pXmlForWs1);
+                zip.file(tab2Name + "_2" + ".xml", pXmlForWs2);
+                zip.file(tab3Name + "_3" + ".xml", pXmlForWs3);
 
                 // Py 압축
-                zip.file(filename + "_1" + ".py", pyForWs1);
-                zip.file(filename + "_2" + ".py", pyForWs2);
-                zip.file(filename + "_3" + ".py", pyForWs3);
+                zip.file(tab1Name + "_1" + ".py", pyForWs1);
+                zip.file(tab2Name + "_2" + ".py", pyForWs2);
+                zip.file(tab3Name + "_3" + ".py", pyForWs3);
     
                 zip.generateAsync({ type: "blob" })
                     .then(function (blob) {
@@ -238,6 +241,8 @@ function saveCodesToLocal() {
                 let fileObject = new File([py], filename + ".py"); // 파일 객체 생성 (data,name+확장자)
                 saveAs(fileObject); // 로컬 저장
             }
+        } else {
+            alert("파일 이름을 입력하세요.")
         }
     });
 }
@@ -321,6 +326,7 @@ function loadBlock() {
                 // 탭이 시작되는 위치 인덱스 식별 후 파일의 탭 정보를 가져온다.
                 let tabIdStartIdx = fileInZip.name.lastIndexOf('_');
                 let tabId = fileInZip.name.substring(tabIdStartIdx, fileInZipExtStartIdx);
+                let tabName = fileInZip.name.substring(0, tabIdStartIdx);
     
                 // 각 압축 파일의 XML 데이터를 String 형태로 가져온다.
                 fileInZip.async("string")
@@ -339,12 +345,16 @@ function loadBlock() {
                         }
 
                         // 추출한 탭 정보에 알맞은 Workspace에 XML을 삽입한다.
+                        // 또한, tabName의 이름에 맞게 코드비 내 탭 이름을 변경해준다.
                         if(tabId === "_1") {
                             Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(content), Workspace1);
+                            document.getElementById("tab_1_name").value = tabName
                         } else if(tabId === "_2") {
                             Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(content), Workspace2);
+                            document.getElementById("tab_2_name").value = tabName
                         } else if(tabId === "_3") {
                             Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(content), Workspace3);
+                            document.getElementById("tab_3_name").value = tabName
                         }
                     }).catch((err) => {
                         console.log("===>압축 해제 실패..");

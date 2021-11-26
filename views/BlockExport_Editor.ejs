@@ -576,6 +576,24 @@
 
         var tab_id = 0;
 
+        $('.tabName').click(function () {
+          tab_id = $(this).attr('data-tab');
+          console.log(tab_id);
+
+          $('.tabImg').removeClass('current');
+          $('.tab-content').removeClass('current');
+
+          if(tab_id === "tab-1") {
+            $('#tab_1').addClass('current');
+          } else if(tab_id === "tab-2") {
+            $('#tab_2').addClass('current');
+          } else if(tab_id === "tab-3") {
+            $('#tab_3').addClass('current');
+          }
+          // $(this).addClass('current');
+          $("#" + tab_id).addClass('current');
+        })
+
         $('.tabImg').click(function () {
           tab_id = $(this).attr('data-tab');
 
@@ -593,6 +611,45 @@
       <div id="bottomDiv">
         <!-- 블럭 나오는 부분(왼쪽) -->
         <div id="blocklyDiv" class="borderR">
+          <input type="text"
+            id="tab_1_name"
+            class="tabName"
+            readonly="true"
+            onblur="this.readOnly=true"
+            ondblclick="this.readOnly='';"
+            style="
+            left: 210px;
+            top: 44px;
+            border: 0px;"
+            value="Tab 1"
+            data-tab="tab-1"
+          />
+          <input type="text"
+          id="tab_2_name"
+          class="tabName"
+          readonly="true"
+          onblur="this.readOnly=true"
+          ondblclick="this.readOnly='';"
+          style="
+          left: 277px;
+          top: 44px;
+          border: 0px;"
+          value="Tab 2"
+          data-tab="tab-2"
+          />
+          <input type="text"
+          id="tab_3_name"
+          class="tabName"
+          readonly="true"
+          onblur="this.readOnly=true"
+          ondblclick="this.readOnly='';"
+          style="
+          left: 335px;
+          top: 44px;
+          border: 0px;"
+          value="Tab 3"
+          data-tab="tab-3"
+        />
           <div id="tab-1" class="tab-content current">
             <div id="blocklyDiv1" style="height: calc(100vh - 90px); min-width: 800px;">
               <div class="windowTitle" id="windowBlockTitle">
@@ -1480,6 +1537,24 @@ sys.stdout = io.StringIO()
 	});
 
   let eachTabCode;
+
+  $('.tabName').click(function(){
+    var tab_id = $(this).attr('data-tab');
+
+    if(tab_id == "tab-1"){
+      eachTabCode = Blockly.Python.workspaceToCode(Workspace1);
+      pyEditor.setValue(eachTabCode);
+    } else if(tab_id == "tab-2"){
+      eachTabCode = Blockly.Python.workspaceToCode(Workspace2);
+      pyEditor.setValue(eachTabCode);
+    } else if(tab_id == "tab-3"){
+      eachTabCode = Blockly.Python.workspaceToCode(Workspace3);
+      pyEditor.setValue(eachTabCode);
+    }
+
+    var exe = document.getElementById('exeArea');
+    exe.innerHTML = tabClickConsole(tab_id);
+  })
 
   $('.tabImg').click(function(){
     var tab_id = $(this).attr('data-tab');
