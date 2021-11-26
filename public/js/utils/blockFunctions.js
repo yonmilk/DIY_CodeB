@@ -241,8 +241,6 @@ function saveCodesToLocal() {
                 let fileObject = new File([py], filename + ".py"); // 파일 객체 생성 (data,name+확장자)
                 saveAs(fileObject); // 로컬 저장
             }
-        } else {
-            alert("파일 이름을 입력하세요.")
         }
     });
 }
