@@ -277,6 +277,7 @@ ul.tab li.current {
 .tabImg {
     position: relative; 
     left: 50px;
+    cursor: pointer;
 }   
 
 .windowTitle {

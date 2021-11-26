@@ -578,22 +578,19 @@
 
         $('.tabImg').click(function () {
           tab_id = $(this).attr('data-tab');
-          console.log("sdASD");
 
           $('.tabImg').removeClass('current');
           $('.tab-content').removeClass('current');
 
           $(this).addClass('current');
           $("#" + tab_id).addClass('current');
-
-          console.log(tab_id);
         })
       });
+
     </script>
 
       <!-- 하단 내용 -->
       <div id="bottomDiv">
-
         <!-- 블럭 나오는 부분(왼쪽) -->
         <div id="blocklyDiv" class="borderR">
           <div id="tab-1" class="tab-content current">
