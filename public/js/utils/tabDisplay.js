@@ -115,7 +115,7 @@ function visibleAll() {
   //스플릿 바 생성
   Split({
     rowMinSize: 100,
-    columnMinSize: 300,
+    columnMinSize: 350,
     columnGutters: [
       {
         track: 1,
