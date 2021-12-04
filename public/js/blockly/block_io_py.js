@@ -55,7 +55,14 @@ Blockly.Python['fd_open'] = function (block) {
   var variable_list = Blockly.Python.variableDB_.getName(block.getFieldValue('list'), Blockly.Variables.NAME_TYPE);
   var value_text = Blockly.Python.valueToCode(block, 'text', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
+  
   var code = `${variable_list} = open(${value_text}, '${dropdown_set_menu}${dropdown_set_menu2}', encoding='utf-8')\n`;
+
+  // 바이트(b) 사용시 조건 추가
+  if (dropdown_set_menu2 == 'b') {
+    code = `${variable_list} = open(${value_text}, '${dropdown_set_menu}${dropdown_set_menu2}')\n`;
+  }
+
   // var code = variable_list + ' = open( ' + value_text  + ', "' + dropdown_set_menu + dropdown_set_menu2 + '" )\n';
   return code;
 };
