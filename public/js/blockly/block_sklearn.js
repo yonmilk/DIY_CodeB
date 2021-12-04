@@ -2302,3 +2302,21 @@ Blockly.Blocks['ExtraTreesClassifier'] = {
         this.setHelpUrl("");
     }
 };
+
+// 피클 모델 저장
+Blockly.Blocks['pickle_model_save'] = {
+    init: function() {
+      this.appendValueInput("val_1")
+          .setCheck(null)
+          .appendField("파일 open(");
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown([["쓰기","'wb'"], ["읽기","'rb'"]]), "dp_option");
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setStyle("list_blocks");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };

@@ -999,3 +999,13 @@ Blockly.JavaScript['ExtraTreesClassifier'] = function (block) {
   
   return code;
 };
+
+// 피클 모델 저장
+Blockly.JavaScript['pickle_model_save'] = function(block) {
+  var value_val_1 = Blockly.JavaScript.valueToCode(block, 'val_1', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_dp_option = block.getFieldValue('dp_option');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

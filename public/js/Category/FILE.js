@@ -36,28 +36,7 @@ FILE += '     </block>';
 FILE += '   </value>';
 FILE += ' </block>';
 
-//피클 입력
-FILE += '  <block type="pickle_dump">';
-FILE += '      <value name="va1">';
-FILE += '          <shadow type="indata">';
-FILE += '              <field name="indata1">데이터</field>';
-FILE += '          </shadow>';
-FILE += '      </value>';
-FILE += '      <value name="va2">';
-FILE += '          <shadow type="indata">';
-FILE += '              <field name="indata1">f</field>';
-FILE += '          </shadow>';
-FILE += '      </value>';
-FILE += '  </block>';
 
-//피클 불러오기
-FILE += '  <block type="pickle_load">';
-FILE += '      <value name="va">';
-FILE += '          <shadow type="indata">';
-FILE += '              <field name="indata1">f</field>';
-FILE += '          </shadow>';
-FILE += '      </value>';
-FILE += '  </block>';
 //  파일 닫기
 FILE += '      <block type = "fd_close"></block>';
 
@@ -99,6 +78,62 @@ FILE += '     </shadow>';
 FILE += '   </value>';
 FILE += ' </block>';
 FILE += ' <block type="fileopen2"></block>   ';
+
+// 피클 라벨
+FILE += '<label text="Pickle"></label>';
+
+// 피클 with as
+FILE += '<block type="withs">';
+FILE += '    <value name="set0">';
+FILE += '        <shadow type="indata">';
+FILE += '            <field name="indata1"></field>';
+FILE += '        </shadow>';
+FILE += '            <block type="pickle_model_save">';
+FILE += '                <value name="val_1">';
+FILE += '                    <shadow type="indata">';
+FILE += '                        <field name="indata1">"경로"</field>';
+FILE += '                    </shadow>';
+FILE += '                </value>';
+FILE += '            </block>';
+FILE += '    </value>';
+FILE += '    <value name="set1">';
+FILE += '        <shadow type="indata">';
+FILE += '            <field name="indata1"></field>';
+FILE += '        </shadow>';
+FILE += '        <block type="variables_get">';
+FILE += '            <field name="VAR">f</field>';
+FILE += '        </block>';
+FILE += '    </value>';
+FILE += '</block>';
+
+//피클 입력
+FILE += '  <block type="pickle_dump">';
+FILE += '      <value name="va1">';
+FILE += '          <shadow type="indata">';
+FILE += '              <field name="indata1">데이터</field>';
+FILE += '          </shadow>';
+FILE += '      </value>';
+FILE += '      <value name="va2">';
+FILE += '          <shadow type="indata">';
+FILE += '              <field name="indata1"></field>';
+FILE += '          </shadow>';
+FILE += '           <block type="variables_get">';
+FILE += '               <field name="VAR">f</field>';
+FILE += '           </block>';
+FILE += '      </value>';
+FILE += '  </block>';
+
+//피클 불러오기
+FILE += '  <block type="pickle_load">';
+FILE += '      <value name="va">';
+FILE += '          <shadow type="indata">';
+FILE += '              <field name="indata1"></field>';
+FILE += '          </shadow>';
+FILE += '           <block type="variables_get">';
+FILE += '               <field name="VAR">f</field>';
+FILE += '           </block>';
+FILE += '      </value>';
+FILE += '  </block>';
 
 FILE += '</category>';
 

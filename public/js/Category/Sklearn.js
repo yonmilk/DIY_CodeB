@@ -278,6 +278,76 @@ SKL +=      '</shadow>';
 SKL +=  '</value>';
 SKL += '</block>';
 
+// 모델 저장 라벨
+SKL += '<label text="%{BKY_SKL_SAVE}"></label>';
+
+
+// 피클 임포트
+SKL += '<block type="file_library"></block>';
+
+// 피클  모델 저장 로드 with as
+SKL += '<block type="withs">';
+SKL += '    <value name="set0">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '            <block type="pickle_model_save">';
+SKL += '                <value name="val_1">';
+SKL += '                    <shadow type="indata">';
+SKL += '                        <field name="indata1">"경로"</field>';
+SKL += '                    </shadow>';
+SKL += '                </value>';
+SKL += '            </block>';
+SKL += '    </value>';
+SKL += '    <value name="set1">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">f</field>';
+SKL += '        </block>';
+SKL += '    </value>';
+SKL += '</block>';
+
+
+//피클 입력
+SKL += '  <block type="pickle_dump">';
+SKL += '      <value name="va1">';
+SKL += '          <shadow type="indata">';
+SKL += '              <field name="indata1">데이터</field>';
+SKL += '          </shadow>';
+SKL += '      </value>';
+SKL += '      <value name="va2">';
+SKL += '          <shadow type="indata">';
+SKL += '              <field name="indata1">f</field>';
+SKL += '          </shadow>';
+SKL += '            <block type="variables_get">';
+SKL += '                <field name="VAR">f</field>';
+SKL += '            </block>';
+SKL += '      </value>';
+SKL += '  </block>';
+
+//피클 불러오기
+SKL += '  <block type="pickle_load">';
+SKL += '      <value name="va">';
+SKL += '          <shadow type="indata">';
+SKL += '              <field name="indata1">f</field>';
+SKL += '          </shadow>';
+SKL += '            <block type="variables_get">';
+SKL += '                <field name="VAR">f</field>';
+SKL += '            </block>';
+SKL += '      </value>';
+SKL += '  </block>';
+
+
+// SKL += '<block type="pickle_model_save">';
+// SKL += '    <value name="val_1">';
+// SKL += '        <shadow type="indata">';
+// SKL += '            <field name="indata1">경로</field>';
+// SKL += '        </shadow>';
+// SKL += '    </value>';
+// SKL += '</block>';
+
 SKL += '</category>';
 
 // 데이터 카테고리

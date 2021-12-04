@@ -80,6 +80,6 @@ Blockly.Msg["SKL_DATA_HANDLING"] = "데이터 핸들링";
 Blockly.Msg["SKL_K_MEANS"] = "K-Means 속성 추출";
 Blockly.Msg["SKL_BASIC_EVA"] = "기본 평가 지표";
 Blockly.Msg["SKL_ADV"] = "고급 평가 지표";
-
+Blockly.Msg["SKL_SAVE"] = "모델 저장 & 로드";
 
 

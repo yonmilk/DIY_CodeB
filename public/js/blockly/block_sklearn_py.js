@@ -1420,3 +1420,13 @@ Blockly.Python['ExtraTreesClassifier'] = function (block) {
 
     return code;
 };
+
+// 피클 모델 저장
+Blockly.Python['pickle_model_save'] = function(block) {
+    var value_val_1 = Blockly.Python.valueToCode(block, 'val_1', Blockly.Python.ORDER_ATOMIC);
+    var dropdown_dp_option = block.getFieldValue('dp_option');
+    // TODO: Assemble Python into code variable.
+    var code = `open(${value_val_1}, ${dropdown_dp_option})`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
