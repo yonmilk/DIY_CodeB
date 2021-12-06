@@ -39,7 +39,11 @@
     let memberId = "";
     let projectId = -1;
     let projectType = 1; // 블록코딩 / 텍스트 코딩 Flag
-    let projectXml = ""; // 프로젝트에서 사용자가 작업한 XML 데이터
+    let projectXmlForTabFirst = ""; // 프로젝트에서 사용자가 작업한 XML 데이터
+    let projectXmlForTabSecond = ""; // 프로젝트에서 사용자가 작업한 XML 데이터
+    let projectXmlForTabThird = ""; // 프로젝트에서 사용자가 작업한 XML 데이터
+    let projectPyCode = "";
+    let tabNames = "";
     let usedLibs = ""; // 프로젝트에서 사용자가 추가한 라이브러리 배열
     let editorCheckYn = ""; // 사용자가 최초로 에디터에 접근하였는지 여부
     let isChallenge = 0; // 도전과제 여부
@@ -84,20 +88,65 @@
 
       // 프로젝트 XML 데이터 가져오기
       if(<%=projectId%> == -1) {
-        projectXml = "";
+        projectXmlForTabFirst = "";
+        projectXmlForTabSecond = "";
+        projectXmlForTabThird = "";
       } else {
-        let projectXmlWithEntity = "<%=xmlData%>";
+        let xmlWithEntityForTabFirst = "<%=xmlForTabFirst%>";
+        let xmlWithEntityForTabSecond = "<%=xmlForTabSecond%>";
+        let xmlWithEntityForTabThird = "<%=xmlForTabThird%>";
+
+        let pyWithEntity = "<%=pyCode%>"
+        console.log("===> py entity");
+        console.log(pyWithEntity);
 
         // 서버에서 가져온 XML에 대한 HTML Entity를 파싱
-        if(projectXmlWithEntity !== undefined && projectXmlWithEntity !== null && projectXmlWithEntity !== '') {
-              projectXmlWithEntity = String(projectXmlWithEntity);
+        if(
+          xmlWithEntityForTabFirst !== undefined && xmlWithEntityForTabFirst !== null && xmlWithEntityForTabFirst !== '' &&
+          xmlWithEntityForTabSecond !== undefined && xmlWithEntityForTabSecond !== null && xmlWithEntityForTabSecond !== '' &&
+          xmlWithEntityForTabThird !== undefined && xmlWithEntityForTabThird !== null && xmlWithEntityForTabThird !== ''
+        ) {
+              xmlWithEntityForTabFirst = String(xmlWithEntityForTabFirst);
+              xmlWithEntityForTabSecond = String(xmlWithEntityForTabSecond);
+              xmlWithEntityForTabThird = String(xmlWithEntityForTabThird);
 
-              projectXmlWithEntity = projectXmlWithEntity.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
-              projectXmlWithEntity = projectXmlWithEntity.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+              // XML 데이터가 정상적인 형태를 띄도록하는 트릭을 작성한다.
+              xmlWithEntityForTabFirst = xmlWithEntityForTabFirst.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+              xmlWithEntityForTabFirst = xmlWithEntityForTabFirst.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+
+              xmlWithEntityForTabSecond = xmlWithEntityForTabSecond.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+              xmlWithEntityForTabSecond = xmlWithEntityForTabSecond.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+
+              xmlWithEntityForTabThird = xmlWithEntityForTabThird.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+              xmlWithEntityForTabThird = xmlWithEntityForTabThird.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+
+              // 최종 파싱
               var element = document.createElement('div');
-              element.innerHTML = projectXmlWithEntity;
-              projectXml = element.textContent;
+              element.innerHTML = xmlWithEntityForTabFirst;
+              projectXmlForTabFirst = element.textContent;
               element.textContent = '';
+
+              element.innerHTML = xmlWithEntityForTabSecond;
+              projectXmlForTabSecond = element.textContent;
+              element.textContent = '';
+
+              element.innerHTML = xmlWithEntityForTabThird;
+              projectXmlForTabThird = element.textContent;
+              element.textContent = '';
+
+        } else if(pyWithEntity !== undefined && pyWithEntity !== null && pyWithEntity !== '') {
+          pyWithEntity = pyWithEntity.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+
+          var element = document.createElement('div');
+          element.innerHTML = pyWithEntity;
+          projectPyCode = element.textContent;
+          element.textContent = '';
+
+          // 앞/뒤 따옴표 제거
+          let firstQuot = projectPyCode.indexOf("\"");
+          let lastQuot = projectPyCode.lastIndexOf("\"");
+
+          projectPyCode = projectPyCode.substring(firstQuot+1, lastQuot);
         }
       }
 
@@ -106,6 +155,16 @@
 
       // 멤버 아이디 설정
       memberId = "<%=memberId%>";
+
+      // 사용자가 지정한 탭 이름을 설정한다.
+      tabNames = '<%=tabNameList%>';
+      tabNames.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+      // 최종 파싱
+      var element = document.createElement('div');
+      element.innerHTML = tabNames;
+      tabNames = element.textContent;
+      element.textContent = '';
+      tabNames = JSON.parse(tabNames);
       
       // 사용자가 추가한 라이브러리 배열 설정
       usedLibs = "<%=usedLibs%>";
@@ -120,7 +179,10 @@
     console.log(`===>Project ID: ${projectId}`);
     console.log(`===>Project Type: ${projectType}`);
     console.log("---xmlData---");
-    console.log(projectXml);
+    console.log(projectXmlForTabFirst);
+    console.log(projectXmlForTabSecond);
+    console.log(projectXmlForTabThird);
+    console.log(projectPyCode);
     console.log("-------------");
     console.log(`===>Member Seq: ${memberSeq}`);
     console.log(`===>Member ID: ${memberId}`);
@@ -333,13 +395,13 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownReset" id="dropdown_reset_menu">
                   <span class="dropdown-item codebBtnDropdown" onclick="resetWorkspace();">
                     <i class="trash icon"></i>
-                    전체 초기화
+                    탭 내용 삭제
                   </span>
                   <!-- 새 프로젝트 일 경우 프로젝트 초기화 버튼 비활성화 -->
                   <% if(projectId != -1) { %>
                     <span class="dropdown-item codebBtnDropdown" onclick="resetProject();">
                       <i class="undo icon"></i>
-                      프로젝트 초기화
+                      탭 초기화
                     </span>
                   <% } %> 
                 </div>
@@ -360,7 +422,6 @@
               condition: node / spring
               des: 블록 저장 (클라우드 / 로컬) - Bootstrap 2021-08-17 정지현
               FIXME: 클라우드 저장 submenu 위치 고치기
-              TODO: 서버에 프로젝트 저장 시 탭에 대한 저장을 어떻게 할지 고려할 것.
             -->
             <% if(envMode == "spring") { %>
               <div class="dropdown top">
@@ -573,6 +634,10 @@
     <script>
       //왼쪽 스크립트
       $(document).ready(function () {
+        // 불러온 탭의 이름을 지정한다.
+        tabNames[0] === undefined ? "Tab 1" : document.getElementById("tab_1_name").value = tabNames[0];
+        tabNames[1] === undefined ? "Tab 2" : document.getElementById("tab_2_name").value = tabNames[1];
+        tabNames[2] === undefined ? "Tab 3" : document.getElementById("tab_3_name").value = tabNames[2];
 
         var tab_id = 0;
 
@@ -936,47 +1001,75 @@
          */ 
         // XML이 Pandas CSV 읽기 블록을 사용할 경우, 인자값을 "경로"로 초기화 한다.
         // TODO: 이하 로직을 동일한 역할을 하는 다른 로직과 병합한 후, 함수로 합칠 수 있는지 여부 체크하기.
-        for (var i = 0; i < projectXml.length;) {
-          if (projectXml.indexOf('field name="file_path', i) == -1) {
+        for (var i = 0; i < projectXmlForTabFirst.length;) {
+          if (projectXmlForTabFirst.indexOf('field name="file_path', i) == -1) {
             i++; // 일치하는 값이 없을 시 증가
           } else {
-            i = projectXml.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
-            var b = projectXml.indexOf('</field>', i)
-            var q = projectXml.substring(i + 22, b)
+            i = projectXmlForTabFirst.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
+            var b = projectXmlForTabFirst.indexOf('</field>', i)
+            var q = projectXmlForTabFirst.substring(i + 22, b)
             //console.log(i)
             //console.log('서브: ', q)
-            projectXml = projectXml.replace(q, '경로')
+            projectXmlForTabFirst = projectXmlForTabFirst.replace(q, '경로')
+          }
+        }
+
+        for (var i = 0; i < projectXmlForTabSecond.length;) {
+          if (projectXmlForTabSecond.indexOf('field name="file_path', i) == -1) {
+            i++; // 일치하는 값이 없을 시 증가
+          } else {
+            i = projectXmlForTabSecond.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
+            var b = projectXmlForTabSecond.indexOf('</field>', i)
+            var q = projectXmlForTabSecond.substring(i + 22, b)
+            //console.log(i)
+            //console.log('서브: ', q)
+            projectXmlForTabSecond = projectXmlForTabSecond.replace(q, '경로')
+          }
+        }
+
+        for (var i = 0; i < projectXmlForTabThird.length;) {
+          if (projectXmlForTabThird.indexOf('field name="file_path', i) == -1) {
+            i++; // 일치하는 값이 없을 시 증가
+          } else {
+            i = projectXmlForTabThird.indexOf('field name="file_path', i) + 1; // 중복 값 출력 방지용
+            var b = projectXmlForTabThird.indexOf('</field>', i)
+            var q = projectXmlForTabThird.substring(i + 22, b)
+            //console.log(i)
+            //console.log('서브: ', q)
+            projectXmlForTabThird = projectXmlForTabThird.replace(q, '경로')
           }
         }
 
         // Workspace DOM에 불러온 XML을 삽입한 후, 파이썬 코드를 CodeMirror에 세팅한다.
-        if (projectXml != "" && projectType == 1) {
-          console.log("===>블록 코딩 XML이 화면에 출력됩니다.");
-          let dom = Blockly.Xml.textToDom(projectXml);
-          let currentWs = workspaceCheck(); // 현재 포커싱된 워크스페이스 가져오기
-          Blockly.Xml.appendDomToWorkspace(dom, currentWs);
+        if (projectXmlForTabFirst != "" && projectXmlForTabSecond != "" && projectXmlForTabThird != "" && projectType == 1) {
+          Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(projectXmlForTabFirst), Workspace1);
+          Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(projectXmlForTabSecond), Workspace2);
+          Blockly.Xml.appendDomToWorkspace(Blockly.Xml.textToDom(projectXmlForTabThird), Workspace3);
+          // let dom = Blockly.Xml.textToDom(projectXmlForTabFirst);
+          // let currentWs = workspaceCheck(); // 현재 포커싱된 워크스페이스 가져오기
+          // Blockly.Xml.appendDomToWorkspace(dom, currentWs);
 
           // FIXME: 주석한 후, 동작 수행에 문제 없을 경우 제거
           // fileName = file.name;
 
-          try {
-            let pyCode = Blockly.Python.workspaceToCode(currentWs);
-            pyEditor.setValue(pyCode);
-          } catch (e) {
-            console.log("===>파이썬 코드 출력을 처리하는 도중 오류가 발생하였습니다.")
-            console.log(e);
-          }
+          // try {
+          //   let pyCode = Blockly.Python.workspaceToCode(currentWs);
+          //   pyEditor.setValue(pyCode);
+          // } catch (e) {
+          //   console.log("===>파이썬 코드 출력을 처리하는 도중 오류가 발생하였습니다.")
+          //   console.log(e);
+          // }
 
-          try {
-            let jsCode = Blockly.JavaScript.workspaceToCode(currentWs);
-            jsEditor.getValue() = jsCode;
-          } catch (e) {
-            console.log("===>자바스크립트 코드 출력을 처리하는 도중 오류가 발생하였습니다.")
-            console.log(e);
-          }
-        } else if (projectXml != "" && projectType == 2) {
+          // try {
+          //   let jsCode = Blockly.JavaScript.workspaceToCode(currentWs);
+          //   jsEditor.getValue() = jsCode;
+          // } catch (e) {
+          //   console.log("===>자바스크립트 코드 출력을 처리하는 도중 오류가 발생하였습니다.")
+          //   console.log(e);
+          // }
+        } else if (projectPyCode != "" && projectType == 2) {
           console.log("===>텍스트 코딩 Python 코드가 화면에 출력됩니다.");
-          pyEditor.setValue(projectXml);
+          pyEditor.setValue(projectPyCode);
         }
       <% } %>
 

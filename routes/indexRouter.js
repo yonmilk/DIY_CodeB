@@ -28,7 +28,11 @@ router.get('/', (req, res) => {
 		memberSeq: req.query.i == null ? -1 : req.query.i,
 		sessionId: req.query.b == null ? "" : req.query.b,
 		projectId: req.query.d == "" ? -1 : req.query.d,
-		xmlData: req.query.c == null ? "" : req.query.c,
+		xmlForTabFirst: req.query.c == null ? "" : req.query.c,
+		xmlForTabSecond: req.query.z == null ? "" : req.query.z,
+		xmlForTabThird: req.query.x == null ? "" : req.query.x,
+		pyCode: req.query.v == null ? "" : req.query.v,
+		tabNameList: req.query.w == null ? "" : req.query.w,
 		projectType: req.query.e == null ? 1 : req.query.e,
 		usedLibs: req.query.f == null ? "" : req.query.f,
 		editorCheckYn: req.query.g == null ? "" : req.query.g,
@@ -44,7 +48,11 @@ router.get('/', (req, res) => {
 
 	console.log(`===>프로젝트 아이디: ${dataObject.projectId}`)
 	console.log(`===>프로젝트 타입: ${dataObject.projectType}`);
-	console.log(`===>XML: ${dataObject.xmlData}`);
+	console.log(`===>XML for tab first: ${dataObject.xmlForTabFirst}`);
+	console.log(`===>XML for tab second: ${dataObject.xmlForTabSecond}`);
+	console.log(`===>XML for tab third: ${dataObject.xmlForTabThird}`);
+	console.log(`===>Py code: ${dataObject.pyCode}`);
+	console.log(`===>Tab Name List: ${dataObject.tabNameList}`);
 	console.log(`===>사용한 라이브러리: ${dataObject.usedLibs}`);
 	console.log(`===>최초 에디터 열람 여부: ${dataObject.editorCheckYn}`);
 	console.log(`===>도전과제 여부: ${dataObject.isChallenge}`);

@@ -21,12 +21,40 @@ function resetWorkspace() {
  * des: 프로젝트 초기화 버튼 클릭 시, 초기 불러온 프로젝트의 상태로 롤백시킨다.
  */
 function resetProject() {
-    var b = workspaceCheck();
-    b.clear(); // 추가 전 Workspace 초기화, Or 블록이 Append됨
+    let tab = document.getElementsByClassName('tab-link current'); 
+	let tab_id = tab[0].id;
 
-    // 서버에서 가져온 프로젝트 XML을 Workspace에 출력
-    let dom = Blockly.Xml.textToDom(projectXml);
-    Blockly.Xml.appendDomToWorkspace(dom, b);
+    if(tab_id == 'tab_1') {
+        Workspace1.clear(); 
+
+        // 서버에서 가져온 프로젝트 XML을 Workspace에 출력
+        let dom = Blockly.Xml.textToDom(projectXmlForTabFirst);
+        Blockly.Xml.appendDomToWorkspace(dom, Workspace1);
+
+    } else if(tab_id == 'tab_2') {
+        Workspace2.clear(); 
+
+        // 서버에서 가져온 프로젝트 XML을 Workspace에 출력
+        let dom = Blockly.Xml.textToDom(projectXmlForTabSecond);
+        Blockly.Xml.appendDomToWorkspace(dom, Workspace2);
+
+    } else if(tab_id == 'tab_3') {
+        Workspace3.clear(); 
+    
+        // 서버에서 가져온 프로젝트 XML을 Workspace에 출력
+        let dom = Blockly.Xml.textToDom(projectXmlForTabThird);
+        Blockly.Xml.appendDomToWorkspace(dom, Workspace3);
+    }
+
+
+    // var b = workspaceCheck();
+    // b.clear(); 
+
+    // console.log(b);
+
+    // // 서버에서 가져온 프로젝트 XML을 Workspace에 출력
+    // let dom = Blockly.Xml.textToDom(projectXml);
+    // Blockly.Xml.appendDomToWorkspace(dom, b);
 }
 
 /**
@@ -39,20 +67,53 @@ async function saveCodesToServer(bol) {
     let xml = Blockly.Xml.workspaceToDom(b); // 워크스페이스를 돔(xml)으로 변환
     let p_xml = Blockly.Xml.domToPrettyText(xml); // 돔(xml) 형태 깔끔하게 정제
     let block_xml = JSON.stringify(p_xml); // json 형태로 정제
-    // console.log(block_xml);
 
-    // 기존 projectXml 변수를 새로 저장된 xml로 대체
-    projectXml = p_xml;
+    // 각 Workspace에 대한 XML 생성
+    let xmlForWs1 = Blockly.Xml.workspaceToDom(Workspace1);
+    let xmlForWs2 = Blockly.Xml.workspaceToDom(Workspace2);
+    let xmlForWs3 = Blockly.Xml.workspaceToDom(Workspace3);
+
+    let pXmlForWs1 = Blockly.Xml.domToPrettyText(xmlForWs1);
+    let pXmlForWs2 = Blockly.Xml.domToPrettyText(xmlForWs2);
+    let pXmlForWs3 = Blockly.Xml.domToPrettyText(xmlForWs3);
+
+    // 서버로 보내기 용이한 형태로 XML을 정제한다.
+    let blockXmlForWs1 = JSON.stringify(pXmlForWs1);
+    let blockXmlForWs2 = JSON.stringify(pXmlForWs2);
+    let blockXmlForWs3 = JSON.stringify(pXmlForWs3);
+
+    let blockXmlArr = [];
+    blockXmlArr.push(blockXmlForWs1);
+    blockXmlArr.push(blockXmlForWs2);
+    blockXmlArr.push(blockXmlForWs3);
+
+    /**
+     * 기존 projectXml 변수를 새로 저장된 xml로 대체한다.
+     * 프로젝트 초기화 시 사용하기 위함이다.
+     */
+    projectXmlForTabFirst = blockXmlForWs1;
+    projectXmlForTabSecond = blockXmlForWs2;
+    projectXmlForTabThird = blockXmlForWs3;
 
     let pyCode;
+    // 코드로 저장 시, BlockCode의 On/Off 상태에 따라 가져오는 파이썬 코드를 분기화한다.
     flagBlockCode == 1 ? pyCode = pyEditor.getValue() : pyCode = asyncEditor.getValue();
 
-    // pyCode = pyEditor.getValue(); // 파이썬 코드를 DOM으로 가져오기
+    // 각 탭에 대한 이름을 저장한다.
+    let tabNameList = Array();
+    tabNameList.push(document.getElementById("tab_1_name").value);
+    tabNameList.push(document.getElementById("tab_2_name").value);
+    tabNameList.push(document.getElementById("tab_3_name").value);
 
-    let projectSaveFlag = 0; // 프로젝트 저장 여부 Flag
+    /**
+     * 프로젝트 저장 여부를 체크하기 위한 Flag이다.
+     * 0일 경우 서버에 저장하지 않은 상태, 1일 경우 프로젝트를 서버에 저장한 상태를 나타낸다.
+     */
+    let projectSaveFlag = 0;
 
     // 새 프로젝트일 경우 저장을 위한 모달창
     if (bol) {
+        // 최초 저장한 프로젝트가 새 프로젝트일 경우
         if (isSaved == 0) {
             // 새 프로젝트 저장 후 "프로젝트 초기화" 드롭다운 DOM에 추가
             let resetPrjDropdownItem = document.createElement('span');
@@ -77,6 +138,7 @@ async function saveCodesToServer(bol) {
 
         isSaved = 1;
 
+        // 서버에 새 프로젝트 저장 시, 나타나는 모달창
         let steps = ['1', '2']
         let swalTitle = ["제목", "설명"];
 
@@ -135,18 +197,36 @@ async function saveCodesToServer(bol) {
                 confirmButtonText: '확인'
             }).then(() => {
                 try {
-                    parent.postMessage({
-                        "from": "saveCodesToServer_newProject",
-                        "url": "/project/projectInsert.do",
-                        "method": "POST",
-                        "data": {
-                            "title": answers[0],
-                            "description": answers[1],
-                            "block_xml": (projectType == 1 ? block_xml : JSON.stringify(pyCode)),
-                            "pType": projectType,
-                            "usedLibs": addedLibs
-                        }
-                    }, parentUrl);
+                    if(projectType === 1) {
+                        console.log("===> 블록 프로젝트 전송")
+                        parent.postMessage({
+                            "from": "saveCodesToServer_newProject",
+                            "url": "/project/projectInsert.do",
+                            "method": "POST",
+                            "data": {
+                                "title": answers[0],
+                                "description": answers[1],
+                                "blockXmls":blockXmlArr,
+                                "pType": projectType,
+                                "usedLibs": addedLibs,
+                                "tabNameList": tabNameList,
+                            }
+                        }, parentUrl);   
+                    } else {
+                        console.log("===> 코드 프로젝트 전송")
+                        parent.postMessage({
+                            "from": "saveCodesToServer_newProject",
+                            "url": "/project/projectInsert.do",
+                            "method": "POST",
+                            "data": {
+                                "title": answers[0],
+                                "description": answers[1],
+                                "pyCode": JSON.stringify(pyCode),
+                                "pType": projectType,
+                                "usedLibs": addedLibs
+                            }
+                        }, parentUrl);
+                    }
                 } catch (err) {
                     console.log(err);
                 }
@@ -163,16 +243,43 @@ async function saveCodesToServer(bol) {
     try {
         // 프로젝트 ID가 있을 때 저장 시
         if (projectSaveFlag == 0) {
-            parent.postMessage({
-                "from": "saveCodesToServer_existProject",
-                "url": "/editor/sendFile.do", 
-                "data": {
-                    "block_xml": (projectType == 1 ? block_xml : JSON.stringify(pyCode)), 
-                    "member_seq": memberSeq, 
-                    "pid": projectId,
-                    "pType": projectType 
-                }
-            }, parentUrl);
+            if(projectType === 1) {
+                console.log("===> 블록 프로젝트 전송")
+                parent.postMessage({
+                    "from": "saveCodesToServer_existProject",
+                    "url": "/editor/sendFile.do",
+                    "data": {
+                        "blockXmls":blockXmlArr,
+                        "pid": projectId,
+                        "pType": projectType,
+                        "usedLibs": addedLibs,
+                        "tabNameList": tabNameList
+                    }
+                }, parentUrl);   
+            } else {
+                console.log("===> 코드 프로젝트 전송")
+                parent.postMessage({
+                    "from": "saveCodesToServer_existProject",
+                    "url": "/editor/sendFile.do",
+                    "data": {
+                        "pyCode": JSON.stringify(pyCode),
+                        "pid": projectId,
+                        "pType": projectType,
+                        "usedLibs": addedLibs
+                    }
+                }, parentUrl);
+            }
+
+            // parent.postMessage({
+            //     "from": "saveCodesToServer_existProject",
+            //     "url": "/editor/sendFile.do", 
+            //     "data": {
+            //         "block_xml": (projectType == 1 ? block_xml : JSON.stringify(pyCode)), 
+            //         "member_seq": memberSeq, 
+            //         "pid": projectId,
+            //         "pType": projectType 
+            //     }
+            // }, parentUrl);
             Swal.fire({
                 title: '성공!',
                 text: "프로젝트가 저장되었습니다.",
