@@ -616,3 +616,30 @@ Blockly.Blocks['comma'] = {
     this.setHelpUrl('');
   },
 };
+
+// 폴더 단위 업로드 - 2021.08.19 이정윤
+Blockly.Blocks['folderopen'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('폴더 열기')
+      .appendField(new Blockly.FieldTextInput("폴더 경로"), "folder_path");
+    this.setOutput(true, null);
+    this.setColour(20);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+// 피클 업로드
+Blockly.Blocks['pickleopen'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("피클 열기")
+      .appendField(new Blockly.FieldTextInput("경로"), "pickle_path");
+    //this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour(20);
+    this.setTooltip("");
+    this.setHelpUrl("");
+}
+};

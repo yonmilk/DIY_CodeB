@@ -235,3 +235,16 @@ Blockly.Python['comma'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+// 폴더 단위 업로드 - 2021.08.19 이정윤
+Blockly.Python['folderopen'] = function (block) {
+  var file = block.getFieldValue('folder_path');
+  var code = file;
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
+Blockly.Python['pickleopen'] = function (block) {
+  var file = block.getFieldValue('pickle_path');
+  var code = file;
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};

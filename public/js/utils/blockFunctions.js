@@ -560,6 +560,11 @@ function whenSelected(event) {
 			localFolderOpen(event.blockId);         
 		}
 
+        if ('pickleopen' == block.type) {
+			console.log("피클 열기");
+			localFileOpenPickle(event.blockId);         
+		}
+
 		if ('data_csv_read' == block.type) {
 			Show_csv();
 		}

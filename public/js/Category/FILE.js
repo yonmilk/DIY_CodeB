@@ -11,6 +11,9 @@ FILE += '  <block type="import_pil_pilimg_imagefilter"></block>';
 // 파일 열기 블록
 FILE += '<block type="fileopen"></block>';
 
+FILE += '  <block type="folderopen"></block>';
+
+
 // 기태 수정(로컬 파일 열기)
 FILE += '  <block type = "fd_open">';
 FILE += '    <value name="text">';
@@ -81,6 +84,8 @@ FILE += ' <block type="fileopen2"></block>   ';
 
 // 피클 라벨
 FILE += '<label text="Pickle"></label>';
+
+FILE += '  <block type="pickleopen"></block>';
 
 // 피클 with as
 FILE += '<block type="withs">';

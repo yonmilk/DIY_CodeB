@@ -285,6 +285,8 @@ SKL += '<label text="%{BKY_SKL_SAVE}"></label>';
 // 피클 임포트
 SKL += '<block type="file_library"></block>';
 
+SKL += '  <block type="pickleopen"></block>';
+
 // 피클  모델 저장 로드 with as
 SKL += '<block type="withs">';
 SKL += '    <value name="set0">';

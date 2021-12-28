@@ -1,9 +1,8 @@
-'use strict';
-
 let datas = "";           // 데이터 변수 초기화
 let fss;                // FS가 BrowserFS와 겹치기 때문에 재 생성
 let fileName2 = "temp";   // 파일 명   
 let rows = "";          // ?
+
 
 //== 기태 수정 (로컬 파일 열기 ) 21.01.01 =============================================
 // 텍스트 파일 처리하기 
@@ -49,7 +48,7 @@ function localFileOpen(blockId) {
   input.click(); // 블럭이 클릭되면 실행
 }
 
-function localFileOpen3() {
+function localFileOpen3() {  // 이건 어디에 쓰이는거지??
   console.log("local Text FileOpen3");
   let input = document.createElement("input"); // input 태그를 하나 만든다.
   // 태그 속성 정의
@@ -159,9 +158,17 @@ function localFileOpen2(blockId) {
         reader.onload = function (e) {
           datas = e.target.result;  // 이미지 값을 datas에 저장
           console.log("datas", datas);
+          
           let data = datas.replace(/^data:image\/\w+;base64,/, ""); // 이 부분을 삭제함
-          let buf = data.toString('base64');  // base64 버퍼로 저장
+          var binary_string = window.atob(data);
+          var len = binary_string.length;
+          var buf = new Uint8Array(len);
+          for (var i = 0; i < len; i++) {
+            buf[i] = binary_string.charCodeAt(i);
+          }
+          
           fss.writeFile(fileName2, buf);
+
           // let block = demoWorkspace.getBlockById(blockId);
           let bId = Blockly.mainWorkspace.getBlockById(blockId)
           bId.setFieldValue(JSON.stringify(fileName2), 'file_path');
@@ -172,6 +179,63 @@ function localFileOpen2(blockId) {
   };
   input.click(); // input을 클릭했을 때. 
 }
+
+
+// 피클 파일 처리하기 
+function localFileOpenPickle(blockId) {
+  console.log("local Pickle FileOpen");
+  let input = document.createElement("input"); // input 태그를 하나 만든다.
+  // 태그 속성 정의
+  input.type = "file";
+  input.accept = ".pickle, .pkl"; // 확장자가 xxx, yyy 일때, ".xxx, .yyy"
+  input.onchange = function (e) { // input의 값이 변하면 => 파일을 불러오면
+    if (e.target.files != undefined) { // 이중부정을 굳이?
+      // console.log(e.target.files);
+      console.log("pickle or pkl 파일 불러옴")
+      let reader = new FileReader(); // 파일리더 객체 생성
+
+      fileName2 = e.target.files[0].name;  // 파일명 받아옴
+      console.log(fileName2);               // 파일명 출력해봄
+      reader.readAsBinaryString(e.target.files[0]); // 리더객체가 텍스트를 읽음     
+      
+      // reader가 준비되면 
+      reader.onload = function (e) {
+
+        datas = e.target.result;                                // 다읽어온 파일의 값을 datas에 저장      
+        console.log("datas", datas);                                            // datas 출력 => txt나 csv를 출력한번 해본다.
+
+        var len = datas.length;
+        var buf = new Uint8Array(len);
+        for (var i = 0; i < len; i++) {
+          buf[i] = datas.charCodeAt(i);
+        }
+
+        fss.writeFile(fileName2, buf);                                    // FS에 파일명으로 datas를 저장
+
+        
+        let block;
+        let tab = document.getElementsByClassName('tab-link current'); 
+	      let tab_id = tab[0].id;
+        console.log(tab_id)
+        if(tab_id == 'tab_1') {
+          block = Workspace1.getBlockById(blockId); 
+        } else if(tab_id == 'tab_2') {
+          block = Workspace2.getBlockById(blockId);
+        } else if(tab_id == 'tab_3') {
+          block = Workspace3.getBlockById(blockId);
+        }
+
+        let bId = Blockly.mainWorkspace.getBlockById(blockId);                   // 블럭안의 input에 파일 경로를 적기위해 블럭 찾음
+        bId.setFieldValue(JSON.stringify(fileName2), 'pickle_path');  // 블럭안에 input에 파일경로를 적어줌
+      };
+      // fileName2 = e.target.files[0].name;  // 파일명 받아옴
+      // console.log(fileName2);               // 파일명 출력해봄
+      // reader.readAsBinaryString(e.target.files[0]); // 리더객체가 텍스트를 읽음  
+    }
+  };
+  input.click(); // 블럭이 클릭되면 실행
+}
+
 
 // 폴더 단위 업로드 - 2021.08.19 이정윤
 function localFolderOpen(blockId) {

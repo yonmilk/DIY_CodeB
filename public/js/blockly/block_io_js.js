@@ -183,3 +183,17 @@ Blockly.JavaScript['comma'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+// 폴더 단위 업로드 - 2021.08.19 이정윤
+Blockly.JavaScript['folderopen'] = function (block) {
+  var file = block.getFieldValue('folder_path');
+  var code = "\n";
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['pickleopen'] = function (block) {
+  var file = block.getFieldValue('pickle_path');
+  
+  var code = "\n";
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
