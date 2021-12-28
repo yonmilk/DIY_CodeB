@@ -1456,11 +1456,12 @@ sys.stdout = io.StringIO()
             exe.scrollTop = exe.scrollHeight; // 스크롤 아래로 유지
           } catch (e) {
             if (e.toString().indexOf('FileNotFoundError') != -1 && code.toString().indexOf("pd.read_csv") != -1)
-              exe.innerHTML = '파일 경로를 확인해주세요\n'
-            else if (e.toString().indexOf('NameError') != -1 && code.toString().indexOf("pd.read_csv") != -1)
-              exe.innerHTML = '파일 경로를 입력해주세요\n'
+              exe.innerHTML = '파일 경로를 확인해주세요\n' + e
+            else if (e.toString().indexOf("NameError: name '경로' is not defined") != -1 && code.toString().indexOf("pd.read_csv") != -1)
+              exe.innerHTML = '파일 경로를 입력해주세요\n' + e
             else
               exe.innerHTML = e;
+              
 
             <% if(envMode == "spring") { %>
               /**
