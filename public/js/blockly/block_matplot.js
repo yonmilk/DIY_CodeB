@@ -3,7 +3,7 @@ Blockly.Blocks['import_matplotlib_list'] = {
     init: function () {
         this.appendDummyInput()
             .appendField(Blockly.Msg.MATPLOTLIB_LIST_LIBRARY)
-            .appendField(new Blockly.FieldDropdown([["matplotlib.pyplot을 plt로","matplotlib.pyplot as plt"], ["matplotlib","matplotlib"]]), "list");
+            .appendField(new Blockly.FieldDropdown([["matplotlib.pyplot을 plt로","matplotlib.pyplot as plt\nimport matplotlib.font_manager as fm"], ["matplotlib","matplotlib"]]), "list");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setStyle("matplot_blocks");

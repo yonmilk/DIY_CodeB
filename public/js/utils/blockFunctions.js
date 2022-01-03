@@ -547,22 +547,25 @@ function whenSelected(event) {
 			console.log("파일 열기");
 			localFileOpen(event.blockId);         
 		}
-		//사이파이의 미디어불러오기
-		if ('fileopen2' == block.type) {
-			console.log("미디어 파일 열기");
-			localFileOpen2(event.blockId);         
-		}
+
+        // 미디어불러오기
+        if ('fileopen2' == block.type) {
+            console.log("미디어 파일 열기");
+            mediaFileOpen(event.blockId);         
+        }
+
+        // 피클불러오기
+        if ('pickleopen' == block.type) {
+            console.log("피클 파일 열기");
+            pickleFileOpen(event.blockId);         
+        }
+		
 		// 기태 수정(로컬 파일 열기) 지금은 사용되지 않음 ========================================================
 		
 		// 폴더 단위 업로드 - 2021.08.19 이정윤
 		if ('folderopen' == block.type) {
 			console.log("폴더 열기");
 			localFolderOpen(event.blockId);         
-		}
-
-        if ('pickleopen' == block.type) {
-			console.log("피클 열기");
-			localFileOpenPickle(event.blockId);         
 		}
 
 		if ('data_csv_read' == block.type) {

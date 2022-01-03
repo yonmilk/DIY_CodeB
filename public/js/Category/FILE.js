@@ -80,6 +80,7 @@ FILE += '       <field name="indata1">data</field>';
 FILE += '     </shadow>';
 FILE += '   </value>';
 FILE += ' </block>';
+
 FILE += ' <block type="fileopen2"></block>   ';
 
 // 피클 라벨
