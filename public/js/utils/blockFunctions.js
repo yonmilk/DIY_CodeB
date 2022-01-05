@@ -610,6 +610,7 @@ function recordBlockStatusEvent(event) {
     }
     //console.log(recordDeletedArr);
     blockRecordJSON = JSON.stringify({ "create": recordCreatedArr, "delete": recordDeletedArr });
+    sendToSession(blockRecordJSON, "block_data");
 }
 
 /**

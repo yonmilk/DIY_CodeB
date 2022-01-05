@@ -6,7 +6,7 @@ const fs = require('fs');
 // 노드 실행 환경 설정
 const env = require('../config/config');
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
 
 	/**
 	 * 초기 접속 시 세션을 체크한다.
@@ -18,25 +18,23 @@ router.get('/', (req, res) => {
 	 * f: 프로젝트에서 유저가 사용한 라이브러리
 	 * 
 	 */
-	console.log(req.query);
-	console.log(req.body);
 
 	// View(BlockExport_Editor)로 전송할 데이터 오브젝트 생성
 	const dataObject = {
 		envMode: env.mode,
-		memberId: req.query.a == null ? "" : req.query.a,
-		memberSeq: req.query.i == null ? -1 : req.query.i,
-		sessionId: req.query.b == null ? "" : req.query.b,
-		projectId: req.query.d == "" ? -1 : req.query.d,
-		xmlForTabFirst: req.query.c == null ? "" : req.query.c,
-		xmlForTabSecond: req.query.z == null ? "" : req.query.z,
-		xmlForTabThird: req.query.x == null ? "" : req.query.x,
-		pyCode: req.query.v == null ? "" : req.query.v,
-		tabNameList: req.query.w == null ? "" : req.query.w,
-		projectType: req.query.e == null ? 1 : req.query.e,
-		usedLibs: req.query.f == null ? "" : req.query.f,
-		editorCheckYn: req.query.g == null ? "" : req.query.g,
-		isChallenge: req.query.h == null ? 0 : req.query.h,
+		memberId: req.body.a == null ? "" : req.body.a,
+		memberSeq: req.body.i == null ? -1 : req.body.i,
+		sessionId: req.body.b == null ? "" : req.body.b,
+		projectId: req.body.d == "" ? -1 : req.body.d,
+		xmlForTabFirst: req.body.c == null ? "" : req.body.c,
+		xmlForTabSecond: req.body.z == null ? "" : req.body.z,
+		xmlForTabThird: req.body.x == null ? "" : req.body.x,
+		pyCode: req.body.v == null ? "" : req.body.v,
+		tabNameList: req.body.w == null ? "" : req.body.w,
+		projectType: req.body.e == null ? 1 : req.body.e,
+		usedLibs: req.body.f == null ? "" : req.body.f,
+		editorCheckYn: req.body.g == null ? "" : req.body.g,
+		isChallenge: req.body.h == null ? 0 : req.body.h,
 	}
 
 	console.log("--------- Data from Spring -----------");
