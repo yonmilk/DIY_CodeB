@@ -38,9 +38,8 @@ function openTextFile(blockId) {
                 }
                 create_table($("#csv_show")[0], JSON.stringify(fileArray));
                 // // 파일 set
-                var block = workspace.getBlockById(blockId);
                 var bId = Blockly.mainWorkspace.getBlockById(blockId);
-                block.setFieldValue(JSON.stringify(fileArray), "csv_url"); // csv_url -> field_input ID
+                bId.setFieldValue(JSON.stringify(fileArray), "csv_url"); // csv_url -> field_input ID
             };
             reader.readAsText(e.target.files.item(0), /* optional */ "euc-kr");
         }

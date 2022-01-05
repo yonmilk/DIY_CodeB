@@ -30,6 +30,9 @@ function fileDownload() {
       minetype = 'image/jpeg';
     } else if (_fileExt == '.wav') {
       minetype: 'audio/wav';
+    } else if (_fileExt == '.pkl' || _fileExt == '.pickle') {
+      // minetype = 'application/octet-stream'
+      minetype = 'application/python-pickle'
     }
 
     // 블롭 생성
@@ -57,26 +60,30 @@ function file_use_Download() {
 
   var _filepath = `/data/${_filename}`;
 
-
-  // 김연우 - 18버전 이후 변경 파일시스템에 맞춰 함수 적용
   try {
-    data = fss.readFile(_filepath, { encoding: 'utf8' });
-    console.log(data); // data정보 확인
+    if (_fileExt == '.pkl' || _fileExt == '.pickle') {
+      data = fss.readFile(_filepath, { encoding: 'binary' });
+      minetype = 'application/python-pickle'
+      // minetype = 'application/octet-stream' 
+    } else {
+      data = fss.readFile(_filepath, { encoding: 'utf8' });
+      console.log(data); // data정보 확인
 
-    if (_fileExt == '.txt') {
-      minetype = "text/plain;charset=utf-8";
-    } else if (_fileExt == '.csv') {
-      minetype = "text/csv;charset=utf-8";
-    } else if (_fileExt == '.db') {         //db 저장
-      minetype = "text/db;charset=utf-8";
-    } else if (_fileExt == '.bmp') {
-      minetype = 'image/bmp';
-    } else if (_fileExt == '.jpg') {
-      minetype = 'image/jpeg';
-    } else if (_fileExt == '.wav') {
-      minetype = 'audio/wav';
+      if (_fileExt == '.txt') {
+        minetype = "text/plain;charset=utf-8";
+      } else if (_fileExt == '.csv') {
+        minetype = "text/csv;charset=utf-8";
+      } else if (_fileExt == '.db') {         //db 저장
+        minetype = "text/db;charset=utf-8";
+      } else if (_fileExt == '.bmp') {
+        minetype = 'image/bmp';
+      } else if (_fileExt == '.jpg') {
+        minetype = 'image/jpeg';
+      } else if (_fileExt == '.wav') {
+        minetype = 'audio/wav';
+      }
     }
-
+  
     // 블롭 생성
     blob = new Blob([data], { type: minetype });
     console.log(blob);
