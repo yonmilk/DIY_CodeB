@@ -6,7 +6,7 @@ const fs = require('fs');
 // 노드 실행 환경 설정
 const env = require('../config/config');
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
 
 	/**
 	 * 초기 접속 시 세션을 체크한다.

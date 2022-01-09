@@ -102,6 +102,16 @@ pyodideReadyPromise.then(() => {
 		fss.chdir('/data'); //파일 경로 변경
 
 		console.log("FS완료"); //FS완료 콘솔
+
+        // fss.chmod('/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf/', 0o777);
+        pythonCode = `
+        from js import _requestFont
+        
+        font = 'malgun'
+        _requestFont(font)`
+
+        pyodide.runPython(pythonCode)
+
     });
 
     var isCtrl;

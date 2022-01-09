@@ -192,7 +192,7 @@ Blockly.JavaScript['folderopen'] = function (block) {
 };
 
 Blockly.JavaScript['pickleopen'] = function (block) {
-  var file = block.getFieldValue('pickle_path');
+  var file = block.getFieldValue('file_path');
   
   var code = "\n";
   return [code, Blockly.JavaScript.ORDER_ATOMIC];

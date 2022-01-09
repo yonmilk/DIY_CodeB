@@ -119,7 +119,7 @@ function pickleFileOpen(blockId) {
       binaryFileOpen(e)    
     }
     let bId = Blockly.mainWorkspace.getBlockById(blockId);                   // 블럭안의 input에 파일 경로를 적기위해 블럭 찾음
-    bId.setFieldValue(JSON.stringify(fileName2), 'pickle_path');  // 블럭안에 input에 파일경로를 적어줌
+    bId.setFieldValue(JSON.stringify(fileName2), 'file_path');  // 블럭안에 input에 파일경로를 적어줌
   }
   input.click(); // input을 클릭했을 때.
 }

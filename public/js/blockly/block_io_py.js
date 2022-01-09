@@ -244,7 +244,7 @@ Blockly.Python['folderopen'] = function (block) {
 };
 
 Blockly.Python['pickleopen'] = function (block) {
-  var file = block.getFieldValue('pickle_path');
+  var file = block.getFieldValue('file_path');
   var code = file;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };

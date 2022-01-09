@@ -635,7 +635,7 @@ Blockly.Blocks['pickleopen'] = {
   init: function () {
     this.appendDummyInput()
       .appendField("피클 열기")
-      .appendField(new Blockly.FieldTextInput("경로"), "pickle_path");
+      .appendField(new Blockly.FieldTextInput("경로"), "file_path");
     //this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(20);

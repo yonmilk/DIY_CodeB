@@ -12,6 +12,7 @@ const port = 18090;
 const path = require('path');
 const cors = require('cors');
 const helmet = require('helmet');
+const FS = require('fs');
 
 // CORS 허용 - Spring, Node 간
 app.use(cors({
@@ -52,6 +53,20 @@ app.use(session({
       maxAge: 60*60*3000
     }
 }))
+
+app.post('/sendFont', (req, res) => {
+
+  let fontName = req.header('font');
+  let fontPath = 'public/font/' + req.header("font") + '.ttf'
+
+  FS.readFile(fontPath, function(err, data){
+
+    res.set({"fontName": fontName});
+    res.send(data);
+    res.end();
+
+  });
+});
 
 
 // 서버를 실행한다.

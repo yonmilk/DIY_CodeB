@@ -36,6 +36,9 @@ document.write('<script src="/js/utils/aside.js"></script>');
 // <!-- 크롤링 -->
 document.write('<script src=/js/croll.js></script>')
 
+// <!-- 한글폰트(맑은고딕) -->
+document.write('<script src=/js/font.js></script>')
+
 // Cookie
 document.write('<script src="/js/utils/cookie.js"></script>');
 document.write('<script>setCookie("download_block", "", 1);</script>');
