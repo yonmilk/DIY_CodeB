@@ -45,22 +45,22 @@ Blockly.Python['select_graph_option'] = function (block) {
   code = code.concat(`${value_select_graph_option_xy}, label = "${value_select_graph_option_end}" `);
 
   if (DL_Gra == "graph_or_1") {
-    code = code.concat(`\nax[${value_select_graph_option_location1}].set_title("${value_select_graph_option_title}") 
-  ax[${value_select_graph_option_location1}].set_xlabel("${value_select_graph_option_x}")
-  ax[${value_select_graph_option_location1}].set_ylabel("${value_select_graph_option_y}") 
-  ax[${value_select_graph_option_location1}].legend(loc='best')\n`);
+    code = code.concat(`\nax[${value_select_graph_option_location1}].set_title("${value_select_graph_option_title}", fontproperties=fontprop) 
+  ax[${value_select_graph_option_location1}].set_xlabel("${value_select_graph_option_x}", fontproperties=fontprop)
+  ax[${value_select_graph_option_location1}].set_ylabel("${value_select_graph_option_y}", fontproperties=fontprop) 
+  ax[${value_select_graph_option_location1}].legend(loc='best', prop=fontprop)\n`);
 
   } else if (DL_Gra == "graph_both_1") {
-    code = code.concat(`\nax.set_title("${value_select_graph_option_title}") 
-  ax.set_xlabel("${value_select_graph_option_x}") 
-  ax.set_ylabel("${value_select_graph_option_y}")  
-  ax.legend(loc='best')\n`);
+    code = code.concat(`\nax.set_title("${value_select_graph_option_title}", fontproperties=fontprop) 
+  ax.set_xlabel("${value_select_graph_option_x}", fontproperties=fontprop) 
+  ax.set_ylabel("${value_select_graph_option_y}", fontproperties=fontprop)  
+  ax.legend(loc='best', prop=fontprop)\n`);
 
   } else {
-    code = code.concat(`\nax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].set_title("${value_select_graph_option_title}")
-  ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].set_xlabel("${value_select_graph_option_x}")
-  ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].set_ylabel("${value_select_graph_option_y}")
-  ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].legend(loc='best')\n`);
+    code = code.concat(`\nax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].set_title("${value_select_graph_option_title}", fontproperties=fontprop)
+  ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].set_xlabel("${value_select_graph_option_x}", fontproperties=fontprop)
+  ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].set_ylabel("${value_select_graph_option_y}", fontproperties=fontprop)
+  ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].legend(loc='best', prop=fontprop)\n`);
   }
 
 
@@ -102,7 +102,7 @@ Blockly.Python['matplotlib_3d_scatter'] = function (block) {
   var value_c = Blockly.Python.valueToCode(block, 'c', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = 'fig = plt.figure(figsize=(5, 5))\nax = fig.gca(projection="3d")\nax.scatter(' + value_x + ', ' + value_y + ', ' + value_z + ', s=' + value_s + ', c=' + value_c + ')\n' +
-    'ax.set_xlabel("' + value_x_label + '")\n' + 'ax.set_ylabel("' + value_y_label + '")\n' + 'ax.set_zlabel("' + value_z_label + '")\n' + 'plt.title("' + value_title + '")\n' + 'plt.show()\n';
+    'ax.set_xlabel("' + value_x_label + '", fontproperties=fontprop)\n' + 'ax.set_ylabel("' + value_y_label + '", fontproperties=fontprop)\n' + 'ax.set_zlabel("' + value_z_label + '", fontproperties=fontprop)\n' + 'plt.title("' + value_title + '", fontproperties=fontprop)\n' + 'plt.show()\n';
   return code;
 };
 

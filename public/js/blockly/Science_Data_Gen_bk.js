@@ -656,7 +656,7 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
   // 에러바 그래프
   if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
   {  
-    code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = "${text_matplotlib_pre_legend}" )`);  
+    code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend} )`);  
   }
   // 산점도 그래프, 선그래프 
   else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_matplotlib_graph_select == "matplotlib_line" || dropdown_matplotlib_graph_select =="matplotlib_histogram" || dropdown_matplotlib_graph_select=="matplotlib_bar")
@@ -666,9 +666,9 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
     {
       // 기타 부분 있을 때 
       if(text_matplotlib_pre_other.length > 0){
-        code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
       } else {
-        code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color})`);  
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
       }
     }
    
@@ -687,22 +687,22 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
 
   //킹우진의 수정
   if(DL_Gra == "graph_or_1"){
-    code =  code.concat(`\nax[${value_matplotlib_pre_graph_location2}].set_title("${text_matplotlib_pre_graph_title}") 
-ax[${value_matplotlib_pre_graph_location2}].set_xlabel("${text_matplotlib_pre_graph_xlable}")
-ax[${value_matplotlib_pre_graph_location2}].set_ylabel("${text_matplotlib_pre_graph_ylable}") 
-ax[${value_matplotlib_pre_graph_location2}].legend(loc='best')\n`); 
+    code =  code.concat(`\nax[${value_matplotlib_pre_graph_location2}].set_title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop) 
+ax[${value_matplotlib_pre_graph_location2}].set_xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)
+ax[${value_matplotlib_pre_graph_location2}].set_ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop) 
+ax[${value_matplotlib_pre_graph_location2}].legend(loc='best', prop=fontprop)\n`); 
     
   }else if(DL_Gra == "graph_both_1"){
-    code =  code.concat(`\nax.set_title("${text_matplotlib_pre_graph_title}")
-ax.set_xlabel("${text_matplotlib_pre_graph_xlable}")
-ax.set_ylabel("${text_matplotlib_pre_graph_ylable}") 
-ax.legend(loc='best')\n`);
+    code =  code.concat(`\nax.set_title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)
+ax.set_xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)
+ax.set_ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop) 
+ax.legend(loc='best', prop=fontprop)\n`);
     
   }else{ 
-    code =  code.concat(`\nax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].set_title("${text_matplotlib_pre_graph_title}")
-ax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].set_xlabel("${text_matplotlib_pre_graph_xlable}")
-ax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].set_ylabel("${text_matplotlib_pre_graph_ylable}")
-ax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].legend(loc='best')\n`);  
+    code =  code.concat(`\nax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].set_title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)
+ax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].set_xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)
+ax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].set_ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop)
+ax[${value_matplotlib_pre_graph_location1}][${value_matplotlib_pre_graph_location2}].legend(loc='best', prop=fontprop)\n`);  
   }
 
   return code;
@@ -792,7 +792,7 @@ if(xx==""){
 // 에러바 그래프
 if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
 {  
-  code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = "${text_matplotlib_pre_legend}")`);  
+  code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend})`);  
 }
 // 산점도 그래프, 선그래프 
 else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_matplotlib_graph_select == "matplotlib_line" || dropdown_matplotlib_graph_select =="matplotlib_histogram" || dropdown_matplotlib_graph_select=="matplotlib_bar")
@@ -802,9 +802,9 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_ma
   {
     // 기타 부분 있을 때 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other})`);  
+      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other})`);  
     } else {
-      code = code.concat(`${xyValue}, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color})`);  
+      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
     }
   }
  
@@ -823,22 +823,22 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_box" )
 
 //킹우진의 수정
 if(DL_Gra == "graph_or_1"){
-  code = code.concat(`\nplttitle("${text_matplotlib_pre_graph_title}") 
-plt.xlabel("${text_matplotlib_pre_graph_xlable}")
-plt.ylabel("${text_matplotlib_pre_graph_ylable}") 
-plt.legend(loc='best')\n`); 
+  code = code.concat(`\nplttitle("${text_matplotlib_pre_graph_title}", fontproperties=fontprop) 
+plt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)
+plt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop) 
+plt.legend(loc='best', prop=fontprop)\n`); 
   
 }else if(DL_Gra == "graph_both_1"){
-  code = code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
-plt.xlabel("${text_matplotlib_pre_graph_xlable}")
-plt.ylabel("${text_matplotlib_pre_graph_ylable}") 
-plt.legend(loc='best')\n`);
+  code = code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)
+plt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)
+plt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop) 
+plt.legend(loc='best', prop=fontprop)\n`);
   
 }else{ 
-  code = code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}")
-plt.xlabel("${text_matplotlib_pre_graph_xlable}")
-plt.ylabel("${text_matplotlib_pre_graph_ylable}")
-plt.legend(loc='best')\n`);  
+  code = code.concat(`\nplt.title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)
+plt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)
+plt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop)
+plt.legend(loc='best', prop=fontprop)\n`);  
 }
 
 return code;
@@ -949,7 +949,7 @@ img_str = 'data:image/png;base64,' + base64.b64encode(buf.read()).decode('UTF-8'
   // 에러바 그래프
   if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
   {  
-    code = code.concat(`${xx + ", " + yy } ,fmt = "o--" ,capsize= 3, label = "${text_matplotlib_pre_legend}" )`);  
+    code = code.concat(`${xx + ", " + yy } ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend} )`);  
   }
   // 산점도 그래프, 선그래프 
   else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_matplotlib_graph_select == "matplotlib_line" || dropdown_matplotlib_graph_select =="matplotlib_histogram" || dropdown_matplotlib_graph_select=="matplotlib_bar")
@@ -959,9 +959,9 @@ img_str = 'data:image/png;base64,' + base64.b64encode(buf.read()).decode('UTF-8'
     {
       // 기타 부분 있을 때 
       if(text_matplotlib_pre_other.length > 0){
-        code = code.concat(`${xx + ", " + yy }, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
       } else {
-        code = code.concat(`${xx + ", " + yy }, label = "${text_matplotlib_pre_legend}", c = ${value_matplotlib_pre_color})`);  
+        code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
       }
     }
    

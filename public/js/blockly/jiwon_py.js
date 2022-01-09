@@ -328,7 +328,8 @@ Blockly.Python['matplotlib_pie'] = function(block) {
     code += `, ${value_other}`;
   }
   code += `)
-plt.title(${value_title})
+plt.title(${value_title}, fontproperties=fontprop)
+plt.legend(loc='best', prop=fontprop)
 plt.show()\n`;
   return code;
 };
@@ -345,13 +346,13 @@ Blockly.Python['matplotlib_scatter'] = function(block) {
 
   if(value_other==""){
     var code = `plt.scatter(${value_data_x}, ${value_data_y}, color=${value_color})
-plt.title(${value_title})
-plt.legend([${value_legend}])
+plt.title(${value_title}, fontproperties=fontprop)
+plt.legend([${value_legend}], prop=fontprop)
 plt.show()\n`;
   } else {
     var code = `plt.scatter(${value_data_x}, ${value_data_y}, color=${value_color}, ${value_other})
-plt.title(${value_title})
-plt.legend([${value_legend}])
+plt.title(${value_title}, fontproperties=fontprop)
+plt.legend([${value_legend}], prop=fontprop)
 plt.show()\n`;
   }
   
@@ -365,7 +366,7 @@ Blockly.Python['matplotlib_colormap'] = function(block) {
 
   var code = `plt.imshow(${value_data_x})
 plt.colorbar()
-plt.title(${value_title})
+plt.title(${value_title}, fontproperties=fontprop)
 plt.show()`;
   return code + '\n';
 };

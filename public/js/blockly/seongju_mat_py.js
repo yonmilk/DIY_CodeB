@@ -32,7 +32,7 @@ Blockly.Python['plt_title_legend'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var value_name2 = Blockly.Python.valueToCode(block, 'NAME2', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = value_list + '.set_title(' + value_name +')\n' + value_list + '.legend(' + value_name2 +')\n' ;
+  var code = value_list + '.set_title(' + value_name +', fontproperties=fontprop)\n' + value_list + '.legend(' + value_name2 +', prop=fontprop)\n' ;
   return code;
 };
 
@@ -42,11 +42,11 @@ Blockly.Python['set_xlabel_ylabel'] = function(block) {
   var value_name2 = Blockly.Python.valueToCode(block, 'NAME2', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   if(value_name == ""){
-    var code = `${value_list}.set_ylabel(${value_name2})\n`;
+    var code = `${value_list}.set_ylabel(${value_name2}, fontproperties=fontprop)\n`;
   } else if(value_name2 == ""){
-    var code = `${value_list}.set_xlabel(${value_name})\n`;
+    var code = `${value_list}.set_xlabel(${value_name}, fontproperties=fontprop)\n`;
   } else {
-    var code = `${value_list}.set_xlabel(${value_name})\n${value_list}.set_ylabel(${value_name2})\n`;
+    var code = `${value_list}.set_xlabel(${value_name}, fontproperties=fontprop)\n${value_list}.set_ylabel(${value_name2}, fontproperties=fontprop)\n`;
   }
   return code;
 };
@@ -97,7 +97,7 @@ Blockly.Python['axs_set_xlabel'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var value_val = Blockly.Python.valueToCode(block, 'val', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'ax[' + value_name + '].set_xlabel(' + value_val + ')\n';
+  var code = 'ax[' + value_name + '].set_xlabel(' + value_val + ', fontproperties=fontprop)\n';
   return code;
 };
 
@@ -106,7 +106,7 @@ Blockly.Python['axs_set_ylabel'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var value_val = Blockly.Python.valueToCode(block, 'val', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'ax[' + value_name + '].set_ylabel(' + value_val + ')\n';
+  var code = 'ax[' + value_name + '].set_ylabel(' + value_val + ', fontproperties=fontprop)\n';
   return code;
 };
 
@@ -114,7 +114,7 @@ Blockly.Python['axs_set_ylabel'] = function(block) {
 Blockly.Python['axs_set_xlabel2'] = function(block) {
   var value_val = Blockly.Python.valueToCode(block, 'val', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'ax' + ".set_xlabel('" + value_val + "')\n";
+  var code = 'ax' + ".set_xlabel('" + value_val + "', fontproperties=fontprop)\n";
   return code;
 };
 
@@ -122,7 +122,7 @@ Blockly.Python['axs_set_xlabel2'] = function(block) {
 Blockly.Python['axs_set_ylabel2'] = function(block) {
   var value_val = Blockly.Python.valueToCode(block, 'val', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'ax' + ".set_ylabel('" + value_val + "')\n";
+  var code = 'ax' + ".set_ylabel('" + value_val + "', fontproperties=fontprop)\n";
   return code;
 };
 
@@ -183,7 +183,7 @@ Blockly.Python['scatter'] = function(block) {
 Blockly.Python['set_title2'] = function(block) {
   var value_row_col = Blockly.Python.valueToCode(block, 'row_col', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = 'ax' + ".set_title('" + value_row_col + "')\n";
+  var code = 'ax' + ".set_title('" + value_row_col + ", fontproperties=fontprop')\n";
   return code;
 };
 
@@ -413,7 +413,7 @@ Blockly.Python['scatter_ex'] = function(block) {
   var value_c = Blockly.Python.valueToCode(block, 'c', Blockly.Python.ORDER_ATOMIC);
   var value_marker = Blockly.Python.valueToCode(block, 'marker', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = `ax[${value_v1},${value_v2}].scatter(${value_x1},${value_y1}, s= ${value_s}, c = ${value_c}, marker = ${value_marker})\nax[${value_v1},${value_v2}].set_title(${value_title})`;
+  var code = `ax[${value_v1},${value_v2}].scatter(${value_x1},${value_y1}, s= ${value_s}, c = ${value_c}, marker = ${value_marker})\nax[${value_v1},${value_v2}].set_title(${value_title}, fontproperties=fontprop)`;
   return code + '\n';
 }
 
