@@ -42,7 +42,11 @@ Blockly.Python['select_graph_option'] = function (block) {
     code = `ax[${value_select_graph_option_location1}][${value_select_graph_option_location2}].${value_select_graph_option_graph}(`;
   }
 
-  code = code.concat(`${value_select_graph_option_xy}, label = "${value_select_graph_option_end}" `);
+  if (value_select_graph_option_end.length > 0) {
+    code = code.concat(`${value_select_graph_option_xy}, label = ${value_select_graph_option_end}`);
+  } else {
+    code = code.concat(`${value_select_graph_option_xy}" `);
+  }
 
   if (DL_Gra == "graph_or_1") {
     code = code.concat(`\nax[${value_select_graph_option_location1}].set_title("${value_select_graph_option_title}", fontproperties=fontprop) 

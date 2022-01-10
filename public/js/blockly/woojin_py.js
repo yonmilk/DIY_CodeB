@@ -150,9 +150,17 @@ if(dropdown_matplotlib_graph_select=="matplotlib_bar" || dropdown_matplotlib_gra
   {
     // 기타 부분 있을 때 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      } else {
+        code = code.concat(`${xx + ", " + yy }, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      }
     } else {
-      code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+      } else {
+        code = code.concat(`${xx + ", " + yy }, color = ${value_matplotlib_pre_color})`);  
+      }
     }
   }
  
@@ -197,11 +205,21 @@ Blockly.Python['line_plot'] = function(block) {
   
 // 코드를 위해 
 if(text_matplotlib_pre_other.length > 0){
-  var code = `plt.plot(${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )
+  if (text_matplotlib_pre_legend.length > 0) {
+    var code = `plt.plot(${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )
 plt.title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)\nplt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)\nplt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop)\nplt.legend(loc='best', prop=fontprop)\nplt.show()\n`;
+  } else {
+    var code = `plt.plot(${xx + ", " + yy }, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )
+plt.title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)\nplt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)\nplt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop)\nplt.legend(loc='best', prop=fontprop)\nplt.show()\n`;
+  }
 } else {
+  if(text_matplotlib_pre_legend.length > 0) {
   var code = `plt.plot(${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color} )
 plt.title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)\nplt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)\nplt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop)\nplt.legend(loc='best', prop=fontprop)\nplt.show()\n`;
+  } else {
+    var code = `plt.plot(${xx + ", " + yy }, color = ${value_matplotlib_pre_color} )
+plt.title("${text_matplotlib_pre_graph_title}", fontproperties=fontprop)\nplt.xlabel("${text_matplotlib_pre_graph_xlable}", fontproperties=fontprop)\nplt.ylabel("${text_matplotlib_pre_graph_ylable}", fontproperties=fontprop)\nplt.legend(loc='best', prop=fontprop)\nplt.show()\n`;
+  }
 }
 
 

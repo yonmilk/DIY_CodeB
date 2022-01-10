@@ -670,9 +670,17 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
   if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
   { 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend} ,${text_matplotlib_pre_other} )`);
-  } else {
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend} ,${text_matplotlib_pre_other} )`);
+      } else {
+        code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, ${text_matplotlib_pre_other} )`);
+      }
+  } else { 
+    if (text_matplotlib_pre_legend.length > 0) {
       code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend})`);  
+    } else {
+      code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3)`);
+    }
   }  
   }
   // 산점도 그래프, 선그래프 
@@ -683,9 +691,17 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
     {
       // 기타 부분 있을 때 
       if(text_matplotlib_pre_other.length > 0){
-        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        if (text_matplotlib_pre_legend.length > 0) {
+          code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        } else {
+          code = code.concat(`${xyValue}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        }
       } else {
-        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
+        if (text_matplotlib_pre_legend.length > 0) {
+          code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
+        } else {
+          code = code.concat(`${xyValue}, c = ${value_matplotlib_pre_color})`);  
+        }
       }
     }
    
@@ -697,9 +713,17 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
         {
           // 기타 부분 있을 때 
           if(text_matplotlib_pre_other.length > 0){
-            code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+            if (text_matplotlib_pre_legend.length > 0) {
+              code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+            } else {
+              code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+            }
           } else {
-            code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+            if (text_matplotlib_pre_legend.length > 0) {
+              code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+            } else {
+              code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color})`);  
+            }
           }
         }
   }
@@ -709,9 +733,17 @@ fig, ax = plt.subplots(${value_matplotlib_main_cols}, ${value_matplotlib_main_ro
     {
       // 기타 부분 있을 때 
       if(text_matplotlib_pre_other.length > 0){
-        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        if (text_matplotlib_pre_legend.length > 0) {
+          code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        } else {
+          code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        }
       } else {
-        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+        if (text_matplotlib_pre_legend.length > 0) {
+          code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+        } else {
+          code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color})`);  
+        }
       }
     }
 
@@ -827,7 +859,7 @@ if(xx==""){
   xyValue = `${yy}`;
 } else if(yy==""){
   xyValue = `${xx}`;
-} 
+}
 
 // 그래프에 따른 뒷 내용 변환 concat
 
@@ -835,9 +867,17 @@ if(xx==""){
 if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
 {  
   if(text_matplotlib_pre_other.length > 0){
-    code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend}, ${text_matplotlib_pre_other} )`);
+    if(text_matplotlib_pre_legend.length > 0) {
+      code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend}, ${text_matplotlib_pre_other} )`);
+    } else {
+      code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, ${text_matplotlib_pre_other} )`);
+    }
 } else {
+  if (text_matplotlib_pre_legend.length > 0) {
     code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend})`);  
+  } else {
+    code = code.concat(`${xyValue} ,fmt = "o--" ,capsize= 3)`);
+  }
 }
 }
 // 산점도 그래프, 선그래프 
@@ -848,9 +888,17 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_ma
   {
     // 기타 부분 있을 때 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      } else {
+        code = code.concat(`${xyValue}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      }
     } else {
-      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
+      } else {
+        code = code.concat(`${xyValue}, c = ${value_matplotlib_pre_color})`);  
+      }
     }
   }
  
@@ -864,9 +912,17 @@ else if(dropdown_matplotlib_graph_select=="matplotlib_bar"){
   {
     // 기타 부분 있을 때 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      } else {
+        code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      }
     } else {
-      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+      } else {
+        code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color})`);  
+      }
     }
   }
 }
@@ -886,9 +942,17 @@ else if(dropdown_matplotlib_graph_select == "matplotlib_histogram") {
   {
     // 기타 부분 있을 때 
     if(text_matplotlib_pre_other.length > 0){
-      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      } else {
+        code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+      }
     } else {
-      code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+      if (text_matplotlib_pre_legend.length > 0) {
+        code = code.concat(`${xyValue}, label = ${text_matplotlib_pre_legend}, color = ${value_matplotlib_pre_color})`);  
+      } else {
+        code = code.concat(`${xyValue}, color = ${value_matplotlib_pre_color})`);  
+      }
     }
   }
 }
@@ -1021,7 +1085,11 @@ img_str = 'data:image/png;base64,' + base64.b64encode(buf.read()).decode('UTF-8'
   // 에러바 그래프
   if(dropdown_matplotlib_graph_select == "matplotlib_error_bar")
   {  
-    code = code.concat(`${xx + ", " + yy } ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend} )`);  
+    if (text_matplotlib_pre_legend.length > 0) {
+      code = code.concat(`${xx + ", " + yy } ,fmt = "o--" ,capsize= 3, label = ${text_matplotlib_pre_legend} )`);  
+    } else {
+      code = code.concat(`${xx + ", " + yy } ,fmt = "o--" ,capsize= 3)`);  
+    }
   }
   // 산점도 그래프, 선그래프 
   else if(dropdown_matplotlib_graph_select == "matplotlib_scatter" ||  dropdown_matplotlib_graph_select == "matplotlib_line" || dropdown_matplotlib_graph_select =="matplotlib_histogram" || dropdown_matplotlib_graph_select=="matplotlib_bar")
@@ -1031,9 +1099,17 @@ img_str = 'data:image/png;base64,' + base64.b64encode(buf.read()).decode('UTF-8'
     {
       // 기타 부분 있을 때 
       if(text_matplotlib_pre_other.length > 0){
-        code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        if (text_matplotlib_pre_legend.length > 0) {
+          code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        }  else {
+          code = code.concat(`${xx + ", " + yy }, c = ${value_matplotlib_pre_color}, ${text_matplotlib_pre_other} )`);  
+        }
       } else {
-        code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
+        if (text_matplotlib_pre_legend.length > 0 ) {
+          code = code.concat(`${xx + ", " + yy }, label = ${text_matplotlib_pre_legend}, c = ${value_matplotlib_pre_color})`);  
+        } else {
+          code = code.concat(`${xx + ", " + yy }, c = ${value_matplotlib_pre_color})`);  
+        }
       }
     }
    
