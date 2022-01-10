@@ -95,7 +95,7 @@ Blockly.Python['set_xticks'] = function(block) {
     var value_value = Blockly.Python.valueToCode(block, 'REAL_VALUE', Blockly.Python.ORDER_ATOMIC);
     var value_number = Blockly.Python.valueToCode(block, 'NUMBER', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = value_number + ".set_xticks(" + value_value+')\n';
+    var code = value_number + ".set_xticks(" + value_value+', fontproperties=fontprop)\n';
     return code;
   };
 
@@ -103,7 +103,7 @@ Blockly.Python['set_xticks'] = function(block) {
     var value_value = Blockly.Python.valueToCode(block, 'REAL_VALUE', Blockly.Python.ORDER_ATOMIC);
     var value_number = Blockly.Python.valueToCode(block, 'NUMBER', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = value_number + ".set_yticks(" + value_value+')\n';
+    var code = value_number + ".set_yticks(" + value_value+', fontproperties=fontprop)\n';
     return code;
   };
 
@@ -410,7 +410,7 @@ Blockly.Python['plt_subplot'] = function(block) {
         var var_text2 = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
         var var_text4 = Blockly.Python.valueToCode(block, 'INPUT2', Blockly.Python.ORDER_ATOMIC);
         // TODO: Assemble Python into code variable.
-        var code = `${var_text1}.set_xticklabels(${var_text2})\n${var_text1}.set_yticklabels(${var_text4})\n`;
+        var code = `${var_text1}.set_xticklabels(${var_text2}, fontproperties=fontprop)\n${var_text1}.set_yticklabels(${var_text4}, fontproperties=fontprop)\n`;
         return code;
       };
 
@@ -419,7 +419,13 @@ Blockly.Python['plt_subplot'] = function(block) {
         var var_text2 = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
         var var_text3 = Blockly.Python.valueToCode(block, 'INPUT2', Blockly.Python.ORDER_ATOMIC);
         // TODO: Assemble Python into code variable.
-        var code = `${var_text1}.set_xticks(${var_text2})\n${var_text1}.set_yticks(${var_text3})\n`;
+        if (var_text2.length > 0 && var_text3.length > 0) {
+          var code = `${var_text1}.set_xticks(${var_text2}, fontproperties=fontprop)\n${var_text1}.set_yticks(${var_text3}, fontproperties=fontprop)\n`;
+        } else if (var_text3.length > 0) {
+          var code = `${var_text1}.set_yticks(${var_text3}, fontproperties=fontprop)\n`;
+        } else {
+          var code = `${var_text1}.set_xticks(${var_text2}, fontproperties=fontprop)\n`;
+        }
         return code;
     };
 

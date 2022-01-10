@@ -115,7 +115,7 @@ Blockly.Python['set_yticklabels'] = function (block) {
   var var_text1 = Blockly.Python.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);
   var var_text2 = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = `${var_text1}.set_yticklabels(${var_text2})\n`;
+  var code = `${var_text1}.set_yticklabels(${var_text2}, fontproperties=fontprop)\n`;
   return code;
 };
 

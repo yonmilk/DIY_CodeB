@@ -89,7 +89,13 @@ Blockly.Python['set_xticks_yticks'] = function(block) {
   var value_val_x = Blockly.Python.valueToCode(block, 'val_x', Blockly.Python.ORDER_ATOMIC);
   var value_val_y = Blockly.Python.valueToCode(block, 'val_y', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = `${value_name}.xticks(${value_val_x})\n${value_name}.yticks(${value_val_y})\n`
+  if (value_val_x.length > 0 && value_val_y.length > 0) {
+    var code = `${value_name}.xticks(${value_val_x}, fontproperties=fontprop)\n${value_name}.yticks(${value_val_y}, fontproperties=fontprop)\n`
+  } else if (value_val_y.length > 0) {
+    var code = `${value_name}.yticks(${value_val_y}, fontproperties=fontprop)\n`
+  } else {
+    var code = `${value_name}.xticks(${value_val_x}, fontproperties=fontprop)\n`
+  }
   return code;
 };
 
