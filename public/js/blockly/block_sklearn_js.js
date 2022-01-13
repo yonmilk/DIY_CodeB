@@ -986,6 +986,14 @@ Blockly.JavaScript['plottree'] = function (block) {
   return code;
 };
 
+Blockly.JavaScript['get_depth'] = function(block) {
+  var variable_list = Blockly.JavaScript.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};  
+
 
 //그리드검색
 Blockly.JavaScript['GridSearchCV'] = function (block) {

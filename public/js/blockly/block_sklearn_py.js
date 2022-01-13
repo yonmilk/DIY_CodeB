@@ -1409,6 +1409,14 @@ Blockly.Python['plottree'] = function (block) {
     return code;
 };
 
+Blockly.Python['get_depth'] = function(block) {
+    var variable_list = Blockly.Python.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = `${variable_list}.get_depth()`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };  
+
 //그리드검색
 Blockly.Python['GridSearchCV'] = function (block) {
     var value_model = Blockly.Python.valueToCode(block, 'model', Blockly.Python.ORDER_ATOMIC);

@@ -1355,6 +1355,18 @@ SKL +=      '</shadow>';
 SKL +=  '</value>';
 SKL += '</block>';
 
+// 트리구조출력 - plot_tree
+SKL += '<block type="get_depth">';
+SKL +=  '<value name="VAR">';
+SKL +=      '<block type="variables_get">';
+SKL +=          '<field name="VAR">model</field>';
+SKL +=      '</block>';
+SKL +=      '<shadow type="indata">';
+SKL +=          '<field name="indata1"></field>';
+SKL +=      '</shadow>';
+SKL +=  '</value>';
+SKL += '</block>';
+
 // 그리드 검색
 SKL += '<block type="GridSearchCV">';
 SKL +=  '<value name="model">';

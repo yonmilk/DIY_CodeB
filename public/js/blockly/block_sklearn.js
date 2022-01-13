@@ -2307,6 +2307,33 @@ Blockly.Blocks['plottree'] = {
     }
 };
 
+
+// Blockly.Blocks['get_depth'] = {
+//     init: function () {
+//         this.appendDummyInput().appendField("트리 최대 깊이 출력");
+//         this.appendValueInput("option");
+//         this.appendDummyInput().appendField(".get_depth()");
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+Blockly.Blocks['get_depth'] = {
+    init: function () {
+      this.appendValueInput('VAR').appendField("트리 최대 깊이 출력").setCheck(null);
+      this.appendDummyInput().appendField(".get_depth()");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setStyle("sklearn_blocks_sub");
+      this.setTooltip("");
+      this.setHelpUrl("");
+    }
+  };
+
 // 그리드검색
 Blockly.Blocks['GridSearchCV'] = {
     init: function () {
