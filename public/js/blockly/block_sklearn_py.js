@@ -504,7 +504,7 @@ Blockly.Python['polynomialfeatures'] = function(block) {
     var value_val2 = Blockly.Python.valueToCode(block, 'val2', Blockly.Python.ORDER_ATOMIC);
     var dropdown_dr_1 = block.getFieldValue('dr_1');
     // TODO: Assemble Python into code variable.
-    var code = `${value_val1} = sklearn.preprocessing.PolynomialFeatures(degree=${value_val2}, include_bias=${dropdown_dr_1})`;
+    var code = `${value_val1} = sklearn.preprocessing.PolynomialFeatures(degree=${value_val2}, include_bias=${dropdown_dr_1})\n`;
     return code;
   };
 
