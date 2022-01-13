@@ -714,6 +714,26 @@ SKL += '        </shadow>';
 SKL += '    </value>';
 SKL += '</block>';
 
+// <!-- fit_transform 블록 -->
+SKL += '<block type="fittransform">';
+SKL += '    <value name="val1">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">poly</field>';
+SKL += '        </block>';
+SKL += '    </value>';
+SKL += '    <value name="val2">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">x_data</field>';
+SKL += '        </block>';
+SKL += '    </value>';
+SKL += '</block>';
+
 SKL += '<label text="차원 축소"></label>';
 
 // <-- pca 블록 -->

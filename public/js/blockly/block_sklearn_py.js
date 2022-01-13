@@ -509,6 +509,16 @@ Blockly.Python['polynomialfeatures'] = function(block) {
   };
 
 
+// fit_transform
+Blockly.Python['fittransform'] = function(block) {
+    var value_val1 = Blockly.Python.valueToCode(block, 'val1', Blockly.Python.ORDER_ATOMIC);
+    var value_val2 = Blockly.Python.valueToCode(block, 'val2', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = `${value_val1}.fit_transform(${value_val2})`;
+    return code;
+  };
+
+
 //////////////////////////////////////////////////////
 // 지도학습 - 예측
 //////////////////////////////////////////////////////

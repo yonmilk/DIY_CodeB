@@ -308,6 +308,15 @@ Blockly.JavaScript['polynomialfeatures'] = function(block) {
   return code;
 };
 
+// fit_transform
+Blockly.JavaScript['fittransform'] = function(block) {
+  var value_val1 = Blockly.JavaScript.valueToCode(block, 'val1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_val2 = Blockly.JavaScript.valueToCode(block, 'val2', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
 
 //////////////////////////////////////////////////////
 // 지도학습 - 예측

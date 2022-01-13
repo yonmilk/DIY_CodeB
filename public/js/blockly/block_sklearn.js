@@ -809,6 +809,30 @@ Blockly.Blocks['polynomialfeatures'] = {
     }
   };
 
+// fittransform 블록
+Blockly.Blocks['fittransform'] = {
+    init: function() {
+      this.appendValueInput("val1")
+          .setCheck(null)
+          .appendField("[학습변환]");
+      this.appendDummyInput()
+          .appendField(".fit_transform(");
+      this.appendValueInput("val2")
+          .setCheck(null)
+          .appendField("데이터");
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("sklearn_blocks");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+
+
 //////////////////////////////////////////////////////
 //
 // 지도 학습 - 예측
