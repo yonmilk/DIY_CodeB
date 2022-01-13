@@ -515,9 +515,9 @@ Blockly.Python['fittransform'] = function(block) {
     var value_val2 = Blockly.Python.valueToCode(block, 'val2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
     var code = `${value_val1}.fit_transform(${value_val2})`;
-    return code;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
-
 
 //////////////////////////////////////////////////////
 // 지도학습 - 예측

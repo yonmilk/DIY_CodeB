@@ -823,9 +823,8 @@ Blockly.Blocks['fittransform'] = {
       this.appendDummyInput()
           .appendField(")");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setStyle("sklearn_blocks");
+      this.setOutput(true, null);
+      this.setStyle('sklearn_blocks_sub');
    this.setTooltip("");
    this.setHelpUrl("");
     }
