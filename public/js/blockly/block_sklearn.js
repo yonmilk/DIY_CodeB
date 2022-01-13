@@ -769,7 +769,7 @@ Blockly.Blocks['kfold'] = {
 };
 
 // Polynomial Features
-Blockly.Blocks['polynomialfeatures'] = {
+/*Blockly.Blocks['polynomialfeatures'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("[다항특성] ")
@@ -785,6 +785,29 @@ Blockly.Blocks['polynomialfeatures'] = {
         this.setHelpUrl("");
     }
 };
+*/
+// Polynomial Features 블록 수정
+Blockly.Blocks['polynomialfeatures'] = {
+    init: function() {
+      this.appendValueInput("val1")
+          .setCheck(null)
+          .appendField("[다항특성]");
+      this.appendValueInput("val2")
+          .setCheck(null)
+          .appendField("= polynomialfeatures(차수");
+      this.appendDummyInput()
+          .appendField("상수항")
+          .appendField(new Blockly.FieldDropdown([["False","False"], ["True","True"]]), "dr_1");
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle('sklearn_blocks');
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
 
 //////////////////////////////////////////////////////
 //

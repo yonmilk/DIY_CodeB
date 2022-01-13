@@ -1,4 +1,4 @@
-var SKL = '<category name="%{BKY_CATEGORY_SCIKIT}" colour="%{BKY_SCIKITLEARN_HUE}">';
+SKL = '<category name="%{BKY_CATEGORY_SCIKIT}" colour="%{BKY_SCIKITLEARN_HUE}">';
 
 //<!-- 기본 - 자주쓰는 블록, 모델 학습, 예측, 평가, 임포트 등 -->';
 SKL += '<category name="%{BKY_SKI_BASIC}" colour="%{BKY_SCIKITLEARN_HUE}">';
@@ -687,12 +687,31 @@ SKL += '</value>'
 SKL += '</block>'
 
 // <-- polynomialfeatures 블록 -->
+/*
 SKL += '<block type="polynomialfeatures">';
 SKL +=  '<value name = "NAME">';
 SKL +=      '<shadow type="indata">';
 SKL +=          '<field name="indata1"></field>';
 SKL +=      '</shadow>';
 SKL +=  '</value>';
+SKL += '</block>';
+*/
+
+// <-- polynomialfeatures 블록 수정 -->
+SKL += '<block type="polynomialfeatures">';
+SKL += '    <value name="val1">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">poly</field>';
+SKL += '        </block>';
+SKL += '    </value>';
+SKL += '    <value name="val2">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '    </value>';
 SKL += '</block>';
 
 SKL += '<label text="차원 축소"></label>';

@@ -490,13 +490,24 @@ Blockly.Python['kfold'] = function (block) {
 };
 
 // Polynom. Features
-Blockly.Python['polynomialfeatures'] = function (block) {
-    var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
-    var interaction_only = block.getFieldValue('NAME');
+// Blockly.Python['polynomialfeatures'] = function (block) {
+//     var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+//     var interaction_only = block.getFieldValue('NAME');
+//     // TODO: Assemble Python into code variable.
+//     var code = value_name + ' = sklearn.preprocessing.PolynomialFeatures(interaction_only=' + interaction_only + ')\n';
+//     return code;
+// };
+
+// polynomialfeatures 수정
+Blockly.Python['polynomialfeatures'] = function(block) {
+    var value_val1 = Blockly.Python.valueToCode(block, 'val1', Blockly.Python.ORDER_ATOMIC);
+    var value_val2 = Blockly.Python.valueToCode(block, 'val2', Blockly.Python.ORDER_ATOMIC);
+    var dropdown_dr_1 = block.getFieldValue('dr_1');
     // TODO: Assemble Python into code variable.
-    var code = value_name + ' = sklearn.preprocessing.PolynomialFeatures(interaction_only=' + interaction_only + ')\n';
+    var code = `${value_val1} = sklearn.preprocessing.PolynomialFeatures(degree=${value_val2}, include_bias=${dropdown_dr_1})`;
     return code;
-};
+  };
+
 
 //////////////////////////////////////////////////////
 // 지도학습 - 예측

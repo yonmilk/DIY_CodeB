@@ -290,12 +290,22 @@ Blockly.JavaScript['kfold'] = function (block) {
 };
 
 // Polynom. Features
-Blockly.JavaScript['polynomialfeatures'] = function (block) {
-    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    var interaction_only = block.getFieldValue('NAME');
-    // TODO: Assemble JavaScript into code variable.
-    var code = '\n';
-    return code;
+// Blockly.JavaScript['polynomialfeatures'] = function (block) {
+//     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+//     var interaction_only = block.getFieldValue('NAME');
+//     // TODO: Assemble JavaScript into code variable.
+//     var code = '\n';
+//     return code;
+// };
+
+// polynomialfeatures 수정
+Blockly.JavaScript['polynomialfeatures'] = function(block) {
+  var value_val1 = Blockly.JavaScript.valueToCode(block, 'val1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_val2 = Blockly.JavaScript.valueToCode(block, 'val2', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_dr_1 = block.getFieldValue('dr_1');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
 };
 
 
