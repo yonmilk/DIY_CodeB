@@ -590,21 +590,42 @@ Blockly.Blocks['minmax_scalar'] = {
     }
 };
 
-Blockly.Blocks['standard_scalar'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("[StandardScalar]");
-        this.appendValueInput("data")
-            .setCheck(null)
-            .appendField("데이터 ");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
+// standard_scaler
+// Blockly.Blocks['standard_scalar'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("[StandardScalar]");
+//         this.appendValueInput("data")
+//             .setCheck(null)
+//             .appendField("데이터 ");
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+// standard_scaler 수정
+Blockly.Blocks['standard_scaler1'] = {
+    init: function() {
+      this.appendValueInput("val1")
+          .setCheck(null)
+          .appendField("[표준화]");
+      this.appendValueInput("val2")
+          .setCheck(null)
+          .appendField("= StandardScaler(");
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle('sklearn_blocks');
+   this.setTooltip("");
+   this.setHelpUrl("");
     }
-};
+  };
 
 Blockly.Blocks['pca'] = {
     init: function () {

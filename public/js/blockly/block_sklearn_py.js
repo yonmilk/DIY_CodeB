@@ -413,12 +413,21 @@ Blockly.Python['minmax_scalar'] = function (block) {
     return code;
 };
 
-Blockly.Python['standard_scalar'] = function (block) {
-    var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_ATOMIC);
+// Blockly.Python['standard_scalar'] = function (block) {
+//     var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_ATOMIC);
+//     // TODO: Assemble Python into code variable.
+//     var code = 'ss = sklearn.preprocessing.StandardScaler()\n' + value_data + ' = ss.fit_transform(' + value_data + ')\n';
+//     return code;
+// };
+
+// standard_scaler 수정
+Blockly.Python['standard_scaler1'] = function(block) {
+    var value_val1 = Blockly.Python.valueToCode(block, 'val1', Blockly.Python.ORDER_ATOMIC);
+    var value_val2 = Blockly.Python.valueToCode(block, 'val2', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'ss = sklearn.preprocessing.StandardScaler()\n' + value_data + ' = ss.fit_transform(' + value_data + ')\n';
+    var code = `${value_val1} = sklearn.preprocessing.StandardScaler(${value_val2})\n`;
     return code;
-};
+  };
 
 Blockly.Python['pca'] = function (block) {
     var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_ATOMIC);

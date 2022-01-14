@@ -663,16 +663,34 @@ SKL +=  '</value>';
 SKL += '</block>';
 
 // <-- standard_scalar 블록 -->
-SKL += '<block type="standard_scalar">';
-SKL +=  '<value name="data">';
+// SKL += '<block type="standard_scalar">';
+// SKL +=  '<value name="data">';
+// SKL +=      '<block type="variables_get">';
+// SKL +=          '<field name="VAR">x_data</field>';
+// SKL +=      '</block>';
+// SKL +=      '<shadow type="indata">';
+// SKL +=          '<field name="indata1"></field>';
+// SKL +=      '</shadow>';
+// SKL +=  '</value>';
+// SKL += '</block>';
+
+// <-- standard_scalar 블록 수정 -->
+SKL += '<block type="standard_scaler1">';
+SKL +=  '<value name="val1">';
 SKL +=      '<block type="variables_get">';
-SKL +=          '<field name="VAR">x_data</field>';
+SKL +=          '<field name="VAR">scaler</field>';
 SKL +=      '</block>';
 SKL +=      '<shadow type="indata">';
 SKL +=          '<field name="indata1"></field>';
 SKL +=      '</shadow>';
 SKL +=  '</value>';
+SKL +=  '<value name="val2">';
+SKL +=      '<shadow type="indata">';
+SKL +=          '<field name="indata1"></field>';
+SKL +=      '</shadow>';
+SKL +=  '</value>';
 SKL += '</block>';
+
 
 // <-- normal 블록 -->
 SKL += '<block type="normal">'

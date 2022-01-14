@@ -220,10 +220,19 @@ Blockly.JavaScript['minmax_scalar'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['standard_scalar'] = function(block) {
-  var value_data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
+// Blockly.JavaScript['standard_scalar'] = function(block) {
+//   var value_data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
+//   // TODO: Assemble JavaScript into code variable.
+//   var code = '\n';
+//   return code;
+// };
+
+// standard_scaler 수정
+Blockly.JavaScript['standard_scaler1'] = function(block) {
+  var value_val1 = Blockly.JavaScript.valueToCode(block, 'val1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_val2 = Blockly.JavaScript.valueToCode(block, 'val2', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = '\n';
+  var code = '...;\n';
   return code;
 };
 
