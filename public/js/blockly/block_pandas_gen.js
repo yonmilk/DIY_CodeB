@@ -300,7 +300,7 @@ Blockly.Python['pandas_merge'] = function (block) {
   var value_plus_data2 = Blockly.Python.valueToCode(block, 'plus_data2', Blockly.Python.ORDER_ATOMIC);
   var value_connet_way = Blockly.Python.valueToCode(block, 'connet_way', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = value_mer_var + '=' + 'pd.merge(' + value_plus_data1 + ', ' + value_plus_data2 + ', ' + value_connet_way + ')';
+  var code = value_mer_var + '=' + 'pd.merge(' + value_plus_data1 + ', ' + value_plus_data2 + ', ' + value_connet_way + ')\n';
   // TODO: Change ORDER_NONE to the correct strength.
   return code;
 };
