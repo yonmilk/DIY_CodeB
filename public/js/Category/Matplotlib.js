@@ -1155,11 +1155,52 @@ MAT += '      <field name="VAR">x</field>';
 MAT += '    </block >';
 MAT += '  </value>';
 
+// 컬러맵 수정
+
+
 MAT += '  <value name="title">';
 MAT += '    <shadow type="indata">';
 MAT += '      <field name="indata1">\'Colormap\'</field>';
 MAT += '    </shadow>';
 MAT += '  </value>';
+MAT += '</block>';
+
+
+// 컬러맵 추가
+MAT += '<block type="colormap">';
+MAT += '    <value name="a">';
+MAT += '        <block type="variables_get">';
+MAT += '            <field name="VAR">x</field>';
+MAT += '        </block>';
+MAT += '        <shadow type="indata">';
+MAT += '            <field name="indata1"></field>';
+MAT += '        </shadow>';
+MAT += '    </value>';
+MAT += '    <value name="b">';
+MAT += '        <shadow type="indata">';
+MAT += '            <field name="indata1"></field>';
+MAT += '        </shadow>';
+MAT += '    </value>';
+MAT += '    <value name="c">';
+MAT += '        <shadow type="indata">';
+MAT += '            <field name="indata1"></field>';
+MAT += '        </shadow>';
+MAT += '    </value>';
+MAT += '    <value name="d">';
+MAT += '        <shadow type="indata">';
+MAT += '            <field name="indata1"></field>';
+MAT += '        </shadow>';
+MAT += '    </value>';
+MAT += '    <value name="e">';
+MAT += '        <shadow type="indata">';
+MAT += '            <field name="indata1"></field>';
+MAT += '        </shadow>';
+MAT += '    </value>';
+MAT += '    <value name="f">';
+MAT += '        <shadow type="indata">';
+MAT += '            <field name="indata1"></field>';
+MAT += '        </shadow>';
+MAT += '    </value>';
 MAT += '</block>';
 
 //<!--  matplot 3차원 plot_surface(서페이스)    -->

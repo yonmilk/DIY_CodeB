@@ -313,3 +313,16 @@ Blockly.JavaScript['matplotlib_colormap'] = function(block) {
   var code = `\n`;
   return code;
 };
+
+// 맷플롯립 컬러맵 추가
+Blockly.JavaScript['colormap'] = function(block) {
+  var value_a = Blockly.JavaScript.valueToCode(block, 'a', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_b = Blockly.JavaScript.valueToCode(block, 'b', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_c = Blockly.JavaScript.valueToCode(block, 'c', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_d = Blockly.JavaScript.valueToCode(block, 'd', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_e = Blockly.JavaScript.valueToCode(block, 'e', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_f = Blockly.JavaScript.valueToCode(block, 'f', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};

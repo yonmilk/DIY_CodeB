@@ -370,3 +370,16 @@ plt.title(${value_title}, fontproperties=fontprop)
 plt.show()`;
   return code + '\n';
 };
+
+// 컬러맵 추가
+Blockly.Python['colormap'] = function(block) {
+  var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
+  var value_b = Blockly.Python.valueToCode(block, 'b', Blockly.Python.ORDER_ATOMIC);
+  var value_c = Blockly.Python.valueToCode(block, 'c', Blockly.Python.ORDER_ATOMIC);
+  var value_d = Blockly.Python.valueToCode(block, 'd', Blockly.Python.ORDER_ATOMIC);
+  var value_e = Blockly.Python.valueToCode(block, 'e', Blockly.Python.ORDER_ATOMIC);
+  var value_f = Blockly.Python.valueToCode(block, 'f', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `fig = plt.figure()\nfig, ax = plt.subplots(figsize=(5,5), constrained_layout=True)\nplt.imshow(${value_a}, cmap=${value_b})\nplt.colorbar(shrink=0.8)\nax.set_xticks(${value_c})\nax.set_xticklabels(${value_d})\nax.set_yticks(${value_e})\nax.set_yticklabels(${value_f})\n`;
+  return code;
+};

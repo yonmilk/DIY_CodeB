@@ -734,6 +734,53 @@ Blockly.defineBlocksWithJsonArray([
         "style": "matplot_blocks",
         "tooltip": "",
         "helpUrl": ""
-    }
+    },
+
+    // 컬러맵 추가
+    {
+        "type": "colormap",
+        "message0": "%1 [컬러맵] colormap (데이터 %2 , 색상 %3 , x축눈금 %4 , x축라벨 %5 , y축눈금 %6 , y축라벨 %7 )",
+        "args0": [
+          {
+            "type": "field_image",
+            "src": "/img/Graph/COLORMAP-logo.png",
+            "width": 25,
+            "height": 23,
+            "alt": "LINE",
+            "flipRtl": false
+          },
+          {
+            "type": "input_value",
+            "name": "a"
+          },
+          {
+            "type": "input_value",
+            "name": "b"
+          },
+          {
+            "type": "input_value",
+            "name": "c"
+          },
+          {
+            "type": "input_value",
+            "name": "d"
+          },
+          {
+            "type": "input_value",
+            "name": "e"
+          },
+          {
+            "type": "input_value",
+            "name": "f"
+          }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "style": "matplot_blocks",
+        "tooltip": "",
+        "helpUrl": ""
+      }
+
 
 ]);
