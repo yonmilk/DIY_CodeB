@@ -1561,30 +1561,57 @@ Blockly.Blocks['pandas_sub'] = {
   }
 };
 
+// pandas drop 열 삭제
+// Blockly.Blocks['pandas_drop'] = {
+//   init: function () {
+//     this.appendValueInput("d1")
+//         .appendField(Blockly.Msg.PANDAS_DROP)
+//         .setCheck(null);
+//     this.appendDummyInput().appendField("=");
+//     this.appendValueInput("d2")
+//         .setCheck(null);
+//     this.appendDummyInput()
+//         .appendField(".drop(" + Blockly.Msg.PANDAS_DROP1);
+//     this.appendValueInput("d3")
+//         .setCheck(null);
+//     this.appendDummyInput()
+//         .appendField(Blockly.Msg.PANDAS_DROP2);  
+//     this.appendValueInput("d4")
+//         .setCheck(null); 
+//     this.appendDummyInput()
+//         .appendField(")");                  
+//     this.setInputsInline(true);
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setStyle("pandas_blocks");
+//     this.setTooltip("");
+//     this.setHelpUrl("");
+//   }
+// };
+
+// pandas drop
 Blockly.Blocks['pandas_drop'] = {
-  init: function () {
-    this.appendValueInput("d1")
-        .appendField(Blockly.Msg.PANDAS_DROP)
-        .setCheck(null);
-    this.appendDummyInput().appendField("=");
-    this.appendValueInput("d2")
-        .setCheck(null);
+  init: function() {
+    this.appendValueInput("a")
+        .setCheck(null)
+        .appendField("[삭제]");
+    this.appendValueInput("b")
+        .setCheck(null)
+        .appendField("=");
+    this.appendValueInput("c")
+        .setCheck(null)
+        .appendField(".drop(인덱스");
     this.appendDummyInput()
-        .appendField(".drop(" + Blockly.Msg.PANDAS_DROP1);
-    this.appendValueInput("d3")
-        .setCheck(null);
+        .appendField(", 기준")
+        .appendField(new Blockly.FieldDropdown([["행","0"], ["열","1"]]), "dr");
     this.appendDummyInput()
-        .appendField(Blockly.Msg.PANDAS_DROP2);  
-    this.appendValueInput("d4")
-        .setCheck(null); 
-    this.appendDummyInput()
-        .appendField(")");                  
+        .appendField(")");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setStyle("pandas_blocks");
-    this.setTooltip("");
-    this.setHelpUrl("");
+ this.setTooltip("");
+ this.setHelpUrl("");
   }
 };
 

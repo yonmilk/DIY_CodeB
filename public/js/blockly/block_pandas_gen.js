@@ -606,16 +606,28 @@ Blockly.Python['pandas_sub'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };  
 
+// pandas drop 열삭제
+// Blockly.Python['pandas_drop'] = function(block) {
+//   var value_name1 = Blockly.Python.valueToCode(block, 'd1', Blockly.Python.ORDER_ATOMIC);
+//   var value_name2 = Blockly.Python.valueToCode(block, 'd2', Blockly.Python.ORDER_ATOMIC);
+//   var value_name3 = Blockly.Python.valueToCode(block, 'd3', Blockly.Python.ORDER_ATOMIC);
+//   var value_name4 = Blockly.Python.valueToCode(block, 'd4', Blockly.Python.ORDER_ATOMIC);
+//   // TODO: Assemble Python into code variable.
+//   var code = `${value_name1} = ${value_name2}.drop(columns = ${value_name2}.columns[${value_name3}], axis = ${value_name4})\n`
+//   // TODO: Change ORDER_NONE to the correct strength.
+//   return code;
+// };  
+
+// pandas drop
 Blockly.Python['pandas_drop'] = function(block) {
-  var value_name1 = Blockly.Python.valueToCode(block, 'd1', Blockly.Python.ORDER_ATOMIC);
-  var value_name2 = Blockly.Python.valueToCode(block, 'd2', Blockly.Python.ORDER_ATOMIC);
-  var value_name3 = Blockly.Python.valueToCode(block, 'd3', Blockly.Python.ORDER_ATOMIC);
-  var value_name4 = Blockly.Python.valueToCode(block, 'd4', Blockly.Python.ORDER_ATOMIC);
+  var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
+  var value_b = Blockly.Python.valueToCode(block, 'b', Blockly.Python.ORDER_ATOMIC);
+  var value_c = Blockly.Python.valueToCode(block, 'c', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_dr = block.getFieldValue('dr');
   // TODO: Assemble Python into code variable.
-  var code = `${value_name1} = ${value_name2}.drop(columns = ${value_name2}.columns[${value_name3}], axis = ${value_name4})\n`
-  // TODO: Change ORDER_NONE to the correct strength.
+  var code = `${value_a} = ${value_b}.drop(${value_c}, axis=${dropdown_dr})\n`;
   return code;
-};  
+};
 
 Blockly.Python['pandas_drop_duplicates'] = function(block) {
   var value_name1 = Blockly.Python.valueToCode(block, 'd1', Blockly.Python.ORDER_ATOMIC);
