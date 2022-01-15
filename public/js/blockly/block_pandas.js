@@ -1350,6 +1350,26 @@ Blockly.Blocks['pandas_oc'] = {
   }
 };
 
+// duplicated 중복조회
+Blockly.Blocks['pandas_duplicate'] = {
+  init: function() {
+    this.appendValueInput("a")
+        .setCheck(null)
+        .appendField("[중복조회]");
+    this.appendValueInput("b")
+        .setCheck(null)
+        .appendField(".duplicated(");
+    this.appendDummyInput()
+        .appendField(")");
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setColour("%{BKY_PANDAS_HUE}");
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
 //items
 Blockly.Blocks['pandas_items'] = {
   init: function () {

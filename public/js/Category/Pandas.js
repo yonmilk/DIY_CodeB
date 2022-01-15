@@ -164,6 +164,24 @@ PANDAS += '   </shadow>';
 PANDAS += ' </value>';
 PANDAS += '</block>';
 
+// <!-- duplicated 중복확인 -->
+PANDAS += '<block type="pandas_duplicate">';
+PANDAS += ' <value name="a">';
+PANDAS += '   <shadow type="indata">';
+PANDAS += '     <field name="indata1"></field>';
+PANDAS += '   </shadow>';
+PANDAS += '   <block type="variables_get">';
+PANDAS += '     <field name="VAR">df</field>';
+PANDAS += '   </block>';
+PANDAS += ' </value>';
+PANDAS += ' <value name="b">';
+PANDAS += '   <shadow type="indata">';
+PANDAS += '     <field name="indata1"></field>';
+PANDAS += '   </shadow>';
+PANDAS += ' </value>';
+PANDAS += '</block>';
+
+
 //<!-- items -->';
 PANDAS += '<block type = "pandas_items">';
 PANDAS += '<value name="VAR">';

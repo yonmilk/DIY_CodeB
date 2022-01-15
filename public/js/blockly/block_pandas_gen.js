@@ -492,6 +492,16 @@ Blockly.Python['pandas_oc'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };  
 
+// pandas_duplicated 중복조회
+Blockly.Python['pandas_duplicate'] = function(block) {
+  var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
+  var value_b = Blockly.Python.valueToCode(block, 'b', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${value_a}.duplicated(${value_b})`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
 //pandas_items
 Blockly.Python['pandas_items'] = function(block) {
   var variable_list = Blockly.Python.valueToCode(block, 'VAR', Blockly.Python.ORDER_ATOMIC);
