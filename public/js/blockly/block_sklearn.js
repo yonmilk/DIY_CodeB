@@ -627,27 +627,51 @@ Blockly.Blocks['standard_scaler1'] = {
     }
   };
 
-Blockly.Blocks['pca'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("[PCA]");
-        this.appendValueInput("data")
-            .setCheck(null)
-            .appendField("데이터 ");
-        this.appendValueInput("n_components")
-            .setCheck(null)
-            .appendField("n_components ");
-        this.appendDummyInput()
-            .appendField("svd_solver ")
-            .appendField(new Blockly.FieldDropdown([["auto", "'auto'"], ["full", "'full'"], ["arpack", "'arpack'"], ["randomized", "'randomized'"]]), "svd_solver");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setStyle("sklearn_blocks");
-        this.setTooltip("");
-        this.setHelpUrl("");
+// 기존 pca
+// Blockly.Blocks['pca'] = {
+//     init: function () {
+//         this.appendDummyInput()
+//             .appendField("[PCA]");
+//         this.appendValueInput("data")
+//             .setCheck(null)
+//             .appendField("데이터 ");
+//         this.appendValueInput("n_components")
+//             .setCheck(null)
+//             .appendField("n_components ");
+//         this.appendDummyInput()
+//             .appendField("svd_solver ")
+//             .appendField(new Blockly.FieldDropdown([["auto", "'auto'"], ["full", "'full'"], ["arpack", "'arpack'"], ["randomized", "'randomized'"]]), "svd_solver");
+//         this.setInputsInline(true);
+//         this.setPreviousStatement(true, null);
+//         this.setNextStatement(true, null);
+//         this.setStyle("sklearn_blocks");
+//         this.setTooltip("");
+//         this.setHelpUrl("");
+//     }
+// };
+
+// pca 수정
+Blockly.Blocks['sklearn_pca'] = {
+    init: function() {
+      this.appendValueInput("a")
+          .setCheck(null)
+          .appendField("[차원축소]");
+      this.appendValueInput("b")
+          .setCheck(null)
+          .appendField(" = PCA(차원수");
+      this.appendValueInput("c")
+          .setCheck(null)
+          .appendField(", 기타");
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle("sklearn_blocks");
+   this.setTooltip("");
+   this.setHelpUrl("");
     }
-};
+  };
 
 Blockly.Blocks['tsne'] = {
     init: function () {

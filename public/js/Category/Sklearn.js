@@ -774,22 +774,65 @@ SKL += '</block>';
 
 SKL += '<label text="차원 축소"></label>';
 
-// <-- pca 블록 -->
-SKL += '<block type="pca">';
-SKL +=  '<value name="data">';
+// <-- 기존 pca 블록 -->
+// SKL += '<block type="pca">';
+// SKL +=  '<value name="data">';
+// SKL +=      '<block type="variables_get">';
+// SKL +=          '<field name="VAR">data</field>';
+// SKL +=      '</block>';
+// SKL +=      '<shadow type="indata">';
+// SKL +=          '<field name="indata1"></field>';
+// SKL +=      '</shadow>';
+// SKL +=  '</value>';
+// SKL +=  '<value name = "n_components">';
+// SKL +=      '<shadow type="indata">';
+// SKL +=          '<field name="indata1">None</field>';
+// SKL +=      '</shadow>';
+// SKL +=  '</value>';
+// SKL += '</block>';
+
+// <!-- pca블록 수정 -->
+SKL += '<block type="sklearn_pca">';
+SKL +=  '<value name="a">';
 SKL +=      '<block type="variables_get">';
-SKL +=          '<field name="VAR">data</field>';
+SKL +=          '<field name="VAR">pca</field>';
 SKL +=      '</block>';
 SKL +=      '<shadow type="indata">';
 SKL +=          '<field name="indata1"></field>';
 SKL +=      '</shadow>';
 SKL +=  '</value>';
-SKL +=  '<value name = "n_components">';
+SKL +=  '<value name = "b">';
 SKL +=      '<shadow type="indata">';
-SKL +=          '<field name="indata1">None</field>';
+SKL +=          '<field name="indata1"></field>';
+SKL +=      '</shadow>';
+SKL +=  '</value>';
+SKL +=  '<value name = "c">';
+SKL +=      '<shadow type="indata">';
+SKL +=          '<field name="indata1"></field>';
 SKL +=      '</shadow>';
 SKL +=  '</value>';
 SKL += '</block>';
+
+// <!-- fit_transform 블록 -->
+SKL += '<block type="fittransform">';
+SKL += '    <value name="val1">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">pca</field>';
+SKL += '        </block>';
+SKL += '    </value>';
+SKL += '    <value name="val2">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">x_data</field>';
+SKL += '        </block>';
+SKL += '    </value>';
+SKL += '</block>';
+
 
 // <-- pca_explained 블록 -->
 SKL += '<block type="pca_explained_variance_ratio_">';

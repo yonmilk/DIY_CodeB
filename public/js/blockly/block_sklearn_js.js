@@ -236,12 +236,23 @@ Blockly.JavaScript['standard_scaler1'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['pca'] = function(block) {
-  var value_data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_n_components = Blockly.JavaScript.valueToCode(block, 'n_components', Blockly.JavaScript.ORDER_ATOMIC);
-  var dropdown_svd_solver = block.getFieldValue('svd_solver');
+// 기존 pca
+// Blockly.JavaScript['pca'] = function(block) {
+//   var value_data = Blockly.JavaScript.valueToCode(block, 'data', Blockly.JavaScript.ORDER_ATOMIC);
+//   var value_n_components = Blockly.JavaScript.valueToCode(block, 'n_components', Blockly.JavaScript.ORDER_ATOMIC);
+//   var dropdown_svd_solver = block.getFieldValue('svd_solver');
+//   // TODO: Assemble JavaScript into code variable.
+//   var code = '\n';
+//   return code;
+// };
+
+// pca 수정
+Blockly.JavaScript['sklearn_pca'] = function(block) {
+  var value_a = Blockly.JavaScript.valueToCode(block, 'a', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_b = Blockly.JavaScript.valueToCode(block, 'b', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_c = Blockly.JavaScript.valueToCode(block, 'c', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = '\n';
+  var code = '...;\n';
   return code;
 };
 

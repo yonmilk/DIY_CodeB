@@ -429,15 +429,30 @@ Blockly.Python['standard_scaler1'] = function(block) {
     return code;
   };
 
-Blockly.Python['pca'] = function (block) {
-    var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_ATOMIC);
-    var value_n_components = Blockly.Python.valueToCode(block, 'n_components', Blockly.Python.ORDER_ATOMIC);
-    var dropdown_svd_solver = block.getFieldValue('svd_solver');
+// 기존 pca
+// Blockly.Python['pca'] = function (block) {
+//     var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_ATOMIC);
+//     var value_n_components = Blockly.Python.valueToCode(block, 'n_components', Blockly.Python.ORDER_ATOMIC);
+//     var dropdown_svd_solver = block.getFieldValue('svd_solver');
+//     // TODO: Assemble Python into code variable.
+//     var code = 'pca = sklearn.decomposition.PCA(n_components=' + value_n_components + ', svd_solver=' + dropdown_svd_solver + ')\n' +
+//         value_data + ' = pca.fit_transform(' + value_data + ')\n';
+//     return code;
+// };
+
+// pca 수정
+Blockly.Python['sklearn_pca'] = function(block) {
+    var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
+    var value_b = Blockly.Python.valueToCode(block, 'b', Blockly.Python.ORDER_ATOMIC);
+    var value_c = Blockly.Python.valueToCode(block, 'c', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = 'pca = sklearn.decomposition.PCA(n_components=' + value_n_components + ', svd_solver=' + dropdown_svd_solver + ')\n' +
-        value_data + ' = pca.fit_transform(' + value_data + ')\n';
+    var code = `${value_a} = sklearn.decomposition.PCA(n_components=${value_b})\n`;
+
+    if (value_c) {
+        code = `${value_a} = sklearn.decomposition.PCA(n_components=${value_b}, ${value_c})\n`;
+    }
     return code;
-};
+  };
 
 Blockly.Python['pca_explained_variance_ratio_'] = function (block) {
     // TODO: Assemble Python into code variable.
