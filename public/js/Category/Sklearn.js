@@ -1654,6 +1654,19 @@ SKL +=      '</shadow>'
 SKL +=  '</value>';
 SKL += '</block>';
 
+// <!-- kmeans labels -->
+SKL += '<block type="kmeans_labels">';
+SKL +=  '<value name="a">';
+SKL +=      '<block type="variables_get">';
+SKL +=          '<field name="VAR">model</field>';
+SKL +=      '</block>';
+SKL +=      '<shadow type="indata">';
+SKL +=          '<field name="indata1"></field>';
+SKL +=      '</shadow>'
+SKL +=  '</value>';
+SKL += '</block>';
+
+
 SKL += '</category>';
 
 // 평가지표 카테고리

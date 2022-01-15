@@ -1290,6 +1290,15 @@ Blockly.Python['k_means_centroid'] = function (block) {
     return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
+// kmeans labels
+Blockly.Python['kmeans_labels'] = function(block) {
+    var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = `${value_a}.labels_`;
+    // TODO: Change ORDER_NONE to the correct strength.
+    return [code, Blockly.Python.ORDER_ATOMIC];
+  };
+
 // MLP Loss
 Blockly.Python['mlp_loss'] = function (block) {
     var value_model = Blockly.Python.valueToCode(block, 'model', Blockly.Python.ORDER_ATOMIC);

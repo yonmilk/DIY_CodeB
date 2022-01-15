@@ -2085,6 +2085,19 @@ Blockly.Blocks['k_means_centroid'] = {
     }
 };
 
+// kmeans labels
+Blockly.Blocks['kmeans_labels'] = {
+    init: function() {
+      this.appendValueInput("a")
+          .setCheck(null)
+          .appendField("[K-Means 라벨 추출 - labels_ ] 모델");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      this.setStyle("sklearn_blocks_sub");
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
 
 // MLP Loss
 Blockly.Blocks['mlp_loss'] = {
