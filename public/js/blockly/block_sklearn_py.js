@@ -377,6 +377,15 @@ Blockly.Python['labelencoder'] = function (block) {
     return code;
 };
 
+// LabelEncoder2
+Blockly.Python['labelencoder2'] = function(block) {
+    var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
+    var value_b = Blockly.Python.valueToCode(block, 'b', Blockly.Python.ORDER_ATOMIC);
+    // TODO: Assemble Python into code variable.
+    var code = `${value_a} = LabelEncoder(${value_b})\n`;
+    return code;
+  };
+
 // One-Hot Encoder
 Blockly.Python['onehotencoder'] = function (block) {
     var value_df = Blockly.Python.valueToCode(block, 'df', Blockly.Python.ORDER_ATOMIC);

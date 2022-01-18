@@ -513,6 +513,26 @@ Blockly.Blocks['labelencoder'] = {
     }
 };
 
+// LabelEncoder2
+Blockly.Blocks['labelencoder2'] = {
+    init: function() {
+      this.appendValueInput("a")
+          .setCheck(null)
+          .appendField("[라벨인코딩]");
+      this.appendValueInput("b")
+          .setCheck(null)
+          .appendField("= LabelEncoder(");
+      this.appendDummyInput()
+          .appendField(")");
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setStyle('sklearn_blocks');
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
 // One-Hot Encoder
 Blockly.Blocks['onehotencoder'] = {
     init: function () {

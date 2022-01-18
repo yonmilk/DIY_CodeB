@@ -184,6 +184,15 @@ Blockly.JavaScript['labelencoder'] = function (block) {
     return code;
 };
 
+// Label Encoder2
+Blockly.JavaScript['labelencoder2'] = function(block) {
+  var value_a = Blockly.JavaScript.valueToCode(block, 'a', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_b = Blockly.JavaScript.valueToCode(block, 'b', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
 // One-Hot Encoder
 Blockly.JavaScript['onehotencoder'] = function (block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);

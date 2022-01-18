@@ -623,6 +623,25 @@ SKL +=      '</shadow>';
 SKL +=  '</value>';
 SKL += '</block>';
 
+// <!-- LabelEncoder2 -->
+SKL += '<block type="labelencoder2">';
+SKL += '    <value name="a">';
+SKL += '        <block type="variables_get">';
+SKL += '            <field name="VAR">encoder</field>';
+SKL += '        </block>';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '    </value>';
+SKL += '    <value name="b">';
+SKL += '        <shadow type="indata">';
+SKL += '            <field name="indata1"></field>';
+SKL += '        </shadow>';
+SKL += '    </value>';
+SKL += '</block>';
+
+
+
 // <-- onehotencoder 블록 -->
 SKL += '<block type="onehotencoder">';
 SKL +=  '<value name="df">';
