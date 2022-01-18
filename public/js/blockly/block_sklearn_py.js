@@ -382,7 +382,7 @@ Blockly.Python['labelencoder2'] = function(block) {
     var value_a = Blockly.Python.valueToCode(block, 'a', Blockly.Python.ORDER_ATOMIC);
     var value_b = Blockly.Python.valueToCode(block, 'b', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = `${value_a} = LabelEncoder(${value_b})\n`;
+    var code = `${value_a} = sklearn.preprocessing.LabelEncoder(${value_b})\n`;
     return code;
   };
 
