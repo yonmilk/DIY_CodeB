@@ -1435,8 +1435,8 @@ Blockly.Python['similarity_distance'] = function(block) {
     var value_input_x = Blockly.Python.valueToCode(block, 'input_x', Blockly.Python.ORDER_ATOMIC);
     var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble Python into code variable.
-    var code = `sklearn.metrics.pairwise.${dropdown_distance_option}(${value_input_x}, ${value_input_y})\n`;
-    return code;
+    var code = `sklearn.metrics.pairwise.${dropdown_distance_option}(${value_input_x}, ${value_input_y})`;
+    return [code, Blockly.Python.ORDER_ATOMIC];
   };
 
 // 2021.08.10 인하공전 측 블록 추가

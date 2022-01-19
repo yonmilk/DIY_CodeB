@@ -740,7 +740,7 @@ Blockly.Blocks['py_for1'] = {
             .appendField(Blockly.Msg.REPEAT_1_VARIABLE);
         this.appendDummyInput()
             .appendField("in")
-            .appendField(new Blockly.FieldDropdown([["range","range"],["enumerate","enumerate"]]),"DROP")
+            .appendField(new Blockly.FieldDropdown([["range","range"],["zip","zip"],["enumerate","enumerate"]]),"DROP")
             .appendField("(");
         this.appendValueInput("list")
             .setCheck(null)

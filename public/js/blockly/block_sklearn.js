@@ -2361,13 +2361,14 @@ Blockly.Blocks['similarity_distance'] = {
       this.appendValueInput("input_y")
           .setCheck(null);
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setStyle("sklearn_blocks");
-   this.setTooltip("");
-   this.setHelpUrl("");
+      this.setOutput(true, null);
+      this.setStyle("sklearn_blocks_sub");
+      this.setTooltip("");
+      this.setHelpUrl("");
     }
   };
+
+
 
 // 2021.08.10 인하공전 측 블록 추가 -- 혼공머신 블록 추가(?)
 // 트리구조 출력

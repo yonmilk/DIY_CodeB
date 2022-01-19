@@ -1009,7 +1009,8 @@ Blockly.JavaScript['similarity_distance'] = function(block) {
   var value_input_y = Blockly.Python.valueToCode(block, 'input_y', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = '...\n';
-  return code;
+
+  return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 // 2021-08-10 인하공전 측 블록 추가
