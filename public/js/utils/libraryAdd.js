@@ -6,6 +6,17 @@
 $('div[aria-posinset="17"]').hide() // Scikit-Image
 // $('div[aria-posinset="18"]').hide(); // Scikit-learn
 $('div[aria-posinset="19"]').hide() // BioPython
+// $('div[aria-posinset="20"]').hide() // Keras
+
+async function addPyodidePackages(eachLib) {
+    VanillaToasts.create({
+        type: 'success',
+        text: eachLib + ' 임포트 완료',
+        positionClass: 'bottomLeft',
+        timeout: 3000,
+        icon: '/success.png'
+    })
+}
 
 
 /////////////////////////////////
@@ -98,7 +109,7 @@ $("#image_processing_import_btn").on("click", function () {
     $("#image_processing_import_btn").removeClass("blue").addClass("green");
     $("#image_processing_import_btn").text("추가 중");
 
-    importPyodidePackages(['scikit-image']).then(() => {
+    addPyodidePackages(['scikit-image']).then(() => {
         $('div[aria-posinset="17"]').show();
         isImportLoading = 0;
         hideLibLoading();
@@ -138,7 +149,7 @@ $("#bio_import_btn").on("click", function () {
     $("#bio_import_btn").removeClass("blue").addClass("green");
     $("#bio_import_btn").text("추가 중");
 
-    pyodide.loadPackage(['biopython']).then(() => {
+    addPyodidePackages(['biopython']).then(() => {
         $('div[aria-posinset="19"]').show();
         $("#bio_import_btn").text("추가됨");
         $('#bio_import_btn').data('isImported', 1);

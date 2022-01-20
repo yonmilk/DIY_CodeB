@@ -18,6 +18,7 @@ toolbox += SCIPY;
 toolbox += SKI;
 toolbox += SKL;
 toolbox += BIO;
+toolbox += KERAS;
 // toolbox += CRAW;
 //toolbox += DS;
 //toolbox += ML;

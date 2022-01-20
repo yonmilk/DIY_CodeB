@@ -79,6 +79,21 @@ pyodideReadyPromise.then(() => {
                 usedLibs = usedLibs.split(',');
                 libsList = libsList.concat(usedLibs);
 
+
+
+                // for (const eachLib of libsList) {
+                //     await pyodide.loadPackage(eachLib).then(() => {
+                //         VanillaToasts.create({
+                //             type: 'success',
+                //             text: eachLib + ' 임포트 완료' + ' (' + index + '/' + lenLibs + ')',
+                //             positionClass: 'bottomLeft',
+                //             timeout: 3000,
+                //             icon: '/success.png'
+                //         })
+                //     })
+                //     index += 1;
+                // }
+
                 // 라이브러리 추가 시 프론트 동작
                 for (const eachLib of usedLibs) {
                     if (eachLib == 'scikit-image') {
@@ -91,17 +106,21 @@ pyodideReadyPromise.then(() => {
         }
 
         isImportLoading = 1;
-        importPyodidePackages(libsList).then(() => { isImportLoading = 0; });
+        importPyodidePackages(libsList).then(() => { 
+            isImportLoading = 0; 
+            addKerasPackage();
+        });
+        
 
         fss = pyodide.FS;
 
         let FS = pyodide._module.FS; // 모듈의 파일시스템
-		let PATH = pyodide._module.PATH; // 모듈의 경로
-		
-		fss.mkdir('/data'); //data디렉토리 생성
-		fss.chdir('/data'); //파일 경로 변경
+        let PATH = pyodide._module.PATH; // 모듈의 경로
+        
+        fss.mkdir('/data'); //data디렉토리 생성
+        fss.chdir('/data'); //파일 경로 변경
 
-		console.log("FS완료"); //FS완료 콘솔
+        console.log("FS완료"); //FS완료 콘솔
 
         // fss.chmod('/lib/python3.9/site-packages/matplotlib/mpl-data/fonts/ttf/', 0o777);
         pythonCode = `
@@ -139,7 +158,7 @@ pyodideReadyPromise.then(() => {
 // 라이브러리 로딩 및 Toast를 출력한다.
 /////////////////////////////////////
 async function importPyodidePackages(libsList) {
-    const lenLibs = libsList.length;
+    const lenLibs = libsList.length + 1;
     let index = 1;
 
     showLibLoading();
@@ -158,4 +177,8 @@ async function importPyodidePackages(libsList) {
     }
 
     hideLibLoading();
+
+    return lenLibs;
 }
+
+

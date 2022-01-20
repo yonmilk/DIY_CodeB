@@ -1166,6 +1166,7 @@ Blockly.Msg['CATEGORY_MACHINELEARNING'] ="머신러닝(ML)";
 Blockly.Msg['CATEGORY_DEEPLEARNING']="딥러닝(DL)";
 Blockly.Msg['CATEGORY_AIX'] = "전공직무AI융합";
 Blockly.Msg['CATEGORY_BIO'] = "바이오(Biopython)";
+Blockly.Msg['CATEGORY_KERAS'] = "케라스(Keras)";
 
 // 바이오파이썬(Biopython)
 Blockly.Msg['BIO_IMPORT'] = "[임포트] Biopython Seq";
