@@ -5,6 +5,15 @@
 function resetConsole() {
     // 콘솔 지우기
     $("#exeArea").empty();
+    
+    var b = workspaceCheck();
+    if(b == Workspace1) {
+        tab1Console = "";
+    } else if(b == Workspace2) {
+        tab2Console = "";;
+    } else if(b == Workspace3) {
+        tab3Console = "";;
+    } 
 }
 
 // ==================================
