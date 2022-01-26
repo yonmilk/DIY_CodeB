@@ -1,11 +1,11 @@
 
-{/* <!-- pyodide cdn변경 20.11.16 --> */ }
+{/* <!-- pyodide cdn변경 22.01.26 --> */ }
 // JQuery
 document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>');
 document.write('<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>');
 
 // document.write("<script src='https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js'></script>")
-document.write("<script src='https://cdn.jsdelivr.net/pyodide/v0.18.0/full/pyodide.js'></script>")
+document.write("<script src='https://cdn.jsdelivr.net/pyodide/v0.19.0/full/pyodide.js'></script>")
 
 // Semantic UI
 document.write("<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js' integrity='sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==' crossorigin='anonymous'></script>");

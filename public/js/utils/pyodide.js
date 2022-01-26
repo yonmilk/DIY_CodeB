@@ -5,7 +5,7 @@
 let pyodide;
 
 async function main() {
-    pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/' });
+    pyodide = await loadPyodide({ indexURL : "https://cdn.jsdelivr.net/pyodide/v0.19.0/full/" });
     await pyodide.loadPackage('matplotlib');
 }
 
