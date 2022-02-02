@@ -151,7 +151,8 @@ Blockly.Python['data_frame'] = function (block) {
   var value_select_value2 = Blockly.Python.valueToCode(block, 'select_value2', Blockly.Python.ORDER_ATOMIC);
   var dropdown_name = block.getFieldValue('count');
   // TODO: Assemble Python into code variable.
-  var code = `${value_select_value}${dropdown_name}(${value_select_value2})`;
+  // var code = `${value_select_value}${dropdown_name}(${value_select_value2})`;
+  var code = `${value_select_value}${dropdown_name}`;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
@@ -725,7 +726,13 @@ Blockly.Python['df_merge'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
   var dropdown_dic = block.getFieldValue('DROP');
   // TODO: Assemble Python into code variable.
-  var code = `${variable_list}.${dropdown_dic}(${value_name})`;
+  // var code = `${variable_list}.${dropdown_dic}(${value_name})`;
+
+  var code=``;
+  if(dropdown_dic=='merge' || dropdown_dic=='concat') 
+    code = `pd.${dropdown_dic}(${value_name})`;
+  else 
+    code = `${variable_list}.${dropdown_dic}(${value_name})`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
@@ -926,3 +933,13 @@ Blockly.Python['pandas_date_dt'] = function(block) {
   var code = `${value_var}.dt.${dropdown_list}`;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+// pandas map
+Blockly.Python['pandas_map'] = function(block) {
+  var value_name1 = Blockly.Python.valueToCode(block, 'd1', Blockly.Python.ORDER_ATOMIC);
+  var value_name = Blockly.Python.valueToCode(block, 'LIST', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = value_name1 + ".map(" + value_name + ")";
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};  

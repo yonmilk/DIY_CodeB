@@ -753,3 +753,13 @@ Blockly.JavaScript['pandas_date_dt'] = function(block) {
   var code = `${value_d1}.dt.${dropdown_list}`;
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+// pandas map
+Blockly.JavaScript['pandas_map'] = function(block) {
+  var value_name1 = Blockly.JavaScript.valueToCode(block, 'd1', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'LIST', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '\n';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};  

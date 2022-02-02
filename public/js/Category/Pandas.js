@@ -85,12 +85,23 @@ PANDAS += `
       <field name="indata1"></field>
     </shadow>
   </value>
-  <value name="select_value2">
-    <shadow type="indata">
-      <field name="indata1"></field>
-    </shadow>
-  </value>
 </block>`
+// PANDAS += `
+// <block type="data_frame">
+//   <value name="select_value">
+//     <block type="variables_get">
+//       <field name="VAR">df</field>
+//     </block>
+//     <shadow type="indata">
+//       <field name="indata1"></field>
+//     </shadow>
+//   </value>
+//   <value name="select_value2">
+//     <shadow type="indata">
+//       <field name="indata1"></field>
+//     </shadow>
+//   </value>
+// </block>`
 
 // df.to
 PANDAS += `
@@ -436,6 +447,24 @@ PANDAS += '</category>';
 
 //<!----------------------------------------------------------------------------------조작가공-->';
 PANDAS += '<category name="%{BKY_PAN_OPER}" colour="%{BKY_PANDAS_HUE}">';
+
+// <!-- map -->;
+PANDAS += '<block type="pandas_map">';
+PANDAS += ' <value name="d1">';
+PANDAS += '   <block type="variables_get">';
+PANDAS += '     <field name="VAR">df</field>';
+PANDAS += '   </block>';
+PANDAS += '   <shadow type="indata">';
+PANDAS += '     <field name="indata1"></field>';
+PANDAS += '   </shadow>';
+PANDAS += ' </value>';
+PANDAS += ' <value name="LIST">';
+PANDAS += '   <shadow type="indata">';
+PANDAS += '     <field name="indata1"></field>';
+PANDAS += '  </shadow>';
+PANDAS += ' </value>';
+PANDAS += '</block>';
+
 //<!-- astype -->';
 PANDAS += '<block type="pandas_astype">';
 PANDAS += ' <value name="VAR">';

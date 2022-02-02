@@ -332,9 +332,9 @@ Blockly.Blocks['data_frame'] = {
         ]),
         'count'
       )
-      .appendField('(');
-    this.appendValueInput('select_value2').setCheck(null);
-    this.appendDummyInput().appendField(')');
+      // .appendField('(');
+    // this.appendValueInput('select_value2').setCheck(null);
+    // this.appendDummyInput().appendField(')');
     this.setOutput(true, null);
     this.setColour('%{BKY_PANDAS_HUE}');
     this.setTooltip('');
@@ -2267,4 +2267,21 @@ Blockly.Blocks['pandas_date_dt'] = {
     this.setTooltip('');
     this.setHelpUrl('');
   },
+};
+
+//pandas_map
+Blockly.Blocks['pandas_map'] = {
+  init: function () {
+    this.appendValueInput("d1").appendField(Blockly.Msg.PANDAS_MAP).setCheck(null);
+      this.appendValueInput("LIST")
+        .appendField(".map(")
+        .setCheck(null);
+      this.appendDummyInput().appendField(")");
+      this.setInputsInline(true);
+      this.setOutput(true, null);
+      //this.setOutput(true, null);
+      this.setColour("%{BKY_PANDAS_HUE}");
+      this.setTooltip("");
+      this.setHelpUrl("");
+  }
 };
